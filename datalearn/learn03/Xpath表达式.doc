@@ -1,0 +1,11 @@
+Xpath表达式
+
+通过唯一属性来定位
+'/'  从哪里开始，一层一层的找
+'text()'  提取文本信息
+'@'  定位属性
+'//' 包含所有标签
+
+/html/head/title/text()  提取标题的文本信息
+
+//li[@class="hidden-xs"]/a/@href  提取到href值的内容

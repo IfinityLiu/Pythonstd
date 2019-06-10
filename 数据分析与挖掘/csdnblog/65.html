@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/wanghao72214"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"【王泽宾】架构那点事"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>【王泽宾】架构那点事 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/list-07440acc4e.min.css">
+            
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "wanghao72214";
+        var blog_address = "https://blog.csdn.net/wanghao72214";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/wanghao72214"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "【王泽宾】架构那点事";
+        
+        var nickName = "王泽宾";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/wanghao72214/phoenix/comment";
+        var articleDetailUrl = "";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<header>
+	<div class="container d-flex clearfix" style="background-image: ">
+		<div class="title-box">
+			<h1 class="title-blog">
+				<a href="https://blog.csdn.net/wanghao72214">王泽宾</a>
+			</h1>
+			<p class="description ">架构那点事</p>
+		</div>
+		<div class="opt-box d-flex justify-content-end">
+					</div>
+	</div>
+	</header>
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+    <main>
+      <div class="filter-box d-flex align-items-center">
+      <form action="" id=seeOriginal>
+    <label class="chk-box" for="chkOriginal">
+      <input onchange="this.checked ? document.getElementById('seeOriginal').submit() : location.href = 'https://blog.csdn.net/wanghao72214'" type="checkbox" name="t" value="1"  id="chkOriginal">只看原创</label></form>
+    <dl class="filter-sort-box d-flex align-items-center">
+    <dt>排序：</dt>
+    <dd><a href="javascript:void(0);" class="btn-filter-sort active" target="_self">默认</a></dd>
+    <dd><a href="https://blog.csdn.net/wanghao72214?utm_source=feed&orderby=UpdateTime" class="btn-filter-sort " target="_self">按更新时间</a></dd>
+    <dd><a href="https://blog.csdn.net/wanghao72214?utm_source=feed&orderby=ViewCount" class="btn-filter-sort " target="_self">按访问量</a></dd>
+    <dd><a class="btn btn-sm rss" href="https://blog.csdn.net/wanghao72214/rss/list">
+		<svg class="icon" aria-hidden="true">
+			<use xlink:href="#csdnc-rss"></use>
+		</svg>RSS订阅</a>
+    </dd>
+  </dl>
+</div>
+
+
+
+<div class="article-list">
+    
+    <div class="article-item-box csdn-tracking-statistics" style="display: none;" data-articleid="82762601">
+        <h4 class="">
+            <a href="https://blog.csdn.net/yoyo_liyy/article/details/82762601" target="_blank">
+            <span class="article-type type-1">原</span>帝都的凛冬</a>
+        </h4>
+        <p class="content">
+            <a href="https://blog.csdn.net/yoyo_liyy/article/details/82762601" target="_blank">
+                各种AI、人工智能、大数据如秋日凉爽的风，杳然erzhi；区块链的风头得到短暂的下降。
+
+                此次山竹台风造成了多少伤亡和破坏？人民的生命和财产遭受重大损失
+            </a>
+        </p>
+        <div class="info-box d-flex align-content-center">
+            <p>
+                <span class="date">2019-06-05 20:00:51</span>
+            </p>
+            <p>
+                <span class="read-num">阅读数：13</span>
+            </p>
+            <p>
+                <span class="read-num">评论数：2</span>
+            </p>
+        </div>
+    </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90372909">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/90372909" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        轻松学习区块链5 - 工作量证明POW      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/90372909" target="_blank">
+        MiniBC区块链V004 - 工作量证明POW
+共识算法
+在整个区块链工作过程中，会有很多的机器加入其中，每一台机器成为一个节点，它们互相协作，来共同维护区块链的安全和数据的一致。其中，生成新的区块就是一项很重要的工作。因为新的区块里面包含很多新产生的重要数据，比如交易信息等。为了让这项工作有序...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-20 13:00:32</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">93</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90349561">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/90349561" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        轻松学习区块链4 - 区块链浏览器与人机交互      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/90349561" target="_blank">
+        MiniBC区块链V003 - 区块链浏览器与人机交互
+工作目标
+区块链浏览器是用户通过浏览器的方式查看区块链的所有信息。我们本节的目标就是实现这一功能。
+我们不仅提供查看功能，还提供了了管理功能。在真实的区块链项目中，一般会提供多种交互方式，比如提供客户端命令行方式、websocket方式等等，...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 23:00:26</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">1139</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90316457">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/90316457" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        轻松学习区块链3 - KV数据库的实现和区块链数据的持久化      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/90316457" target="_blank">
+        MiniBC区块链V002 - KV数据库的实现和区块链数据的持久化
+KV数据库
+虽然我们已经创建了一条非常简单的区块链，但是当程序关闭后，内存中的区块数据却没有保存下来。这使得我们无法重复使用一个区块链，也无法与其他人分享，我们需要将它存储在硬盘中。我们接下来的任务就是实现一个极小的KV数据库，...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-18 15:58:50</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">95</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90291186">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/90291186" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        轻松学习区块链2 -  简单区块链的实现      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/90291186" target="_blank">
+        MiniBC区块链V001 - 简单区块链的实现
+源码地址： [https://github.com/wangshizebin/minibc】
+区块
+我们从“区块链”的“区块”部分开始。区块是区块链中最基本的数据结构，在区块链中，区块存储了有价值信息。例如，比特币区块存储了交易数据，除此之外，区块...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-17 12:53:55</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">1334</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90291166">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/90291166" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        轻松学习区块链1 - 初识MiniBC区块链      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/90291166" target="_blank">
+        MiniBC区块链
+源码地址： https://github.com/wangshizebin/minibc
+1、什么是区块链
+区块链从仅从技术层面来讲，是按照时间顺序将数据块连接在一起的链式数据结构。它采用了密码学的知识和p2p网络技术构建了一个数据不可篡改、不可伪造的分布式数据账本。
+它带来的...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-17 12:51:56</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">1344</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="4046182">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/4046182" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        设计模式之享元模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/4046182" target="_blank">
+         1         享元模式的日常应用面向对象的思想确实很好地解决了抽象性的问题，以至于在面向对象的眼中，万事万物一切皆对象。不可避免的是，采用面向对象的编程方式，可能会增加一些资源和性能上的开销。不过，在大多数情况下，这种影响还不是太大，所以，它带来的空间和性能上的损耗相对于它的优点而言，基本...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-04-03 12:57:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">20204</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">18</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="4042607">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/4042607" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        设计模式之单例模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/4042607" target="_blank">
+        1        
+单例模式的日常应用
+
+我们在浏览BBS、SNS网站的时候，常常会看到“当前在线人数”这样的一项内容。对于这样的一项功能，我们通常的做法是把当前的在线人数存放到一个内存、文件或者数据库中，每次用户登录的时候，就会马上从内存、文件或者数据库中取出，在其基础上加1后，作为当前的...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-04-02 09:22:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">9352</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">7</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="4023858">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/4023858" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        发展之道：简单与专注      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/4023858" target="_blank">
+        为什么要讲这样一个话题，主要源于最近碰到的几件事情。一个朋友想要做网站，给我讲了讲他的初步方案，毫无疑问，这是一个非常宏伟的综合性的网站，但我只听了一部分就让他打住了。我问他：你的网站到底跟别人有什么不同？他说：我的网站很专业很全面。我说：这没有意义，如果你还没有找到跟别人不同的话，建议你不要浪费...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-25 16:02:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">5937</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">7</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="4017507">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/4017507" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        设计模式之观察者模式      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/4017507" target="_blank">
+        目前的例子，暂时都是java语言书写，稍后，我会补上.net和php语言版。
+•1 什么是观察者模式 
+我们在日常生活中有很多观察者模式应用的场景。比如，凡是去过银行营业大厅办理业务的人，大多会有这么一段经历：办理业务之前，先要在营业大厅的门口领取一个排队号，然后你就可以在休息区等待叫号，当轮...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-23 16:30:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">17988</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">19</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3996248">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3996248" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(7)---里氏代换原则      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3996248" target="_blank">
+        4 里氏代换原则（Liskov Substitution Principle, LSP）
+
+
+4.1 什么是里氏代换原则
+    里氏代换原则是由麻省理工学院（MIT）计算机科学实验室的Liskov女士，在1987年的OOPSLA大会上发表的一篇文章《Data Abstraction an...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-16 23:56:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">9500</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">26</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3985700">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3985700" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(6)---OOD的开闭原则      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3985700" target="_blank">
+        2 开闭原则（Open-Closed Principle,OCP）
+
+2.1 什么是开闭原则
+    开闭原则是面向对象设计中“可复用设计”的基石，是面向对象设计中最重要的原则之一，其它很多的设计原则都是实现开闭原则的一种手段。
+
+    1988年，Bertrand Meyer在他的著...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-12 23:25:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">7198</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">8</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3979971">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3979971" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        也谈IT人员流失问题      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3979971" target="_blank">
+        一个公司或者团队都会遇到过人员流失的问题，可能小公司可能更为严重。最可怕的是团队中重要成员的流失，将对公司的业务或者项目造成不小的麻烦。究竟怎么看待这个问题呢?很多人都发表过自己的见解，争论也很大。
+
+    俗话说：“屁股决定脑袋”，其实大家的立场不同，结论自然不同。
+    很多管理者，...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-11 13:52:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">6711</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">18</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3976996">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3976996" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(5)---面向对象的设计原则      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3976996" target="_blank">
+        1 OO的设计原则 
+    采用面向对象的分析和设计思想，为我们分析和解决问题提供了一种全新的思维方式。我们在拿到需求之后(略去OOA，以后补全)，接下来的问题就是：如何对系统进行面向对象的设计呢？
+    按照软件工程的理论，面向对象的设计要解决的核心问题就是可维护性和可复用性，尤其是可维...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-10 17:04:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">9516</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">21</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3969594">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3969594" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(39)---IoC框架      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3969594" target="_blank">
+        1 IoC理论的背景
+    我们都知道，在采用面向对象方法设计的软件系统中，它的底层实现都是由N个对象组成的，所有的对象通过彼此的合作，最终实现系统的业务逻辑。
+
+ 
+图1：软件系统中耦合的对象
+
+    如果我们打开机械式手表的后盖，就会看到与上面类似的情形，各个齿轮分别带动时针、...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-08 19:04:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">52042</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">61</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3961250">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3961250" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(4)---详解面向对象      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3961250" target="_blank">
+        3.5 详解面向对象的编程(OOP)
+
+3.5.1 什么是面向对象
+    刚接触编程的时候，多数人本能的反映可能是面向过程(OP)的，而不是面向对象(OO)的。这种现象其实是很正常的，改变思维方式是需要一个过程的，我大体归纳了一下其形成的原因：
+
+1、直接原因
+    你还没有养成面...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-05 22:45:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">11475</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">24</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3951561">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3951561" target="_blank">
+        <span class="article-type type-2 float-none">转</span>        软件开发的葵花宝典      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3951561" target="_blank">
+         注：转载，原文已经没有出处了。原作者如有异议，请与我联系，我会及时处理。本文不代表博主本人观点。   中国人大都喜欢用武侠小说来比较软件开发，但是在实战武功中，只有葵花宝典才是最厉害的，也只有掌握了葵花宝典，才能称为&quot;不败&quot;。 但什么才是软件开发的葵花宝典？ 让我们先从一些现...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-03-03 08:56:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">11769</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">56</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3946074">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3946074" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(3)---架构师的职责      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3946074" target="_blank">
+        3 架构师的职责
+
+
+    近来看到CSDN上有个CTO俱乐部，里面聊得是不亦乐乎。我怀着无比崇敬的态度，拜读了一下牛人们的发言。里面有个哥们发起一个话题：“CTO, 你多久没有写程序了？”。有人回答：“不写代码的CTO,属于......这公司问题大了!”。看到这里，我就赶紧撤了，怕忍不住...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-02-28 22:19:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">19100</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">41</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3933983">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3933983" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(2)---详解面向过程      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3933983" target="_blank">
+        2.3 面向过程编程(OPP) 和面向对象编程(OOP)的关系
+
+
+    关于面向过程的编程(OPP)和面向对象的编程(OOP),给出这它们的定义的人很多，您可以从任何资料中找到很专业的解释，但以我的经验来看，讲的相对枯燥一点，不是很直观。除非您已经有了相当的积累，否则说起来还是比较费劲。...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-02-24 23:28:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">13758</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">34</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3923366">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3923366" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        架构师之路(1)---面向过程和面向对象 王泽宾      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3923366" target="_blank">
+        1、引言   机算机科学是一门应用科学，它的知识体系是典型的倒三角结构，所用的基础知识并不多，只是随着应用领域和方向的不同，产生了很多的分支，所以说编程并不是一件很困难的事情，一个高中生经过特定的训练就可以做得到。但是，会编程和编好程绝对是两码事，同样的程序员，有的人几年之后成为了架构师，有的人却...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-02-22 20:40:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">18765</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">60</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="3888090">
+        <h4 class="">
+        <a href="https://blog.csdn.net/wanghao72214/article/details/3888090" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        博士后和民工的区别      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/wanghao72214/article/details/3888090" target="_blank">
+        联合利华引进了一条香皂包装生产线，结果发现这条生产线有个缺陷：常常会有盒子里没装入香皂。总不能把空盒子卖给顾客啊，他们只好请了一个学自动化的博士后设计一个方案来分拣空的香皂盒。博士后拉起了一个十几人的科研攻关小组，综合采用了机械、微电子、自动化、X射线探测等技术，花了几十万，成功解决了问题。每当生...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2009-02-13 10:29:00</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">13896</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">98</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="pagination-box" id="pageBox"></div>
+</div>
+    </main>
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://me.csdn.net/wanghao72214">
+              <img src="https://avatar.csdn.net/E/C/E/3_wanghao72214.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/10.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://me.csdn.net/wanghao72214" target="_blank" class="" id="uid">王泽宾</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="20">
+                        <dt><a href="https://blog.csdn.net/wanghao72214?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/wanghao72214?t=1"><span class="count">20</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="6140">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">6140</span></dd>
+        </dl>
+        <dl class="text-center" title="11">
+            <dt>喜欢</dt>
+            <dd><span class="count">11</span></dd>
+        </dl>
+        <dl class="text-center" title="625">
+            <dt>评论</dt>
+            <dd><span class="count">625</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="5级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-5"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="309510">
+                30万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="3559">
+                3559            </dd>
+        </dl>
+        <dl title="15849">
+            <dt>排名：</dt>
+            <dd>1万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv2">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                                   <p>勤写标兵Lv2</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布4篇到6篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <script type="text/javascript" src="//rabc1.iteye.com/production/openjs/d9o6b.js?bwo=coltly"></script>    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510241">
+                    <span class="title oneline">产品管理</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510305">
+                    <span class="title oneline">技术人经历</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510245">
+                    <span class="title oneline">杂谈</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/519231">
+                    <span class="title oneline">架构师之路</span>
+                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/513392">
+                    <span class="title oneline">给生活加点料</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510240">
+                    <span class="title oneline">网站架构</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/8888451">
+                    <span class="title oneline">golang</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/8957338">
+                    <span class="title oneline">区块链</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/04">
+                    2009年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/03">
+                    2009年3月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/02">
+                    2009年2月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/01">
+                    2009年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3969594">架构师之路(39)---IoC框架</a>
+					<p class="read">阅读数 <span>52027</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/4046182">设计模式之享元模式</a>
+					<p class="read">阅读数 <span>20199</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3946074">架构师之路(3)---架构师的职责</a>
+					<p class="read">阅读数 <span>19097</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3923366">架构师之路(1)---面向过程和面向对象 王泽宾</a>
+					<p class="read">阅读数 <span>18760</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/4017507">设计模式之观察者模式</a>
+					<p class="read">阅读数 <span>17984</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/sun0201" class="user-name" target="_blank">sun0201：</a>楼主对 ioc思想的阐述比较清晰了。若有结合具体的简单实现做配合那就完美了。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_42167241" class="user-name" target="_blank">weixin_42167241：</a>这篇文章9年前都有了，而我今天才读到，前辈高人甚多啊                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/SweetyoYY" class="user-name" target="_blank">SweetyoYY：</a>结合实际                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_30387521" class="user-name" target="_blank">qq_30387521：</a>牛皮...深度好文...                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<script type="text/javascript" src="//rabc1.iteye.com/source/h751.js?avneunkw=b"></script>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask"></div>
+<div class="promptBox clearfix">
+    <div class="title clearfix bottom-dis-16">
+        <span class="float-left">提示</span>
+        <a class="float-right Boxclose">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-times"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="text">确定要删除当前文章？</div>
+    <div class="pro-btn float-right">
+        <a class="clickNo">取消</a>
+        <a class="clickYes">删除</a>
+    </div>
+</div>
+<script>
+    var currentPage = 1;
+    var baseUrl = 'https://blog.csdn.net/wanghao72214/article/list' ;
+    var pageSize = 20 ;
+    var listTotal = 21 ;
+    var pageQueryStr = '?';
+    function getAllUrl(page) {
+        return baseUrl + "/" + page + pageQueryStr;
+    }
+</script>
+<script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js?t=20190307095522"></script>
+
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/list-7c51275791.min.js"></script>
+
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8
+    })
+</script>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,4308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/blogdevteam/article/details/90478295"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"【征文】Java 24周年特别策划——谈谈我与Java的那些年、这些事 - CSDN 官方博客"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>【征文】Java 24周年特别策划——谈谈我与Java的那些年、这些事 - CSDN 官方博客 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/blogdevteam\/article\/details\/90478295","appid":"1563894916825412","title":"\u3010\u5f81\u6587\u3011Java 24\u5468\u5e74\u7279\u522b\u7b56\u5212\u2014\u2014\u8c08\u8c08\u6211\u4e0eJava\u7684\u90a3\u4e9b\u5e74\u3001\u8fd9\u4e9b\u4e8b - CSDN \u5b98\u65b9\u535a\u5ba2","images":["https:\/\/img-blog.csdnimg.cn\/20190524171204397.jpg?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20190524171222512.jpg?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/2019052417140972.jpg?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70"],"pubDate":"2019-06-05T19:57:48"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-finalboss/skin-finalboss-48b4f9f954.min.css">
+        <script type="text/javascript">
+        var username = "blogdevteam";
+        var blog_address = "https://blog.csdn.net/blogdevteam";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/blogdevteam/article/details/90478295"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin-finalboss";
+        // 第四范式所需数据
+        var articleTitles = "【征文】Java 24周年特别策划——谈谈我与Java的那些年、这些事 - CSDN 官方博客";
+        
+        var nickName = "CSDN官方博客";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/blogdevteam/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/blogdevteam/article/details/90478295";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">【征文】Java 24周年特别策划——谈谈我与Java的那些年、这些事</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                      <span class="c-gray">置顶</span>
+                                                  <span class="time">2019年05月23日 12:34:09</span>
+          <a class="follow-nickName" href="https://me.csdn.net/blogdevteam" target="_blank">CSDN官方博客</a>
+          <span class="read-count">阅读数：3099</span>
+          
+                                                      </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+          
+          版权声明：本文为博主原创文章，未经博主允许不得转载。          https://blog.csdn.net/blogdevteam/article/details/90478295        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <p>今天是Java 的24岁生日，祝Java生日快乐！</p>
+<p>岁月匆匆，作为当今最流行的编程语言，Java承载了一代编程人的青春、热血。回想当初的第一个Hello World！你是否还记忆犹新呢？</p>
+<pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<p>值Java 24周年之际，CSDN特面向广大网友征稿，写出你与Java的故事、经历、技术实战等，欢迎大家与我们分享您的故事，与同行交流技术经验，不仅可以展现您的才华，还能提升您个人的知名度，还有奖品拿。</p>
+<p>【征文要求】</p>
+<p>1、文章必须原创，杜绝抄袭<br>
+2、800字以上，文体不限，诗歌除外</p>
+<p>【活动规则】</p>
+<ol>
+<li>可以分享您与Java的故事，学习经历</li>
+<li>您与Java是如何相爱相杀经历，一起克服编程道路上的一个个Bug</li>
+<li>也可以从个人角度谈谈Java的技术发展、未来的发展趋势等等；</li>
+</ol>
+<p>文章完成后，请将文章标题和链接回复在本文的评论中。 本活动最终获奖名单统计以本文评论的标题和链接为准。</p>
+<p>【征文时间】</p>
+<p>2019年5月23日——2019年6月24日</p>
+<p>【颁奖公布时间】</p>
+<p>2019年6月28日</p>
+<p>【活动奖品】</p>
+<p>感谢图灵出版社提供的Java图书大礼包，前十名中奖用户可以任选技术图书一本。分别是：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190524171204397.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/20190524171222512.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/2019052417140972.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/20190524171425175.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/20190524171435449.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nZGV2LmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/blogdevteam/article/details/90478295,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/blogdevteam/article/details/90478295,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div class="recommend-box"><div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sherlockcool/article/details/60337379,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sherlockcool/article/details/60337379" target="_blank" title="24岁的迷茫与清醒">
+		<h4 class="text-truncate oneline">
+				<em>24</em>岁的迷茫与清醒		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					774</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sherlockcool/article/details/60337379" target="_blank" title="24岁的迷茫与清醒">
+				<span class="desc oneline">再过一个多月，就24岁了。我直觉告知我，这一年对我很重要，因为它不但是我在30岁之前剩下的唯一一个本命年，更是我要做出选择的一年。因此，我难免会困惑，困惑于不确定性的未来，也困惑于自己。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sherlockcool">来自：	<span class="blog_title"> sherlockcool的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+</div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="90478295">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/congwiny/article/details/44877645,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/congwiny/article/details/44877645" target="_blank" title="25岁了，做一个男人该做的事">
+		<h4 class="text-truncate oneline">
+				25岁了，做一个男人该做的事		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1929</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/congwiny/article/details/44877645" target="_blank" title="25岁了，做一个男人该做的事">
+				<span class="desc oneline">今天是清明节，清明时节雨纷纷，路上行人欲断魂。今天感觉有些伤感呢。想想来了北京好久了，别人在放假出去玩。自己只能呆在宿舍房间里复习东西。准备下一份工作。多么可悲。在大学里就是这样，人家都去玩了，自己还...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/congwiny">来自：	<span class="blog_title"> 时光如一缕沙</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)最近需要网页添加多个倒计时.查阅网络,基本上都是千遍一律的不好用.自己按需写了个.希望对大家有用.有用请赞一个哦!//js//js2varpl...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Java__xiaoze/article/details/90550983,BlogCommendFromQuerySearch_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Java__xiaoze/article/details/90550983" target="_blank" title="Java 你已经24岁了，应该学会自己写代码了！">
+		<h4 class="text-truncate oneline">
+				<em>Java</em> 你已经<em>24</em>岁了，应该学会自己写代码了！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					47</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Java__xiaoze/article/details/90550983" target="_blank" title="Java 你已经24岁了，应该学会自己写代码了！">
+				<span class="desc oneline">5月23日是Java诞生日，Java今年24岁了。作为一名Java语言的学习者，对Java的起源和发展有个大概的了解应是必要的。1991年，Sun公司成立Green项目。Oak语言诞生。1992年11...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Java__xiaoze">来自：	<span class="blog_title"> Java__xiaoze的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wo541075754/article/details/81032986,BlogCommendFromThirdServiceAll_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wo541075754/article/details/81032986" target="_blank" title="谈谈招聘那些事儿">
+		<h4 class="text-truncate oneline">
+				<em>谈谈</em>招聘<em>那些</em>事儿		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1899</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wo541075754/article/details/81032986" target="_blank" title="谈谈招聘那些事儿">
+				<span class="desc oneline">最近一直在招聘安卓开发工程师，面试了三十多个安卓工程师，技术差不多也只有三两个，关键是这些人往往又是拿着多家的offer。难道安卓行业真的已经堕落了吗？连续两周时间不停的面试安卓开发人员，虽然我并不是...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wo541075754">来自：	<span class="blog_title"> 程序新视界</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_38701478/article/details/80335227,BlogCommendFromThirdServiceAll_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_38701478/article/details/80335227" target="_blank" title="浅谈Java开发的那些事儿">
+		<h4 class="text-truncate oneline">
+				浅谈<em>Java</em>开发的<em>那些</em>事儿		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					388</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_38701478/article/details/80335227" target="_blank" title="浅谈Java开发的那些事儿">
+				<span class="desc oneline">在前面的几篇博客中和大家聊了一下OOP(面向对象)的编程思想和前人总结下来的设计原则。内容不是很丰富，因为能个人力有限，所以只能让大家认识到面向对象的编程思维。在OOP的开发语言里，Java是一种很优...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_38701478">来自：	<span class="blog_title"> 小风0010的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cwb1128/article/details/81092878,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cwb1128/article/details/81092878" target="_blank" title="入职十二年随想">
+		<h4 class="text-truncate oneline">
+				入职十二年随想		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					746</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cwb1128/article/details/81092878" target="_blank" title="入职十二年随想">
+				<span class="desc oneline">    光阴似箭，眨眼间来到公司已有12年，12年前的今天，怀揣梦想，心情忐忑的来到这里，不知道自己那点所谓的开发能力能否站住脚，于是拼命的学习，努力的工作，艰难的度过试用期，十分庆幸没有被淘汰。  ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cwb1128">来自：	<span class="blog_title"> 莫等闲的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010102829/article/details/9072223,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010102829/article/details/9072223" target="_blank" title="（小说）那些年，那些事——一个程序员的奋斗史 （上）">
+		<h4 class="text-truncate oneline">
+				（小说）<em>那些</em>年，<em>那些</em>事——一个程序员的奋斗史 （上）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010102829/article/details/9072223" target="_blank" title="（小说）那些年，那些事——一个程序员的奋斗史 （上）">
+				<span class="desc oneline">第01章﻿   段伏枥，一个瘦小，矮小，根本和“帅”这个字粘不上任何关系的普通人。名字的来源在于其多读了几年书的老爹，总抱着有一天要出书出名乃至于名流千古的美好理想，但可惜现实总是给予他无情的而又现实...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010102829">来自：	<span class="blog_title"> 持续学习，刻意练习</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Fy_Deng/article/details/85761576,BlogCommendESEnWordWeight_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Fy_Deng/article/details/85761576" target="_blank" title="2019要全力以赴，做最好的自己，加油！">
+		<h4 class="text-truncate oneline">
+				2019要全力以赴，做最好的自己，加油！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1477</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Fy_Deng/article/details/85761576" target="_blank" title="2019要全力以赴，做最好的自己，加油！">
+				<span class="desc oneline">   今天突然看到博客里有未读的消息，点进去一看发现有征文新年Flag，第一念头是2019我应该怎么样呢？肯定要比2018好！突然想想我的2018是怎么样的，一下子也没想起来，可能是很充实很快乐，可能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Fy_Deng">来自：	<span class="blog_title"> Fy_Deng的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/yhc2113/5225641,BlogCommendESEnWordWeight_6"}'>
+		<a href="https://download.csdn.net/download/yhc2113/5225641" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>Java</em>程序员，上班<em>那些</em>事儿					</h4>
+					<span class="data float-right">04-06</span>
+				</div>
+				<div class="desc oneline">
+						Java程序员，上班那些事儿 《Java程序员，上班那点事儿》一书从生存、制胜、发展三个方面入手，为大家展示出程序员求职与工作的一幅3D全景图像。本书中既有在公司中的生存技巧，又有高手达人的进阶策略，				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/daysurprise/9889636,BlogCommendESEnWordWeight_7"}'>
+		<a href="https://download.csdn.net/download/daysurprise/9889636" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>java</em>自学<em>那些</em>事					</h4>
+					<span class="data float-right">07-05</span>
+				</div>
+				<div class="desc oneline">
+						java自学碰到的那些事				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/abeldeng/10896364,BlogCommendFromQuerySearch_9"}'>
+		<a href="https://download.csdn.net/download/abeldeng/10896364" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						《Linux<em>那些</em>事儿之我是USB（第2版）》.(任桥伟) 带全部书签					</h4>
+					<span class="data float-right">01-04</span>
+				</div>
+				<div class="desc oneline">
+						《Linux那些事儿之我是USB（第2版）》.(任桥伟) ，为所有的章节添加了书签。看起来方便				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/sunny_unix/4123048,BlogCommendFromQuerySearch_10"}'>
+		<a href="https://download.csdn.net/download/sunny_unix/4123048" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						Linux<em>那些</em>事儿之我是USB[典藏完整版]					</h4>
+					<span class="data float-right">03-08</span>
+				</div>
+				<div class="desc oneline">
+						本人亲自制作包含出版的全部内容和没出版的内容：
+第1篇 Linux那些事儿之我是U盘
+第2篇 Linux那些事儿之我是HUB
+第3篇 Linux那些事儿之我是USB Core
+第4篇 Linux那些事儿之我是UHCI
+第5章 Linux那...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33918357/article/details/86979026,BlogCommendFromQuerySearch_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33918357/article/details/86979026" target="_blank" title="浅谈3-5年规划">
+		<h4 class="text-truncate oneline">
+				浅谈3-5年规划		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					162</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33918357/article/details/86979026" target="_blank" title="浅谈3-5年规划">
+				<span class="desc oneline">2017年3月--2018年5月父母45岁在宝信做了一年多的winform与C++,为了回家结婚，来到自己梦寐以求的老家都城--西安2018年5月--2020年父母47岁目前在飞思做WPF.........</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33918357">来自：	<span class="blog_title"> weixin_33918357的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/callmeback/article/details/4973536,BlogCommendFromThirdServiceAll_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/callmeback/article/details/4973536" target="_blank" title="在本公司两周年纪念+工作感想">
+		<h4 class="text-truncate oneline">
+				在本公司两<em>周年</em>纪念+工作感想		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6808</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/callmeback/article/details/4973536" target="_blank" title="在本公司两周年纪念+工作感想">
+				<span class="desc oneline">今天部门开了个会，说了公司的现状：机遇+挑战。想来我来公司再有三天就两周年了，前两天又签了三年的“卖身契”。我的现状是：机遇+挑战。 想这两年来，有得有失，不尽感慨！ 今天会议的内容是说公司到了节骨眼...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/callmeback">来自：	<span class="blog_title"> 每天进步一点点...</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendFromThirdServiceAll_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					66万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：简言之就是找环（每条边只走一次，两两可达）孤立的一个点也是一个连通分量 使用tarjan算法在嵌套的多个环中优先得到最大环(最小环就是每个孤立点） 定义：intTime,DFN[N],Lo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/blogdevteam/article/details/53636007,BlogCommendFromThirdServiceAll_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/blogdevteam/article/details/53636007" target="_blank" title="【获奖公布】“我的2016”主题征文活动">
+		<h4 class="text-truncate oneline">
+				【获奖公布】“我的2016”主题<em>征文</em>活动		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/blogdevteam/article/details/53636007" target="_blank" title="【获奖公布】“我的2016”主题征文活动">
+				<span class="desc oneline">还记得2015的年末，2016的新年伊始，你给自己定下的目标，对自己许下的诺言么？时光荏苒，一年又在指缝间溜走了，离2016的结束还剩十多天，在接下来的这十几天里，让我们用博客记录下这或开心、或痛苦，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/blogdevteam">来自：	<span class="blog_title"> CSDN 官方博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/xiaohuang198811/2015100,BlogCommendFromQuerySearch_17"}'>
+		<a href="https://download.csdn.net/download/xiaohuang198811/2015100" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>JAVA</em>编程<em>那些</em>事（<em>java</em>基础介绍）					</h4>
+					<span class="data float-right">01-22</span>
+				</div>
+				<div class="desc oneline">
+						JAVA编程那些事（java基础介绍）一些学习java感悟				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/main01/9951308,BlogCommendFromQuerySearch_18"}'>
+		<a href="https://download.csdn.net/download/main01/9951308" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						linux<em>那些</em>事儿之我是usb(第2版)文字版					</h4>
+					<span class="data float-right">08-26</span>
+				</div>
+				<div class="desc oneline">
+						linux那些事儿之我是usb(第2版)				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34194359/article/details/87019654,BlogCommendFromQuerySearch_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34194359/article/details/87019654" target="_blank" title="写在爸妈结婚四十周年纪念日">
+		<h4 class="text-truncate oneline">
+				写在爸妈结婚四十<em>周年</em>纪念日		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					45</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34194359/article/details/87019654" target="_blank" title="写在爸妈结婚四十周年纪念日">
+				<span class="desc oneline">   今天是老爸66岁生日，也是爸妈结婚40周年纪念。   四十年前，中越局势紧张，1979年中越边境冲突，实际上是以中美为一方、苏越为另一方在东亚的一场具有战略意义的角逐。1979年1月，老爸从东北...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34194359">来自：	<span class="blog_title"> weixin_34194359的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yujikui1/article/details/81271091,BlogCommendFromQuerySearch_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yujikui1/article/details/81271091" target="_blank" title="我的 Java 自学之路">
+		<h4 class="text-truncate oneline">
+				我的 <em>Java</em> 自学之路		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2090</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yujikui1/article/details/81271091" target="_blank" title="我的 Java 自学之路">
+				<span class="desc oneline">其实在转正之后我就想抽个时间好好的梳理一下我的Java上车之路，但是一直拖到现在，因为有学弟问到，所以也就给了我动力。毕竟答应了人家的事要做到。首先要有相应的背景介绍，不然说个毛线啊，大家不在同一水平...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yujikui1">来自：	<span class="blog_title"> 余同学的开发之路</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/frostmourncn/article/details/23568523,BlogCommendFromQuerySearch_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/frostmourncn/article/details/23568523" target="_blank" title="对“游戏策划”这个职业的看法">
+		<h4 class="text-truncate oneline">
+				对“游戏<em>策划</em>”这个职业的看法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2468</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/frostmourncn/article/details/23568523" target="_blank" title="对“游戏策划”这个职业的看法">
+				<span class="desc oneline">游戏行业，有一个特殊的职业，叫做“策划”，他们自称</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/frostmourncn">来自：	<span class="blog_title"> frostmourncn的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Fenng/article/details/14666,BlogCommendFromThirdServiceAll_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Fenng/article/details/14666" target="_blank" title="关于Oracle 9i 跳跃式索引扫描(Index Skip Scan)的小测试">
+		<h4 class="text-truncate oneline">
+				关于Oracle 9i 跳跃式索引扫描(Index Skip Scan)的小测试		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2003</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Fenng/article/details/14666" target="_blank" title="关于Oracle 9i 跳跃式索引扫描(Index Skip Scan)的小测试">
+				<span class="desc oneline">在Oracle9i中我们知道能够使用跳跃式索引扫描(IndexSkipScan).然而,能利用跳跃式索引扫描的情况其实是有些限制的.从Oracle的文档中我们可以找到这样的话:IndexSkipSca...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Fenng">来自：	<span class="blog_title"> Fenng's Blog </span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fudan_abc/article/details/1888773,BlogCommendFromThirdServiceAll_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fudan_abc/article/details/1888773" target="_blank" title="Linux那些事儿 之 我是PCI(1)PCI，我们来了">
+		<h4 class="text-truncate oneline">
+				Linux<em>那些</em>事儿 之 我是PCI(1)PCI，我们来了		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fudan_abc/article/details/1888773" target="_blank" title="Linux那些事儿 之 我是PCI(1)PCI，我们来了">
+				<span class="desc oneline">现在这段时间最火的工程是什么？当然不会是PCI这个系统工程了，你即使不是党员也总归是个中国人，是中国人都要毫不犹豫的回答“探月工程”。不过，如果你在两年前就这么问我的话，俺会面带羞涩的回答你，是“中国...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a635661820/article/details/45390671,BlogCommendFromThirdServiceAll_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+		<h4 class="text-truncate oneline">
+				LSTM简介以及数学推导(FULL BPTT)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+				<span class="desc oneline">前段时间看了一些关于LSTM方面的论文，一直准备记录一下学习过程的，因为其他事儿，一直拖到了现在，记忆又快模糊了。现在赶紧补上，本文的组织安排是这样的：先介绍rnn的BPTT所存在的问题，然后介绍最初...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a635661820">来自：	<span class="blog_title"> 天道酬勤，做一个务实的理想主义者</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/flysharkym/article/details/51404730,BlogCommendFromThirdServiceAll_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/flysharkym/article/details/51404730" target="_blank" title="mybatis一级缓存(session cache)引发的问题">
+		<h4 class="text-truncate oneline">
+				mybatis一级缓存(session cache)引发的问题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/flysharkym/article/details/51404730" target="_blank" title="mybatis一级缓存(session cache)引发的问题">
+				<span class="desc oneline">mybatis一级缓存(sessioncache)引发的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/flysharkym">来自：	<span class="blog_title"> flysharkym的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/testcs_dn/article/details/46582157,BlogCommendFromThirdServiceAll_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/testcs_dn/article/details/46582157" target="_blank" title="【书评】人月不必再相望，嫦娥已然在身旁——人月神话（40周年纪念版）">
+		<h4 class="text-truncate oneline">
+				【书评】人月不必再相望，嫦娥已然在身旁——人月神话（40<em>周年</em>纪念版）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3326</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/testcs_dn/article/details/46582157" target="_blank" title="【书评】人月不必再相望，嫦娥已然在身旁——人月神话（40周年纪念版）">
+				<span class="desc oneline">参与活动主题《人月神话（40周年纪念版）再版扒一扒你遇到过最NB开发项目》有奖活动，三重惊喜，有奖试读&amp;作者互动@关注有礼！为什么是《人月神话》？这本书在业界真的很名，几乎无人不知，然而我却只知其名，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/testcs_dn">来自：	<span class="blog_title"> 无知人生，记录点滴</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/masfay/article/details/11921395,BlogCommendFromQuerySearch_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/masfay/article/details/11921395" target="_blank" title="Java中有趣的事【集锦】持续更新ing">
+		<h4 class="text-truncate oneline">
+				<em>Java</em>中有趣的事【集锦】持续更新ing		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1817</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/masfay/article/details/11921395" target="_blank" title="Java中有趣的事【集锦】持续更新ing">
+				<span class="desc oneline">2----2在vps服务器上，开发了一个web应用，部署在tomcat。好了，启动。打开服务器（win2003）浏览器访问，localhost/xxxx/xxxxok，大功告成。外网接入我X，不行，一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/masfay">来自：	<span class="blog_title"> 虚极静笃</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zh19890828/article/details/6950562,BlogCommendFromQuerySearch_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zh19890828/article/details/6950562" target="_blank" title="读《java程序员，上班那点事儿》有感">
+		<h4 class="text-truncate oneline">
+				读《<em>java</em>程序员，上班那点事儿》有感		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1057</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zh19890828/article/details/6950562" target="_blank" title="读《java程序员，上班那点事儿》有感">
+				<span class="desc oneline">最近在学校图书馆闲逛，找到了一本叫《java程序员，上班那点事》的书，想着以后进入一号店工作多半是用java进行开发，所以就借来看看，心想：难道java程序员和别的程序员不一样吗？哪知道，这书一看上瘾...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zh19890828">来自：	<span class="blog_title"> 80后小子的程序员之路</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinat_37817094/article/details/80490871,BlogCommendFromQuerySearch_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinat_37817094/article/details/80490871" target="_blank" title="《Linux那些事儿之我是USB》我是U盘（28）彼岸花的传说(五)--总结">
+		<h4 class="text-truncate oneline">
+				《Linux<em>那些</em>事儿之我是USB》我是U盘（28）彼岸花的传说(五)--总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					225</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinat_37817094/article/details/80490871" target="_blank" title="《Linux那些事儿之我是USB》我是U盘（28）彼岸花的传说(五)--总结">
+				<span class="desc oneline">static int usb_stor_control_thread(void * __us){    struct us_data *us = (struct us_data *)__us;    ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinat_37817094">来自：	<span class="blog_title"> sinat_37817094的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/qq_39898907/9940728,BlogCommendFromQuerySearch_30"}'>
+		<a href="https://download.csdn.net/download/qq_39898907/9940728" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>java</em>那点事					</h4>
+					<span class="data float-right">08-18</span>
+				</div>
+				<div class="desc oneline">
+						Java面试题				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/IEECS18/article/details/88600038,BlogCommendFromQuerySearch_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/IEECS18/article/details/88600038" target="_blank" title="2019年第14届国际计算机科学与教育会议征文通知">
+		<h4 class="text-truncate oneline">
+				2019年第14届国际计算机科学与教育会议<em>征文</em>通知		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					404</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/IEECS18/article/details/88600038" target="_blank" title="2019年第14届国际计算机科学与教育会议征文通知">
+				<span class="desc oneline">网站：http://www.ieee-iccse.org/邮箱：iccse.2019@gmail.com投稿：http://easychair.org/conferences/?conf=iccse2...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/IEECS18">来自：	<span class="blog_title"> IEECS18的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhuanzhe117/article/details/46955631,BlogCommendFromThirdServiceAll_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhuanzhe117/article/details/46955631" target="_blank" title="说说项目管理的那些事儿">
+		<h4 class="text-truncate oneline">
+				说说项目管理的<em>那些</em>事儿		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2916</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhuanzhe117/article/details/46955631" target="_blank" title="说说项目管理的那些事儿">
+				<span class="desc oneline">在我们的开发团队里,每一个带过项目的人都成了优秀的员工.这不是偶然,领导别人才会明白如何被领导,有句话叫”没有当过老板的员工不是好员工.”五年前听说这句话的时候还很不理解,等到自己做了项目负责人才真真...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhuanzhe117">来自：	<span class="blog_title"> Hannah</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/maaici/article/details/84788306,BlogCommendFromThirdServiceAll_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/maaici/article/details/84788306" target="_blank" title="2019年，小白程序员的提升之路">
+		<h4 class="text-truncate oneline">
+				2019年，小白程序员的提升之路		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					581</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/maaici/article/details/84788306" target="_blank" title="2019年，小白程序员的提升之路">
+				<span class="desc oneline">2018年又见底了！！！时间总是在不经意间流逝的，从学习出来参加工作，已经整整三年了。有了三年的工作经验应该达到一个什么样的高度，无论是知识技能还是工资待遇，感觉我都矮人半截。哪里毕业生起薪多少多少，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/maaici">来自：	<span class="blog_title"> maaici的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34290631/article/details/87669816,BlogCommendFromThirdServiceAll_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34290631/article/details/87669816" target="_blank" title="《这些人，那些事》">
+		<h4 class="text-truncate oneline">
+				《<em>这些</em>人，<em>那些</em>事》		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					45</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34290631/article/details/87669816" target="_blank" title="《这些人，那些事》">
+				<span class="desc oneline">第二次读这本书，比第一次读的更慢，更细，因为自己最近一年好像有些浮躁，该读一些安静的东西让自己的心舒展一下了已经不记得这本书是从哪里找到的，可能是朋友推荐的，也可能是网上书单里面的，不过能够读到，真是...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34290631">来自：	<span class="blog_title"> weixin_34290631的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendFromThirdServiceAll_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev在SpringBoot应用中使用到了MyBatis作为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a1456123a/article/details/50844729,BlogCommendFromThirdServiceAll_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a1456123a/article/details/50844729" target="_blank" title="《明朝那些事儿》心得体会">
+		<h4 class="text-truncate oneline">
+				《明朝<em>那些</em>事儿》心得体会		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4722</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a1456123a/article/details/50844729" target="_blank" title="《明朝那些事儿》心得体会">
+				<span class="desc oneline">     这本书我看了两遍，并且还正在看第三遍。    因为它实在是太经典了。对于我来说，这些书籍中。文学名著，现代书籍首推《平凡的世界》，仙侠类首推《诛仙》，科幻类推荐《三体》和《小兵传奇》，穿越类...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a1456123a">来自：	<span class="blog_title"> 聂建豪</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/caohb2013/article/details/82831841,BlogCommendFromQuerySearch_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caohb2013/article/details/82831841" target="_blank" title="谈谈对Java平台的理解">
+		<h4 class="text-truncate oneline">
+				<em>谈谈</em>对<em>Java</em>平台的理解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					51</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caohb2013/article/details/82831841" target="_blank" title="谈谈对Java平台的理解">
+				<span class="desc oneline">Java特性:面向对象（封装，继承，多态）平台无关性（JVM运行.class文件）语言（泛型，Lambda）类库（集合，并发，网络，IO/NIO）JRE（Java运行环境，JVM，类库）JDK（Jav...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caohb2013">来自：	<span class="blog_title"> caohb2013的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/youdianjinjin/article/details/52674139,BlogCommendFromQuerySearch_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/youdianjinjin/article/details/52674139" target="_blank" title="大数据的那些事儿">
+		<h4 class="text-truncate oneline">
+				大数据的<em>那些</em>事儿		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4064</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/youdianjinjin/article/details/52674139" target="_blank" title="大数据的那些事儿">
+				<span class="desc oneline">资源列表：  关系数据库管理系统（RDBMS）  框架  分布式编程  分布式文件系统  文件数据模型  Key-Map数据模型  键-值数据模型  图形数据模型  NewSQL数据库  列式数据库 ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/youdianjinjin">来自：	<span class="blog_title"> Darker</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/siant/article/details/3413548,BlogCommendFromQuerySearch_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/siant/article/details/3413548" target="_blank" title="上海各大商场周年庆时间汇总-----(可能不全)">
+		<h4 class="text-truncate oneline">
+				上海各大商场<em>周年</em>庆时间汇总-----(可能不全)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1135</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/siant/article/details/3413548" target="_blank" title="上海各大商场周年庆时间汇总-----(可能不全)">
+				<span class="desc oneline">上海各大商场周年庆时间汇总专柜名称      周年庆时间      大约天数东方商厦      1/8-1/15      7置地广场      1月份      20大西洋百货      2月份  ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/siant">来自：	<span class="blog_title"> siant的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wblong/article/details/83165407,BlogCommendFromQuerySearch_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wblong/article/details/83165407" target="_blank" title="今年读的最好一套书－－《明朝那些事儿》">
+		<h4 class="text-truncate oneline">
+				今年读的最好一套书－－《明朝<em>那些</em>事儿》		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					308</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wblong/article/details/83165407" target="_blank" title="今年读的最好一套书－－《明朝那些事儿》">
+				<span class="desc oneline">   百花发时我不发，我若发时都吓杀，   要与西风战一场，遍身穿就黄金甲。　这是朱重八（朱元璋的小名）起义时的慨言！   《明朝那些事儿》是我今年阅读的书中映象、感慨最深的一本书，当拿到这套书时我一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wblong">来自：	<span class="blog_title"> wblong的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/changlinfd/article/details/46714031,BlogCommendFromQuerySearch_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/changlinfd/article/details/46714031" target="_blank" title="我的这些人我的那些事">
+		<h4 class="text-truncate oneline">
+				我的<em>这些</em>人我的<em>那些</em>事		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					133</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/changlinfd/article/details/46714031" target="_blank" title="我的这些人我的那些事">
+				<span class="desc oneline">http://passport.baidu.com/?business&amp;un=苏州体检代检吧#0http://passport.baidu.com/?business&amp;un=%E8%8B%8F%E5%...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/changlinfd">来自：	<span class="blog_title"> changlinfd的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33834628/article/details/87835515,BlogCommendFromThirdServiceAll_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33834628/article/details/87835515" target="_blank" title="《真希望我20岁就懂的事》，千万不要错失大放异彩的机会">
+		<h4 class="text-truncate oneline">
+				《真希望我20岁就懂的事》，千万不要错失大放异彩的机会		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					70</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33834628/article/details/87835515" target="_blank" title="《真希望我20岁就懂的事》，千万不要错失大放异彩的机会">
+				<span class="desc oneline">​​​每日一书挑战——《真希望我20岁就懂的事》​【阅读目的】1、如何激发自己的创意按钮？2、如何修炼幸运体质？3、在20岁需要知道哪些观念？【阅读感受】1.容许自己去大胆想象、容许自己去挑战假设、容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33834628">来自：	<span class="blog_title"> weixin_33834628的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a493823882/article/details/78264608,BlogCommendFromThirdServiceAll_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a493823882/article/details/78264608" target="_blank" title="瑞利、莱斯与Nakagami-m信道衰落模型">
+		<h4 class="text-truncate oneline">
+				瑞利、莱斯与Nakagami-m信道衰落模型		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a493823882/article/details/78264608" target="_blank" title="瑞利、莱斯与Nakagami-m信道衰落模型">
+				<span class="desc oneline">一、信道的定义与调制信道的数学模型1.信道的定义与分类    信道（Channel）是指以传输媒质为基础的信号通道。根据新到的定义，如果信道仅是指信号的传输媒质，这种信道称为狭义信道；如果这种信道不仅...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a493823882">来自：	<span class="blog_title"> Seth的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/SuperFPE/article/details/5788636,BlogCommendFromThirdServiceAll_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/SuperFPE/article/details/5788636" target="_blank" title="Qt的Signal和Slot机制(二)">
+		<h4 class="text-truncate oneline">
+				Qt的Signal和Slot机制(二)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/SuperFPE/article/details/5788636" target="_blank" title="Qt的Signal和Slot机制(二)">
+				<span class="desc oneline">第二节Signal和Slot的粘合剂如果要连接一个Signal和Slot我们会用connect函数，下面我们就看一下connect是如何把Signal和Slot粘合在一起的。以下是connect函数的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/SuperFPE">来自：	<span class="blog_title"> SuperFPE的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33744141/article/details/86868623,BlogCommendFromThirdServiceAll_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33744141/article/details/86868623" target="_blank" title="Java 20年特别策划专题">
+		<h4 class="text-truncate oneline">
+				<em>Java</em> 20年<em>特别</em><em>策划</em>专题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					60</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33744141/article/details/86868623" target="_blank" title="Java 20年特别策划专题">
+				<span class="desc oneline">Java20年特别策划专题http://special.csdncms.csdn.net/java20years/index.shtmlGithub项目:awesome-coder-resources...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33744141">来自：	<span class="blog_title"> weixin_33744141的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yideqianfenzhiyi/article/details/79422857,BlogCommendFromThirdServiceAll_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yideqianfenzhiyi/article/details/79422857" target="_blank" title="【计算机视觉】深入理解Attention机制">
+		<h4 class="text-truncate oneline">
+				【计算机视觉】深入理解Attention机制		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yideqianfenzhiyi/article/details/79422857" target="_blank" title="【计算机视觉】深入理解Attention机制">
+				<span class="desc oneline">1.什么是Attention机制？其实我没有找到attention的具体定义，但在计算机视觉的相关应用中大概可以分为两种：1）学习权重分布：输入数据或特征图上的不同部分对应的专注度不同，对此Jason...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yideqianfenzhiyi">来自：	<span class="blog_title"> Slow down, Keep learning and Enjoy life</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xgc_woker/article/details/78018297,BlogCommendFromQuerySearch_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xgc_woker/article/details/78018297" target="_blank" title="谈谈主席树的那些事儿">
+		<h4 class="text-truncate oneline">
+				<em>谈谈</em>主席树的<em>那些</em>事儿		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2841</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xgc_woker/article/details/78018297" target="_blank" title="谈谈主席树的那些事儿">
+				<span class="desc oneline">1[视频]【主席树】第K小的数Ⅰ（caioj1441）主席树为什么叫主席树呢？因为发明它的fotile被我们叫做fotile主席，所以就叫主席树。首先就先来讲一下它的两个主要函数插入和合并。这里的插入...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xgc_woker">来自：	<span class="blog_title"> xgc_woker的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/CallmeZhe/article/details/79387398,BlogCommendFromQuerySearch_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/CallmeZhe/article/details/79387398" target="_blank" title="谈谈JAVA中JVM里的那些事">
+		<h4 class="text-truncate oneline">
+				<em>谈谈</em><em>JAVA</em>中JVM里的<em>那些</em>事		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					79</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/CallmeZhe/article/details/79387398" target="_blank" title="谈谈JAVA中JVM里的那些事">
+				<span class="desc oneline">JVM所管理的内存分为以下几个运行时数据区：程序计数器、Java虚拟机栈、本地方法栈、Java堆、方法区。程序计数器(ProgramCounterRegister)一块较小的内存空间，它是当前线程所执...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/CallmeZhe">来自：	<span class="blog_title"> CallmeZhe的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/li123128/article/details/88180910,BlogCommendFromQuerySearch_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/li123128/article/details/88180910" target="_blank" title="谈谈Java引用和Threadlocal的那些事">
+		<h4 class="text-truncate oneline">
+				<em>谈谈</em><em>Java</em>引用和Threadlocal的<em>那些</em>事		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					86</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/li123128/article/details/88180910" target="_blank" title="谈谈Java引用和Threadlocal的那些事">
+				<span class="desc oneline">　　1背景　　　　某一天在某一个群里面的某个群友突然提出了一个问题:&amp;quot;threadlocal的key是虚引用，那么在threadlocal.get()的时候,发生GC之后，key是否是nul...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/li123128">来自：	<span class="blog_title"> li123128的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaUg2sNDYtZWR1.html" target="_blank">
+                        java学习感想征文</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaYg1sNzItZWR1.html" target="_blank">
+                        谈谈java学习</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/blogdevteam">
+              <img src="https://avatar.csdn.net/8/C/E/3_blogdevteam.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/13.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/blogdevteam" target="_blank" class="" id="uid">CSDN官方博客</a>
+            </p>
+                          <p class="flag expert">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="614">
+                        <dt><a href="https://blog.csdn.net/blogdevteam?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/blogdevteam?t=1"><span class="count">614</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="14249">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">1万+</span></dd>
+        </dl>
+        <dl class="text-center" title="7488">
+            <dt>喜欢</dt>
+            <dd><span class="count">7488</span></dd>
+        </dl>
+        <dl class="text-center" title="18075">
+            <dt>评论</dt>
+            <dd><span class="count">1万+</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="10级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-10"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="16954666">
+                1695万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="107050">
+                10万+            </dd>
+        </dl>
+        <dl title="17">
+            <dt>排名：</dt>
+            <dd>17</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="专栏达人">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                                   <p>专栏达人</p>
+                               </div>
+                               <div class="right-box">
+                                   授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="1024勋章">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/1024huodong.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/1024huodong.svg" alt="">
+                                   <p>1024勋章</p>
+                               </div>
+                               <div class="right-box">
+                                   #1024程序员节#活动勋章，当日发布原创博客即可获得                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv2">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                                   <p>勤写标兵Lv2</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布4篇到6篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<!--自定义模块-->
+<div id="asideCustom63255777" class="aside-box custom-box">
+    <h3 class="aside-title">公告：CSDN博客支持自定义域名</h3>
+    <div class="aside-content clearfix">
+        <a href="https://mall.csdn.net/vip_code" rel="nofollow" target="_blank">
+成为会员,获取我的专属域名~
+<img src="https://img-blog.csdnimg.cn/20190307172509539.png">
+</a>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/blogdevteam/article/details/90722546" target="_blank">关于博客自定义栏目下线的公告</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/blogdevteam/article/details/90721021" target="_blank">CSDN周刊：华为员工不可参与IEEE审稿，但可继续提供赞助；Google限制Chrome接口惹非议，Mozilla号召用户换火狐！</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/blogdevteam/article/details/90717267" target="_blank">官宣：CSDN发放福利！免费使用自定义域名功能一个月！</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/blogdevteam/article/details/90603221" target="_blank">永久封号！欢迎大家举报这类文章……</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/blogdevteam/article/details/90521058" target="_blank">CSDN周刊：华为至暗一周，任正非回应一切；开源代码不受美国出口管制约束；GitHub开启赞助功能：用金钱贡献开源项目</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideColumn" class="aside-box flexible-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/cmdc2011">
+                            <img src="https://img-blog.csdn.net/20151123174948755?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/cmdc2011">2011年中国移动开发者大会参会者见闻心得合集</a></p>
+                        <div class="data">文章数：<span class="count">15 篇</span> 访问量：<span>13万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/my2011">
+                            <img src="https://img-blog.csdn.net/20151123174957224?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/my2011">我的2011</a></p>
+                        <div class="data">文章数：<span class="count">90 篇</span> 访问量：<span>63万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/classic-book">
+                            <img src="https://img-blog.csdn.net/20151123175528145?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/classic-book">这些年，我们读过的技术经典图书</a></p>
+                        <div class="data">文章数：<span class="count">41 篇</span> 访问量：<span>29万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/job-school">
+                            <img src="https://img-blog.csdn.net/20151123175543005?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/job-school">2014各大网络公司校招笔试题</a></p>
+                        <div class="data">文章数：<span class="count">165 篇</span> 访问量：<span>126万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/my2013">
+                            <img src="https://img-blog.csdn.net/20151123175636708?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/my2013">我的2013</a></p>
+                        <div class="data">文章数：<span class="count">104 篇</span> 访问量：<span>67万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/my2014">
+                            <img src="https://img-blog.csdn.net/20151123180213036?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/my2014">我的2014</a></p>
+                        <div class="data">文章数：<span class="count">94 篇</span> 访问量：<span>44万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/virtualreality">
+                            <img src="https://img-blog.csdn.net/20160516114459341?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/virtualreality">走进VR开发世界</a></p>
+                        <div class="data">文章数：<span class="count">8 篇</span> 访问量：<span>3万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/13953">
+                            <img src="https://img-blog.csdn.net/20161219135517854?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/13953">我的2016</a></p>
+                        <div class="data">文章数：<span class="count">172 篇</span> 访问量：<span>78万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/14549">
+                            <img src="https://img-blog.csdn.net/20170524112407824?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/14549">CSDN日报</a></p>
+                        <div class="data">文章数：<span class="count">173 篇</span> 访问量：<span>278万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/14989">
+                            <img src="https://img-blog.csdn.net/column?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/14989">CSDN软考频道</a></p>
+                        <div class="data">文章数：<span class="count">8 篇</span> 访问量：<span>12万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15053">
+                            <img src="https://img-blog.csdn.net/20170329102235047?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15053">运维学堂</a></p>
+                        <div class="data">文章数：<span class="count">10 篇</span> 访问量：<span>13万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15143">
+                            <img src="https://img-blog.csdn.net/20170405152151153?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15143">前端课堂</a></p>
+                        <div class="data">文章数：<span class="count">4 篇</span> 访问量：<span>5万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15144">
+                            <img src="https://img-blog.csdn.net/20170405154036431?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15144">办公学堂</a></p>
+                        <div class="data">文章数：<span class="count">5 篇</span> 访问量：<span>7万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15220">
+                            <img src="https://img-blog.csdn.net/20170411160625026?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15220">解密移动开发</a></p>
+                        <div class="data">文章数：<span class="count">3 篇</span> 访问量：<span>4万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15221">
+                            <img src="https://img-blog.csdn.net/20170411161306656?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15221">编程语言</a></p>
+                        <div class="data">文章数：<span class="count">0 篇</span> 访问量：<span>1178</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15731">
+                            <img src="https://img-blog.csdn.net/20170524114147684?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15731">Python创意编程作品集</a></p>
+                        <div class="data">文章数：<span class="count">29 篇</span> 访问量：<span>23万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/15938">
+                            <img src="https://img-blog.csdn.net/20170609142552260?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/15938">从高考到程序员</a></p>
+                        <div class="data">文章数：<span class="count">78 篇</span> 访问量：<span>27万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/16360">
+                            <img src="https://img-blog.csdn.net/20170711170715740?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/16360">你会为 AI 转型么？</a></p>
+                        <div class="data">文章数：<span class="count">34 篇</span> 访问量：<span>30万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/18061">
+                            <img src="https://img-blog.csdn.net/20171116165413931?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/18061">【GitChat】每周精选</a></p>
+                        <div class="data">文章数：<span class="count">12 篇</span> 访问量：<span>19万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blogdev.blog.csdn.net/column/info/39654">
+                            <img src="https://img-blog.csdnimg.cn/20190605170045225.jpeg?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blogdev.blog.csdn.net/column/info/39654">Flutter优质博文集锦</a></p>
+                        <div class="data">文章数：<span class="count">0 篇</span> 访问量：<span>1</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/189591">
+                    <span class="title oneline">首页公告栏</span>
+                    <span class="count float-right">200篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/873628">
+                    <span class="title oneline">专家访谈</span>
+                    <span class="count float-right">24篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/189590">
+                    <span class="title oneline">使用小技巧</span>
+                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/189592">
+                    <span class="title oneline">投诉建议</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/194439">
+                    <span class="title oneline">常见问题</span>
+                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/196753">
+                    <span class="title oneline">网友心声</span>
+                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/511600">
+                    <span class="title oneline">博客活动</span>
+                    <span class="count float-right">72篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/941802">
+                    <span class="title oneline">精品下载资源推荐</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/887953">
+                    <span class="title oneline">2011中国移动开发者大会</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/925887">
+                    <span class="title oneline">CSDN官方活动</span>
+                    <span class="count float-right">37篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/930837">
+                    <span class="title oneline">2011年SD2.0大会</span>
+                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/1203077">
+                    <span class="title oneline">2012移动开发者大会</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/1199789">
+                    <span class="title oneline">2012 SDCC中国软件开发者大会</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/1206046">
+                    <span class="title oneline">SDCC大会</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/1406693">
+                    <span class="title oneline">2013年云计算大会</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/1460713">
+                    <span class="title oneline">微软MVP</span>
+                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/2178545">
+                    <span class="title oneline">社区周刊</span>
+                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/2185701">
+                    <span class="title oneline">博客推荐汇总</span>
+                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/2185703">
+                    <span class="title oneline">博文推荐汇总</span>
+                    <span class="count float-right">175篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/5676203">
+                    <span class="title oneline">极客头条</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/6513387">
+                    <span class="title oneline">CSDN学院</span>
+                    <span class="count float-right">39篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/6761845">
+                    <span class="title oneline">SDCC-2017</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/6867270">
+                    <span class="title oneline">CSDN技术学习群群内分享</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/7369070">
+                    <span class="title oneline">csdn博客</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/7369071">
+                    <span class="title oneline">创作中心</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/8250800">
+                    <span class="title oneline">1024程序员节</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/8250801">
+                    <span class="title oneline">1024</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/blogdevteam/article/category/8684681">
+                    <span class="title oneline">CSDN日报</span>
+                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2019/01">
+                    2019年1月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/12">
+                    2018年12月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/10">
+                    2018年10月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/09">
+                    2018年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">24篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">33篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">49篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">53篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/07">
+                    2016年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/05">
+                    2016年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/04">
+                    2016年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/02">
+                    2016年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2016/01">
+                    2016年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/12">
+                    2015年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/09">
+                    2015年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/08">
+                    2015年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/07">
+                    2015年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/06">
+                    2015年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/05">
+                    2015年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/03">
+                    2015年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2015/01">
+                    2015年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/12">
+                    2014年12月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/11">
+                    2014年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/10">
+                    2014年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/09">
+                    2014年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/06">
+                    2014年6月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/05">
+                    2014年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/04">
+                    2014年4月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2014/03">
+                    2014年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/12">
+                    2013年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/11">
+                    2013年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/10">
+                    2013年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/09">
+                    2013年9月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/08">
+                    2013年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/07">
+                    2013年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/06">
+                    2013年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/05">
+                    2013年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/04">
+                    2013年4月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/03">
+                    2013年3月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/02">
+                    2013年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2013/01">
+                    2013年1月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/12">
+                    2012年12月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/11">
+                    2012年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/10">
+                    2012年10月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/09">
+                    2012年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/08">
+                    2012年8月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/07">
+                    2012年7月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/06">
+                    2012年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/05">
+                    2012年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/04">
+                    2012年4月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/03">
+                    2012年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/02">
+                    2012年2月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2012/01">
+                    2012年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/12">
+                    2011年12月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/11">
+                    2011年11月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/10">
+                    2011年10月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/09">
+                    2011年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/08">
+                    2011年8月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/07">
+                    2011年7月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2011/06">
+                    2011年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2010/02">
+                    2010年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2010/01">
+                    2010年1月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/12">
+                    2009年12月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/11">
+                    2009年11月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/10">
+                    2009年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/09">
+                    2009年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/08">
+                    2009年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/06">
+                    2009年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/05">
+                    2009年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/04">
+                    2009年4月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/03">
+                    2009年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2009/02">
+                    2009年2月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2008/04">
+                    2008年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2008/01">
+                    2008年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/11">
+                    2007年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/10">
+                    2007年10月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/09">
+                    2007年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/08">
+                    2007年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/07">
+                    2007年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/06">
+                    2007年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/05">
+                    2007年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/04">
+                    2007年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/03">
+                    2007年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/02">
+                    2007年2月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2007/01">
+                    2007年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/12">
+                    2006年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/11">
+                    2006年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/09">
+                    2006年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/08">
+                    2006年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/07">
+                    2006年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/06">
+                    2006年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/05">
+                    2006年5月                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/blogdevteam/article/month/2006/04">
+                    2006年4月                    <span class="count float-right">22篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/blogdevteam/article/details/655919">CSDN Blog推出Blog开发小组博客，欢迎大家通过它反馈意见</a>
+					<p class="read">阅读数 <span>759619</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/blogdevteam/article/details/8770910">Java应用级产品开发平台APDPlat作者杨尚川专访</a>
+					<p class="read">阅读数 <span>549552</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/blogdevteam/article/details/50265905">年末盛典-点亮你心中的CSDN 2015博客之星</a>
+					<p class="read">阅读数 <span>424343</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/blogdevteam/article/details/27084771">博客导出工具</a>
+					<p class="read">阅读数 <span>353069</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/blogdevteam/article/details/71710010">【获奖公布】2017 CSDN博客专栏评选</a>
+					<p class="read">阅读数 <span>210854</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/blogdevteam/article/details/89494034#comments">获奖公布|@程序员，你读过的书，藏...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/zwlxxsc520" class="user-name" target="_blank">zwlxxsc520：</a>可惜了，这次征文没有参加                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/blogdevteam/article/details/90717267#comments">官宣：CSDN发放福利！免费使用自...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/Yao__Shun__Yu" class="user-name" target="_blank">Yao__Shun__Yu：</a>这也算是给功能！？                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/blogdevteam/article/details/90603221#comments">永久封号！欢迎大家举报这类文章……</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/testcs_dn" class="user-name" target="_blank">testcs_dn：</a>[reply]Q1901187568[/reply]
+把链接写到文件中或加几个主要文件打成压缩包，再上传到下载频道。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/blogdevteam/article/details/90603221#comments">永久封号！欢迎大家举报这类文章……</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/sinat_27953939" class="user-name" target="_blank">sinat_27953939：</a>还有博客的Markdown是时间升级一下了，太多BUG了！！                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/blogdevteam/article/details/89244030#comments">首页文章推荐公告！</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_31749835" class="user-name" target="_blank">qq_31749835：</a>二维码已经过期，麻烦运营小姐姐更新🙏                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>33</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						22				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/blogdevteam/article/details/90373356" title="开发者周刊：英特尔再爆重大芯片漏洞；微软开源Bing搜索关键算法；Facebook联合创始人呼吁拆分Facebook">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/blogdevteam/article/details/90488020" title="期待您加入！CSDN招募优质英文布道者">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/blogdevteam/article/details/90373356" title="开发者周刊：英特尔再爆重大芯片漏洞；微软开源Bing搜索关键算法；Facebook联合创始人呼吁拆分Facebook">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/blogdevteam/article/details/90488020" title="期待您加入！CSDN招募优质英文布道者">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 85;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 16;
+    var articleId = "90478295";
+    var commentscount = 22;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/blogdevteam/article/details/90478295";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "【征文】Java 24周年特别策划——谈谈我与Java的那些年、这些事 - CSDN 官方博客";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = 'atom-one-dark';
+	var highlight = ["\u5f81\u6587","java","24","\u5468\u5e74","\u7279\u522b","\u7b56\u5212","\u8c08\u8c08","java","\u90a3\u4e9b","\u8fd9\u4e9b"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"weixin_33918357","nick_name":"weixin_33918357","avatar":"https:\/\/avatar.csdn.net\/B\/F\/2\/3_weixin_33918357.jpg","is_expert":false,"article_count":3037,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"weixin_34194359","nick_name":"weixin_34194359","avatar":"https:\/\/avatar.csdn.net\/8\/C\/8\/3_weixin_34194359.jpg","is_expert":false,"article_count":2943,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"yujikui1","nick_name":"\u4f59\u540c\u5b66\u7684\u5f00\u53d1\u4e4b\u8def","avatar":"https:\/\/avatar.csdn.net\/A\/3\/1\/3_yujikui1.jpg","is_expert":false,"article_count":53,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"frostmourncn","nick_name":"frostmourncn","avatar":"https:\/\/avatar.csdn.net\/3\/2\/4\/3_frostmourncn.jpg","is_expert":false,"article_count":13,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"masfay","nick_name":"\u51b2\u676f\u8336\u559d","avatar":"https:\/\/avatar.csdn.net\/0\/B\/C\/3_masfay.jpg","is_expert":false,"article_count":40,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"zh19890828","nick_name":"zh19890828","avatar":"https:\/\/avatar.csdn.net\/0\/8\/F\/3_zh19890828.jpg","is_expert":false,"article_count":1,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"sinat_37817094","nick_name":"\u6280\u672f\u82af","avatar":"https:\/\/avatar.csdn.net\/0\/7\/0\/3_sinat_37817094.jpg","is_expert":false,"article_count":71,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"IEECS18","nick_name":"IEEE ICCSE","avatar":"https:\/\/avatar.csdn.net\/F\/6\/9\/3_ieecs18.jpg","is_expert":false,"article_count":2,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"caohb2013","nick_name":"\u8fdb\u9636\u4eba\u751f","avatar":"https:\/\/avatar.csdn.net\/2\/E\/D\/3_caohb2013.jpg","is_expert":false,"article_count":45,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"youdianjinjin","nick_name":"07H_JH","avatar":"https:\/\/avatar.csdn.net\/5\/B\/F\/3_youdianjinjin.jpg","is_expert":false,"article_count":400,"rank":"3000+"}];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

@@ -1,0 +1,3658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/wanghao72214/article/details/90349561"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"轻松学习区块链4 - 区块链浏览器与人机交互 - 王泽宾"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>轻松学习区块链4 - 区块链浏览器与人机交互 - 王泽宾 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/wanghao72214\/article\/details\/90349561","appid":"1563894916825412","title":"\u8f7b\u677e\u5b66\u4e60\u533a\u5757\u94fe4 - \u533a\u5757\u94fe\u6d4f\u89c8\u5668\u4e0e\u4eba\u673a\u4ea4\u4e92 - \u738b\u6cfd\u5bbe","images":["https:\/\/img-blog.csdnimg.cn\/20190519225959169.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdoYW83MjIxNA==,size_16,color_FFFFFF,t_70"],"pubDate":"2019-06-05T20:00:56"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "wanghao72214";
+        var blog_address = "https://blog.csdn.net/wanghao72214";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/wanghao72214/article/details/90349561"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "轻松学习区块链4 - 区块链浏览器与人机交互 - 王泽宾";
+        
+        var nickName = "王泽宾";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/wanghao72214/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/wanghao72214/article/details/90349561";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-923","con":",,"}' data-track-click='{"mod":"kp_popu_476-923","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.7/indexSuperise.js?20190508180304"></script>
+<script>
+window.csdn.indexSuperise({
+zIndex:11000,
+      smallMoveImg: '//img-ads.csdn.net/2019/201905051104467314.png',
+      bigMoveImg: '//img-ads.csdn.net/2019/201905051104363598.png',
+     link:'//edu.csdn.net/topic/ai30?utm_source=blogpopup',
+boxStyle:140,
+trackSuperId:476,
+smallMove:'notMove',  
+trackSId:923
+    });
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">轻松学习区块链4 - 区块链浏览器与人机交互</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年05月19日 23:00:26</span>
+          <a class="follow-nickName" href="https://me.csdn.net/wanghao72214" target="_blank">王泽宾</a>
+          <span class="read-count">阅读数：1139</span>
+          
+                                      <div class="tags-box space">
+                <span class="label">个人分类：</span>
+                                  <a class="tag-link" href="https://blog.csdn.net/wanghao72214/article/category/8888451" target="_blank">golang                                    <a class="tag-link" href="https://blog.csdn.net/wanghao72214/article/category/8957338" target="_blank">区块链                                  </a>
+              </div>
+                                          </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <h2><a id="MiniBCV003___0"></a>MiniBC区块链V003 - 区块链浏览器与人机交互</h2>
+<h4><a id="_2"></a>工作目标</h4>
+<p>区块链浏览器是用户通过浏览器的方式查看区块链的所有信息。我们本节的目标就是实现这一功能。<br>
+我们不仅提供查看功能，还提供了了管理功能。在真实的区块链项目中，一般会提供多种交互方式，比如提供客户端命令行方式、websocket方式等等，最终由区块链server提供统一的rpc服务。我们目前先实现浏览器方式，以后会逐步扩充。</p>
+<h4><a id="Http_Server_7"></a>Http Server</h4>
+<p>在golang中写一个http server非常简单，三两行代码就可以实现。</p>
+<pre><code>http.HandleFunc("/", handleIndex)
+http.ListenAndServe(":8080", nil)
+</code></pre>
+<p>我们的区块链浏览器就是使用了golang标准包里的http服务完成的。使用起来非常简单，调用NewBlockBrower创建一个区块链浏览器对象，然后调用Start方法就可以工作了：</p>
+<pre><code>//启动区块链浏览器，您可以通过浏览器 http://SERVER_ADDR:8080 访问
+NewBlockBrower(bc).Start()
+</code></pre>
+<h4><a id="_20"></a>区块链浏览器</h4>
+<p>区块链浏览器的结构比较简单，一个通知退出的channel和当前区块链对象BlockChain：</p>
+<pre><code>type BlockBrower struct {
+	//中止BrowserServer通道
+	chanQuit chan bool
+
+	//当前区块链
+	blockChain *BlockChain
+}
+</code></pre>
+<p>启动区块链浏览器方法Start：<br>
+目前区块链服务器共能处理四种Url："/"、"/shutdown"、"/getblocks"和"/generateblock"，监听8080端口。<br>
+如果MiniBC运行后，如果通过本机器打开浏览器，可直接输入：<a href="http://localhost" rel="nofollow">http://localhost</a>：8080</p>
+<pre><code>func (bb *BlockBrower) Start() {
+	fmt.Println("=========================================================================")
+	fmt.Println("MiniBC 区块链浏览器已经启动，请通过浏览器http://" + SERVER_ADDR + ":8080访问....")
+	fmt.Println("=========================================================================")
+
+	http.HandleFunc("/", bb.handleIndex)
+	http.HandleFunc("/shutdown", bb.handleShutdown)
+	http.HandleFunc("/getblocks", bb.handleGetBlocks)
+	http.HandleFunc("/generateblock", bb.handleGenerateBlock)
+
+	go http.ListenAndServe(":8080", nil)
+
+	//只有接到退出通知，才能结束
+	select {
+		case &lt;-bb.chanQuit:
+	}
+}
+</code></pre>
+<p>实现了4个Url处理函数：</p>
+<p>处理Url为 http://SERVER_ADDR:8080/ 的请求，显示区块链浏览器首页信息</p>
+<pre><code>func (bb *BlockBrower) handleIndex(response http.ResponseWriter, request *http.Request) {
+	content := "&lt;html&gt;&lt;br&gt;"
+	content = content + "&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MiniBC区块链区块浏览器&lt;/b&gt;&lt;br&gt;&lt;br&gt;"
+	content = content + "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;a href=\"shutdown\"&gt;关闭MiniBC&lt;/a&gt;"
+	content = content + "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;a href=\"getblocks\"&gt;查看区块链&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+	content = content + "&lt;/html&gt;"
+
+	response.Write([]byte(content))
+}
+</code></pre>
+<p>处理Url为 http://SERVER_ADDR:8080/shutdown 的请求，关闭区块链浏览器，退出系统</p>
+<pre><code>func (bb *BlockBrower) handleShutdown(response http.ResponseWriter, request *http.Request) {
+	fmt.Println("")
+	fmt.Println("")
+	fmt.Println("=========================================================================")
+	fmt.Println("MiniBC 区块链和远程管理结束，谢谢使用!")
+	fmt.Println("=========================================================================")
+
+	bb.chanQuit &lt;- true
+}
+</code></pre>
+<p>处理Url为 http://SERVER_ADDR:8080/getblocks 的请求，打印所有区块链信息</p>
+<pre><code>func (bb *BlockBrower) handleGetBlocks(response http.ResponseWriter, request *http.Request) {
+
+	//获取区块链高度
+	blockHeight := strconv.Itoa(bb.blockChain.Iterator().GetCount())
+
+	content := "&lt;html&gt;&lt;br&gt;"
+	content = content + "&lt;a href=\"/\"&gt;返回首页&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+	content = content + "&lt;a href=\"generateblock\"&gt;生成新区块&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;"
+	content = content + "&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当前MiniBC区块链高度：" + blockHeight + "&lt;/b&gt;&lt;br&gt;&lt;br&gt;"
+
+	//遍历区块链，打印每一个区块的详细信息
+	iterator := bb.blockChain.Iterator()
+	for {
+		block := iterator.Next()
+		if block == nil {
+			break
+		}
+		content = content + "当前区块哈希值：0x" + BytesToHex(block.GetHash()) + "&lt;br&gt;"
+		content = content + "当前区块内容为：" +  string(block.Data) + "&lt;br&gt;"
+		content = content + "前一区块哈希值：0x" +  BytesToHex(block.HashPrevBlock) + "&lt;br&gt;"
+		content = content + "=============================================" + "&lt;br&gt;"
+	}
+
+	content = content + "&lt;/html&gt;"
+	response.Write([]byte(content))
+}
+</code></pre>
+<p>//处理Url为 http://SERVER_ADDR:8080/generateblock 的请求，生成新区块</p>
+<pre><code>func (bb *BlockBrower) handleGenerateBlock(response http.ResponseWriter, request *http.Request) {
+
+	//获取区块链高度
+	height := bb.blockChain.Iterator().GetCount()
+
+	//创建新的区块
+	bb.blockChain.AddBlock("Mini block " + strconv.Itoa(height))
+
+	blockHeight := strconv.Itoa(bb.blockChain.Iterator().GetCount())
+
+	content := "&lt;html&gt;&lt;br&gt;"
+	content = content + "&lt;a href=\"/\"&gt;返回首页&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+	content = content + "&lt;a href=\"generateblock\"&gt;生成新区块&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;"
+	content = content + "&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;当前MiniBC区块链高度：" + blockHeight + "&lt;/b&gt;&lt;br&gt;&lt;br&gt;"
+
+	//遍历区块链
+	iterator := bb.blockChain.Iterator()
+	for {
+		block := iterator.Next()
+		if block == nil {
+			break
+		}
+		content = content + "当前区块哈希值：0x" + BytesToHex(block.GetHash()) + "&lt;br&gt;"
+		content = content + "当前区块内容为：" +  string(block.Data) + "&lt;br&gt;"
+		content = content + "前一区块哈希值：0x" +  BytesToHex(block.HashPrevBlock) + "&lt;br&gt;"
+		content = content + "=============================================" + "&lt;br&gt;"
+	}
+
+	content = content + "&lt;/html&gt;"
+	response.Write([]byte(content))
+}
+</code></pre>
+<p>运行后输出：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190519225959169.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdoYW83MjIxNA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4><a id="_150"></a>我们实现的和将要实现的</h4>
+<p>我们已经构建了一个简单的区块链，并且实现了一个简易的KV数据库和区块链浏览器，下一步来实现工作量证明pow共识算法。</p>
+<h4><a id="_155"></a>交流和疑问</h4>
+<p>大家可以从v001开始逐步深入的研究学习，每个源码文件均有完整的说明和注释。如果有疑问、建议和不明白的问题，尽可以与我联系。</p>
+<p>MiniBC区块链交流可以加入qq群：<font size="5"><b>777804802</b></font>，go开发者乐园<br>
+我的微信：<font size="5"><b>bkra50 </b></font><br>
+github addr: <a href="https://github.com/wangshizebin/minibc" rel="nofollow">https://github.com/wangshizebin/minibc</a></p>
+<p>另外，招募一群志同道合者，共同维护项目，共同推进项目，为开源世界贡献力量，欢迎勾搭。</p>
+<p>Let’s go~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/wanghao72214/article/details/90349561,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/wanghao72214/article/details/90349561,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-386","con":",,"}' data-track-click='{"mod":"kp_popu_58-386","con":",,"}'><div style="width:100%;background:#fff;">
+<script type="text/javascript" src="//rabc1.iteye.com/production/resource/web/6xwm4l.js?lg=ydmpioh"></script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="90349561">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yangwei282367751/article/details/52426911,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yangwei282367751/article/details/52426911" target="_blank" title="关于计算时间复杂度和空间复杂度">
+		<h4 class="text-truncate oneline">
+				关于计算时间复杂度和空间复杂度		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yangwei282367751/article/details/52426911" target="_blank" title="关于计算时间复杂度和空间复杂度">
+				<span class="desc oneline">相信学习编程的同学，或多或少都接触到算法的时间复杂度和空间复杂度了，那我来讲讲怎么计算。    常用的算法的时间复杂度和空间复杂度一，求解算法的时间复杂度，其具体步骤是：　　⑴ 找出算法中的基本语句；...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yangwei282367751">来自：	<span class="blog_title"> 杨威的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/it_manman/article/details/79622157,BlogCommendESEnWordWeight_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/it_manman/article/details/79622157" target="_blank" title="学习区块链要掌握的技术">
+		<h4 class="text-truncate oneline">
+				<em>学习</em><em>区块链</em>要掌握的技术		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5181</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/it_manman/article/details/79622157" target="_blank" title="学习区块链要掌握的技术">
+				<span class="desc oneline">首先区块链主要是一种分布式的数据的数据库1、首先要对本身的数据库有很深的理解2、掌握一种高级语言java/go3、对分布式框架有比较深入的理解...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/it_manman">来自：	<span class="blog_title"> it_manman的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kXYOnA63Ag9zqtXx0/article/details/78238074,BlogCommendESEnWordWeight_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kXYOnA63Ag9zqtXx0/article/details/78238074" target="_blank" title="从零开始系统学习区块链">
+		<h4 class="text-truncate oneline">
+				从零开始系统<em>学习</em><em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5946</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kXYOnA63Ag9zqtXx0/article/details/78238074" target="_blank" title="从零开始系统学习区块链">
+				<span class="desc oneline">硅谷Live/ 实地探访 / 热点探秘/深度探讨今天，互联网已经深刻地改变了我们的生活。但你想象过吗：假如穿越回90年代，给一位从来没有用过互联网的人解释我们今天的生活，会是什么样子？人们很有可能会说...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kXYOnA63Ag9zqtXx0">来自：	<span class="blog_title"> 硅谷密探</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendESEnWordWeight_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					66万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：简言之就是找环（每条边只走一次，两两可达）孤立的一个点也是一个连通分量 使用tarjan算法在嵌套的多个环中优先得到最大环(最小环就是每个孤立点） 定义：intTime,DFN[N],Lo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-937","con":",,区块链"}' data-track-click='{"mod":"kp_popu_59-937","con":",,区块链"}'><iframe src="https://kunpeng-sc.csdnimg.cn/#/preview/107?positionId=59&queryWord=区块链" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_27295631/article/details/68582582,BlogCommendESEnWordWeight_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_27295631/article/details/68582582" target="_blank" title="ARM DS-5.26.0安装及创建C程序">
+		<h4 class="text-truncate oneline">
+				ARM DS-5.26.0安装及创建C程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7791</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_27295631/article/details/68582582" target="_blank" title="ARM DS-5.26.0安装及创建C程序">
+				<span class="desc oneline">这学期选修了《嵌入式系统原理与应用》，老师要求使用最新的ARMDS-5，软件安装包、破解都要靠自己完成，这。。。就很尴尬了。经过两天零零散散地摸索，终于成功了，哈哈哈。现在把过程贴出来，希望能帮助到更...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_27295631">来自：	<span class="blog_title"> 面对的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/liudashuang2017/article/details/79817249,BlogCommendESEnWordWeight_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/liudashuang2017/article/details/79817249" target="_blank" title="一个月深入区块链学习路径 推荐">
+		<h4 class="text-truncate oneline">
+				一个月深入<em>区块链</em><em>学习</em>路径 推荐		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					916</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/liudashuang2017/article/details/79817249" target="_blank" title="一个月深入区块链学习路径 推荐">
+				<span class="desc oneline">1.3月16学习第二章核心技术概览1.3月16区块链学习视频付钱的&amp;amp;gt;第二章什么是区块链2.3月17学习第四章分布式系统核心问题3.3月18学习第五章密码学和安全技术4.3月19学习第六章...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/liudashuang2017">来自：	<span class="blog_title"> liudashuang2017的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wanghao72214/article/details/90291166,BlogCommendFromQuerySearch_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wanghao72214/article/details/90291166" target="_blank" title="轻松学习区块链1 - 初识MiniBC区块链">
+		<h4 class="text-truncate oneline">
+				<em>轻松</em><em>学习</em><em>区块链</em>1 - 初识MiniBC<em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1344</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wanghao72214/article/details/90291166" target="_blank" title="轻松学习区块链1 - 初识MiniBC区块链">
+				<span class="desc oneline">MiniBC区块链源码地址：https://github.com/wangshizebin/minibc1、什么是区块链区块链从仅从技术层面来讲，是按照时间顺序将数据块连接在一起的链式数据结构。它采用...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wanghao72214">来自：	<span class="blog_title"> 王泽宾</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhaowu_ji/article/details/80717696,BlogCommendFromQuerySearch_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhaowu_ji/article/details/80717696" target="_blank" title="EOS区块链浏览器：scaneos.io | EOS必备工具 |什么是区块链浏览器 | 怎么使用区块链浏览器">
+		<h4 class="text-truncate oneline">
+				EOS<em>区块链</em><em>浏览器</em>：scaneos.io | EOS必备工具 |什么是<em>区块链</em><em>浏览器</em> | 怎么使用<em>区块链</em><em>浏览器</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1924</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhaowu_ji/article/details/80717696" target="_blank" title="EOS区块链浏览器：scaneos.io | EOS必备工具 |什么是区块链浏览器 | 怎么使用区块链浏览器">
+				<span class="desc oneline">『区块链浏览器』区块链浏览器是普通用户浏览区块链信息的主要窗口。EOS主网已经上线并产生出了区块，我们一财经可以查询地址信息、查看交易详情、查看账户动态等。只是比较麻烦，比如：查询交易历史：查询合约：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhaowu_ji">来自：	<span class="blog_title"> zhaowu_ji的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wanghao72214/article/details/90372909,BlogCommendFromQuerySearch_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wanghao72214/article/details/90372909" target="_blank" title="轻松学习区块链5 - 工作量证明POW">
+		<h4 class="text-truncate oneline">
+				<em>轻松</em><em>学习</em><em>区块链</em>5 - 工作量证明POW		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					93</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wanghao72214/article/details/90372909" target="_blank" title="轻松学习区块链5 - 工作量证明POW">
+				<span class="desc oneline">MiniBC区块链V004-工作量证明POW共识算法在整个区块链工作过程中，会有很多的机器加入其中，每一台机器成为一个节点，它们互相协作，来共同维护区块链的安全和数据的一致。其中，生成新的区块就是一项...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wanghao72214">来自：	<span class="blog_title"> 王泽宾</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-763","con":",,"}' data-track-click='{"mod":"kp_popu_60-763","con":",,"}'><script type="text/javascript" src="//rabc1.iteye.com/production/source/web/h53bu.js?avnubb=xre"></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cmm0401/article/details/79752660,BlogCommendFromQuerySearch_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cmm0401/article/details/79752660" target="_blank" title="区块链技术初探：4区块链入门学习资源介绍">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>技术初探：4<em>区块链</em>入门<em>学习</em>资源介绍		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					800</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cmm0401/article/details/79752660" target="_blank" title="区块链技术初探：4区块链入门学习资源介绍">
+				<span class="desc oneline">区块链技术初探：4区块链入门学习资源介绍   众所周知去年比特币大涨，很多人都投入到挖矿或者投资比特币上，而比特币的底层技术是区块链。所以导致最近区块链技术火热，区块链声称能够改变未来的互联网，让其能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cmm0401">来自：	<span class="blog_title"> 大孟的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/macair123/article/details/79348270,BlogCommendFromQuerySearch_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/macair123/article/details/79348270" target="_blank" title="区块链技术教程，如何从零开始学习以太坊及区块链">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>技术教程，如何从零开始<em>学习</em>以太坊及<em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/macair123/article/details/79348270" target="_blank" title="区块链技术教程，如何从零开始学习以太坊及区块链">
+				<span class="desc oneline">很多人迷惑于区块链和以太坊，不知如何学习，本文简单说了一下学习的一些方法和资源。一、   以太坊和区块链的关系   从区块链历史上来说，先诞生了比特币，当时并没有区块链这个技术和名词，然后业界从比特币...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/macair123">来自：	<span class="blog_title"> macair123的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sureSand/article/details/79394314,BlogCommendFromQuerySearch_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sureSand/article/details/79394314" target="_blank" title="学习区块链（十二）--DAG是真正的区块链3.0？别急！！！">
+		<h4 class="text-truncate oneline">
+				<em>学习</em><em>区块链</em>（十二）--DAG是真正的<em>区块链</em>3.0？别急！！！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sureSand/article/details/79394314" target="_blank" title="学习区块链（十二）--DAG是真正的区块链3.0？别急！！！">
+				<span class="desc oneline">DAG</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sureSand">来自：	<span class="blog_title"> 写点小东西</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Blockchain_lemon/article/details/80416178,BlogCommendFromQuerySearch_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Blockchain_lemon/article/details/80416178" target="_blank" title="10分钟，前端工程师也能玩转区块链Web3.js开发">
+		<h4 class="text-truncate oneline">
+				10分钟，前端工程师也能玩转<em>区块链</em>Web3.js开发		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2903</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Blockchain_lemon/article/details/80416178" target="_blank" title="10分钟，前端工程师也能玩转区块链Web3.js开发">
+				<span class="desc oneline">&amp;amp;#13;&amp;amp;#13;&amp;amp;#13;&amp;amp;#13;&amp;amp;#13;&amp;amp;#13;&amp;amp;#13;一个不想写后台的前端不是一个好全栈，前端也可以玩转区块链Web3.js开发...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Blockchain_lemon">来自：	<span class="blog_title"> 区块链大本营</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/m0epNwstYk4/article/details/81323022,BlogCommendFromQuerySearch_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/m0epNwstYk4/article/details/81323022" target="_blank" title="【漫画】秒懂区块链">
+		<h4 class="text-truncate oneline">
+				【漫画】秒懂<em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					725</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/m0epNwstYk4/article/details/81323022" target="_blank" title="【漫画】秒懂区块链">
+				<span class="desc oneline">数字货币的火热，听着诸多“一夜暴富”的神话，让区块链技术不断升温，BAT以及各大银行还有许多金融机构已开始自己的区块链研究工作，连IBM最近也成立了自己的区块链研究实验室......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/m0epNwstYk4">来自：	<span class="blog_title"> AI深入浅出</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-557","con":",,"}' data-track-click='{"mod":"kp_popu_61-557","con":",,"}'><div id="three_ad13" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad13",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mongo_node/article/details/88788691,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mongo_node/article/details/88788691" target="_blank" title="Fabric区块链开发详解">
+		<h4 class="text-truncate oneline">
+				Fabric<em>区块链</em>开发详解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					548</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mongo_node/article/details/88788691" target="_blank" title="Fabric区块链开发详解">
+				<span class="desc oneline">Hyperledger是一个旨在推动区块链跨行业应用的开源项目，由Linux基金会在2015年12月主导发起该项目，成员包括金融、银行、物联网、供应链、制造和科技等多个行业的领头羊，托管了众多面向企业...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mongo_node">来自：	<span class="blog_title"> mongo_node的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34220179/article/details/86944365,BlogCommendFromQuerySearch_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34220179/article/details/86944365" target="_blank" title="项目好不好 DRC一下你就知道 | 2018DRC区块链尽调合集">
+		<h4 class="text-truncate oneline">
+				项目好不好 DRC一下你就知道 | 2018DRC<em>区块链</em>尽调合集		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					132</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34220179/article/details/86944365" target="_blank" title="项目好不好 DRC一下你就知道 | 2018DRC区块链尽调合集">
+				<span class="desc oneline">​2018年1月12日，DRC创始人林扬女士（曾任安永金融服务转型与创新合伙人、IBM金融风险合规解决方案负责人）在由中国产业升级网、中产华略智库、上海工商联、共青团上海市委主办的上海“2018独角兽...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34220179">来自：	<span class="blog_title"> weixin_34220179的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ethchinese/article/details/60752675,BlogCommendFromQuerySearch_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ethchinese/article/details/60752675" target="_blank" title="区块链学堂（4）：以太坊基本概念及工具Geth、Browser-solidity、Mist">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>学堂（4）：以太坊基本概念及工具Geth、Browser-solidity、Mist		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7455</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ethchinese/article/details/60752675" target="_blank" title="区块链学堂（4）：以太坊基本概念及工具Geth、Browser-solidity、Mist">
+				<span class="desc oneline">在我研究以太坊技术的过程中，由于相关资料较少，因此走了较多的弯路。所以这里我们不会先介绍Solidity的语法结构，而会在接下来的第一阶段，从实战出发，陆续向大家介绍Geth、Browser-soli...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ethchinese">来自：	<span class="blog_title"> ethchinese的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sportshark/article/details/52351415,BlogCommendFromQuerySearch_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sportshark/article/details/52351415" target="_blank" title="区块链开发（零）如何开始学习以太坊及区块链">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>开发（零）如何开始<em>学习</em>以太坊及<em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sportshark/article/details/52351415" target="_blank" title="区块链开发（零）如何开始学习以太坊及区块链">
+				<span class="desc oneline">很多人迷惑于区块链和以太坊，不知如何学习，本文简单说了一下学习的一些方法和资源。一、   以太坊和区块链的关系   从区块链历史上来说，先诞生了比特币，当时并没有区块链这个技术和名词，然后业界从比特币...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sportshark">来自：	<span class="blog_title"> 李赫的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Blockchain_lemon/article/details/84983982,BlogCommendFromQuerySearch_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Blockchain_lemon/article/details/84983982" target="_blank" title="5分钟带你看懂区块链浏览器">
+		<h4 class="text-truncate oneline">
+				5分钟带你看懂<em>区块链</em><em>浏览器</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2920</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Blockchain_lemon/article/details/84983982" target="_blank" title="5分钟带你看懂区块链浏览器">
+				<span class="desc oneline">翻译|王国玺编辑|波波今天币价涨了，明天币价跌了……币价在媒体笔下的涨涨跌跌，似乎成了区块链留给普通人的唯一印象。而事实却是，绝大部分普通人甚至连区块链的门都没摸过，更别提真的去探索区块链的世界了。区...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Blockchain_lemon">来自：	<span class="blog_title"> 区块链大本营</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-623","con":",,"}' data-track-click='{"mod":"kp_popu_62-623","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3600849",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jack00809/article/details/80406183,BlogCommendFromQuerySearch_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jack00809/article/details/80406183" target="_blank" title="Android区块链浏览器源代码">
+		<h4 class="text-truncate oneline">
+				Android<em>区块链</em><em>浏览器</em>源代码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					761</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jack00809/article/details/80406183" target="_blank" title="Android区块链浏览器源代码">
+				<span class="desc oneline">效果展示：项目地址：区块链浏览器源代码相关参考技术文章：Android使用Infura、Web3j、Http等方式接入以太坊区块链Android使用Insight开发比特币区块链浏览器......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jack00809">来自：	<span class="blog_title"> jack00809的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/super_wu1992/article/details/77043502,BlogCommendFromQuerySearch_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/super_wu1992/article/details/77043502" target="_blank" title="基于以太坊的区块链浏览器（java web开发）">
+		<h4 class="text-truncate oneline">
+				基于以太坊的<em>区块链</em><em>浏览器</em>（java web开发）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3875</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/super_wu1992/article/details/77043502" target="_blank" title="基于以太坊的区块链浏览器（java web开发）">
+				<span class="desc oneline">效果图如下：这里的交易值并不是以太币，而是根据自己写的智能合约创建的代币。交易详情查看账号详情，这里账号余额是以太币，不过是按照最小单位wei,这里没有换算代码下载地址：链接：https://gith...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/super_wu1992">来自：	<span class="blog_title"> 吴豪超的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Jeffrey__Zhou/article/details/52970930,BlogCommendFromQuerySearch_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Jeffrey__Zhou/article/details/52970930" target="_blank" title="比特币区块链代码分析">
+		<h4 class="text-truncate oneline">
+				比特币<em>区块链</em>代码分析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9201</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Jeffrey__Zhou/article/details/52970930" target="_blank" title="比特币区块链代码分析">
+				<span class="desc oneline">欢迎使用Markdown编辑器写博客本Markdown编辑器使用StackEdit修改而来，用它写博客，将会带来全新的体验哦：Markdown和扩展Markdown简洁的语法代码块高亮图片链接和图片上...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Jeffrey__Zhou">来自：	<span class="blog_title"> Jeffrey__Zhou的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Blockchain_lemon/article/details/79447639,BlogCommendFromQuerySearch_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Blockchain_lemon/article/details/79447639" target="_blank" title="如何成为一名区块链工程师？ | 附学习资源">
+		<h4 class="text-truncate oneline">
+				如何成为一名<em>区块链</em>工程师？ | 附<em>学习</em>资源		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Blockchain_lemon/article/details/79447639" target="_blank" title="如何成为一名区块链工程师？ | 附学习资源">
+				<span class="desc oneline">编译|区块链大本营参与|鸽子、何永灿、Shawn春节前后，区块链再次刷爆我们的朋友圈，关注区块链的人正在以几何数集上升。大潮来临，一切都不同了，身怀绝技的程序员有了大展宏图的历史性机会，程序员们，是时...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Blockchain_lemon">来自：	<span class="blog_title"> 区块链大本营</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zw0Pi8G5C1x/article/details/81187723,BlogCommendFromQuerySearch_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zw0Pi8G5C1x/article/details/81187723" target="_blank" title="2018火爆的人工智能和区块链，哪一个更适合你？">
+		<h4 class="text-truncate oneline">
+				2018火爆的人工智能和<em>区块链</em>，哪一个更适合你？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2447</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zw0Pi8G5C1x/article/details/81187723" target="_blank" title="2018火爆的人工智能和区块链，哪一个更适合你？">
+				<span class="desc oneline">今年4月底，国内某知名招聘网站以4000万中高端人才为样本，时间跨度以2018年第一季度为主，发布了《2018第一季度中高端人才薪酬与流动大数据报告》（以下简称报告）。该......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zw0Pi8G5C1x">来自：	<span class="blog_title"> 大数据</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-1059","con":",,"}' data-track-click='{"mod":"kp_popu_63-1059","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/234?positionId=63&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hui_yong/article/details/80621377,BlogCommendFromQuerySearch_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hui_yong/article/details/80621377" target="_blank" title="一个完整的区块链入门学习整理，吐血推荐！！！">
+		<h4 class="text-truncate oneline">
+				一个完整的<em>区块链</em>入门<em>学习</em>整理，吐血推荐！！！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hui_yong/article/details/80621377" target="_blank" title="一个完整的区块链入门学习整理，吐血推荐！！！">
+				<span class="desc oneline">一个完整的区块链入门整理，吐血推荐！！！入门介绍与原理：一、比特币1.比特币白皮书这是一切的开始2.精通比特币讲比特币很详细的一本书，看完基本对比特币的认识就清楚了。3.TheProof-of-Wor...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cuiran/article/details/81193527,BlogCommendFromQuerySearch_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cuiran/article/details/81193527" target="_blank" title="区块链开发（五）搭建以太坊区块链浏览器">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>开发（五）搭建以太坊<em>区块链</em><em>浏览器</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2493</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cuiran/article/details/81193527" target="_blank" title="区块链开发（五）搭建以太坊区块链浏览器">
+				<span class="desc oneline">经过前面文章介绍，已经搭建以太坊的区块链环境，但是没有一个界面能查看到区块链的块数等信息，不是很直观，本篇搭建以太坊区块链浏览器。下载区块链浏览器代码uiran@cuiran:~/ethereum$g...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cuiran">来自：	<span class="blog_title"> 小崔的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lanyan818/article/details/82017420,BlogCommendFromQuerySearch_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lanyan818/article/details/82017420" target="_blank" title="三分钟动画看懂区块链">
+		<h4 class="text-truncate oneline">
+				三分钟动画看懂<em>区块链</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1152</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lanyan818/article/details/82017420" target="_blank" title="三分钟动画看懂区块链">
+				<span class="desc oneline">智能合约的特点是产生可编程的生产关系，而分布式数据库+Token+智能合约=一种新型的生产关系，这种新型的生产关系将会有很多可以应用的地方。2018年是公链之争的一年，以太坊、EOS和国的小蚁、量子都...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lanyan818">来自：	<span class="blog_title"> lanyan818的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/guangyinglanshan/article/details/78583885,BlogCommendFromQuerySearch_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/guangyinglanshan/article/details/78583885" target="_blank" title="从零开始学习区块链（1）">
+		<h4 class="text-truncate oneline">
+				从零开始<em>学习</em><em>区块链</em>（1）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4523</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/guangyinglanshan/article/details/78583885" target="_blank" title="从零开始学习区块链（1）">
+				<span class="desc oneline">定义1：区块链（Blockchain）技术是维护一个不断增长的数据记录的分布式数据库，这些数据通过密码学的技术和之前被写入的所有数据关联，使得第三方甚至是节点的拥有者难以篡改。区块（Block）包含有...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/guangyinglanshan">来自：	<span class="blog_title"> guangyinglanshan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/sk_skate/10488674,BlogCommendFromQuerySearch_28"}'>
+		<a href="https://download.csdn.net/download/sk_skate/10488674" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>区块链</em> <em>浏览器</em>（以太坊）源码					</h4>
+					<span class="data float-right">06-20</span>
+				</div>
+				<div class="desc oneline">
+						区块链 浏览器（以太坊）源码， 用于区块链浏览器的源码				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-81","con":",,"}' data-track-click='{"mod":"kp_popu_64-81","con":",,"}'><div id="three_ad28" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad28",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/m0_37345402/article/details/81481046,BlogCommendFromQuerySearch_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/m0_37345402/article/details/81481046" target="_blank" title="区块链学习路线图！">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em><em>学习</em>路线图！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					721</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/m0_37345402/article/details/81481046" target="_blank" title="区块链学习路线图！">
+				<span class="desc oneline"> 分享关于区块链的学习的大致方向和路线</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/m0_37345402">来自：	<span class="blog_title"> Mongo_girl</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xilibi2003/article/details/80133327,BlogCommendFromQuerySearch_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xilibi2003/article/details/80133327" target="_blank" title="区块链技术实战学习路线图">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>技术实战<em>学习</em>路线图		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6464</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xilibi2003/article/details/80133327" target="_blank" title="区块链技术实战学习路线图">
+				<span class="desc oneline">引言给迷失在如何学习区块链技术的同学一个指引，区块链技术是随比特币诞生，但区块链技术支撑着比特币的运行，因此要搞明白区块链技术，应该先了解下比特币。比特币如果你是还不知比特币是什么，那就看看比特币是什...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xilibi2003">来自：	<span class="blog_title"> 深入浅出区块链</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_34310276/article/details/81628034,BlogCommendFromQuerySearch_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_34310276/article/details/81628034" target="_blank" title="零基础该如何学习区块链？">
+		<h4 class="text-truncate oneline">
+				零基础该如何<em>学习</em><em>区块链</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1904</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_34310276/article/details/81628034" target="_blank" title="零基础该如何学习区块链？">
+				<span class="desc oneline">区块链未来3到5年应该会出现行业井喷式发展，相应所需的人才必定水涨船高，每一个开发人员都不应该错过这样的机会。区块链涉及的技术很多，很多开发人员看了一些资料后，感觉好像懂了，又好像没懂。如何系统的学习...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_34310276">来自：	<span class="blog_title"> 区块链技术头条</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wjjjwjjj/article/details/80025932,BlogCommendFromQuerySearch_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wjjjwjjj/article/details/80025932" target="_blank" title="学习区块链，我们要懂的基本知识">
+		<h4 class="text-truncate oneline">
+				<em>学习</em><em>区块链</em>，我们要懂的基本知识		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2959</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wjjjwjjj/article/details/80025932" target="_blank" title="学习区块链，我们要懂的基本知识">
+				<span class="desc oneline">什么是区块链？从字面上看：区块链是由一个个记录着各种信息的小区块链接起来组成的一个链条，类似于我们将一块块砖头叠起来，而且叠起来后是没办法拆掉的，每个砖头上面还写着各种信息，包括：谁叠的，什么时候叠的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wjjjwjjj">来自：	<span class="blog_title"> wjjjwjjj的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aaronthon/article/details/82056901,BlogCommendFromQuerySearch_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aaronthon/article/details/82056901" target="_blank" title="学习区块链必读的6本书">
+		<h4 class="text-truncate oneline">
+				<em>学习</em><em>区块链</em>必读的6本书		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					909</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aaronthon/article/details/82056901" target="_blank" title="学习区块链必读的6本书">
+				<span class="desc oneline">&amp;amp;#13;			1区块链：技术驱动金融&amp;amp;#13;&amp;amp;#13;作者:阿尔文德·纳拉亚南等豆瓣评分：8.5&amp;amp;#13;本书从数字货币及智能合约技术层面，解读了区块链技术在金融领...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aaronthon">来自：	<span class="blog_title"> aaronthon的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-1061","con":",,"}' data-track-click='{"mod":"kp_popu_65-1061","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/236?positionId=65&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sureSand/article/details/79255423,BlogCommendFromQuerySearch_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sureSand/article/details/79255423" target="_blank" title="学习区块链（一）--我为什么要学习区块链？">
+		<h4 class="text-truncate oneline">
+				<em>学习</em><em>区块链</em>（一）--我为什么要<em>学习</em><em>区块链</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6075</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sureSand/article/details/79255423" target="_blank" title="学习区块链（一）--我为什么要学习区块链？">
+				<span class="desc oneline">2017年真的是概念频发的一年，上半年人工智能刚刚站稳脚跟，阿尔法狗击败各路围棋高手更是将人工智能送上了天，导致一直平静的算法界也出现了深度学习，但还不过几个月，比特币以一路飙升至2w美元将区块链带向...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sureSand">来自：	<span class="blog_title"> 写点小东西</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36793353/article/details/79089911,BlogCommendFromQuerySearch_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36793353/article/details/79089911" target="_blank" title="fabric中简单搭建区块链浏览器">
+		<h4 class="text-truncate oneline">
+				fabric中简单搭建<em>区块链</em><em>浏览器</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5632</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36793353/article/details/79089911" target="_blank" title="fabric中简单搭建区块链浏览器">
+				<span class="desc oneline">区块链浏览器可以让项目更直观的展示前期准备安装git，mysql，node，npm，各版本如下图一从github上拉取项目gitclonehttps://github.com/hyperledger/...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36793353">来自：	<span class="blog_title"> 卧船听雨眠的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/m0_38086244/article/details/79849097,BlogCommendFromQuerySearch_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/m0_38086244/article/details/79849097" target="_blank" title="区块链学习最佳数据与网站整理">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em><em>学习</em>最佳数据与网站整理		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					619</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/m0_38086244/article/details/79849097" target="_blank" title="区块链学习最佳数据与网站整理">
+				<span class="desc oneline">网站整理:https://blog.csdn.net/zhaoliang1131/article/details/54707986书籍推荐：https://blog.csdn.net/robertku...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/m0_38086244">来自：	<span class="blog_title"> m0_38086244的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/daihanglai7622/article/details/80228357,BlogCommendFromQuerySearch_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/daihanglai7622/article/details/80228357" target="_blank" title="最近几个月区块链学习的总结">
+		<h4 class="text-truncate oneline">
+				最近几个月<em>区块链</em><em>学习</em>的总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1047</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/daihanglai7622/article/details/80228357" target="_blank" title="最近几个月区块链学习的总结">
+				<span class="desc oneline">什么是区块链？比特币  一提起区块链，100百个人里面可能有99个会提到比特币，有人甚至认为区块链就是加密数字货币，这其实是对区块链的一种误解。区块链技术来源于比特币。比特币由中本聪于2008年提出，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/daihanglai7622">来自：	<span class="blog_title"> 黄德凯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010013164/article/details/82901930,BlogCommendFromQuerySearch_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010013164/article/details/82901930" target="_blank" title="推荐一个很好的学习区块链基础知识的网站">
+		<h4 class="text-truncate oneline">
+				推荐一个很好的<em>学习</em><em>区块链</em>基础知识的网站		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					471</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010013164/article/details/82901930" target="_blank" title="推荐一个很好的学习区块链基础知识的网站">
+				<span class="desc oneline">https://ethfans.org/wikis/Home</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010013164">来自：	<span class="blog_title"> 飞扬的青春的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-87","con":",,"}' data-track-click='{"mod":"kp_popu_66-87","con":",,"}'><div id="three_ad38" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad38",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/super_wu1992/article/details/52302672,BlogCommendFromQuerySearch_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/super_wu1992/article/details/52302672" target="_blank" title="基于以太坊的区块链浏览器搭建">
+		<h4 class="text-truncate oneline">
+				基于以太坊的<em>区块链</em><em>浏览器</em>搭建		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/super_wu1992/article/details/52302672" target="_blank" title="基于以太坊的区块链浏览器搭建">
+				<span class="desc oneline">区块链目前发展很火，有很大发展前景，本文主要是在本地私有链搭建成功后，利用web3.js、AngularJS和servlet对搭建的私有链上区块信息包括地址、区块信息、交易信息等信息的展示。效果展示：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/super_wu1992">来自：	<span class="blog_title"> 吴豪超的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_42874184/article/details/81564065,BlogCommendFromQuerySearch_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_42874184/article/details/81564065" target="_blank" title="想要学习区块链编程，该掌握哪些计算机语言？">
+		<h4 class="text-truncate oneline">
+				想要<em>学习</em><em>区块链</em>编程，该掌握哪些计算机语言？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1451</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_42874184/article/details/81564065" target="_blank" title="想要学习区块链编程，该掌握哪些计算机语言？">
+				<span class="desc oneline">随着区块链技术的声名远扬，行业内科研人员对于区块链技术在应用层面的探索也越来越深入，从区块链的整体架构来看，协议层，扩展层，应用层之间的逻辑设计都少不了编程语言的支撑，那么今天来普及一下，区块链技术应...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_42874184">来自：	<span class="blog_title"> weixin_42874184的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/striver_jt/article/details/68485521,BlogCommendFromQuerySearch_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/striver_jt/article/details/68485521" target="_blank" title="区块链学习入门简介（一）">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em><em>学习</em>入门简介（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9704</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/striver_jt/article/details/68485521" target="_blank" title="区块链学习入门简介（一）">
+				<span class="desc oneline">区块链入门简单记录，参照了很多网上的资源，本篇目的是了解区块链是在做一个什么样的事情以及其特点。 近年来，区块链技术正在经历快速发展，由于其具有：去中心，无需信任系统（第三方），开放性，不可篡改等特点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/striver_jt">来自：	<span class="blog_title"> striver_jt的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/programmer_feng/article/details/81136556,BlogCommendFromQuerySearch_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/programmer_feng/article/details/81136556" target="_blank" title="区块链开发入门学习线路图">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>开发入门<em>学习</em>线路图		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					886</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/programmer_feng/article/details/81136556" target="_blank" title="区块链开发入门学习线路图">
+				<span class="desc oneline">区块链是什么？我们可以将区块链可以理解成是一个类似电子表格的数据结构，通过互联网定时在成千上万台节点计算机上进行复制和更新。这种数据结构消除了单个实体集中掌握数据带来的风险。随着区块链应用热度的持续走...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/programmer_feng">来自：	<span class="blog_title"> programmer_feng的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zmzsoftware/article/details/79549805,BlogCommendFromQuerySearch_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zmzsoftware/article/details/79549805" target="_blank" title="区块链是什么，如何学习区块链技术？快速上手">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>是什么，如何<em>学习</em><em>区块链</em>技术？快速上手		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zmzsoftware/article/details/79549805" target="_blank" title="区块链是什么，如何学习区块链技术？快速上手">
+				<span class="desc oneline">一、区块链是什么？二、从技术角度学习区块链技术？一、区块链是什么？区块链有很多的定义，大家的说法都不一样，业界都还没有统一。每个人心中都有自己的哈姆雷特。所以此处就不做定义了。也可以参考其他回答。那么...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zmzsoftware">来自：	<span class="blog_title"> zmzsoftware的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-track-click='{"mod":"kp_popu_67-882","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T43_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gravely/article/details/81504531,BlogCommendFromQuerySearch_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gravely/article/details/81504531" target="_blank" title="【区块链技术】学习资料汇总（持续更新）">
+		<h4 class="text-truncate oneline">
+				【<em>区块链</em>技术】<em>学习</em>资料汇总（持续更新）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1199</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gravely/article/details/81504531" target="_blank" title="【区块链技术】学习资料汇总（持续更新）">
+				<span class="desc oneline">  学习区块链技术光搜一些博客杂文等不能系统的学习，而且资料繁杂，不同的人理解也不同，现在搜集一些资料，以官方文档和权威网站发布的文档为主，涉及到的区块链的基础知识、共识算法、密码学、P2P网络等，准...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gravely">来自：	<span class="blog_title"> gravely的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/z50L2O08e2u4afToR9A/article/details/81187665,BlogCommendFromQuerySearch_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/z50L2O08e2u4afToR9A/article/details/81187665" target="_blank" title="区块链技术体系，快捷学习路径？">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>技术体系，快捷<em>学习</em>路径？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					794</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/z50L2O08e2u4afToR9A/article/details/81187665" target="_blank" title="区块链技术体系，快捷学习路径？">
+				<span class="desc oneline">这两年，数字货币和区块链很火。年初写过一些区块链与比特币的文章，反响也很不错。不少网友催我继续写区块链，我在这个方向未曾深耕，也不敢造次，结合自己的经验，写写区块链涉及的......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/z50L2O08e2u4afToR9A">来自：	<span class="blog_title"> 架构师之路</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hackstoic/article/details/53470467,BlogCommendFromQuerySearch_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hackstoic/article/details/53470467" target="_blank" title="区块链学习资源汇总">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em><em>学习</em>资源汇总		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hackstoic/article/details/53470467" target="_blank" title="区块链学习资源汇总">
+				<span class="desc oneline">#Fabric项目文档https://github.com/hyperledger/fabric/blob/master/docs/protocol-spec.mdhttp://hyperledger...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hackstoic">来自：	<span class="blog_title"> hackstoic的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/shebao3333/article/details/79553018,BlogCommendFromQuerySearch_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/shebao3333/article/details/79553018" target="_blank" title="如何从零开始学习区块链技术">
+		<h4 class="text-truncate oneline">
+				如何从零开始<em>学习</em><em>区块链</em>技术		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4917</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/shebao3333/article/details/79553018" target="_blank" title="如何从零开始学习区块链技术">
+				<span class="desc oneline">很多人迷惑于区块链和以太坊，不知如何学习，本文简单说了一下学习的一些方法和资源。一、以太坊和区块链的关系从区块链历史上来说，先诞生了比特币，当时并没有区块链这个技术和名词，然后业界从比特币中提取了技术...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/shebao3333">来自：	<span class="blog_title"> 新缸中之脑</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012562943/article/details/60779241,BlogCommendFromQuerySearch_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012562943/article/details/60779241" target="_blank" title="区块链相关技术学习总结（1）——区块链以及区块链技术入门详解">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em>相关技术<em>学习</em>总结（1）——<em>区块链</em>以及<em>区块链</em>技术入门详解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5709</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012562943/article/details/60779241" target="_blank" title="区块链相关技术学习总结（1）——区块链以及区块链技术入门详解">
+				<span class="desc oneline">区块链是目前一个比较热门的新概念，蕴含了技术与金融两层概念。从技术角度来看，这是一个牺牲一致性效率且保证最终一致性的的分布式的数据库，当然这是比较片面的。从经济学的角度来看，这种容错能力很强的点对点网...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012562943">来自：	<span class="blog_title"> 一杯甜酒</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-654","con":",,"}' data-track-click='{"mod":"kp_popu_68-654","con":",,"}'><div id="three_ad48" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad48",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 16,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Microsoft Yahei',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yzpbright/article/details/81040957,BlogCommendFromQuerySearch_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yzpbright/article/details/81040957" target="_blank" title="区块链学习计划">
+		<h4 class="text-truncate oneline">
+				<em>区块链</em><em>学习</em>计划		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					482</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yzpbright/article/details/81040957" target="_blank" title="区块链学习计划">
+				<span class="desc oneline">比特币学习5月份开始学习比特币区块链，到现在，这个学习阶段差不多已经结束了。主要以《精通比特币》，比特币白皮书和源码为主，再参考网络上其他资源，包括博客，论坛等。以太坊学习7月份开始要学习以太坊了。超...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yzpbright">来自：	<span class="blog_title"> yzpbright的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o364_s7099_l0_t " target="_blank">
+                        jQuery学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o317_s325_l0_t " target="_blank">
+                        虚拟化技术学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaEgxsMDktZWR1.html" target="_blank">
+                        学习区块链</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaAg1sODItZWR1.html" target="_blank">
+                        区块链学习</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/wanghao72214">
+              <img src="https://avatar.csdn.net/E/C/E/3_wanghao72214.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/10.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/wanghao72214" target="_blank" class="" id="uid">王泽宾</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="20">
+                        <dt><a href="https://blog.csdn.net/wanghao72214?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/wanghao72214?t=1"><span class="count">20</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="6140">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">6140</span></dd>
+        </dl>
+        <dl class="text-center" title="11">
+            <dt>喜欢</dt>
+            <dd><span class="count">11</span></dd>
+        </dl>
+        <dl class="text-center" title="625">
+            <dt>评论</dt>
+            <dd><span class="count">625</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="5级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-5"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="309510">
+                30万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="3559">
+                3559            </dd>
+        </dl>
+        <dl title="15849">
+            <dt>排名：</dt>
+            <dd>1万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv2">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                                   <p>勤写标兵Lv2</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布4篇到6篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-703","con":",,"}' data-track-click='{"mod":"kp_popu_56-703","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左上视窗-20181120 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="7700527946"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wanghao72214/article/details/90372909" target="_blank">轻松学习区块链5 - 工作量证明POW</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wanghao72214/article/details/90316457" target="_blank">轻松学习区块链3 - KV数据库的实现和区块链数据的持久化</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wanghao72214/article/details/90291186" target="_blank">轻松学习区块链2 -  简单区块链的实现</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wanghao72214/article/details/90291166" target="_blank">轻松学习区块链1 - 初识MiniBC区块链</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wanghao72214/article/details/4046182" target="_blank">设计模式之享元模式</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510241">
+                    <span class="title oneline">产品管理</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510305">
+                    <span class="title oneline">技术人经历</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510245">
+                    <span class="title oneline">杂谈</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/519231">
+                    <span class="title oneline">架构师之路</span>
+                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/513392">
+                    <span class="title oneline">给生活加点料</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/510240">
+                    <span class="title oneline">网站架构</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/8888451">
+                    <span class="title oneline">golang</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/wanghao72214/article/category/8957338">
+                    <span class="title oneline">区块链</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/04">
+                    2009年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/03">
+                    2009年3月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/02">
+                    2009年2月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wanghao72214/article/month/2009/01">
+                    2009年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3969594">架构师之路(39)---IoC框架</a>
+					<p class="read">阅读数 <span>52027</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/4046182">设计模式之享元模式</a>
+					<p class="read">阅读数 <span>20199</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3946074">架构师之路(3)---架构师的职责</a>
+					<p class="read">阅读数 <span>19097</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/3923366">架构师之路(1)---面向过程和面向对象 王泽宾</a>
+					<p class="read">阅读数 <span>18760</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wanghao72214/article/details/4017507">设计模式之观察者模式</a>
+					<p class="read">阅读数 <span>17984</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/sun0201" class="user-name" target="_blank">sun0201：</a>楼主对 ioc思想的阐述比较清晰了。若有结合具体的简单实现做配合那就完美了。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_42167241" class="user-name" target="_blank">weixin_42167241：</a>这篇文章9年前都有了，而我今天才读到，前辈高人甚多啊                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/SweetyoYY" class="user-name" target="_blank">SweetyoYY：</a>结合实际                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wanghao72214/article/details/3969594#comments">架构师之路(39)---IoC框架</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_30387521" class="user-name" target="_blank">qq_30387521：</a>牛皮...深度好文...                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-1158","con":",,"}' data-track-click='{"mod":"kp_popu_57-1158","con":",,"}'><!-- 广告位：PC-博客内页左下视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6272567',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="https://dup.baidustatic.com/js/os.js"></script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box ">
+			<button class=" low-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>0</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/wanghao72214/article/details/90316457" title="轻松学习区块链3 - KV数据库的实现和区块链数据的持久化">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/wanghao72214/article/details/90372909" title="轻松学习区块链5 - 工作量证明POW">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/wanghao72214/article/details/90316457" title="轻松学习区块链3 - KV数据库的实现和区块链数据的持久化">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/wanghao72214/article/details/90372909" title="轻松学习区块链5 - 工作量证明POW">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 88;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 34;
+    var articleId = "90349561";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/wanghao72214/article/details/90349561";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "轻松学习区块链4 - 区块链浏览器与人机交互 - 王泽宾";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["\u8f7b\u677e","\u5b66\u4e60","\u533a\u5757\u94fe","\u533a\u5757\u94fe","\u6d4f\u89c8\u5668","\u4eba\u673a\u4ea4\u4e92"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"sportshark","nick_name":"\u674e\u8d6b\u7684\u535a\u5ba2","avatar":"https:\/\/avatar.csdn.net\/6\/2\/5\/3_sportshark.jpg","is_expert":true,"article_count":38,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"cuiran","nick_name":"cuiran","avatar":"https:\/\/avatar.csdn.net\/4\/7\/C\/3_cuiran.jpg","is_expert":true,"article_count":295,"rank":"832"},{"user_name":"xilibi2003","nick_name":"Tiny\u718a","avatar":"https:\/\/avatar.csdn.net\/3\/4\/8\/3_xilibi2003.jpg","is_expert":true,"article_count":105,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u012562943","nick_name":"\u4e00\u676f\u751c\u9152","avatar":"https:\/\/avatar.csdn.net\/B\/E\/8\/3_u012562943.jpg","is_expert":true,"article_count":1075,"rank":"214"},{"user_name":"wo541075754","nick_name":"\u4e8c\u5e08\u5144-\u516c\u4f17\u53f7-\u7a0b\u5e8f\u65b0\u89c6\u754c","avatar":"https:\/\/avatar.csdn.net\/2\/7\/F\/3_wo541075754.jpg","is_expert":true,"article_count":425,"rank":"495"},{"user_name":"wanghao72214","nick_name":"\u738b\u6cfd\u5bbe","avatar":"https:\/\/avatar.csdn.net\/E\/C\/E\/3_wanghao72214.jpg","is_expert":true,"article_count":21,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"zhaowu_ji","nick_name":"scanEOS","avatar":"https:\/\/avatar.csdn.net\/7\/3\/A\/3_zhaowu_ji.jpg","is_expert":false,"article_count":4,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"cmm0401","nick_name":"stormchenmeng","avatar":"https:\/\/avatar.csdn.net\/0\/3\/4\/3_cmm0401.jpg","is_expert":false,"article_count":390,"rank":"8000+"},{"user_name":"macair123","nick_name":"macair123","avatar":"https:\/\/avatar.csdn.net\/C\/3\/3\/3_macair123.jpg","is_expert":false,"article_count":55,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"sureSand","nick_name":"lightTrace","avatar":"https:\/\/avatar.csdn.net\/F\/6\/4\/3_suresand.jpg","is_expert":false,"article_count":165,"rank":"\u5343\u91cc\u4e4b\u5916"}];
+	var articleType = 1;
+	var CopyrightContent = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

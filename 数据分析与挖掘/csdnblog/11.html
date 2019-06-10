@@ -1,0 +1,3727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/androidyue/article/details/90146118"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"Kotlin 和 Flutter 对于开发者究竟意味着什么？ - Thinkblog"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Kotlin 和 Flutter 对于开发者究竟意味着什么？ - Thinkblog - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/androidyue\/article\/details\/90146118","appid":"1563894916825412","title":"Kotlin \u548c Flutter \u5bf9\u4e8e\u5f00\u53d1\u8005\u7a76\u7adf\u610f\u5473\u7740\u4ec0\u4e48\uff1f - Thinkblog","images":["https:\/\/img-blog.csdnimg.cn\/20190512214931322.gif"],"pubDate":"2019-06-05T19:58:06"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "BossDarcy";
+        var blog_address = "https://blog.csdn.net/androidyue";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/androidyue/article/details/90146118"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "Kotlin 和 Flutter 对于开发者究竟意味着什么？ - Thinkblog";
+        
+        var nickName = "技术小黑屋";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/androidyue/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/BossDarcy/article/details/90146118";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-923","con":",,"}' data-track-click='{"mod":"kp_popu_476-923","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.7/indexSuperise.js?20190508180304"></script>
+<script>
+window.csdn.indexSuperise({
+zIndex:11000,
+      smallMoveImg: '//img-ads.csdn.net/2019/201905051104467314.png',
+      bigMoveImg: '//img-ads.csdn.net/2019/201905051104363598.png',
+     link:'//edu.csdn.net/topic/ai30?utm_source=blogpopup',
+boxStyle:140,
+trackSuperId:476,
+smallMove:'notMove',  
+trackSId:923
+    });
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">Kotlin 和 Flutter 对于开发者究竟意味着什么？</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年05月12日 21:53:48</span>
+          <a class="follow-nickName" href="https://me.csdn.net/BossDarcy" target="_blank">技术小黑屋</a>
+          <span class="read-count">阅读数：5246</span>
+          
+                          <span class="tags-box artic-tag-box">
+                <span class="label">标签：</span>
+                                  <a data-track-click='{"mod":"popu_626","con":"Java"}' data-track-view='{"mod":"popu_626","con":"Java"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=Java&t=blog" target="_blank">Java                                    <a data-track-click='{"mod":"popu_626","con":"Android"}' data-track-view='{"mod":"popu_626","con":"Android"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=Android&t=blog" target="_blank">Android                                    <a data-track-click='{"mod":"popu_626","con":"Kotlin"}' data-track-view='{"mod":"popu_626","con":"Kotlin"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=Kotlin&t=blog" target="_blank">Kotlin                                    <a data-track-click='{"mod":"popu_626","con":"Flutter"}' data-track-view='{"mod":"popu_626","con":"Flutter"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=Flutter&t=blog" target="_blank">Flutter                                  </a>
+              </span>
+                                      <div class="tags-box space">
+                <span class="label">个人分类：</span>
+                                  <a class="tag-link" href="https://blog.csdn.net/BossDarcy/article/category/728797" target="_blank">Android                                    <a class="tag-link" href="https://blog.csdn.net/BossDarcy/article/category/758119" target="_blank">Java                                  </a>
+              </div>
+                                          </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+          <div class="htmledit_views" id="content_views">
+            <p>作者 | 段建华</p>
+
+<p>责编 | 唐小引</p>
+
+<p>出品 | CSDN（ID：CSDNnews）</p>
+
+<p> </p>
+
+<p><strong>写在前面</strong></p>
+
+<p>【CSDN 编者按】近些年来，编程语言流行度的变化其实不大，在 <a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAwODM4MA==&amp;mid=2650719584&amp;idx=1&amp;sn=f232f0205d0a53bfb2240ed82ff05444&amp;chksm=bea6b4b389d13da5760b454d447155ce13d38a97ccd70d9a731cc32204462d71ff37be74967f&amp;scene=21#wechat_redirect" rel="nofollow">TIOBE 编程语言排行榜</a>上，Java、C、C++ 固若金山，也就只有 Python 会攻城略地成为第四。在这 TOP3 之中，Java 以其非常优秀的普适性，可以用于前后端开发，再加上非常成熟的 JVM 虚拟机以及整个 Java 生态，让 Java 这个老大哥常年雄踞 TOP1，在 CSDN 的 Java 相关的文章之中，常有用户留言调侃“Java：你们随便争，反正我 Java 是第一”也可窥见一二。</p>
+
+<p>而从两年前 Google 正式宣布 Kotlin 成为 Android 官方支持的语言开始，对于“Kotlin 即将取代 Java”的讨论便甚嚣尘上从未停歇。彼时，Kotlin 这个诞生于 2011 年的小伙子让已经使用了 Java 多年的 Android 开发者们有了点不可言说的滋味。同时，在过去的数年之间，伴随着 Oracle 与 Google 纷争不止，业界“Oracle 要玩死 Java”之声亦是不绝于耳。</p>
+
+<p><img alt="" class="has" height="1" src="https://img-blog.csdnimg.cn/20190512214931251.gif" width="1" /></p>
+
+<p>Java 8 更新，Oracle 将“删除”按钮设置成了高亮</p>
+
+<p>2017 年，面对着 Kotlin 这个 Android 开发新贵，Realm 直接给出了一个预测，就是“到 2018 年底，在 Android 开发领域，Kotlin 将超越 Java，成为开发 Android 应用的第一语言”。</p>
+
+<p>如今，时间上虽然稍晚了几个月，但这份预测却成为了现实。</p>
+
+<p>那么，当今天 Google I/O 大会上，Kotlin 取代 Java 成为 Android App 开发的首选语言之时，对于我们移动开发者而言，究竟意味着什么？同时，当 Flutter 带着一统 App、Web、桌面及嵌入式开发之势而来之时，移动开发者该怎么办？对此，<strong>CSDN 特别邀请在国内 Android 圈子中较早研究 Kotlin 的段建华（@技术小黑屋）来解答目前开发者们最为关心的问题：</strong></p>
+
+<p> </p>
+
+<p> </p>
+
+<p><strong>为什么 Google 会越过 Java 让 Kotlin First？</strong></p>
+
+<p> </p>
+
+<p>采用 Kotlin 与 Oracle 版权有关系么？</p>
+
+<p>其实可能没有关系。</p>
+
+<p>这场起自 2010 年的诉讼案，几经反转，曾一度惊动美国最高法院，从最初的专利和版权侵权到最后聚焦在 Google 是否合理使用了 Java 的 API。但是 Oracle 自始至终都不是在控告 Google 允许开发者使用 Java 来开发应用程序。</p>
+
+<p>而真正让 Kotlin 被 Google 采用的原因其实是 Kotlin 自身的优点，譬如安全、简洁、实用，以及与 Java 可交互良好等特点。除此之外，Kotlin 在相对很早的时候就在国外的知名公司用来开发 Android App，有着不错的氛围和环境，这也为其裂变发展贡献了不小的功劳。</p>
+
+<p> </p>
+
+<p> </p>
+
+<p><img alt="" class="has" height="1" src="https://img-blog.csdnimg.cn/20190512214931322.gif" width="1" /></p>
+
+<p><strong>Kotlin First 对于 Android 开发者究竟意味着什么？</strong></p>
+
+<p> </p>
+
+<p>首先对于 Google 来说，应该意味着更进一步地放弃 Java。这会导致更多的 Android 库出现对应的 Kotlin 实现，甚至可能是只有 Kotlin 版本，Android Studio IDE 也会出现更多的倾向于 Kotlin 的特性和支持等。<strong>结果可能会是 App 开发者进一步向 Kotlin 靠拢，而 Java 则相应地被进一步孤立。</strong></p>
+
+<p>其次，对于 Android 开发者来说，当本届 I/O 大会 Google 宣布 Kotlin 作为 Android 首选开发语言那一刻，再次证明我们使用 Kotlin 是正确的。内心都是无比 Exciting，充盈着一种满满的被认可感，而这势必会让更多的 Android 开发者投向 Kotlin 的怀抱。</p>
+
+<p>同时，至关重要的是体现在业务上，对于管理者来说，会有更大的信心和更强的动力去推动团队完成从 Java 到 Kotlin 的转变。</p>
+
+<p>事实上，当前在 Android 研发的招聘中，大部分招聘 JD 都会包含希望求职者具备 Kotlin 编码能力的描述，而面试者的简历也会提到自己学习或者项目应用 Kotlin 等内容。</p>
+
+<p>并且，目前笔者从各种渠道了解到，大部分的公司都已经使用 Kotlin 作为首选开发语言，而且积极效果反馈明显。</p>
+
+<p>看完移动端，我们再看服务端，不同于 Java 在后端的良好表现。尽管就 Kotlin 来说，除了前文所述的优点之外，协程是一大吸引，但 Kotlin 在中后台开发人员中的流行度可能并不会像在 Android 上这么顺利，究其原因，主要还是：</p>
+
+<ul><li>
+	<p>缺乏官方权威或大公司背书来提振威望；</p>
+	</li>
+	<li>
+	<p>相关的框架需要进一步丰富；</p>
+	</li>
+</ul><p>CSDN 编者注：对于这一点，在 CSDN《<a href="http://mp.weixin.qq.com/s?__biz=MjM5MjAwODM4MA==&amp;mid=2650714961&amp;idx=1&amp;sn=ce5be37a7b95e1a4296a76a106408a67&amp;chksm=bea6c28289d14b94512e2442c3db3bf8534a766d86feb5caebec09a4a7b287b58b5f5e59fe43&amp;scene=21#wechat_redirect" rel="nofollow">2018 - 2019 中国开发者调查报告</a>》中，拥有十几年移动开发经验的轻芒联合创始人范怀宇对此表示：Java 的 Web 框架经过千锤百炼已经可以支撑足够大的并发，JVM 经过长年优化性能表现也非常出众，而 Java 的各类库、统一的编程模型、丰富的人才储备，可以满足各种场景的诉求。</p>
+
+<ul><li>
+	<p>相应的中文社区和氛围需要增强。</p>
+	</li>
+</ul><p>但无论如何，Kotlin 的确称得上是 Java 程序员近在咫尺的小确幸，你需要做的就是抓住它，不要错过。</p>
+
+<p> </p>
+
+<p> </p>
+
+<p><strong>Google 同推 Flutter 和 Kotlin，那么移动开发者该如何做选择？</strong></p>
+
+<p> </p>
+
+<p>我们再来看 Google 在移动端另一重推的框架，Flutter 自问世伊始便被寄予厚望，从开始的支持 Android 和 iOS 开发到现在的全平台（Mobile、Desktop、Web、Embedded），几近于真正地实现了数年来程序员梦寐以求的“Write once, run anywhere”的愿景。</p>
+
+<p> </p>
+
+<p>因此相对而言，Flutter 显得更加有诱惑力，因为它是一个跨平台开发的解决方案，我想这也是大多数人给出的答案。</p>
+
+<p>但是也有很多原因会导致你无法选用 Flutter，如下不完全列举：</p>
+
+<ul><li>
+	<p>Flutter 需要使用 Dart 语言，没有第二语言。Dart 令人诟病的方面也不少；</p>
+	</li>
+	<li>
+	<p>对现有技术投入较多导致沉默成本过大，甚至是难以负担；</p>
+	</li>
+	<li>
+	<p>保守主义，避免过早地对某项技术投入资源；</p>
+	</li>
+	<li>
+	<p>领域限制，Flutter 无法满足要求。</p>
+	</li>
+</ul><p><strong>Kotlin 的被钦定可以解读为 Android 开始逐渐放弃 Java 语言这个开发依赖，而 Flutter 的推出可以被理解成 Google 开始放弃 Android，迎接新操作系统 Google Fuchsia 的准备。</strong></p>
+
+<p>出于综合考虑且必须二选一的情况下，<strong>建议你选择 Flutter</strong>，但是如果你有兴趣见识一种比 Java 更安全，更简洁，更实用，更优雅的语言的话，我也推荐你学一学 Kotlin。</p>
+
+<p>Flutter 很有前途，但 Kotlin 也会让你欲罢不能，这确实是一件麻烦事。</p>
+
+<p>基于同时，对于我们所有技术人来说，一个非常头疼且不由得恐慌的问题，那便是<strong>如何应对日新月异的技术</strong>？</p>
+
+<p>这可能是越来越多的以工程为主的开发者面临的问题，因为今天有 Kotlin 和 Flutter，明天或许就会冒出来 Gotlin、Hlutter 等新的技术。</p>
+
+<p>日新月异层出不穷，不断追求学习并不现实，反而有可能把自己搞的很累，甚至是产生负面效果。新技术固然可以学习，但是作为技术人，获得完善的素养显得更加意义深远。</p>
+
+<p>笔者认为一个技术人员想要具备完善的素养，需要朝着这些方向努力：</p>
+
+<ul><li>
+	<p>夯实基础；</p>
+	</li>
+	<li>
+	<p>学好英语；</p>
+	</li>
+	<li>
+	<p>提升学习能力；</p>
+	</li>
+	<li>
+	<p>坚持总结归纳问题的习惯；</p>
+	</li>
+	<li>
+	<p>增强分析问题，解决问题的能力。</p>
+	</li>
+</ul><p><strong>一个技术人员能够走多远，靠的不是会某种技术，而是完善以上高质量的素养。</strong></p>
+
+<p> </p>
+
+<h2>Kotlin 相关文章延伸阅读</h2>
+
+<ul><li><a href="https://droidyue.com/blog/2018/01/31/how-to-speed-up-kotlin-compilation/" rel="nofollow">关于应用Kotlin后的编译速度问题</a></li>
+	<li><a href="https://droidyue.com/blog/2017/05/21/my-opinion-of-kotlins-becoming-an-official-language-of-android/" rel="nofollow">如何看待 Kotlin 成为 Android 官方支持开发语言？</a></li>
+	<li><a href="https://droidyue.com/blog/2017/05/18/why-do-i-turn-to-kotlin/" rel="nofollow">为什么我要改用Kotlin</a></li>
+	<li><a href="https://droidyue.com/blog/2017/05/08/how-to-study-kotlin/" rel="nofollow">研究学习Kotlin的一些方法</a></li>
+</ul><p> </p>
+          </div>
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/androidyue/article/details/90146118,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/androidyue/article/details/90146118,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-386","con":",,"}' data-track-click='{"mod":"kp_popu_58-386","con":",,"}'><div style="width:100%;background:#fff;">
+<script type="text/javascript" src="//rabc1.iteye.com/production/resource/web/6xwm4l.js?lg=ydmpioh"></script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="90146118">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sk719887916/article/details/82687072,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sk719887916/article/details/82687072" target="_blank" title="别扯了，学Flutter，Android 就不会凉？">
+		<h4 class="text-truncate oneline">
+				别扯了，学<em>Flutter</em>，Android 就不会凉？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sk719887916/article/details/82687072" target="_blank" title="别扯了，学Flutter，Android 就不会凉？">
+				<span class="desc oneline">又是我亲自挥笔了，干脆不吃饭，趁着晚饭时间来完稿，我一般动笔就会很直言不讳，所以今天来说说最近常听的Flutter。Flutter是什么鬼？Flutter是谷歌的推出的移动UI框架，可以快速在iOS和...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sk719887916">来自：	<span class="blog_title"> Tamic （大白）</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/csdnnews/article/details/80746096,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/csdnnews/article/details/80746096" target="_blank" title="抛弃 Java 改用 Kotlin 的六个月后，我后悔了">
+		<h4 class="text-truncate oneline">
+				抛弃 Java 改用 <em>Kotlin</em> 的六个月后，我后悔了		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/csdnnews/article/details/80746096" target="_blank" title="抛弃 Java 改用 Kotlin 的六个月后，我后悔了">
+				<span class="desc oneline">点击上方“CSDN”，选择“置顶公众号”关键时刻，第一时间送达！毫无疑问，Kotlin目前很受欢迎，业界甚至有人认为其将取代Java的霸主地位。它提供了Null......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/csdnnews">来自：	<span class="blog_title"> CSDN资讯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/plokmju88/article/details/79710963,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/plokmju88/article/details/79710963" target="_blank" title="【译】Java、Kotlin、RN、Flutter 开发出来的 App 大小，你了解过吗？">
+		<h4 class="text-truncate oneline">
+				【译】Java、<em>Kotlin</em>、RN、<em>Flutter</em> 开发出来的 App 大小，你了解过吗？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3906</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/plokmju88/article/details/79710963" target="_blank" title="【译】Java、Kotlin、RN、Flutter 开发出来的 App 大小，你了解过吗？">
+				<span class="desc oneline">现在开发App的方式非常多，原生、ReactNative、Flutter都是不错的选择。那你有没有关注过，使用不同的方式，编译生成的Apk，大小是否会有什么影响呢？本文就以一个最简单的HelloWor...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/plokmju88">来自：	<span class="blog_title"> 承香墨影的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ltl451011/article/details/7106296,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ltl451011/article/details/7106296" target="_blank" title="工作到底意味着什么？">
+		<h4 class="text-truncate oneline">
+				工作到底<em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					822</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ltl451011/article/details/7106296" target="_blank" title="工作到底意味着什么？">
+				<span class="desc oneline">我们为了什么而工作呢？我们应该怎样选择我们的工作呢？有的人他们的兴趣就是他们的工作，这些人中，有的人很快乐，但也有的人不快乐，因为他们没有了其他的兴趣，天天都在工作。有的人他们做着自己不愿意做的事情，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ltl451011">来自：	<span class="blog_title"> 燕龙安的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-78","con":",,"}' data-track-click='{"mod":"kp_popu_59-78","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3491668",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_33675507/article/details/86973598,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33675507/article/details/86973598" target="_blank" title="Flutter 常用功能介绍">
+		<h4 class="text-truncate oneline">
+				<em>Flutter</em> 常用功能介绍		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					80</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33675507/article/details/86973598" target="_blank" title="Flutter 常用功能介绍">
+				<span class="desc oneline">Json序列化和反序列化首先，默认的JSON.decode是将一个json格式的string转化成一个Map&amp;amp;lt;String,dynamic&amp;amp;gt;类型的Map，是无法直接换成Ob...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33675507">来自：	<span class="blog_title"> weixin_33675507的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/MakerCloud/article/details/81560987,BlogCommendFromBaidu_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/MakerCloud/article/details/81560987" target="_blank" title="跨平台开发之react-native、weex、kotlin-native、flutter比较">
+		<h4 class="text-truncate oneline">
+				跨平台开发之react-native、weex、<em>kotlin</em>-native、<em>flutter</em>比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3984</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/MakerCloud/article/details/81560987" target="_blank" title="跨平台开发之react-native、weex、kotlin-native、flutter比较">
+				<span class="desc oneline">跨平台一直是老生常谈的话题，cordova、ionic、react-native、weex、kotlin-native、flutter等跨平台框架的百花齐放，颇有一股推倒原生开发者的势头。本文将对当下...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/MakerCloud">来自：	<span class="blog_title"> MakerCloud的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Brightshadow11111/article/details/80404122,BlogCommendFromBaidu_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Brightshadow11111/article/details/80404122" target="_blank" title="对flutter的一些认识">
+		<h4 class="text-truncate oneline">
+				对<em>flutter</em>的一些认识		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5876</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Brightshadow11111/article/details/80404122" target="_blank" title="对flutter的一些认识">
+				<span class="desc oneline">官方文档也大致看了两遍，写了几天的flutter，基本上对于flutter有了一些认识那么flutter是什么：它是google的一套跨平台框架，使用dart语言，支持android，ios，貌似还支...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Brightshadow11111">来自：	<span class="blog_title"> 桃花源</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/CSDN5529/article/details/79025663,BlogCommendESEnWordWeight_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/CSDN5529/article/details/79025663" target="_blank" title="关于Python中的self用法的详细解释   +  深度机器学习中的batch">
+		<h4 class="text-truncate oneline">
+				关于Python中的self用法的详细解释   +  深度机器学习中的batch		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1664</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/CSDN5529/article/details/79025663" target="_blank" title="关于Python中的self用法的详细解释   +  深度机器学习中的batch">
+				<span class="desc oneline">http://blog.csdn.net/CLHugh/article/details/75000104    (Python中self用法详解)写的很不错，推荐看一看...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/CSDN5529">来自：	<span class="blog_title"> CSDN5529的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/L_xiaole/article/details/52182568,BlogCommendESEnWordWeight_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/L_xiaole/article/details/52182568" target="_blank" title="xutils3框架之数据库使用详解！">
+		<h4 class="text-truncate oneline">
+				xutils3框架之数据库使用详解！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/L_xiaole/article/details/52182568" target="_blank" title="xutils3框架之数据库使用详解！">
+				<span class="desc oneline">这段时间公司做项目，基本每天都要和数据库打交道，当初选择使用xutils3框架；刚开始使用的时候，也是遇到很多坑，小弟在此一一总结一下，希望能帮到大家，顺便自己也做个笔记。如何导入SDK我就不说了，先...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/L_xiaole">来自：	<span class="blog_title"> L_xiaole的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-43","con":",,"}' data-track-click='{"mod":"kp_popu_60-43","con":",,"}'><div id="three_ad8" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad8",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xmt1139057136/article/details/33725825,BlogCommendESEnWordWeight_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xmt1139057136/article/details/33725825" target="_blank" title="jqm文件上传,上传图片,jqm的表单操作,jqm的ajax的使用,jqm文件操作大全,文件操作demo">
+		<h4 class="text-truncate oneline">
+				jqm文件上传,上传图片,jqm的表单操作,jqm的ajax的使用,jqm文件操作大全,文件操作demo		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xmt1139057136/article/details/33725825" target="_blank" title="jqm文件上传,上传图片,jqm的表单操作,jqm的ajax的使用,jqm文件操作大全,文件操作demo">
+				<span class="desc oneline">最近在论坛中看到，在使用html5中上传图片或文件，出现各种问题。这一方面，我也一直没有做过，今天就抽出了一点时间来学习一下。现在的示例已经ok了，我就给大家分享一下，希望对大家有帮助。好吧，我们先看...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xmt1139057136">来自：	<span class="blog_title"> xmt1139057136的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mp624183768/article/details/77609183,BlogCommendESEnWordWeight_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mp624183768/article/details/77609183" target="_blank" title="java 基础之入门第一个坑 错误：找不到或无法加载主类">
+		<h4 class="text-truncate oneline">
+				java 基础之入门第一个坑 错误：找不到或无法加载主类		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					882</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mp624183768/article/details/77609183" target="_blank" title="java 基础之入门第一个坑 错误：找不到或无法加载主类">
+				<span class="desc oneline">那天兴高采烈和同志们一起安装了java环境是一样的文件结果只有我失败了刚入门的就是用手敲一份Helloword然后编译的时候总是我出错就是错误：找不到或无法加载主类解决方案 不要把jdk和jre放在同...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mp624183768">来自：	<span class="blog_title"> 丿灬安之若死</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/Gouyoge/524303,BlogCommendFromQuerySearch_11"}'>
+		<a href="https://download.csdn.net/download/Gouyoge/524303" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						c#<em>究竟</em>能给<em>开发者</em>带来<em>什么</em>					</h4>
+					<span class="data float-right">07-03</span>
+				</div>
+				<div class="desc oneline">
+						c#究竟能给开发者带来什么				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_33851429/article/details/87819238,BlogCommendFromQuerySearch_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33851429/article/details/87819238" target="_blank" title="词汇量究竟意味着什么？">
+		<h4 class="text-truncate oneline">
+				词汇量<em>究竟</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					95</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33851429/article/details/87819238" target="_blank" title="词汇量究竟意味着什么？">
+				<span class="desc oneline">图片发自简书App【导语】能够运用语言决定了人与其它物种之间的绝对差别。语言运用能力的高低决定了人和人之间的绝对差别。词汇量的多少决定了语言运动能力的绝对差别。由此我们可以推论：词汇量是决定个人成功的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33851429">来自：	<span class="blog_title"> weixin_33851429的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jILRvRTrc/article/details/89934689,BlogCommendFromQuerySearch_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jILRvRTrc/article/details/89934689" target="_blank" title="【即将开始】Google I/O 2019">
+		<h4 class="text-truncate oneline">
+				【即将开始】Google I/O 2019		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					320</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jILRvRTrc/article/details/89934689" target="_blank" title="【即将开始】Google I/O 2019">
+				<span class="desc oneline">2019GoogleI/O大会即将在几个小时后开始，是时候和7000多位现场的开发者们一起目睹一年一度的开发盛事了！看直播，赢礼品！今年的开发者大会将通过多家平......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jILRvRTrc">来自：	<span class="blog_title"> 谷歌开发者</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-622","con":",,"}' data-track-click='{"mod":"kp_popu_61-622","con":",,"}'><script type="text/javascript" src="//rabc1.iteye.com/common/web/production/79m9.js?f=aszggcwz"></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34270865/article/details/85890281,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34270865/article/details/85890281" target="_blank" title="工作，究竟意味着什么">
+		<h4 class="text-truncate oneline">
+				工作，<em>究竟</em><em>意味着</em><em>什么</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					77</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34270865/article/details/85890281" target="_blank" title="工作，究竟意味着什么">
+				<span class="desc oneline">  自从汪峰和章子怡坠入爱河之后，这个男人快被人骂烂了。人品咱且不论，事实上他的歌还真有些不错的。  今天在驾校一点通做题，备考明天的科四，本来听KatieMelua的爵士乐，后来想换个味道，就随机播...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34270865">来自：	<span class="blog_title"> weixin_34270865的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_33419925/article/details/79452696,BlogCommendFromQuerySearch_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_33419925/article/details/79452696" target="_blank" title="你好，Flutter">
+		<h4 class="text-truncate oneline">
+				你好，<em>Flutter</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					703</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_33419925/article/details/79452696" target="_blank" title="你好，Flutter">
+				<span class="desc oneline">什么是Flutter2018年2月27日，在2018世界移动大会上，Google发布了Flutter的第一个Beta版本。Flutter是Google用以帮助开发者在Ios和Android两个平台开发...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_33419925">来自：	<span class="blog_title"> qq_33419925的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ch97CKd/article/details/80906103,BlogCommendFromThirdServiceAll_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ch97CKd/article/details/80906103" target="_blank" title="你可能不知道Flutter到底有多火">
+		<h4 class="text-truncate oneline">
+				你可能不知道<em>Flutter</em>到底有多火		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3189</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ch97CKd/article/details/80906103" target="_blank" title="你可能不知道Flutter到底有多火">
+				<span class="desc oneline">2018年2月27日，在2018世界移动大会上，Google发布了Flutter的第一个Beta版本。Flutter是Google用以帮助开发者在iOS和Android两......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ch97CKd">来自：	<span class="blog_title"> 何俊林</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/JafarOne/article/details/83585653,BlogCommendFromThirdServiceAll_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/JafarOne/article/details/83585653" target="_blank" title="Flutter从入门到放弃之坑的神奇之处？">
+		<h4 class="text-truncate oneline">
+				<em>Flutter</em>从入门到放弃之坑的神奇之处？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					834</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/JafarOne/article/details/83585653" target="_blank" title="Flutter从入门到放弃之坑的神奇之处？">
+				<span class="desc oneline">坑一关于环境变量的配置，这里要注意几点，不然你将会在这里卡死。这里只说MacOS环境变量的配置。因为我是Mac首先command+shift+.打开隐藏文件如果你是用的是自带的终端，请在这个文件中配置...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/JafarOne">来自：	<span class="blog_title"> JafarOne的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_33622699/article/details/81942434,BlogCommendFromThirdServiceAll_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_33622699/article/details/81942434" target="_blank" title="Kotlin + MVP + Flutter ，让你可以在自己的项目中集成 Flutter并使用">
+		<h4 class="text-truncate oneline">
+				<em>Kotlin</em> + MVP + <em>Flutter</em> ，让你可以在自己的项目中集成 <em>Flutter</em>并使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4141</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_33622699/article/details/81942434" target="_blank" title="Kotlin + MVP + Flutter ，让你可以在自己的项目中集成 Flutter并使用">
+				<span class="desc oneline">通过学习本片文章中的知识点，你可以避免掉很多坑，从而轻松的实现Flutter的集成。简介1.KotlinKotlin，由JetBrains于2011.07推出，一款面向JVM在Java虚拟机上运行的静...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_33622699">来自：	<span class="blog_title"> qq_33622699的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-556","con":",,"}' data-track-click='{"mod":"kp_popu_62-556","con":",,"}'><div id="three_ad18" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad18",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36017059/article/details/82415446,BlogCommendFromThirdServiceAll_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36017059/article/details/82415446" target="_blank" title="kotlin写app的优缺点">
+		<h4 class="text-truncate oneline">
+				<em>kotlin</em>写app的优缺点		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					951</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36017059/article/details/82415446" target="_blank" title="kotlin写app的优缺点">
+				<span class="desc oneline">1.省代码，省代码，省代码，同比代码减少三分之一以上，代码结构很清晰，尤其在kotlin+kotlin扩展插件的使用2.省去了很多空判断，异常的判断3.可能报错类似mvvm那样新奇，但是仔细看看也没啥...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36017059">来自：	<span class="blog_title"> 墨家巨子-玄者</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/csdnnews/article/details/84862506,BlogCommendFromThirdServiceAll_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/csdnnews/article/details/84862506" target="_blank" title="Google 要用 Flutter 一统移动、桌面开发江湖？">
+		<h4 class="text-truncate oneline">
+				Google 要用 <em>Flutter</em> 一统移动、桌面开发江湖？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1755</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/csdnnews/article/details/84862506" target="_blank" title="Google 要用 Flutter 一统移动、桌面开发江湖？">
+				<span class="desc oneline">“Flutter的核心是一个独立的可执行二进制文件，所以它不仅能改变移动开发的世界，也能改变桌面开发的世界。你只需编写一次代码，就可以在Android、iOS、Win......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/csdnnews">来自：	<span class="blog_title"> CSDN资讯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lihongzhai/article/details/52090216,BlogCommendESEnWordWeight_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lihongzhai/article/details/52090216" target="_blank" title="新工必看：工作对于你意味着什么">
+		<h4 class="text-truncate oneline">
+				新工必看：工作<em>对于</em>你<em>意味着</em><em>什么</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3290</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lihongzhai/article/details/52090216" target="_blank" title="新工必看：工作对于你意味着什么">
+				<span class="desc oneline">我经常对加入团队的新人都要说一句话，你到这里工作，我跟你同事，是一种缘分，我不求也没有能力承诺之后的日子你的职业发展会如何，因为谁都知道，来来路都是自己走出来的，而一起工作的这个缘分，实在是也坚持不了...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lihongzhai">来自：	<span class="blog_title"> 五角大寨</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/csdnnews/article/details/79366591,BlogCommendESEnWordWeight_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/csdnnews/article/details/79366591" target="_blank" title="这么糟糕的代码，真的是我以前写的吗？">
+		<h4 class="text-truncate oneline">
+				这么糟糕的代码，真的是我以前写的吗？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1326</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/csdnnews/article/details/79366591" target="_blank" title="这么糟糕的代码，真的是我以前写的吗？">
+				<span class="desc oneline">点击上方“CSDN”，选择“置顶公众号”关键时刻，第一时间送达！作者简介：Zm，爱生活，爱分享。近五年的实际开发经验，多个项目的积累与总结，在代码中经历太多的喜怒哀乐。本文来自作者Zm在GitChat...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/csdnnews">来自：	<span class="blog_title"> CSDN资讯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/zhuangch/10685035,BlogCommendFromQuerySearch_23"}'>
+		<a href="https://download.csdn.net/download/zhuangch/10685035" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>Flutter</em>开发语言dart_in_action, android开发_<em>kotlin</em>_in_action					</h4>
+					<span class="data float-right">09-24</span>
+				</div>
+				<div class="desc oneline">
+						移动开发Kotlin in action完整清晰版，google移动跨平台开发Flutter官方开发语言dart in action				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-555","con":",,"}' data-track-click='{"mod":"kp_popu_63-555","con":",,"}'><div id="three_ad23" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad23",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/k7Jz78GeJJ/article/details/79119569,BlogCommendFromQuerySearch_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/k7Jz78GeJJ/article/details/79119569" target="_blank" title="区块链｜对于产品，对于行业究竟意味着什么？">
+		<h4 class="text-truncate oneline">
+				区块链｜<em>对于</em>产品，<em>对于</em>行业<em>究竟</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1485</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/k7Jz78GeJJ/article/details/79119569" target="_blank" title="区块链｜对于产品，对于行业究竟意味着什么？">
+				<span class="desc oneline">作者：小李没有子全文共3510字1图，阅读需要9分钟————/BEGIN/————随着比特币价格的飙升、ICO圈钱，区块链再次被推上了风口浪尖。从事区块链业务的公司也如雨后春笋般的出现在了大众的视野里...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/k7Jz78GeJJ">来自：	<span class="blog_title"> 人人都是产品经理</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_33950035/article/details/88167630,BlogCommendFromQuerySearch_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33950035/article/details/88167630" target="_blank" title="悔不当初：大学究竟意味着什么？">
+		<h4 class="text-truncate oneline">
+				悔不当初：大学<em>究竟</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					87</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33950035/article/details/88167630" target="_blank" title="悔不当初：大学究竟意味着什么？">
+				<span class="desc oneline">悔不当初文/达叔01夏末秋初是个美好的季节，这个时候是新生入学的日子。入学，每个人的心情都不一样，有的人欢喜，有的人焦虑，有的人心中忐忑，都只因走进校园的那一刻。大学，这是一所从小到大，大人们心心念念...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33950035">来自：	<span class="blog_title"> weixin_33950035的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012842688/article/details/53288342,BlogCommendFromQuerySearch_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012842688/article/details/53288342" target="_blank" title="java 去除字符串中的空格">
+		<h4 class="text-truncate oneline">
+				java 去除字符串中的空格		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					363</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012842688/article/details/53288342" target="_blank" title="java 去除字符串中的空格">
+				<span class="desc oneline">Stringstr=&quot;justdoit&quot;;StringTokenizerstTokenizer=newStringTokenizer(str,&quot;&quot;);StringBuffersbBuffer=newS...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012842688">来自：	<span class="blog_title"> JackyCheung</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ytfunnysite/article/details/54954435,BlogCommendFromQuerySearch_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ytfunnysite/article/details/54954435" target="_blank" title="保留两位小数的String用法">
+		<h4 class="text-truncate oneline">
+				保留两位小数的String用法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1621</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ytfunnysite/article/details/54954435" target="_blank" title="保留两位小数的String用法">
+				<span class="desc oneline">packageprogram;importjava.util.Scanner;/***编写程序，计算邮局汇款的汇费：*如果汇款金额小于100元，汇费为1元，*如果金额在100元与500元之间，按1%收...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ytfunnysite">来自：	<span class="blog_title"> The blog of CSDN in 杨天福</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/haoaiqian/article/details/72820917,BlogCommendFromThirdServiceAll_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/haoaiqian/article/details/72820917" target="_blank" title="初探kotlin:创建第一个kotlin应用">
+		<h4 class="text-truncate oneline">
+				初探<em>kotlin</em>:创建第一个<em>kotlin</em>应用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					919</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/haoaiqian/article/details/72820917" target="_blank" title="初探kotlin:创建第一个kotlin应用">
+				<span class="desc oneline">使用kotlin开发Android创建Kotlin工程!写在前面：Kotlin是一种在Java虚拟机上执行的静态型别编程语言，它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/haoaiqian">来自：	<span class="blog_title"> 化风的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-81","con":",,"}' data-track-click='{"mod":"kp_popu_64-81","con":",,"}'><div id="three_ad28" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad28",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34167819/article/details/86980616,BlogCommendFromThirdServiceAll_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34167819/article/details/86980616" target="_blank" title="区块链对于产品、行业究竟意味着什么？【1.14 热门分享回顾】">
+		<h4 class="text-truncate oneline">
+				区块链<em>对于</em>产品、行业<em>究竟</em><em>意味着</em><em>什么</em>？【1.14 热门分享回顾】		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					37</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34167819/article/details/86980616" target="_blank" title="区块链对于产品、行业究竟意味着什么？【1.14 热门分享回顾】">
+				<span class="desc oneline">这是一份昨天在开发者头条上最受大家欢迎的优质文章列表，头条君每日清晨为您送达，不见不散！昨日最佳Top3：1.前台与后台分离的架构实践2.写Go代码时遇到的那些问题（第1期）3.区块链对于产品、行业究...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34167819">来自：	<span class="blog_title"> weixin_34167819的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lyc00net/article/details/88250759,BlogCommendFromThirdServiceAll_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lyc00net/article/details/88250759" target="_blank" title="Flutter与React Native的区别有哪些">
+		<h4 class="text-truncate oneline">
+				<em>Flutter</em>与React Native的区别有哪些		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					509</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lyc00net/article/details/88250759" target="_blank" title="Flutter与React Native的区别有哪些">
+				<span class="desc oneline">Flutter与ReactNative对比[关于性能]跨平台开发第一个考虑的就是性能问题RN的效率由于是将View编译成了原生View,所以效率上要比基于Cordova的HTML5高很多,但是它也有效...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lyc00net">来自：	<span class="blog_title"> 小雨点的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/diandianxiyu/article/details/53068012,BlogCommendFromThirdServiceAll_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/diandianxiyu/article/details/53068012" target="_blank" title="【小程序】微信小程序开发实践">
+		<h4 class="text-truncate oneline">
+				【小程序】微信小程序开发实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					31万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/diandianxiyu/article/details/53068012" target="_blank" title="【小程序】微信小程序开发实践">
+				<span class="desc oneline">帐号相关流程注册范围企业政府媒体其他组织换句话讲就是不让个人开发者注册。:)填写企业信息不能使用和之前的公众号账户相同的邮箱,也就是说小程序是和微信公众号一个层级的。填写公司机构信息,对公账户信息绑定...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/diandianxiyu">来自：	<span class="blog_title"> 小雨同学的技术博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_27295631/article/details/68582582,BlogCommendFromThirdServiceAll_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_27295631/article/details/68582582" target="_blank" title="ARM DS-5.26.0安装及创建C程序">
+		<h4 class="text-truncate oneline">
+				ARM DS-5.26.0安装及创建C程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7791</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_27295631/article/details/68582582" target="_blank" title="ARM DS-5.26.0安装及创建C程序">
+				<span class="desc oneline">这学期选修了《嵌入式系统原理与应用》，老师要求使用最新的ARMDS-5，软件安装包、破解都要靠自己完成，这。。。就很尴尬了。经过两天零零散散地摸索，终于成功了，哈哈哈。现在把过程贴出来，希望能帮助到更...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_27295631">来自：	<span class="blog_title"> 面对的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_17775997/article/details/79608232,BlogCommendFromQuerySearch_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinat_17775997/article/details/79608232" target="_blank" title="什么是跨域以及几种简单解决方案">
+		<h4 class="text-truncate oneline">
+				<em>什么</em>是跨域以及几种简单解决方案		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					400</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinat_17775997/article/details/79608232" target="_blank" title="什么是跨域以及几种简单解决方案">
+				<span class="desc oneline">什么是跨域？要明白什么是跨域之前，首先要明白什么是同源策略？同源策略就是用来限制从一个源加载的文档或脚本与来自另一个源的资源进行交互。那怎样判断是否是同源呢？如果协议，端口（如果指定了）和主机对于两个...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinat_17775997">来自：	<span class="blog_title"> 大灰狼的小绵羊哥哥的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-1061","con":",,"}' data-track-click='{"mod":"kp_popu_65-1061","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/236?positionId=65&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_43257419/article/details/85708673,BlogCommendFromQuerySearch_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_43257419/article/details/85708673" target="_blank" title="Java vs Kotlin，Android开发人员应该选择哪种语言？">
+		<h4 class="text-truncate oneline">
+				Java vs <em>Kotlin</em>，Android开发人员应该选择哪种语言？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					210</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_43257419/article/details/85708673" target="_blank" title="Java vs Kotlin，Android开发人员应该选择哪种语言？">
+				<span class="desc oneline">自Google于2017年宣布Kotlin成为GoogleIO的Android开发官方语言以来，想要成为Android开发人员的程序员正陷入两难境地。在讨论这个问题前，我首先要明确一点，不要陷入编程语...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_43257419">来自：	<span class="blog_title"> qq_43257419的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012800711/article/details/15808711,BlogCommendFromQuerySearch_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012800711/article/details/15808711" target="_blank" title="如何理解编程语言的可移植性">
+		<h4 class="text-truncate oneline">
+				如何理解编程语言的可移植性		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3365</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012800711/article/details/15808711" target="_blank" title="如何理解编程语言的可移植性">
+				<span class="desc oneline">编程语言的可移植性意味着，用一种编程语言在一个系统上编写的程序经过很少改动或者不经修改就可以在其他系统平台上运行。   要想了解可移植性必须要知道：1.什么是程序？2.什么是系统平台？什么是程序  首...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012800711">来自：	<span class="blog_title"> 鸿雁雀</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xlh1191860939/article/details/81118294,BlogCommendFromQuerySearch_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xlh1191860939/article/details/81118294" target="_blank" title="Flutter和Dart系列二：初识Dart语言">
+		<h4 class="text-truncate oneline">
+				<em>Flutter</em>和Dart系列二：初识Dart语言		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					499</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xlh1191860939/article/details/81118294" target="_blank" title="Flutter和Dart系列二：初识Dart语言">
+				<span class="desc oneline">Flutter和Dart系列二：初识Dart语言Flutter使用的编程语言是Dart，此篇的目的就是让大家对Dart语言本身一些基本语法有所熟悉，从而更好地使用Flutter来编写应用程序。我们先看...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xlh1191860939">来自：	<span class="blog_title"> xlh1191860939的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/y2009270076/article/details/6577725,BlogCommendFromQuerySearch_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/y2009270076/article/details/6577725" target="_blank" title="JavaFX对Java开发者到底意味着什么">
+		<h4 class="text-truncate oneline">
+				JavaFX对Java<em>开发者</em>到底<em>意味着</em><em>什么</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					635</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/y2009270076/article/details/6577725" target="_blank" title="JavaFX对Java开发者到底意味着什么">
+				<span class="desc oneline">关于JavaFX已经有非常多的舆论报道、讨论和手册指南，对我们这些普通的Java开发者而言，JavaFX从技术角度来讲并不难掌握，更难的是我们要搞清楚它对我们而言到底是否有用，也即它到底意味着什么呢？...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/y2009270076">来自：	<span class="blog_title"> 勇往直前</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/csdnnews/article/details/80768027,BlogCommendFromThirdServiceAll_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/csdnnews/article/details/80768027" target="_blank" title="一套代码 iOS、Android 两端运行，Google Flutter 对开发者意味着什么？">
+		<h4 class="text-truncate oneline">
+				一套代码 iOS、Android 两端运行，Google <em>Flutter</em> 对<em>开发者</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5730</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/csdnnews/article/details/80768027" target="_blank" title="一套代码 iOS、Android 两端运行，Google Flutter 对开发者意味着什么？">
+				<span class="desc oneline">点击上方“CSDN”，选择“置顶公众号”关键时刻，第一时间送达！一套代码可支持Android和iOS双端运行，你Get了吗？它就是Flutter。其目标是为......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/csdnnews">来自：	<span class="blog_title"> CSDN资讯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-881","con":",,"}' data-track-click='{"mod":"kp_popu_66-881","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T38_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T38  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T38_render", "T38");
+</script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/rill_zhen/article/details/7701259,BlogCommendFromThirdServiceAll_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/rill_zhen/article/details/7701259" target="_blank" title="深入浅出编译原理-1-C语言的文法">
+		<h4 class="text-truncate oneline">
+				深入浅出编译原理-1-C语言的文法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/rill_zhen/article/details/7701259" target="_blank" title="深入浅出编译原理-1-C语言的文法">
+				<span class="desc oneline">编译原理-1-C语言的文法c语言的文法产生式： programà      external_declaration     |programexternal_declaration external...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/rill_zhen">来自：	<span class="blog_title"> Rill的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013068887/article/details/79328688,BlogCommendFromThirdServiceAll_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013068887/article/details/79328688" target="_blank" title="如何看待 Kotlin 成为 Android 官方支持的开发语言？">
+		<h4 class="text-truncate oneline">
+				如何看待 <em>Kotlin</em> 成为 Android 官方支持的开发语言？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					249</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013068887/article/details/79328688" target="_blank" title="如何看待 Kotlin 成为 Android 官方支持的开发语言？">
+				<span class="desc oneline">GoogleIO2017宣布了Kotlin会成为Android官方开发语言。一时间朋友圈和Android圈被各种刷屏。当然我也顺势而为发布了一篇的文章《为什么我要改用Kotlin》，着实狠狠地蹭了一波...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013068887">来自：	<span class="blog_title"> zoe技术博客专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendFromThirdServiceAll_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					66万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：简言之就是找环（每条边只走一次，两两可达）孤立的一个点也是一个连通分量 使用tarjan算法在嵌套的多个环中优先得到最大环(最小环就是每个孤立点） 定义：intTime,DFN[N],Lo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_33860722/article/details/87827195,BlogCommendFromThirdServiceAll_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33860722/article/details/87827195" target="_blank" title="创始人纷纷回归，对科技公司究竟意味着什么？">
+		<h4 class="text-truncate oneline">
+				创始人纷纷回归，对科技公司<em>究竟</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33860722/article/details/87827195" target="_blank" title="创始人纷纷回归，对科技公司究竟意味着什么？">
+				<span class="desc oneline">8月11日，百度在SummerParty上宣布了两件事：一个是百度将在工作日给员工提供免费的早餐和夜宵；还有一个是“青松计划”：为司龄两年以上百度员工的父母提供全国范围的医疗保险，并且不限父母年龄、身...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33860722">来自：	<span class="blog_title"> weixin_33860722的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Don_Leah/article/details/88545903,BlogCommendFromQuerySearch_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Don_Leah/article/details/88545903" target="_blank" title="Dart学习笔记之与kotlin、java比较">
+		<h4 class="text-truncate oneline">
+				Dart学习笔记之与<em>kotlin</em>、java比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					318</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Don_Leah/article/details/88545903" target="_blank" title="Dart学习笔记之与kotlin、java比较">
+				<span class="desc oneline">最近Android开发很火的一个UI框架一定是flutter，这也是谷歌推出的移动开发框架，当然适用IOS，想必这也是谷歌在移动应用开发上的一个战略布局，如今移动开发已经很成熟，技术人员也多，门槛也较...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-track-click='{"mod":"kp_popu_67-882","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T43_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_33743661/article/details/90322739,BlogCommendFromQuerySearch_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33743661/article/details/90322739" target="_blank" title="对于容器环境来说 全栈监控究竟意味着什么？">
+		<h4 class="text-truncate oneline">
+				<em>对于</em>容器环境来说 全栈监控<em>究竟</em><em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					44</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33743661/article/details/90322739" target="_blank" title="对于容器环境来说 全栈监控究竟意味着什么？">
+				<span class="desc oneline">本文讲的是对于容器环境来说全栈监控究竟意味着什么？【IT168评论】对于大多数人来说，“全栈”(FullStack)的意思很好理解。但是如果我们的话题涉及到监控容器环境呢?整个事情就会开始变得有些模糊...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33743661">来自：	<span class="blog_title"> weixin_33743661的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/android_gjw/article/details/78436707,BlogCommendFromQuerySearch_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/android_gjw/article/details/78436707" target="_blank" title="Kotlin中问号（？）和两个叹号（！！）">
+		<h4 class="text-truncate oneline">
+				<em>Kotlin</em>中问号（？）和两个叹号（！！）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/android_gjw/article/details/78436707" target="_blank" title="Kotlin中问号（？）和两个叹号（！！）">
+				<span class="desc oneline">先看一段代码privatevarcloth_Rv:RecyclerView?=nullcloth_Rv!!.setHasFixedSize(true)？：表示当前是否对象可以为空！！：表示当前对象不为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/android_gjw">来自：	<span class="blog_title"> android_gjw的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34208283/article/details/90495872,BlogCommendFromQuerySearch_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34208283/article/details/90495872" target="_blank" title="OA对于小型企业意味着什么？">
+		<h4 class="text-truncate oneline">
+				OA<em>对于</em>小型企业<em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					27</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34208283/article/details/90495872" target="_blank" title="OA对于小型企业意味着什么？">
+				<span class="desc oneline">小型企业的数量庞大，并且大多数企业都没有足够的管理人才，小型企业会在管理上出现一定程度的混乱。“麻雀虽小，五脏俱全”。小型企业无论多小也是一家企业，也需要合理的管理制度来保证工作的高效率。事实上，很多...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34208283">来自：	<span class="blog_title"> weixin_34208283的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013064109/article/details/84729814,BlogCommendFromQuerySearch_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013064109/article/details/84729814" target="_blank" title="JetBrains开发者日见闻(一)之Kotlin/Native 尝鲜篇">
+		<h4 class="text-truncate oneline">
+				JetBrains<em>开发者</em>日见闻(一)之<em>Kotlin</em>/Native 尝鲜篇		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4118</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013064109/article/details/84729814" target="_blank" title="JetBrains开发者日见闻(一)之Kotlin/Native 尝鲜篇">
+				<span class="desc oneline">简述:今天我们来讲点Kotlin中比较时髦的东西，有的人可能会说:“不像你之前的风格啊，之前的文章不是一直在死扣语法以及语法糖背后秘密。当你还在死扣泛型语法的时候，别人的文章早就说了Kotlin/Na...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013064109">来自：	<span class="blog_title"> Mikyou的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34219944/article/details/87487860,BlogCommendFromThirdServiceAll_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34219944/article/details/87487860" target="_blank" title="平台模式对于企业，意味着什么？">
+		<h4 class="text-truncate oneline">
+				平台模式<em>对于</em>企业，<em>意味着</em><em>什么</em>？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					112</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34219944/article/details/87487860" target="_blank" title="平台模式对于企业，意味着什么？">
+				<span class="desc oneline">“小姐姐，小姐姐，给你一个东西要不要？”当你午夜侧卧刷着抖音，感慨其病毒式的推荐和传播。或是即将到来的“618”，期盼着心仪的物品将会在京东大折扣。再或是微信群和朋友圈请你帮忙砍价的“拼多多”。更或是...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34219944">来自：	<span class="blog_title"> weixin_34219944的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-654","con":",,"}' data-track-click='{"mod":"kp_popu_68-654","con":",,"}'><div id="three_ad48" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad48",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 16,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Microsoft Yahei',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/BossDarcy/article/details/72614805,BlogCommendFromThirdServiceAll_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/BossDarcy/article/details/72614805" target="_blank" title="如何看待 Kotlin 成为 Android 官方支持开发语言？">
+		<h4 class="text-truncate oneline">
+				如何看待 <em>Kotlin</em> 成为 Android 官方支持开发语言？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/BossDarcy/article/details/72614805" target="_blank" title="如何看待 Kotlin 成为 Android 官方支持开发语言？">
+				<span class="desc oneline">GoogleIO2017宣布了Kotlin会成为Android官方开发语言。一时间朋友圈和Android圈被各种刷屏。当然我也顺势而为发布了一篇的文章《为什么我要改用Kotlin》，着实狠狠地蹭了一波...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/BossDarcy">来自：	<span class="blog_title"> Thinkblog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtjakgwsNzMtZWR1.html" target="_blank">
+                        学习java究竟能做什么</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtDagg3sNTAtZWR1.html" target="_blank">
+                        大数据对于深度学习</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/BossDarcy">
+              <img src="https://avatar.csdn.net/8/1/5/3_bossdarcy.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/9.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/BossDarcy" target="_blank" class="" id="uid">技术小黑屋</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="92">
+                        <dt><a href="https://blog.csdn.net/androidyue?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/androidyue?t=1"><span class="count">92</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="849">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">849</span></dd>
+        </dl>
+        <dl class="text-center" title="27">
+            <dt>喜欢</dt>
+            <dd><span class="count">27</span></dd>
+        </dl>
+        <dl class="text-center" title="129">
+            <dt>评论</dt>
+            <dd><span class="count">129</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="6级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-6"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="599213">
+                59万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="6008">
+                6008            </dd>
+        </dl>
+        <dl title="7323">
+            <dt>排名：</dt>
+            <dd>7323</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="Github">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/github.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/github.svg" alt="">
+                                   <p>Github</p>
+                               </div>
+                               <div class="right-box">
+                                   绑定github第三方账户获取                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t1.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-703","con":",,"}' data-track-click='{"mod":"kp_popu_56-703","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左上视窗-20181120 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="7700527946"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/BossDarcy/article/details/72614805" target="_blank">如何看待 Kotlin 成为 Android 官方支持开发语言？</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/BossDarcy/article/details/72457157" target="_blank">为什么我要改用Kotlin</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/BossDarcy/article/details/37737743" target="_blank">Android扫描多媒体文件剖析</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/BossDarcy/article/details/37722815" target="_blank">Android Webview加载网页时发送HTTP头信息</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/BossDarcy/article/details/17639635" target="_blank">博客国际化</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/728797">
+                    <span class="title oneline">Android</span>
+                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/758119">
+                    <span class="title oneline">Java</span>
+                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/757824">
+                    <span class="title oneline">PHP</span>
+                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/1472281">
+                    <span class="title oneline">日本语</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/768662">
+                    <span class="title oneline">杂碎</span>
+                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/1472319">
+                    <span class="title oneline">Linux</span>
+                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/1473945">
+                    <span class="title oneline">Web</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/1473957">
+                    <span class="title oneline">DataBase</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/bossdarcy/article/category/1489193">
+                    <span class="title oneline">Python</span>
+                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2013/12">
+                    2013年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2013/09">
+                    2013年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2013/08">
+                    2013年8月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2013/07">
+                    2013年7月                    <span class="count float-right">36篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2013/06">
+                    2013年6月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2012/01">
+                    2012年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/12">
+                    2011年12月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/06">
+                    2011年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/05">
+                    2011年5月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/04">
+                    2011年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/03">
+                    2011年3月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/02">
+                    2011年2月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2011/01">
+                    2011年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2010/12">
+                    2010年12月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2010/11">
+                    2010年11月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/bossdarcy/article/month/2010/10">
+                    2010年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-1158","con":",,"}' data-track-click='{"mod":"kp_popu_57-1158","con":",,"}'><!-- 广告位：PC-博客内页左下视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6272567',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="https://dup.baidustatic.com/js/os.js"></script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>7</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						9				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/androidyue/article/details/72614805" title="如何看待 Kotlin 成为 Android 官方支持开发语言？">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/androidyue/article/details/72614805" title="如何看待 Kotlin 成为 Android 官方支持开发语言？">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+											</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 88;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 16;
+    var articleId = "90146118";
+    var commentscount = 9;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/androidyue/article/details/90146118";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "Kotlin 和 Flutter 对于开发者究竟意味着什么？ - Thinkblog";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["kotlin","flutter","\u5bf9\u4e8e","\u5f00\u53d1\u8005","\u7a76\u7adf","\u610f\u5473\u7740","\u4ec0\u4e48"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"u013064109","nick_name":"mikyou","avatar":"https:\/\/avatar.csdn.net\/0\/9\/C\/3_u013064109.jpg","is_expert":true,"article_count":127,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"sinyu890807","nick_name":"guolin","avatar":"https:\/\/avatar.csdn.net\/8\/B\/B\/3_sinyu890807.jpg","is_expert":true,"article_count":120,"rank":"101"},{"user_name":"testcs_dn","nick_name":"\u5faewx\u7b11","avatar":"https:\/\/avatar.csdn.net\/D\/1\/B\/3_testcs_dn.jpg","is_expert":true,"article_count":1330,"rank":"26"},{"user_name":"sk719887916","nick_name":"Tamic\u5927\u767d","avatar":"https:\/\/avatar.csdn.net\/8\/1\/3\/3_sk719887916.jpg","is_expert":true,"article_count":121,"rank":"5000+"},{"user_name":"weixin_33851429","nick_name":"weixin_33851429","avatar":"https:\/\/avatar.csdn.net\/D\/8\/0\/3_weixin_33851429.jpg","is_expert":false,"article_count":2965,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"jILRvRTrc","nick_name":"\u8c37\u6b4c\u5f00\u53d1\u8005_","avatar":"https:\/\/avatar.csdn.net\/0\/F\/6\/3_jilrvrtrc.jpg","is_expert":false,"article_count":817,"rank":"5000+"},{"user_name":"weixin_34270865","nick_name":"weixin_34270865","avatar":"https:\/\/avatar.csdn.net\/9\/0\/4\/3_weixin_34270865.jpg","is_expert":false,"article_count":3049,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"qq_33419925","nick_name":"\u590f\u6cab\u51e1\u5c18","avatar":"https:\/\/avatar.csdn.net\/7\/4\/6\/3_qq_33419925.jpg","is_expert":false,"article_count":258,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"k7Jz78GeJJ","nick_name":"\u4eba\u4eba\u90fd\u662f\u4ea7\u54c1\u7ecf\u7406V","avatar":"https:\/\/avatar.csdn.net\/1\/0\/3\/3_k7jz78gejj.jpg","is_expert":false,"article_count":629,"rank":"5000+"},{"user_name":"weixin_33950035","nick_name":"weixin_33950035","avatar":"https:\/\/avatar.csdn.net\/3\/C\/6\/3_weixin_33950035.jpg","is_expert":false,"article_count":2970,"rank":"\u5343\u91cc\u4e4b\u5916"}];
+	var articleType = 1;
+	var CopyrightContent = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+	<script type="text/javascript">
+
+	</script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

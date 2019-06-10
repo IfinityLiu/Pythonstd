@@ -1,0 +1,3771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/Androidlushangderen/article/details/88783397"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"存储系统“数据之眼”的设计--数据探查服务 - 走在前往架构师的路上"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>存储系统“数据之眼”的设计--数据探查服务 - 走在前往架构师的路上 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/Androidlushangderen\/article\/details\/88783397","appid":"1563894916825412","title":"\u5b58\u50a8\u7cfb\u7edf\u201c\u6570\u636e\u4e4b\u773c\u201d\u7684\u8bbe\u8ba1--\u6570\u636e\u63a2\u67e5\u670d\u52a1 - \u8d70\u5728\u524d\u5f80\u67b6\u6784\u5e08\u7684\u8def\u4e0a","images":["https:\/\/img-blog.csdnimg.cn\/20190324220756183.png"],"pubDate":"2019-06-05T20:05:55"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+        <script type="text/javascript">
+        var username = "Androidlushangderen";
+        var blog_address = "https://blog.csdn.net/androidlushangderen";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/Androidlushangderen/article/details/88783397"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin-yellow";
+        // 第四范式所需数据
+        var articleTitles = "存储系统“数据之眼”的设计--数据探查服务 - 走在前往架构师的路上";
+        
+        var nickName = "Android路上的人";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/androidlushangderen/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/Androidlushangderen/article/details/88783397";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">存储系统“数据之眼”的设计--数据探查服务</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年03月24日 22:13:43</span>
+          <a class="follow-nickName" href="https://me.csdn.net/Androidlushangderen" target="_blank">Android路上的人</a>
+          <span class="read-count">阅读数：19913</span>
+          
+                                                      </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+          
+          版权声明：本文为博主原创文章，未经博主允许不得转载。          https://blog.csdn.net/Androidlushangderen/article/details/88783397        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <p></p><div class="toc"><h3>文章目录</h3><ul><li><a href="#_2" rel="nofollow">前言</a></li><li><a href="#_6" rel="nofollow">数据探查服务的初始点：元数据的同步</a></li><li><a href="#_14" rel="nofollow">数据探查服务的分析：索引结构的重新构建</a></li><li><a href="#DB_20" rel="nofollow">数据探查服务的结果：汇聚表DB的存储</a></li><li><a href="#_34" rel="nofollow">数据探查服务的额外功能：节点级别的统计</a></li><li><a href="#_44" rel="nofollow">数据探查服务的外部展现：用户控制台</a></li><li><a href="#_54" rel="nofollow">引用</a></li></ul></div><p></p>
+<h1><a id="_2"></a>前言</h1>
+<hr>
+<p>在大规模量级的分布式存储系统中，很多时候管理员以及用户都有特定条件的查询需求：比如用户哪个目录文件数据量是最多的？还有对于管理员的需求：哪个节点上存储的文件数量最多，又或者是否存在损坏数据块文件类似种种的问题。因此在大型分布式存储系统中，我们需要有一个能够快速透视，探查里面数据的工具。当然它的功能要远远大于目前文件系统提供的fsck这样的工具命令。对于这种工具，我们可以怎样对其进行设计呢？本文，笔者结合Hadoop Ozone Recon服务，来聊聊里面的一些相关设计思想。</p>
+<h1><a id="_6"></a>数据探查服务的初始点：元数据的同步</h1>
+<hr>
+<p>这里需要大家明白一个关键的点，数据探查服务并不是要针对所有的物理数据进行一个个的扫描统计，而只是需要对中心控制节点的核心元数据进行探查分析即可。比如HDFS，那我们专门分析的对象就是FSImage文件。</p>
+<p>为了避免对实际生产系统造成影响，我们一般的做法是会从一个Standby的元数据文件进行定期同步，然后对这个同步而来的文件再进行二次分析。当然，有时我们可以做的更高级一些，只有首次同步时进行元数据文件的同步，后面只同步WAL的更新操作，相当于这是Standby的Follower。因为数据探查服务不会对元数据文件进行写操作，所以我们可以让这个文件变为read-only模式的。</p>
+<p>对于数据探查的定位，在这里它是一个服务，所以上述的行为应该被纳入到这个服务当中。</p>
+<h1><a id="_14"></a>数据探查服务的分析：索引结构的重新构建</h1>
+<hr>
+<p>有时候，针对不同的查询分析需求，如果按照原来元数据文件内的索引构建方式，会导致非常低的效率（比如遍历完全统计），此时我们可以在服务中进行一定结构的转换。比如一种常见的方式：倒排索引的构建，或者带上前缀匹配的支持。或者构建出不同Key对应的不同Value的含义，只要Value是我们所需要的就行。</p>
+<p>这里的索引结构的重构建可以和上面元数据的定期同步行为的速率保持一致，以达到准实时更新的效果。</p>
+<h1><a id="DB_20"></a>数据探查服务的结果：汇聚表DB的存储</h1>
+<hr>
+<p>上述各个索引结构都构建完成后，我们可以做一些常规的汇总统计的操作，然后将这些结果存储到一张汇聚表中。然后用户可以通过这张汇聚表的数据来进行他们希望的查询请求。</p>
+<p>比如举个例子，我们存储了一张Container–&gt;Blocks数的表数据，定义如下：</p>
+<pre><code class="prism language-mysql">CREATE TABLE `num_blocks_per_container` (
+`container_id` BIGINT,
+`num_blocks` INT,
+ PRIMARY KEY (`container_id`)
+);
+</code></pre>
+<p>和上述的步骤类似，这里的汇聚结果表也是需要被定期更新的，这样的话，用户就能够查询到近实时的结果。</p>
+<h1><a id="_34"></a>数据探查服务的额外功能：节点级别的统计</h1>
+<hr>
+<p>数据探查服务不仅支持细粒度层面的元数据分析，当然它也应该包含节点层面的统计，诸如以下类似指标：</p>
+<ul>
+<li>节点磁盘使用空间</li>
+<li>节点总blocks数量</li>
+<li>…</li>
+</ul>
+<p>这些节点层面的统计需要由数据探查服务定期对这些节点做一次查询操作，然后也将结果保存到上面的汇聚表中。这类结果数据对于系统管理员来说将会相当有用，比如说利用这些数据我们可以知道节点使用空间的趋势变化情况等等。</p>
+<h1><a id="_44"></a>数据探查服务的外部展现：用户控制台</h1>
+<hr>
+<p>数据探查服务作为一项完整的数据分析服务，它不应该直接暴露给使用者。对于使用者来说，我们需要给他们提供一个Console的东西，用户看到的可以是直接提供好的用户命令，不同身份的用户能够使用的执行命令也是有所区分的。而Console里面的Console Server是数据探查服务的一个代理。</p>
+<p>在这个Console Server的服务里，我们可以进一步完善Security的功能，加入一些authentication，或者更方便用户进行查询使用的一些Feature，比如浏览器直接浏览查询功能。</p>
+<p>以上所有的设计参考自Hadoop Ozone Recon服务的设计，此服务的设计结构图如下，大家可以参考上面描述的进行比较。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190324220756183.png" alt="在这里插入图片描述"></p>
+<h1><a id="_54"></a>引用</h1>
+<hr>
+<p>[1].<a href="https://issues.apache.org/jira/browse/HDDS-1084" rel="nofollow">https://issues.apache.org/jira/browse/HDDS-1084</a>. Ozone Recon Service</p>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/Androidlushangderen/article/details/88783397,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/Androidlushangderen/article/details/88783397,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div class="recommend-box"><div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wangyibo0201/article/details/51705966,BlogCommendFromThirdServiceAll_49"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wangyibo0201/article/details/51705966,BlogCommendFromThirdServiceAll_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wangyibo0201/article/details/51705966" target="_blank" title="异常点/离群点检测算法——LOF">
+		<h4 class="text-truncate oneline">
+				异常点/离群点检测算法——LOF		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wangyibo0201/article/details/51705966" target="_blank" title="异常点/离群点检测算法——LOF">
+				<span class="desc oneline">局部异常因子算法-LocalOutlierFactor(LOF)　　在数据挖掘方面，经常需要在做特征工程和模型训练之前对数据进行清洗，剔除无效数据和异常数据。异常检测也是数据挖掘的一个方向，用于反作弊...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wangyibo0201">来自：	<span class="blog_title"> wangyibo0201的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+</div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="88783397">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zztfj/article/details/10103621,BlogCommendFromThirdServiceAll_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zztfj/article/details/10103621,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zztfj/article/details/10103621" target="_blank" title="单机最大的TCP连接数及其修改">
+		<h4 class="text-truncate oneline">
+				单机最大的TCP连接数及其修改		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zztfj/article/details/10103621" target="_blank" title="单机最大的TCP连接数及其修改">
+				<span class="desc oneline">单机最大的TCP连接数及其修改一个误解:单个服务器程序可承受最大连接数“理论”上是“65535”.  65535这个数字的由来，很多人想当然地将它与port最大值联系起来。的确，TCP的端口数，最大值...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zztfj">来自：	<span class="blog_title"> 田发江的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xinpiannanhai/article/details/80286254,BlogCommendFromThirdServiceAll_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xinpiannanhai/article/details/80286254,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xinpiannanhai/article/details/80286254" target="_blank" title="HDFS分布式文件存储系统详解">
+		<h4 class="text-truncate oneline">
+				HDFS分布式文件<em>存储系统</em>详解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2040</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xinpiannanhai/article/details/80286254" target="_blank" title="HDFS分布式文件存储系统详解">
+				<span class="desc oneline">HDFS简介一、HDFS：HadoopDistributedFileSystem          1. 一个分布式文件系统           2. 基于流数据模式访问和处理超大文件的需求而开发的 ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xinpiannanhai">来自：	<span class="blog_title"> 大数据开发—齐冀</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendFromThirdServiceAll_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+		<h4 class="text-truncate oneline">
+				史上最好的LDA(线性判别分析)教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+				<span class="desc oneline">一、前言最近由于研究需要，要用到线性判别分析(LDA)。于是找了很多资料来看，结果发现大部分讲的都是理论知识，因此最后还是看的一知半解，后来终于找到了个英文的文档，作者由PCA引入LDA，看过后豁然开...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jnulzl">来自：	<span class="blog_title"> jnulzl的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weiwei2012start/article/details/21075251,BlogCommendFromThirdServiceAll_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weiwei2012start/article/details/21075251,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weiwei2012start/article/details/21075251" target="_blank" title="图像水平方向的投影">
+		<h4 class="text-truncate oneline">
+				图像水平方向的投影		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3980</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weiwei2012start/article/details/21075251" target="_blank" title="图像水平方向的投影">
+				<span class="desc oneline">#include#includeintmain(){	IplImage*src=cvLoadImage(&quot;D:/a_project/image/1.jpg&quot;,0);	cvThreshold(src,s...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weiwei2012start">来自：	<span class="blog_title"> weiwei2012start的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendFromThirdServiceAll_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍一. 密码学简介据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起着非常重要的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_40535323/article/details/81704854,BlogCommendESEnWordWeight_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_40535323/article/details/81704854,BlogCommendESEnWordWeight_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_40535323/article/details/81704854" target="_blank" title="Google三大论文（一）BigTable:一个分布式的结构化数据存储系统">
+		<h4 class="text-truncate oneline">
+				Google三大论文（一）BigTable:一个分布式的结构化<em>数据</em><em>存储系统</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					847</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_40535323/article/details/81704854" target="_blank" title="Google三大论文（一）BigTable:一个分布式的结构化数据存储系统">
+				<span class="desc oneline">最近硬着头皮读完了Google的三大论文，现在简单来聊一下自己关于BigTable的了解。一、什么是BigTableBigtable是一个分布式的结构化数据存储系统，它被设计用来处理海量数据：通常是分...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_40535323">来自：	<span class="blog_title"> weixin_40535323的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qdslp/article/details/9149517,BlogCommendESEnWordWeight_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qdslp/article/details/9149517,BlogCommendESEnWordWeight_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qdslp/article/details/9149517" target="_blank" title="游戏数据存储设计概述（共享内存）">
+		<h4 class="text-truncate oneline">
+				游戏<em>数据</em>存储<em>设计</em>概述（共享内存）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2638</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qdslp/article/details/9149517" target="_blank" title="游戏数据存储设计概述（共享内存）">
+				<span class="desc oneline">游戏数据存储设计概述（共享内存）                                                          2012-10-03 这里只说一下使用共享内存的游戏...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qdslp">来自：	<span class="blog_title"> qdslp的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/as5402/article/details/52037375,BlogCommendESEnWordWeight_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/as5402/article/details/52037375,BlogCommendESEnWordWeight_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/as5402/article/details/52037375" target="_blank" title="SQL事件探查器（ Profiler）数据列的基本说明">
+		<h4 class="text-truncate oneline">
+				SQL事件<em>探查</em>器（ Profiler）<em>数据</em>列的基本说明		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					811</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/as5402/article/details/52037375" target="_blank" title="SQL事件探查器（ Profiler）数据列的基本说明">
+				<span class="desc oneline">SQLProfiler的Trace分析一般情况下：CPU:事件所使用的CPU时间总计（以毫秒为单位）READ:服务器代表事件执行的逻辑磁盘读取数WRITE:服务器代表事件执行的物理磁盘写入数DURAT...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/as5402">来自：	<span class="blog_title"> 煦岩芯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_15103197/article/details/82876688,BlogCommendESEnWordWeight_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_15103197/article/details/82876688,BlogCommendESEnWordWeight_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_15103197/article/details/82876688" target="_blank" title="常见分布式文件存储介绍、选型比较、架构设计">
+		<h4 class="text-truncate oneline">
+				常见分布式文件存储介绍、选型比较、架构<em>设计</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5479</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_15103197/article/details/82876688" target="_blank" title="常见分布式文件存储介绍、选型比较、架构设计">
+				<span class="desc oneline">Hello,我是瓜哥：之前在进行对接存储项目的时候，对公司内部使用的文件系统进行了梳理，当前公司内部使用的文件系统有GlusterFS,FastDFS等，由于文件系统在海量小文件和高并发之下性能急剧下...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_15103197">来自：	<span class="blog_title"> qq_15103197的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lx624909677/article/details/17592209,BlogCommendESEnWordWeight_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lx624909677/article/details/17592209,BlogCommendESEnWordWeight_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lx624909677/article/details/17592209" target="_blank" title="VC 双击编辑ListControl中的数据">
+		<h4 class="text-truncate oneline">
+				VC 双击编辑ListControl中的<em>数据</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lx624909677/article/details/17592209" target="_blank" title="VC 双击编辑ListControl中的数据">
+				<span class="desc oneline">最近在拿一些小的项目练习MFC，遇到不少问题，期中之一便是修改列表框中的数据，查阅了一些资料，总结了一些方法，把期中最简单方便的一种方法在这里做简单介绍。想要双击实现修改列表框内容，只需四步：第一步：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lx624909677">来自：	<span class="blog_title"> 挨踢生涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33828101/article/details/87136526,BlogCommendFromQuerySearch_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33828101/article/details/87136526,BlogCommendFromQuerySearch_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33828101/article/details/87136526" target="_blank" title="Superset：数据探查与可视化平台">
+		<h4 class="text-truncate oneline">
+				Superset：<em>数据</em><em>探查</em>与可视化平台		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					346</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33828101/article/details/87136526" target="_blank" title="Superset：数据探查与可视化平台">
+				<span class="desc oneline">介绍Superset是Airbnb（知名在线房屋短租公司）开源的数据探查与可视化平台（曾用名Panoramix、Caravel），该工具在可视化、易用性和交互性上非常有特色，用户可以轻松对数据进行可视...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33828101">来自：	<span class="blog_title"> weixin_33828101的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/8062811,BlogCommendFromQuerySearch_11"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/8062811,BlogCommendFromQuerySearch_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/li2008xue2008ling/article/details/8062811" target="_blank" title="做好数据探查">
+		<h4 class="text-truncate oneline">
+				做好<em>数据</em><em>探查</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					516</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/li2008xue2008ling/article/details/8062811" target="_blank" title="做好数据探查">
+				<span class="desc oneline">做好数据探查</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013710265/article/details/72798348,BlogCommendFromQuerySearch_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013710265/article/details/72798348,BlogCommendFromQuerySearch_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013710265/article/details/72798348" target="_blank" title="大数据存储系统（1）--- 分布式文件系统">
+		<h4 class="text-truncate oneline">
+				大<em>数据</em><em>存储系统</em>（1）--- 分布式文件系统		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2102</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013710265/article/details/72798348" target="_blank" title="大数据存储系统（1）--- 分布式文件系统">
+				<span class="desc oneline">分布式文件系统一、分布式系统概念（1）分布式系统类型：Client/Server、P2P(Peer-to-Peer)、Master/Worker（2）故障模型（FailureModel）：Failst...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013710265">来自：	<span class="blog_title"> 专注计算机体系结构</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/36002421,BlogCommendFromQuerySearch_13"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/36002421,BlogCommendFromQuerySearch_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/li2008xue2008ling/article/details/36002421" target="_blank" title="数据探查（三）">
+		<h4 class="text-truncate oneline">
+				<em>数据</em><em>探查</em>（三）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					905</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/li2008xue2008ling/article/details/36002421" target="_blank" title="数据探查（三）">
+				<span class="desc oneline">昨天去面试,被问到数据探查心得,想了想,自己理解的数据探查还是比较浅显的,只是意识到了对于表内数据的探查,即表内数据量、空值、关键字段、类型、数据格式等的探查，而没有站在更高的角度去想数据探查。 数据...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/doezhiguo/article/details/82085170,BlogCommendFromQuerySearch_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/doezhiguo/article/details/82085170,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/doezhiguo/article/details/82085170" target="_blank" title="哈希散列中的二次方探查法">
+		<h4 class="text-truncate oneline">
+				哈希散列中的二次方<em>探查</em>法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					758</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/doezhiguo/article/details/82085170" target="_blank" title="哈希散列中的二次方探查法">
+				<span class="desc oneline">如果hashTable里面key%size的下标对应的hashTable为false,说明这个下标没有被使用过，直接输出。否则step步长从1加到size-1，一次次尝试是否能使index=(key+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/doezhiguo">来自：	<span class="blog_title"> doezhiguo的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/chenyun1/article/details/83854817,BlogCommendFromThirdServiceAll_15"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/chenyun1/article/details/83854817,BlogCommendFromThirdServiceAll_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/chenyun1/article/details/83854817" target="_blank" title="海量数据存储之存储设计(二)">
+		<h4 class="text-truncate oneline">
+				海量<em>数据</em>存储之存储<em>设计</em>(二)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					386</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/chenyun1/article/details/83854817" target="_blank" title="海量数据存储之存储设计(二)">
+				<span class="desc oneline">本节重点讲述数据的Durability(可靠性)，纵然CAP理论中的三个关键点(Consistent,Available,Partition-Tolerant)无法达成一致，A和P目前来看变化不太多，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/chenyun1">来自：	<span class="blog_title"> chenyun1的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendFromThirdServiceAll_16"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendFromThirdServiceAll_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					26万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：核心Spring框架一个modulespring-boot-baseservice和dao一个moduleserver-core提供系统后台数据管...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/gjt19910817/article/details/42004181,BlogCommendFromThirdServiceAll_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gjt19910817/article/details/42004181,BlogCommendFromThirdServiceAll_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gjt19910817/article/details/42004181" target="_blank" title="Bigtable：一个分布式的结构化数据存储系统">
+		<h4 class="text-truncate oneline">
+				Bigtable：一个分布式的结构化<em>数据</em><em>存储系统</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2527</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gjt19910817/article/details/42004181" target="_blank" title="Bigtable：一个分布式的结构化数据存储系统">
+				<span class="desc oneline">修正了alex翻译版的几个欠妥之处Bigtable：一个分布式的结构化数据存储系统摘要Bigtable是一个管理结构化数据的分布式存储系统，它被设计用来处理海量数据：分布在数千台通用服务器上的PB级的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gjt19910817">来自：	<span class="blog_title"> 诡影苍穹的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zhmxy555/article/details/40955607,BlogCommendFromThirdServiceAll_18"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhmxy555/article/details/40955607,BlogCommendFromThirdServiceAll_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhmxy555/article/details/40955607" target="_blank" title="【Unity3D Shader编程】之二 雪山飞狐篇：Unity的基本Shader框架写法&amp;颜色、光照与材质">
+		<h4 class="text-truncate oneline">
+				【Unity3D Shader编程】之二 雪山飞狐篇：Unity的基本Shader框架写法&amp;颜色、光照与材质		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhmxy555/article/details/40955607" target="_blank" title="【Unity3D Shader编程】之二 雪山飞狐篇：Unity的基本Shader框架写法&amp;颜色、光照与材质">
+				<span class="desc oneline">本篇文章中，我们学习了UnityShader的基本写法框架，以及学习了Shader中Properties（属性）的详细写法，光照、材质与颜色的具体写法。写了6个Shader作为本文Shader讲解的实...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhmxy555">来自：	<span class="blog_title"> 【浅墨的游戏编程Blog】毛星云（浅墨）的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Eastmount/article/details/50720436,BlogCommendFromThirdServiceAll_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Eastmount/article/details/50720436,BlogCommendFromThirdServiceAll_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Eastmount/article/details/50720436" target="_blank" title="[python爬虫] Selenium爬取新浪微博内容及用户信息">
+		<h4 class="text-truncate oneline">
+				[python爬虫] Selenium爬取新浪微博内容及用户信息		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Eastmount/article/details/50720436" target="_blank" title="[python爬虫] Selenium爬取新浪微博内容及用户信息">
+				<span class="desc oneline">在进行自然语言处理、文本分类聚类、推荐系统、舆情分析等研究中，通常需要使用新浪微博的数据作为语料，这篇文章主要介绍如果使用Python和Selenium爬取自定义新浪微博语料。因为网上完整的语料比较少...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Eastmount">来自：	<span class="blog_title"> 杨秀璋的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/52091620,BlogCommendESEnWordWeight_20"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/52091620,BlogCommendESEnWordWeight_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Androidlushangderen/article/details/52091620" target="_blank" title="HDFS自定义小文件分析功能">
+		<h4 class="text-truncate oneline">
+				HDFS自定义小文件分析功能		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4629</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Androidlushangderen/article/details/52091620" target="_blank" title="HDFS自定义小文件分析功能">
+				<span class="desc oneline">前言看完本文的标题,可能有读者会心想:HDFS为什么会与小文件分析挂钩呢?Hadoop的设计初衷不是偏向于存储单位体量规模较大的文件的吗?设计这样的功能有什么实际用途呢?这背后其实是有很多内容可以讲的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Androidlushangderen">来自：	<span class="blog_title"> 走在前往架构师的路上</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Bryan__/article/details/50977513,BlogCommendESEnWordWeight_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Bryan__/article/details/50977513,BlogCommendESEnWordWeight_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Bryan__/article/details/50977513" target="_blank" title="DataCastle微额借款用户人品预测大赛冠军思路">
+		<h4 class="text-truncate oneline">
+				DataCastle微额借款用户人品预测大赛冠军思路		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Bryan__/article/details/50977513" target="_blank" title="DataCastle微额借款用户人品预测大赛冠军思路">
+				<span class="desc oneline">微额借款用户人品预测的数据不仅有带标签数据，而且还有大量无标签数据，数据存在缺失值，类别不平衡，特征高维度等特点。本次大赛主要是为了能从用户行为数据分析‘小额微贷’申请借款用户的信用状况，来判断其是否...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Bryan__">来自：	<span class="blog_title"> Bryan__的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lmj623565791/article/details/49300989,BlogCommendESEnWordWeight_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lmj623565791/article/details/49300989,BlogCommendESEnWordWeight_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lmj623565791/article/details/49300989" target="_blank" title="Android 高清加载巨图方案 拒绝压缩图片">
+		<h4 class="text-truncate oneline">
+				Android 高清加载巨图方案 拒绝压缩图片		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					14万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lmj623565791/article/details/49300989" target="_blank" title="Android 高清加载巨图方案 拒绝压缩图片">
+				<span class="desc oneline">Android高清加载巨图方案拒绝压缩图片转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/47251585；本文出自:【张鸿洋的博客...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lmj623565791">来自：	<span class="blog_title"> Hongyang</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/KevinsCSDN/article/details/51934274,BlogCommendESEnWordWeight_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/KevinsCSDN/article/details/51934274,BlogCommendESEnWordWeight_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/KevinsCSDN/article/details/51934274" target="_blank" title="使用OkHttp实现下载的进度监听和断点续传">
+		<h4 class="text-truncate oneline">
+				使用OkHttp实现下载的进度监听和断点续传		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/KevinsCSDN/article/details/51934274" target="_blank" title="使用OkHttp实现下载的进度监听和断点续传">
+				<span class="desc oneline">1.导入依赖包//retrofit,基于Okhttp，考虑到项目中经常会用到retrofit，就导入这个了。compile'com.squareup.retrofit2:retrofit:2.1.0'...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/KevinsCSDN">来自：	<span class="blog_title"> KevinsCSDN的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/epubit17/article/details/80539033,BlogCommendESEnWordWeight_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/epubit17/article/details/80539033,BlogCommendESEnWordWeight_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/epubit17/article/details/80539033" target="_blank" title="如何从零起步搭建一个分布式对象存储的架构">
+		<h4 class="text-truncate oneline">
+				如何从零起步搭建一个分布式对象存储的架构		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5057</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/epubit17/article/details/80539033" target="_blank" title="如何从零起步搭建一个分布式对象存储的架构">
+				<span class="desc oneline">早在几年前，云存储还只是存在于业界大佬们口中的一个概念，其应用场景仅供大公司使用。突飞猛进的网络技术似乎在一瞬间就把这个概念普及到千家万户，现在云存储已经是大家司空见惯的一个网络服务了。比如大家用的百...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/epubit17">来自：	<span class="blog_title"> 人邮异步社区</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/WhuCS_B701/article/details/9618321,BlogCommendFromQuerySearch_25"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/WhuCS_B701/article/details/9618321,BlogCommendFromQuerySearch_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/WhuCS_B701/article/details/9618321" target="_blank" title="Bigtable:一个结构化数据的分布式存储系统">
+		<h4 class="text-truncate oneline">
+				Bigtable:一个结构化<em>数据</em>的分布式<em>存储系统</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3888</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/WhuCS_B701/article/details/9618321" target="_blank" title="Bigtable:一个结构化数据的分布式存储系统">
+				<span class="desc oneline">Bigtable:一个结构化数据的分布式存储系统翻译人：HCBigtable是一个为管理大规模结构化数据而设计的分布式存储系统,这些大规模数据是分布在上千台普通服务器的PB级数据。Google的许多项...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/guolong1983811/article/details/78259422,BlogCommendFromQuerySearch_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/guolong1983811/article/details/78259422,BlogCommendFromQuerySearch_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/guolong1983811/article/details/78259422" target="_blank" title="数据存储设计">
+		<h4 class="text-truncate oneline">
+				<em>数据</em>存储<em>设计</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1501</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/guolong1983811/article/details/78259422" target="_blank" title="数据存储设计">
+				<span class="desc oneline">1.把原有的横表转化为纵表存储属性，即产品表：（product_id,product_name,product_class）产品属性表：（product_id,property_id,property...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/guolong1983811">来自：	<span class="blog_title"> guolong1983811的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wangyiyungw/article/details/82786237,BlogCommendFromQuerySearch_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wangyiyungw/article/details/82786237,BlogCommendFromQuerySearch_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wangyiyungw/article/details/82786237" target="_blank" title="分布式存储系统可靠性系列一：如何估算">
+		<h4 class="text-truncate oneline">
+				分布式<em>存储系统</em>可靠性系列一：如何估算		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					693</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wangyiyungw/article/details/82786237" target="_blank" title="分布式存储系统可靠性系列一：如何估算">
+				<span class="desc oneline">本文来自网易云社区作者：孙建良1.存储系统的可靠性常规情况下，我们一般使用多幅本技术来提高存储系统的可靠性，不论是结构化数据库存储(典型mysql)、文档型Nosql数据库存储(mongodb)或者是...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wangyiyungw">来自：	<span class="blog_title"> 网易云社区博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42676170/article/details/86583700,BlogCommendFromQuerySearch_28"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42676170/article/details/86583700,BlogCommendFromQuerySearch_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_42676170/article/details/86583700" target="_blank" title="Matlab之认知行为眼动数据处理程序(第一章)">
+		<h4 class="text-truncate oneline">
+				Matlab之认知行为眼动<em>数据</em>处理程序(第一章)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					650</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_42676170/article/details/86583700" target="_blank" title="Matlab之认知行为眼动数据处理程序(第一章)">
+				<span class="desc oneline">1、眼动信号  眼动信号是一种由于眼球运动引起的眼部周围电势变化的生物电信号。电势大小在0.4~10mv之间，频率在0~100Hz之间，主要频段在0~10Hz之间。眼动信号分为五大类：平稳追踪运动、扫...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_42676170">来自：	<span class="blog_title"> weixin_42676170的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/chenglinhust/article/details/77801890,BlogCommendFromQuerySearch_29"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/chenglinhust/article/details/77801890,BlogCommendFromQuerySearch_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/chenglinhust/article/details/77801890" target="_blank" title="Bitcask存储系统架构设计思想">
+		<h4 class="text-truncate oneline">
+				Bitcask<em>存储系统</em>架构<em>设计</em>思想		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2462</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/chenglinhust/article/details/77801890" target="_blank" title="Bitcask存储系统架构设计思想">
+				<span class="desc oneline">Bitcask存储系统架构设计思想Bitcask模型是一种日志型键值模型。所谓日志型，是指它不直接支持随机写入，而是像日志一样支持追加操作。Bitcask模型将随机写入转化为顺序写入。有两个好处：提高...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/chenglinhust">来自：	<span class="blog_title"> chenglinhust的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/71006240,BlogCommendFromThirdServiceAll_30"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/71006240,BlogCommendFromThirdServiceAll_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Androidlushangderen/article/details/71006240" target="_blank" title="HDFS的新方向：Ozone对象存储">
+		<h4 class="text-truncate oneline">
+				HDFS的新方向：Ozone对象存储		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4295</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Androidlushangderen/article/details/71006240" target="_blank" title="HDFS的新方向：Ozone对象存储">
+				<span class="desc oneline">前言HDFS在近几年中得到了迅速的发展，作为性价比比较高的存储系统，用户、企业只需利用若干台低配廉价的节点机型，就可以构建能够承受TB甚至PB级别的大数据集群，然后在上面做各种类型任务的作业，而且在底...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Androidlushangderen">来自：	<span class="blog_title"> 走在前往架构师的路上</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/chenyun1/article/details/83850579,BlogCommendFromThirdServiceAll_31"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/chenyun1/article/details/83850579,BlogCommendFromThirdServiceAll_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/chenyun1/article/details/83850579" target="_blank" title="海量数据存储之存储设计(一)">
+		<h4 class="text-truncate oneline">
+				海量<em>数据</em>存储之存储<em>设计</em>(一)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					420</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/chenyun1/article/details/83850579" target="_blank" title="海量数据存储之存储设计(一)">
+				<span class="desc oneline"> 相关文章推荐：海量数据存储之Key-Value存储简介海里数据存储之存储设计(二)Je的排版真的让人难过......从本文开始着重讲解存储细节，思路比较飘逸，观者多包涵。翻译了一篇Redis作者an...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/chenyun1">来自：	<span class="blog_title"> chenyun1的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/8624232,BlogCommendFromThirdServiceAll_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/li2008xue2008ling/article/details/8624232,BlogCommendFromThirdServiceAll_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/li2008xue2008ling/article/details/8624232" target="_blank" title="数据探查（二）">
+		<h4 class="text-truncate oneline">
+				<em>数据</em><em>探查</em>（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2189</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/li2008xue2008ling/article/details/8624232" target="_blank" title="数据探查（二）">
+				<span class="desc oneline">前些天写了一篇博客：数据探查（一），简要介绍了一下数据探查。但那时候只是刚刚接触，没有意识到数据探查的真正的重要性。       项目中，我们需要给其他系统对抽表数据，对抽表的数据就是将源表中的数据，...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendFromThirdServiceAll_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendFromThirdServiceAll_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					66万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：简言之就是找环（每条边只走一次，两两可达）孤立的一个点也是一个连通分量 使用tarjan算法在嵌套的多个环中优先得到最大环(最小环就是每个孤立点） 定义：intTime,DFN[N],Lo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendFromThirdServiceAll_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendFromThirdServiceAll_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)最近需要网页添加多个倒计时.查阅网络,基本上都是千遍一律的不好用.自己按需写了个.希望对大家有用.有用请赞一个哦!//js//js2varpl...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_40981790/article/details/80674590,BlogCommendESEnWordWeight_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_40981790/article/details/80674590,BlogCommendESEnWordWeight_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_40981790/article/details/80674590" target="_blank" title="数据存储：大数据存储系统（1）--- 分布式文件系统">
+		<h4 class="text-truncate oneline">
+				<em>数据</em>存储：大<em>数据</em><em>存储系统</em>（1）--- 分布式文件系统		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					959</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_40981790/article/details/80674590" target="_blank" title="数据存储：大数据存储系统（1）--- 分布式文件系统">
+				<span class="desc oneline">本文转载自：https://blog.csdn.net/u013710265/article/details/72798348分布式文件系统一、分布式系统概念（1）分布式系统类型：Client/Ser...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_40981790">来自：	<span class="blog_title"> Miss_畅的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/50619468,BlogCommendESEnWordWeight_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Androidlushangderen/article/details/50619468,BlogCommendESEnWordWeight_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Androidlushangderen/article/details/50619468" target="_blank" title="DataNode数据处理中心DataXceiver">
+		<h4 class="text-truncate oneline">
+				DataNode<em>数据</em>处理中心DataXceiver		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4534</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Androidlushangderen/article/details/50619468" target="_blank" title="DataNode数据处理中心DataXceiver">
+				<span class="desc oneline">前言最近在CSDN的首页上看到了hadoop十周年的文章,不禁感慨这真是一个伟大的系统啊.在这十年间,hadoop自身进行了许多演化和大的改变,而在其下,也孵化出了许多子项目,围绕着hadoop的生态...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Androidlushangderen">来自：	<span class="blog_title"> 走在前往架构师的路上</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/will4906/article/details/73723774,BlogCommendESEnWordWeight_37"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/will4906/article/details/73723774,BlogCommendESEnWordWeight_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/will4906/article/details/73723774" target="_blank" title="基于java spring的邮件群发简单方式">
+		<h4 class="text-truncate oneline">
+				基于java spring的邮件群发简单方式		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2759</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/will4906/article/details/73723774" target="_blank" title="基于java spring的邮件群发简单方式">
+				<span class="desc oneline">使用环境mavenspringmybatismysqljavamailqq邮箱准备工作使用maven将spring、mybatis、mysql、javamail所需要的包导入，具体导入的包见demo的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/will4906">来自：	<span class="blog_title"> 一个简单的故事</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendESEnWordWeight_38"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendESEnWordWeight_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+		<h4 class="text-truncate oneline">
+				VS下生成与配置静态库与动态库（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+				<span class="desc oneline">此处仅以VS2010为例，详细说明一下如何在VS环境下生成和使用C++的静态库与动态库。Qt下生成和使用静态和动态库后续再讲。本文仅供初学者参考，如果有问题欢迎大家指正。    首先简单地理解一下静态...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/luyan_abaci">来自：	<span class="blog_title"> luyan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wo13142yanyouxin/article/details/76572119,BlogCommendESEnWordWeight_39"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wo13142yanyouxin/article/details/76572119,BlogCommendESEnWordWeight_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wo13142yanyouxin/article/details/76572119" target="_blank" title="人脸检测中的AdaBoost算法">
+		<h4 class="text-truncate oneline">
+				人脸检测中的AdaBoost算法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2691</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wo13142yanyouxin/article/details/76572119" target="_blank" title="人脸检测中的AdaBoost算法">
+				<span class="desc oneline">人脸检测中的AdaBoost算法第一章：引言   2017.7.31。英国测试人脸识别技术，不需要排队购票就能刷脸进站。据BBC新闻报道，这项英国政府铁路安全标准委员会资助的新技术，由布里斯托机器人实...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wo13142yanyouxin">来自：	<span class="blog_title"> wo13142yanyouxin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013710265/article/details/72801117,BlogCommendFromQuerySearch_40"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013710265/article/details/72801117,BlogCommendFromQuerySearch_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013710265/article/details/72801117" target="_blank" title="大数据存储系统（2）--- Key-Value Store">
+		<h4 class="text-truncate oneline">
+				大<em>数据</em><em>存储系统</em>（2）--- Key-Value Store		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1794</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013710265/article/details/72801117" target="_blank" title="大数据存储系统（2）--- Key-Value Store">
+				<span class="desc oneline">No-SQL：（1）这些系统大部分是由互联网公司研发，研发目标是支持某公司的某类重要的应用。（2）放弃使用关系型系统，转而开发专门的系统以支持目标应用。（3）针对目标应用进行开发，简化了许多关系型系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013710265">来自：	<span class="blog_title"> 专注计算机体系结构</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_31598113/article/details/73385671,BlogCommendFromQuerySearch_41"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_31598113/article/details/73385671,BlogCommendFromQuerySearch_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_31598113/article/details/73385671" target="_blank" title="大数据环境下的高性能分布式计算&amp;存储系统(初探)">
+		<h4 class="text-truncate oneline">
+				大<em>数据</em>环境下的高性能分布式计算&amp;<em>存储系统</em>(初探)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1271</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_31598113/article/details/73385671" target="_blank" title="大数据环境下的高性能分布式计算&amp;存储系统(初探)">
+				<span class="desc oneline">参考博文：http://blog.csdn.net/fanyun_01/article/details/50946172【这个系统的用途】首先，这套系统是为高并发访问的web页面提供缓存服务的。什么样...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_31598113">来自：	<span class="blog_title"> Tony_仔仔 的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42676170/article/details/86678472,BlogCommendFromQuerySearch_42"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42676170/article/details/86678472,BlogCommendFromQuerySearch_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_42676170/article/details/86678472" target="_blank" title="Matlab之认知行为眼动数据处理程序(第二章)">
+		<h4 class="text-truncate oneline">
+				Matlab之认知行为眼动<em>数据</em>处理程序(第二章)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					254</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_42676170/article/details/86678472" target="_blank" title="Matlab之认知行为眼动数据处理程序(第二章)">
+				<span class="desc oneline">利用小波变换对眼动信号进行高通滤波的matlab代码实现，code如下：%wavlet_highpass.m滤除信号的基线漂移，利用db6小波进行5层分解，滤除40Hz以上的噪声%Orig_signa...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_42676170">来自：	<span class="blog_title"> weixin_42676170的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012979009/article/details/50828759,BlogCommendFromQuerySearch_43"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012979009/article/details/50828759,BlogCommendFromQuerySearch_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012979009/article/details/50828759" target="_blank" title="基于FastDfs的分布式文件存储系统设计">
+		<h4 class="text-truncate oneline">
+				基于FastDfs的分布式文件<em>存储系统</em><em>设计</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3332</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012979009/article/details/50828759" target="_blank" title="基于FastDfs的分布式文件存储系统设计">
+				<span class="desc oneline">前言</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012979009">来自：	<span class="blog_title"> bingcool</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Professorphp/article/details/80661861,BlogCommendFromQuerySearch_44"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Professorphp/article/details/80661861,BlogCommendFromQuerySearch_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Professorphp/article/details/80661861" target="_blank" title="php分布式存储">
+		<h4 class="text-truncate oneline">
+				php分布式存储		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1249</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Professorphp/article/details/80661861" target="_blank" title="php分布式存储">
+				<span class="desc oneline">普通的Web开发，常用的模式就是用户登录之后，登录状态信息保存在Session中，用户一些常用的热数据保存在文件缓存中，用户上传的附件信息保存在Web服务器的某个目录上。这种方式对于一般的Web应用，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Professorphp">来自：	<span class="blog_title"> Professorphp的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/candycat1992/article/details/41254799,BlogCommendFromThirdServiceAll_45"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/candycat1992/article/details/41254799,BlogCommendFromThirdServiceAll_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/candycat1992/article/details/41254799" target="_blank" title="【Unity技巧】四元数（Quaternion）和旋转">
+		<h4 class="text-truncate oneline">
+				【Unity技巧】四元数（Quaternion）和旋转		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					26万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/candycat1992/article/details/41254799" target="_blank" title="【Unity技巧】四元数（Quaternion）和旋转">
+				<span class="desc oneline">旋转，应该是三种坐标变换——缩放、旋转和平移，中最复杂的一种了。大家应该都听过，有一种旋转的表示方法叫四元数。按照我们的习惯，我们更加熟悉的是另外两种旋转的表示方法——矩阵旋转和欧拉旋转。矩阵旋转使用...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/candycat1992">来自：	<span class="blog_title"> candycat</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendFromThirdServiceAll_46"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendFromThirdServiceAll_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态<em>数据</em>源切换、多<em>数据</em>源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev在SpringBoot应用中使用到了MyBatis作为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lichengyu/article/details/20743877,BlogCommendFromThirdServiceAll_47"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lichengyu/article/details/20743877,BlogCommendFromThirdServiceAll_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lichengyu/article/details/20743877" target="_blank" title="OpenCV实现Gabor滤波">
+		<h4 class="text-truncate oneline">
+				OpenCV实现Gabor滤波		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lichengyu/article/details/20743877" target="_blank" title="OpenCV实现Gabor滤波">
+				<span class="desc oneline">图1 不同中心震荡频率下在Gabor函数代码：根据http://blog.csdn.net/watkinsong/article/details/7876361实现#include#include#i...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lichengyu">来自：	<span class="blog_title"> lichengyu的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ShaneLooLi/article/details/7212812,BlogCommendFromThirdServiceAll_48"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ShaneLooLi/article/details/7212812,BlogCommendFromThirdServiceAll_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ShaneLooLi/article/details/7212812" target="_blank" title="由 Windows 向 Linux 迁移字体">
+		<h4 class="text-truncate oneline">
+				由 Windows 向 Linux 迁移字体		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9563</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ShaneLooLi/article/details/7212812" target="_blank" title="由 Windows 向 Linux 迁移字体">
+				<span class="desc oneline">以下内容部分来自互联网，由作者，也就是ShaneLooLi整理1.FromWindowsWindows下字体库的位置为C:\Windows\fonts，这里面包含所有windows下可用的字体。2.T...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ShaneLooLi">来自：	<span class="blog_title"> Shane from Spads</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/Mtjakg5sODMtZWR1.html" target="_blank">
+                        云计算数据</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaQg4sMTktZWR1.html" target="_blank">
+                        数据培训</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/Androidlushangderen">
+              <img src="https://avatar.csdn.net/9/F/0/3_androidlushangderen.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/7.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/Androidlushangderen" target="_blank" class="" id="uid">Android路上的人</a>
+            </p>
+                          <p class="flag expert">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="329">
+                        <dt><a href="https://blog.csdn.net/androidlushangderen?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/androidlushangderen?t=1"><span class="count">329</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="2438">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">2438</span></dd>
+        </dl>
+        <dl class="text-center" title="341">
+            <dt>喜欢</dt>
+            <dd><span class="count">341</span></dd>
+        </dl>
+        <dl class="text-center" title="408">
+            <dt>评论</dt>
+            <dd><span class="count">408</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="7级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-7"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="1897168">
+                189万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="17105">
+                1万+            </dd>
+        </dl>
+        <dl title="1017">
+            <dt>排名：</dt>
+            <dd>1017</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="专栏达人">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                                   <p>专栏达人</p>
+                               </div>
+                               <div class="right-box">
+                                   授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="持之以恒">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                                   <p>持之以恒</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<!--自定义模块-->
+<div id="asideCustom52715336" class="aside-box custom-box">
+    <h3 class="aside-title">新书发布</h3>
+    <div class="aside-content clearfix">
+        <ul class="panel_body">
+<div xss=removed>
+<a href="https://item.jd.com/12187990.html" target="_blank">
+<img src="https://img-blog.csdnimg.cn/20190224224810142.jpg" alt="深度剖析Hadoop HDFS"></a></div>
+
+<span xss=removed>新书&lt;&lt;深度剖析Hadoop HDFS>>发布上市，此书源自于笔者博客，重新经过整理，完善而成，此书的定位并不是一本纯源码分析的书籍，其中有许多笔者在工作和学习中对于HDFS的一些有趣的看法和理解。
+
+               ---- 一名快乐的Apache Hadoop Committer & PMC member
+
+链接：
+<div xss=removed><a href="https://detail.tmall.com/item.htm?spm=a230r.1.14.20.rtP2Mo&id=549677383128&ns=1&abbucket=16" target="_blank">淘宝<br></a><a href="https://item.jd.com/12187990.html" target="_blank">京东<br></a></div></span></ul>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Androidlushangderen/article/details/90650515" target="_blank">YARN的共享存储服务</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Androidlushangderen/article/details/90524145" target="_blank">论分布式系统内的节点坏盘感知</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Androidlushangderen/article/details/90341093" target="_blank">存储系统双缓冲设计模式</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Androidlushangderen/article/details/90115624" target="_blank">YARN的Log Aggregation原理</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Androidlushangderen/article/details/89894137" target="_blank">Ozone Security：基于证书的Block Access Token认证</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Androidlushangderen/column/info/redis-code">
+                            <img src="https://img-blog.csdn.net/20151123180101395?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Androidlushangderen/column/info/redis-code">Redis源码分析</a></p>
+                        <div class="data">文章数：<span class="count">36 篇</span> 访问量：<span>21万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Androidlushangderen/column/info/mapreduce">
+                            <img src="https://img-blog.csdn.net/20151123180107427?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Androidlushangderen/column/info/mapreduce">MapReduce源码分析</a></p>
+                        <div class="data">文章数：<span class="count">11 篇</span> 访问量：<span>3万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Androidlushangderen/column/info/hadoop-common">
+                            <img src="https://img-blog.csdn.net/20151123180119224?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Androidlushangderen/column/info/hadoop-common">Hadoop Common源码学习笔记</a></p>
+                        <div class="data">文章数：<span class="count">8 篇</span> 访问量：<span>2万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Androidlushangderen/column/info/hadoop-hdfs">
+                            <img src="https://img-blog.csdn.net/column?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Androidlushangderen/column/info/hadoop-hdfs">HDFS源码分析</a></p>
+                        <div class="data">文章数：<span class="count">6 篇</span> 访问量：<span>2万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Androidlushangderen/column/info/dataming">
+                            <img src="https://img-blog.csdn.net/20151123180445145?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Androidlushangderen/column/info/dataming">经典数据挖掘算法</a></p>
+                        <div class="data">文章数：<span class="count">29 篇</span> 访问量：<span>25万+</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2438297">
+                    <span class="title oneline">Jvm</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2438315">
+                    <span class="title oneline">BigData</span>
+                    <span class="count float-right">23篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2438317">
+                    <span class="title oneline">Nosql</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2438319">
+                    <span class="title oneline">Java 中间件</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2452891">
+                    <span class="title oneline">设计模式</span>
+                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2458855">
+                    <span class="title oneline">算法</span>
+                    <span class="count float-right">49篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2458857">
+                    <span class="title oneline">数据结构</span>
+                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2597169">
+                    <span class="title oneline">Linux Kernel</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2607855">
+                    <span class="title oneline">JDK源码</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2627675">
+                    <span class="title oneline">安全</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2647211">
+                    <span class="title oneline">Redis源码</span>
+                    <span class="count float-right">36篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2647213">
+                    <span class="title oneline">Storm</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2665589">
+                    <span class="title oneline">Spark</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2697515">
+                    <span class="title oneline">Hadoop</span>
+                    <span class="count float-right">142篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2705739">
+                    <span class="title oneline">MapReduce</span>
+                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/5734703">
+                    <span class="title oneline">HDFS</span>
+                    <span class="count float-right">92篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/5780183">
+                    <span class="title oneline">YARN</span>
+                    <span class="count float-right">22篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2745439">
+                    <span class="title oneline">Hadoop Common</span>
+                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2759223">
+                    <span class="title oneline">数据挖掘</span>
+                    <span class="count float-right">33篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2841587">
+                    <span class="title oneline">机器学习</span>
+                    <span class="count float-right">31篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/2783781">
+                    <span class="title oneline">分布式系统</span>
+                    <span class="count float-right">73篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/3080909">
+                    <span class="title oneline">搜索引擎</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/5663033">
+                    <span class="title oneline">系统运维</span>
+                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/7646653">
+                    <span class="title oneline">杂谈</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/androidlushangderen/article/category/8553567">
+                    <span class="title oneline">Flink</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2019/01">
+                    2019年1月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/12">
+                    2018年12月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/11">
+                    2018年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/10">
+                    2018年10月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/09">
+                    2018年9月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2017/01">
+                    2017年1月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/08">
+                    2016年8月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/07">
+                    2016年7月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/06">
+                    2016年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/05">
+                    2016年5月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/04">
+                    2016年4月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/03">
+                    2016年3月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/02">
+                    2016年2月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2016/01">
+                    2016年1月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/12">
+                    2015年12月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/09">
+                    2015年9月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/08">
+                    2015年8月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/07">
+                    2015年7月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/06">
+                    2015年6月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/05">
+                    2015年5月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/04">
+                    2015年4月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/03">
+                    2015年3月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/02">
+                    2015年2月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2015/01">
+                    2015年1月                    <span class="count float-right">23篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/12">
+                    2014年12月                    <span class="count float-right">20篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/11">
+                    2014年11月                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/10">
+                    2014年10月                    <span class="count float-right">37篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/09">
+                    2014年9月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/androidlushangderen/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/androidlushangderen/article/details/50282593">从Container内存监控限制到CPU使用率限制方案</a>
+					<p class="read">阅读数 <span>388717</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/androidlushangderen/article/details/39803337">Redis源码分析（一）--Redis结构解析</a>
+					<p class="read">阅读数 <span>40753</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/androidlushangderen/article/details/51178253">HDFS副本放置策略</a>
+					<p class="read">阅读数 <span>22644</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/androidlushangderen/article/details/42395865">决策分类树算法之ID3，C4.5算法系列</a>
+					<p class="read">阅读数 <span>22562</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/androidlushangderen/article/details/88783397">存储系统“数据之眼”的设计--数据探查服务</a>
+					<p class="read">阅读数 <span>19845</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/androidlushangderen/article/details/42613011#comments">K-最近邻算法</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/abc8023" class="user-name" target="_blank">abc8023：</a>[reply]abcgaoxiang[/reply]
+我运行没问题啊                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/androidlushangderen/article/details/43766253#comments">PrefixSpan序列模式挖掘算法</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/lzr7414" class="user-name" target="_blank">lzr7414：</a>这个想要改最小支持度需要再改什么呀？                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/androidlushangderen/article/details/42613011#comments">K-最近邻算法</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/abcgaoxiang" class="user-name" target="_blank">abcgaoxiang：</a>你好你这个代码我运行数组越界错误                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/androidlushangderen/article/details/90341093#comments">存储系统双缓冲设计模式</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/culyann" class="user-name" target="_blank">culyann：</a>赞                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/androidlushangderen/article/details/90341093#comments">存储系统双缓冲设计模式</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/q76815846" class="user-name" target="_blank">q76815846：</a>正好需要学些                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box ">
+			<button class=" low-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>0</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/androidlushangderen/article/details/88617498" title="聊聊Flame Graph（火焰图）的那些事">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/androidlushangderen/article/details/89077676" title="Hadoop公平调度队列FairCallQueue的优化设想">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/androidlushangderen/article/details/88617498" title="聊聊Flame Graph（火焰图）的那些事">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/androidlushangderen/article/details/89077676" title="Hadoop公平调度队列FairCallQueue的优化设想">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 83;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 31;
+    var articleId = "88783397";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/Androidlushangderen/article/details/88783397";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "存储系统“数据之眼”的设计--数据探查服务 - 走在前往架构师的路上";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["\u5b58\u50a8\u7cfb\u7edf","\u6570\u636e","\u8bbe\u8ba1","\u6570\u636e","\u63a2\u67e5","\u670d\u52a1"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"mindfloating","nick_name":"mindwind-_-","avatar":"https:\/\/avatar.csdn.net\/6\/8\/8\/3_mindfloating.jpg","is_expert":true,"article_count":137,"rank":"4000+"},{"user_name":"yinwenjie","nick_name":"\u8bf4\u597d\u4e0d\u80fd\u6253\u8138","avatar":"https:\/\/avatar.csdn.net\/1\/E\/F\/3_yinwenjie.jpg","is_expert":true,"article_count":136,"rank":"1000+"},{"user_name":"boonya","nick_name":"boonya","avatar":"https:\/\/avatar.csdn.net\/9\/4\/B\/3_boonya.jpg","is_expert":true,"article_count":1153,"rank":"239"},{"user_name":"weixin_33828101","nick_name":"weixin_33828101","avatar":"https:\/\/avatar.csdn.net\/0\/C\/0\/3_weixin_33828101.jpg","is_expert":false,"article_count":3016,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"li2008xue2008ling","nick_name":"li2008xue2008ling","avatar":"https:\/\/avatar.csdn.net\/5\/C\/1\/3_li2008xue2008ling.jpg","is_expert":false,"article_count":206,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u013710265","nick_name":"JepsonWong","avatar":"https:\/\/avatar.csdn.net\/2\/F\/8\/3_u013710265.jpg","is_expert":false,"article_count":126,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"doezhiguo","nick_name":"Georgezhiguo","avatar":"https:\/\/avatar.csdn.net\/3\/9\/C\/3_doezhiguo.jpg","is_expert":false,"article_count":14,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"WhuCS_B701","nick_name":"WhuCS_B701","avatar":"https:\/\/avatar.csdn.net\/1\/3\/3\/3_whucs_b701.jpg","is_expert":false,"article_count":18,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"guolong1983811","nick_name":"\u90ed\u9f99_Jack","avatar":"https:\/\/avatar.csdn.net\/6\/E\/1\/3_guolong1983811.jpg","is_expert":false,"article_count":599,"rank":"6000+"},{"user_name":"wangyiyungw","nick_name":"\u7f51\u6613\u4e91","avatar":"https:\/\/avatar.csdn.net\/5\/6\/0\/3_wangyiyungw.jpg","is_expert":false,"article_count":777,"rank":"3000+"}];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

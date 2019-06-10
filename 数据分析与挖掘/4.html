@@ -1,0 +1,3578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/weiwei_pig/article/details/52123738"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"centos7安装出现license information(license not accepted)解决办法 - weiwei_pig的专栏"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>centos7安装出现license information(license not accepted)解决办法 - weiwei_pig的专栏 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "weiwei_pig";
+        var blog_address = "https://blog.csdn.net/weiwei_pig";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/weiwei_pig/article/details/52123738"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "centos7安装出现license information(license not accepted)解决办法 - weiwei_pig的专栏";
+        
+        var nickName = "韦玮老师";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/weiwei_pig/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/weiwei_pig/article/details/52123738";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-923","con":",,"}' data-track-click='{"mod":"kp_popu_476-923","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.7/indexSuperise.js?20190508180304"></script>
+<script>
+window.csdn.indexSuperise({
+zIndex:11000,
+      smallMoveImg: '//img-ads.csdn.net/2019/201905051104467314.png',
+      bigMoveImg: '//img-ads.csdn.net/2019/201905051104363598.png',
+     link:'//edu.csdn.net/topic/ai30?utm_source=blogpopup',
+boxStyle:140,
+trackSuperId:476,
+smallMove:'notMove',  
+trackSId:923
+    });
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">centos7安装出现license information(license not accepted)解决办法</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2016年08月04日 22:15:15</span>
+          <a class="follow-nickName" href="https://me.csdn.net/weiwei_pig" target="_blank">韦玮老师</a>
+          <span class="read-count">阅读数：23500</span>
+                  </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+          <div class="htmledit_views" id="content_views">
+            
+若出现license information(license not accepted)，即说明需要同意许可信息，输入1-回车-2-回车-c-回车-c回车，即可解决。
+          </div>
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/weiwei_pig/article/details/52123738,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/weiwei_pig/article/details/52123738,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-386","con":",,"}' data-track-click='{"mod":"kp_popu_58-386","con":",,"}'><div style="width:100%;background:#fff;">
+<script type="text/javascript" src="//rabc1.iteye.com/production/resource/web/6xwm4l.js?lg=ydmpioh"></script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="52123738">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/bestBT/article/details/54955223,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/bestBT/article/details/54955223" target="_blank" title="centOS 7 初次安装的许可问题">
+		<h4 class="text-truncate oneline">
+				centOS 7 初次<em>安装</em>的许可问题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3171</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/bestBT/article/details/54955223" target="_blank" title="centOS 7 初次安装的许可问题">
+				<span class="desc oneline">第一次安装之后重新启动之后出现了licenseinformation具体的解决方法贴上只需要同意许可即可按照如下步骤操作：输入1-回车-2-回车-c-回车-c回车问题成功解决...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/bestBT">来自：	<span class="blog_title"> BG2DGR的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhezhebie/article/details/73289723,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhezhebie/article/details/73289723" target="_blank" title="centos7安装：license information(license not accepted)">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em><em>安装</em>：<em>license</em> <em>information</em>(<em>license</em> not <em>accepted</em>)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3702</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhezhebie/article/details/73289723" target="_blank" title="centos7安装：license information(license not accepted)">
+				<span class="desc oneline">今天安装centos7遇到个liciense问题，之前从未有过，根据提示，乱按了几次，都不能启动。然后仔细看了一下内容：1、问你接不接受他们的协议。2、接受协议之后要看完，按c，再按enter，再按c...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhezhebie">来自：	<span class="blog_title"> 阳水平的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leifengchuan/article/details/84855624,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leifengchuan/article/details/84855624" target="_blank" title=" Centos7安装后，登录时提示：license information">
+		<h4 class="text-truncate oneline">
+				 <em>Centos7</em><em>安装</em>后，登录时提示：<em>license</em> <em>information</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					92</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leifengchuan/article/details/84855624" target="_blank" title=" Centos7安装后，登录时提示：license information">
+				<span class="desc oneline">[b]安装centos7,忘记勾选一个按钮了，安装到最后，reboot时，就会显示licenseinformation(licensenotaccepted)的信息。解决方法如下：[/b]解决方法：[...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leifengchuan">来自：	<span class="blog_title"> leifengchuan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/majishushu/article/details/54142180,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/majishushu/article/details/54142180" target="_blank" title="linux centos7 安装出现 license information(license not accepted)解决办法">
+		<h4 class="text-truncate oneline">
+				linux <em>centos7</em> <em>安装</em><em>出现</em> <em>license</em> <em>information</em>(<em>license</em> not <em>accepted</em>)<em>解决办法</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4558</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/majishushu/article/details/54142180" target="_blank" title="linux centos7 安装出现 license information(license not accepted)解决办法">
+				<span class="desc oneline">今天安装centos7出现这个提示。大概意思就是需要通过许可信息，提供两种办法跳过这个环节。1 输入1-回车2-回车c-回车c-回车，之后即可进入系统2 输入1-回车2-回车q-回车yes-回车，之后...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/majishushu">来自：	<span class="blog_title"> 灿夏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-78","con":",,"}' data-track-click='{"mod":"kp_popu_59-78","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3491668",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/waitstory12/article/details/53557641,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/waitstory12/article/details/53557641" target="_blank" title="CentOS 7安装时：license information问题.附centos下载地址.">
+		<h4 class="text-truncate oneline">
+				CentOS 7<em>安装</em>时：<em>license</em> <em>information</em>问题.附centos下载地址.		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					841</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/waitstory12/article/details/53557641" target="_blank" title="CentOS 7安装时：license information问题.附centos下载地址.">
+				<span class="desc oneline">我们安装CentOS7的时候选择了默认的许可证信息，但安装到最后进行不下去，就会显示Licenseinformation(Licensenotaccepted)的信息。解决方法如下：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/waitstory12">来自：	<span class="blog_title"> 木子的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Emperor_21AD_ShiDi/article/details/53043241,BlogCommendFromBaidu_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Emperor_21AD_ShiDi/article/details/53043241" target="_blank" title="centos7安装：license information">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em><em>安装</em>：<em>license</em> <em>information</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5744</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Emperor_21AD_ShiDi/article/details/53043241" target="_blank" title="centos7安装：license information">
+				<span class="desc oneline">安装centos7的时候明明已经选择了默认的许可证信息，不知道哪里出错了，安装到最后，就会显示licenseinformation(licensenotaccepted)的信息。解决方法如下：1.首先...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Emperor_21AD_ShiDi">来自：	<span class="blog_title"> 时缔&实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_43067527/10647787,BlogCommendFromBaidu_6"}'>
+		<a href="https://download.csdn.net/download/qq_43067527/10647787" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						rhel7、<em>centos7</em> <em>license</em> not <em>accepted</em><em>解决办法</em>					</h4>
+					<span class="data float-right">09-05</span>
+				</div>
+				<div class="desc oneline">
+						rhel7、centos7 license not accepted解决办法rhel7、centos7 license not accepted解决办法				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sfslife/article/details/50922453,BlogCommendFromBaidu_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sfslife/article/details/50922453" target="_blank" title="CentOS之许可">
+		<h4 class="text-truncate oneline">
+				CentOS之许可		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					769</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sfslife/article/details/50922453" target="_blank" title="CentOS之许可">
+				<span class="desc oneline">如果安装的时候安装了GNOMEDesktop，如下图：在开机的时候，则，需要如下操作：a)Press1b)Press2inordertochange[]to[x]infrontof2)Iacceptt...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sfslife">来自：	<span class="blog_title"> sfslife的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hui_2016/article/details/68927487,BlogCommendFromBaidu_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hui_2016/article/details/68927487" target="_blank" title="使用VMware安装CentOS7详请">
+		<h4 class="text-truncate oneline">
+				使用VMware<em>安装</em><em>CentOS7</em>详请		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hui_2016/article/details/68927487" target="_blank" title="使用VMware安装CentOS7详请">
+				<span class="desc oneline">话不多说直接开车，乘客坐稳了准备资料：CentOS-7-x86_64-Everything-1611对资料就这些第一步点击...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hui_2016">来自：	<span class="blog_title"> hui_2016的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-43","con":",,"}' data-track-click='{"mod":"kp_popu_60-43","con":",,"}'><div id="three_ad8" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad8",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_32786873/article/details/78792338,BlogCommendFromBaidu_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_32786873/article/details/78792338" target="_blank" title="CentOS7.4安装Chrome浏览器">
+		<h4 class="text-truncate oneline">
+				<em>CentOS7</em>.4<em>安装</em>Chrome浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_32786873/article/details/78792338" target="_blank" title="CentOS7.4安装Chrome浏览器">
+				<span class="desc oneline">一、下载Chrome浏览器的rpm包二、安装Chrome浏览器使用Xftp将下载好的google-chrome-stable_current_x86_64.rpm上传到CentOs上去，我这里放到了/...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_32786873">来自：	<span class="blog_title"> 勿忘初心的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zsx157326/article/details/77806625,BlogCommendFromBaidu_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zsx157326/article/details/77806625" target="_blank" title="CentOS 7的安装">
+		<h4 class="text-truncate oneline">
+				CentOS 7的<em>安装</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zsx157326/article/details/77806625" target="_blank" title="CentOS 7的安装">
+				<span class="desc oneline">访问其官网，https://www.centos.org/，点击GetCentOSNow，点击alternativedownloads，点击CentOS7列表中的x86_64，点击http://mir...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zsx157326">来自：	<span class="blog_title"> 杨钊</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_28334041/article/details/70130636,BlogCommendFromBaidu_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_28334041/article/details/70130636" target="_blank" title="Centos 7 常用命令">
+		<h4 class="text-truncate oneline">
+				Centos 7 常用命令		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3921</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_28334041/article/details/70130636" target="_blank" title="Centos 7 常用命令">
+				<span class="desc oneline">目录目录Centos7常用命令文件与目录操作查看文件内容文本内容处理查询操作压缩解压yum安装器系统相关XSheel5相关操作Centos7常用命令文件与目录操作命令解析cd/home进入/home目...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_28334041">来自：	<span class="blog_title"> 吴杨的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/b_x_p/article/details/78502635,BlogCommendFromBaidu_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/b_x_p/article/details/78502635" target="_blank" title="Centos7安装Google浏览器">
+		<h4 class="text-truncate oneline">
+				<em>Centos7</em><em>安装</em>Google浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2654</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/b_x_p/article/details/78502635" target="_blank" title="Centos7安装Google浏览器">
+				<span class="desc oneline">1、进入yum.repos.d目录cd/etc/yum.repos.d/2、创建并编辑google-chrome.repo文件vigoogle-chrome.repo3、在文件中添加如下内容[goog...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/b_x_p">来自：	<span class="blog_title"> he_321的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010472499/article/details/72327963,BlogCommendFromThirdServiceAll_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010472499/article/details/72327963" target="_blank" title="Centos7安装chrome浏览器">
+		<h4 class="text-truncate oneline">
+				<em>Centos7</em><em>安装</em>chrome浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010472499/article/details/72327963" target="_blank" title="Centos7安装chrome浏览器">
+				<span class="desc oneline">1.配置yum源在目录/etc/yum.repos.d/下新建文件google-chrome.repocd/ect/yum.repos.d/vimgoogle-chrome.repo写入如下内容:[g...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010472499">来自：	<span class="blog_title"> 小丢丢的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-557","con":",,"}' data-track-click='{"mod":"kp_popu_61-557","con":",,"}'><div id="three_ad13" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad13",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012605477/article/details/65443189,BlogCommendFromThirdServiceAll_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012605477/article/details/65443189" target="_blank" title="Centos7安装后出现License information">
+		<h4 class="text-truncate oneline">
+				<em>Centos7</em><em>安装</em>后<em>出现</em><em>License</em> <em>information</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					769</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012605477/article/details/65443189" target="_blank" title="Centos7安装后出现License information">
+				<span class="desc oneline">又装了一台服务器，又出现这种奇葩问题，记录一下，省的又忘记了，醉了出现以下图片的的情形，需要正确输入：1回车 2回车 C回车C回车有的人说输入C回车 C回车 Q回车也行，我也试了，然并软。。。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012605477">来自：	<span class="blog_title"> 豆芽胡的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yelllowcong/article/details/75905410,BlogCommendFromBaidu_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yelllowcong/article/details/75905410" target="_blank" title="centos安装出现license information(license not accepted)解决办法">
+		<h4 class="text-truncate oneline">
+				centos<em>安装</em><em>出现</em><em>license</em> <em>information</em>(<em>license</em> not <em>accepted</em>)<em>解决办法</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					977</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yelllowcong/article/details/75905410" target="_blank" title="centos安装出现license information(license not accepted)解决办法">
+				<span class="desc oneline">安装centos7的左面后，重启机器显示licenseinformation(licensenotaccepted)的信息。我就惊呆了，我尼玛不就是装了一个桌面吗，就说没有服从条款，然后有尼玛不知道咋...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yelllowcong">来自：	<span class="blog_title"> yelllowcong的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/392443394,BlogCommendFromBaidu_16"}'>
+	<a href="https://bbs.csdn.net/topics/392443394" target="_blank">
+		<h4 class="text-truncate oneline">
+				rhel7、<em>centos7</em> <em>license</em> not <em>accepted</em><em>解决办法</em>下载		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">09-05</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">rhel7、centos7 license not accepted解决办法rhel7、centos7 license not accepted解决办法 相关下载链接：//download.csdn.</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/KingOfOnePiece/article/details/80567637,BlogCommendFromBaidu_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/KingOfOnePiece/article/details/80567637" target="_blank" title="Not accepted Android SDK license agreements">
+		<h4 class="text-truncate oneline">
+				Not <em>accepted</em> Android SDK <em>license</em> agreements		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2499</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/KingOfOnePiece/article/details/80567637" target="_blank" title="Not accepted Android SDK license agreements">
+				<span class="desc oneline">问题：“NotacceptedAndroidSDKlicenseagreements”解决方案：mkdir&amp;quot;$ANDROID_HOME/licenses&amp;quot;echo-e&amp;quot;\...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/KingOfOnePiece">来自：	<span class="blog_title"> KingOfOnePiece的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/chenlix/article/details/72526205,BlogCommendFromBaidu_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/chenlix/article/details/72526205" target="_blank" title="如何在linux CentOS 上安装chrome 谷歌浏览器">
+		<h4 class="text-truncate oneline">
+				如何在linux CentOS 上<em>安装</em>chrome 谷歌浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8004</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/chenlix/article/details/72526205" target="_blank" title="如何在linux CentOS 上安装chrome 谷歌浏览器">
+				<span class="desc oneline">1、切换到root：su-或者sudo-i2、下载新的软件源定义：cd/etc/yum.repos.dwgethttp://people.centos.org/hughesjr/chromium/6/...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/chenlix">来自：	<span class="blog_title"> CH - L 的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-623","con":",,"}' data-track-click='{"mod":"kp_popu_62-623","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3600849",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dingxiang1987824/article/details/78162524,BlogCommendFromBaidu_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dingxiang1987824/article/details/78162524" target="_blank" title="CentOS 7 安装教程">
+		<h4 class="text-truncate oneline">
+				CentOS 7 <em>安装</em>教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dingxiang1987824/article/details/78162524" target="_blank" title="CentOS 7 安装教程">
+				<span class="desc oneline">敬语为常年奋斗、努力工作在一线，并为操作系统发展做出突出贡献的的大佬们致敬，此处深思几分钟…科普CentOS（CommunityEnterpriseOperatingSystem，中文意思是：社区企业...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dingxiang1987824">来自：	<span class="blog_title"> dingxiang1987824的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ueguo/article/details/79906157,BlogCommendFromBaidu_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ueguo/article/details/79906157" target="_blank" title="CentOS  root权限下，使用谷歌浏览器 Chromium 的问题">
+		<h4 class="text-truncate oneline">
+				CentOS  root权限下，使用谷歌浏览器 Chromium 的问题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					625</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ueguo/article/details/79906157" target="_blank" title="CentOS  root权限下，使用谷歌浏览器 Chromium 的问题">
+				<span class="desc oneline">在root权限下使用chromium两图胜千言。----------------------------------------------------------------------------...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ueguo">来自：	<span class="blog_title"> 金海涛的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/runningtortoises/article/details/51555311,BlogCommendFromBaidu_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/runningtortoises/article/details/51555311" target="_blank" title="Centos Yum安装Chrome浏览器">
+		<h4 class="text-truncate oneline">
+				Centos Yum<em>安装</em>Chrome浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/runningtortoises/article/details/51555311" target="_blank" title="Centos Yum安装Chrome浏览器">
+				<span class="desc oneline">之前Google就说了，由于CentOS/RHEL6已经是过期的系统，所以不再会有Chrome了。虽然后来由于引起了社区的抗议，从而改口，不再提CentOS/RHEL6是过期系统了；但是，目前在Cen...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/runningtortoises">来自：	<span class="blog_title"> 算法之道</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lee_charles/article/details/81061622,BlogCommendFromBaidu_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lee_charles/article/details/81061622" target="_blank" title="Linux下CentOS的安装----在VMware虚拟机中安装CentOS 7">
+		<h4 class="text-truncate oneline">
+				Linux下CentOS的<em>安装</em>----在VMware虚拟机中<em>安装</em>CentOS 7		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5387</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lee_charles/article/details/81061622" target="_blank" title="Linux下CentOS的安装----在VMware虚拟机中安装CentOS 7">
+				<span class="desc oneline">一、VMware简介：VMware是一个虚拟PC的软件，可以在现有的操纵系统上虚拟出一个新的硬件环境，相当于模拟出一台新的PC，以此来实现在一台机器上真正同时运行两个独立的操作系统。VMware的主要...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lee_charles">来自：	<span class="blog_title"> lee_charles的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/user11223344abc/article/details/83997907,BlogCommendFromBaidu_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/user11223344abc/article/details/83997907" target="_blank" title="License for package Android SDK Build-Tools 28.0.2 not accepted.（MAC）">
+		<h4 class="text-truncate oneline">
+				<em>License</em> for package Android SDK Build-Tools 28.0.2 not <em>accepted</em>.（MAC）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9720</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/user11223344abc/article/details/83997907" target="_blank" title="License for package Android SDK Build-Tools 28.0.2 not accepted.（MAC）">
+				<span class="desc oneline">这个问题是我在mac下搭建环境时出现的问题，中途查询了许多资料很多朋友在做rn等其他一些跨平台项目也遇见了这个问题，这里说下我解决的方法；1.进到sdk/tools/bin目录下；这个目录的具体位置：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/user11223344abc">来自：	<span class="blog_title"> 千里android</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-1059","con":",,"}' data-track-click='{"mod":"kp_popu_63-1059","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/234?positionId=63&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_32375565/article/details/81558300,BlogCommendFromBaidu_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_32375565/article/details/81558300" target="_blank" title="You have not accepted the license agreements of the following SDK components解决办法">
+		<h4 class="text-truncate oneline">
+				You have not <em>accepted</em> the <em>license</em> agreements of the following SDK components<em>解决办法</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1417</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_32375565/article/details/81558300" target="_blank" title="You have not accepted the license agreements of the following SDK components解决办法">
+				<span class="desc oneline">因为某些原因，我在ionic+cordova项目用DOS命令移除了android平台再重新添加平台，之后编译的时候出了这么个问题，以下是输出列表中的内容：Aproblemoccurredconfigu...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_32375565">来自：	<span class="blog_title"> 半杯凉开水</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xidodai_dai/article/details/53073940,BlogCommendFromBaidu_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xidodai_dai/article/details/53073940" target="_blank" title="centos7安装出现license information(license not accepted)">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em><em>安装</em><em>出现</em><em>license</em> <em>information</em>(<em>license</em> not <em>accepted</em>)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					317</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xidodai_dai/article/details/53073940" target="_blank" title="centos7安装出现license information(license not accepted)">
+				<span class="desc oneline">centos7安装出现licenseinformation(licensenotaccepted)解决方法：输入1-回车-2-回车-c-回车-c回车，即可解决。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xidodai_dai">来自：	<span class="blog_title"> 呆你妹的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103,BlogCommendFromBaidu_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103" target="_blank" title="win7/win10下装centos7双系统">
+		<h4 class="text-truncate oneline">
+				win7/win10下装<em>centos7</em>双系统		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mengxiangjia_linxi/article/details/78965103" target="_blank" title="win7/win10下装centos7双系统">
+				<span class="desc oneline">工具及材料1、一台PC2、一个U盘，8G以上3、需要的文件：CentOS-7-x86_64-DVD-1511.iso（其他版本也可以如1611）4、需要的软件：USBwriter（优于UltraISO...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mengxiangjia_linxi">来自：	<span class="blog_title"> mengxiangjia_linxi的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/bingoxubin/article/details/78468324,BlogCommendFromBaidu_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/bingoxubin/article/details/78468324" target="_blank" title="CentOS命令">
+		<h4 class="text-truncate oneline">
+				CentOS命令		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					32万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/bingoxubin/article/details/78468324" target="_blank" title="CentOS命令">
+				<span class="desc oneline">应用场景很多人在使用了CentOS6以后，跳转到CentOS7系统，发现命令不一致，倒是使用很不方便，容易混淆，这里列举一下两个版本的一些差别，方便大家在使用的过程中进行注意。1.ifconfig，r...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/bingoxubin">来自：	<span class="blog_title"> 港城少年</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/saga_gallon/article/details/53639123,BlogCommendFromBaidu_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/saga_gallon/article/details/53639123" target="_blank" title="CentOS 7安装Gnome GUI 图形界面">
+		<h4 class="text-truncate oneline">
+				CentOS 7<em>安装</em>Gnome GUI 图形界面		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/saga_gallon/article/details/53639123" target="_blank" title="CentOS 7安装Gnome GUI 图形界面">
+				<span class="desc oneline">当你安装centos服务器版本的时候，系统默认是不会安装CentOS的图形界面程序的，比如：gnome或者kde,那么如果你想在图形界面下工作的话，可以手动来安装CentOSGnomeGUI包，本文将...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/saga_gallon">来自：	<span class="blog_title"> 兰辉</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-81","con":",,"}' data-track-click='{"mod":"kp_popu_64-81","con":",,"}'><div id="three_ad28" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad28",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dancheren/article/details/73611878,BlogCommendFromBaidu_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dancheren/article/details/73611878" target="_blank" title="查看虚拟机里的Centos7的IP">
+		<h4 class="text-truncate oneline">
+				查看虚拟机里的<em>Centos7</em>的IP		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					12万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dancheren/article/details/73611878" target="_blank" title="查看虚拟机里的Centos7的IP">
+				<span class="desc oneline">这里之所以是查看下IP，是我们后面要建一个Centos远程工具Xshell连接Centos的时候，需要IP地址，所以我们这里先学会查看虚拟机里的Centos7的IP地址首先我们登录操作系统用户名roo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dancheren">来自：	<span class="blog_title"> 单车人的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Reticent_Man/article/details/80732395,BlogCommendFromBaidu_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Reticent_Man/article/details/80732395" target="_blank" title="Centos7 安装教程">
+		<h4 class="text-truncate oneline">
+				<em>Centos7</em> <em>安装</em>教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5535</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Reticent_Man/article/details/80732395" target="_blank" title="Centos7 安装教程">
+				<span class="desc oneline">VMware14安装CentOS7一、安装CentOS7下载地址http://101.110.118.30/isoredirect.centos.org/centos/7/isos/x86_64/Ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Reticent_Man">来自：	<span class="blog_title"> Reticent_Man的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012369789/article/details/49997859,BlogCommendFromBaidu_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012369789/article/details/49997859" target="_blank" title="取消Linux下蜂鸣声">
+		<h4 class="text-truncate oneline">
+				取消Linux下蜂鸣声		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2407</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012369789/article/details/49997859" target="_blank" title="取消Linux下蜂鸣声">
+				<span class="desc oneline">在Linux字符终端模式下，每次按Tab有歧义或者错误，或者vim中操作有误的时候，都会听到“嘀嘀”的蜂鸣声，这个声音源自主板的蜂鸣器，所以不能通过关闭音响来解决。Centos默认安装并加载了pcsp...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012369789">来自：	<span class="blog_title"> 寻找自我，挑战自我！</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_40612082/article/details/81023088,BlogCommendFromBaidu_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_40612082/article/details/81023088" target="_blank" title="vmware虚拟机运行卡慢的解决办法">
+		<h4 class="text-truncate oneline">
+				vmware虚拟机运行卡慢的<em>解决办法</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_40612082/article/details/81023088" target="_blank" title="vmware虚拟机运行卡慢的解决办法">
+				<span class="desc oneline">虚拟机的运行速度有一部分原因决定于你的物理机的配置，如果你的物理机配置不高，建议不要运行虚拟机，那样反而会更卡！以下几张图，可以让你的虚拟机运行的非常畅快，请按照图片上的指示，认真操作：......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_40612082">来自：	<span class="blog_title"> FreeSpider</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/conling_/article/details/53426838,BlogCommendFromBaidu_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/conling_/article/details/53426838" target="_blank" title="centos 7初次切换中文输入">
+		<h4 class="text-truncate oneline">
+				centos 7初次切换中文输入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8809</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/conling_/article/details/53426838" target="_blank" title="centos 7初次切换中文输入">
+				<span class="desc oneline">安装的时候选择的中文语言，但是默认并没有中文输入。本次使用图形界面进行的切换，命令切换以后再研究。首先要知道centos7中输入法的设置在哪里。默认没有安装拼音输入法，第一步，进行安装。我采用的是挂载...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/conling_">来自：	<span class="blog_title"> conling_的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-84","con":",,"}' data-track-click='{"mod":"kp_popu_65-84","con":",,"}'><div id="three_ad33" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad33",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cpp_lzth/article/details/52547999,BlogCommendFromBaidu_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cpp_lzth/article/details/52547999" target="_blank" title="虚拟机装完Centos7提示Initial setup of CentOS Linux 7 (core)">
+		<h4 class="text-truncate oneline">
+				虚拟机装完<em>Centos7</em>提示Initial setup of CentOS Linux 7 (core)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1506</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cpp_lzth/article/details/52547999" target="_blank" title="虚拟机装完Centos7提示Initial setup of CentOS Linux 7 (core)">
+				<span class="desc oneline">InitialsetupofCentOSLinux7(core) 1)[x]Creatuser2)[!]Licenseinformation(nouserwillbecreated)(licensen...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cpp_lzth">来自：	<span class="blog_title"> 海阔天空</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mydear_11000/article/details/52918149,BlogCommendFromBaidu_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mydear_11000/article/details/52918149" target="_blank" title="Installing CUDA 7.5 on CentOS 7 - Unable to locate the kernel source">
+		<h4 class="text-truncate oneline">
+				Installing CUDA 7.5 on CentOS 7 - Unable to locate the kernel source		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6916</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mydear_11000/article/details/52918149" target="_blank" title="Installing CUDA 7.5 on CentOS 7 - Unable to locate the kernel source">
+				<span class="desc oneline">Firstofall,allofthisisdoneasroot.I'vebeentryingtoinstalltheCUDA7.5driversonaCentOS7SATADOM.TheissueI...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mydear_11000">来自：	<span class="blog_title"> mydear_11000的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/stu741/article/details/40046397,BlogCommendFromBaidu_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/stu741/article/details/40046397" target="_blank" title="centos7.0装Nvidia显卡驱动：禁用The Nouveau kernel driver的方法">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em>.0装Nvidia显卡驱动：禁用The Nouveau kernel driver的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/stu741/article/details/40046397" target="_blank" title="centos7.0装Nvidia显卡驱动：禁用The Nouveau kernel driver的方法">
+				<span class="desc oneline">将驱动从Nvidia官网下载回来后进入文本模式直接运行安装,发现提示如下错误:...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/stu741">来自：	<span class="blog_title"> 成长的足迹。。。。</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cmzsteven/article/details/49049327,BlogCommendFromBaidu_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cmzsteven/article/details/49049327" target="_blank" title="CentOS中禁用nouveau驱动">
+		<h4 class="text-truncate oneline">
+				CentOS中禁用nouveau驱动		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7446</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cmzsteven/article/details/49049327" target="_blank" title="CentOS中禁用nouveau驱动">
+				<span class="desc oneline">1.在配置文件中禁用nouveau	vi/etc/modprobe.d/blacklist.conf添加：blacklistnouveau   CentOS7:    vim/usr/lib/modp...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cmzsteven">来自：	<span class="blog_title"> Steven的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhangtong11111/article/details/79131978,BlogCommendFromBaidu_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhangtong11111/article/details/79131978" target="_blank" title="centos7禁用默认的驱动nouveau">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em>禁用默认的驱动nouveau		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6039</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhangtong11111/article/details/79131978" target="_blank" title="centos7禁用默认的驱动nouveau">
+				<span class="desc oneline">系统默认安装nouveaukerneldriver,与NVIDIA驱动冲突，因此将nouveau禁用,通过以下步骤解决：       1） 在/usr/lib/modprobe.d/dist-blac...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhangtong11111">来自：	<span class="blog_title"> 张彤的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-87","con":",,"}' data-track-click='{"mod":"kp_popu_66-87","con":",,"}'><div id="three_ad38" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad38",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zwhfyy/article/details/78991446,BlogCommendFromBaidu_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zwhfyy/article/details/78991446" target="_blank" title="Centos7安装时引导错误以及解决方案">
+		<h4 class="text-truncate oneline">
+				<em>Centos7</em><em>安装</em>时引导错误以及解决方案		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zwhfyy/article/details/78991446" target="_blank" title="Centos7安装时引导错误以及解决方案">
+				<span class="desc oneline">由于鼓捣Hadoop和Spark，使用U盘刻录方式安装CentOS7.1，但是发现安装初始化时候发生错误，本以为是U盘刻录或者是镜像的问题，但是反复刻录多遍仍然出错。后来在CentOS中文社区，发现使...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zwhfyy">来自：	<span class="blog_title"> HouYing</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gejian1208/article/details/80605391,BlogCommendFromBaidu_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gejian1208/article/details/80605391" target="_blank" title="CentOS7下安装chrome浏览器">
+		<h4 class="text-truncate oneline">
+				<em>CentOS7</em>下<em>安装</em>chrome浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8848</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gejian1208/article/details/80605391" target="_blank" title="CentOS7下安装chrome浏览器">
+				<span class="desc oneline">CentOS7下安装chrome浏览器1.从google官方网站下载googlechrome安装包   http://www.google.cn/chrome/browser/desktop/inde...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gejian1208">来自：	<span class="blog_title"> SleepyBear</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/JohnnyHu90/article/details/42127521,BlogCommendFromBaidu_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/JohnnyHu90/article/details/42127521" target="_blank" title="CentOS 7 下安装Chrome浏览器">
+		<h4 class="text-truncate oneline">
+				CentOS 7 下<em>安装</em>Chrome浏览器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/JohnnyHu90/article/details/42127521" target="_blank" title="CentOS 7 下安装Chrome浏览器">
+				<span class="desc oneline">Chrome浏览器放弃了对Redhat,CentOS等的支持，所以想在最新版本的这些类Unix上安装Chrome就变得不怎么容易，好在互联网总有那么多志愿者，帮你做好这些事，下面记录我这次在CentO...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/JohnnyHu90">来自：	<span class="blog_title"> JohnnyHu90的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/z858466/article/details/79836085,BlogCommendFromBaidu_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/z858466/article/details/79836085" target="_blank" title="centos7安装GNOME可视化界面">
+		<h4 class="text-truncate oneline">
+				<em>centos7</em><em>安装</em>GNOME可视化界面		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					623</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/z858466/article/details/79836085" target="_blank" title="centos7安装GNOME可视化界面">
+				<span class="desc oneline">yumgroupinstall“GNOMEDesktop”“GraphicalAdministrationTools”（如果安装过程中出现以下错误）Transactioncheckerror:file...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/z858466">来自：	<span class="blog_title"> 单眼皮的小熊</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qingfengxiaosong/article/details/80298309,BlogCommendFromBaidu_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qingfengxiaosong/article/details/80298309" target="_blank" title="CentOS7安装GNOME可视化界面流程">
+		<h4 class="text-truncate oneline">
+				<em>CentOS7</em><em>安装</em>GNOME可视化界面流程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					720</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qingfengxiaosong/article/details/80298309" target="_blank" title="CentOS7安装GNOME可视化界面流程">
+				<span class="desc oneline">服务器客户要求使用linux，未了操作方便，于是考虑如何使用可视化界面操作，以下是使用CentOS7安装GNOME可视化界面流程的步骤总结和归纳：1：使用Xshell或jutty等连接工具进入系统（默...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qingfengxiaosong">来自：	<span class="blog_title"> 柯影的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-653","con":",,"}' data-track-click='{"mod":"kp_popu_67-653","con":",,"}'><div id="three_ad43" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : '9gAEHz',
+                placeholderId: "three_ad43",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 16,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Microsoft Yahei',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 12,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/guangyinglanshan/article/details/79082293,BlogCommendFromBaidu_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/guangyinglanshan/article/details/79082293" target="_blank" title="CentOS7安装GNOME可视化界面流程（可用）">
+		<h4 class="text-truncate oneline">
+				<em>CentOS7</em><em>安装</em>GNOME可视化界面流程（可用）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8569</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/guangyinglanshan/article/details/79082293" target="_blank" title="CentOS7安装GNOME可视化界面流程（可用）">
+				<span class="desc oneline">服务器客户要求使用linux，未了操作方便，于是考虑如何使用可视化界面操作，以下是使用CentOS7安装GNOME可视化界面流程的步骤总结和归纳：1：使用Xshell或jutty等连接工具进入系统（默...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/guangyinglanshan">来自：	<span class="blog_title"> guangyinglanshan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_35866463/article/details/77934186,BlogCommendFromBaidu_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinat_35866463/article/details/77934186" target="_blank" title="VMware下centos7安装">
+		<h4 class="text-truncate oneline">
+				VMware下<em>centos7</em><em>安装</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinat_35866463/article/details/77934186" target="_blank" title="VMware下centos7安装">
+				<span class="desc oneline">第一次接触linux，转载熊大大佬的博客，以备日后的学习~VMware下centos7安装一、软件准备Vmware12安装包Centos7iso包Vmware安装包以及sn可在我的百度云上下载链接：h...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinat_35866463">来自：	<span class="blog_title"> 其实我是C先生--的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/maureen226/article/details/78858371,BlogCommendFromBaidu_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/maureen226/article/details/78858371" target="_blank" title="Rhel 6.4 安装教程">
+		<h4 class="text-truncate oneline">
+				Rhel 6.4 <em>安装</em>教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4496</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/maureen226/article/details/78858371" target="_blank" title="Rhel 6.4 安装教程">
+				<span class="desc oneline">Rhel6.4安装教程，图文详解。</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/maureen226">来自：	<span class="blog_title"> 申雯的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Post_Yuan/article/details/78603212,BlogCommendFromBaidu_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Post_Yuan/article/details/78603212" target="_blank" title="CentOS7 关闭防火墙">
+		<h4 class="text-truncate oneline">
+				<em>CentOS7</em> 关闭防火墙		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Post_Yuan/article/details/78603212" target="_blank" title="CentOS7 关闭防火墙">
+				<span class="desc oneline">CentOS6关闭防火墙使用以下命令，//临时关闭serviceiptablesstop//禁止开机启动chkconfigiptablesoffCentOS7中若使用同样的命令会报错，stopipta...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Post_Yuan">来自：	<span class="blog_title"> 数据源博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013753804/article/details/48392325,BlogCommendFromBaidu_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013753804/article/details/48392325" target="_blank" title="LINUX学习之-centos7营救模式">
+		<h4 class="text-truncate oneline">
+				LINUX学习之-<em>centos7</em>营救模式		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013753804/article/details/48392325" target="_blank" title="LINUX学习之-centos7营救模式">
+				<span class="desc oneline">今天卸载软件的时候，不小心把GNOME的一些组件给卸了，导致桌面无法正常开启，会卡在启动过程中，而我的开机启动模式又是设置为图形界面，所以一开LINUX就卡住了，进入不了命令行界面。考虑过进入单用户模...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013753804">来自：	<span class="blog_title"> u013753804的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-883","con":",,"}' data-track-click='{"mod":"kp_popu_68-883","con":",,"}'><!-- T48 位置 -->
+<script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T48_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T48  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T48_render", "T48");
+</script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_40087415/article/details/79367151,BlogCommendFromBaidu_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_40087415/article/details/79367151" target="_blank" title="CentOS 7 常用命令大全">
+		<h4 class="text-truncate oneline">
+				CentOS 7 常用命令大全		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_40087415/article/details/79367151" target="_blank" title="CentOS 7 常用命令大全">
+				<span class="desc oneline">CentOS7常用命令集合       这两天一直在对CentOS7.2进行初体验，各种学习命令肿么用，不过其实大多和DOS是一样的，只是命令的表达上可能有点儿不一样，毕竟这些都不是一家出来的嘛~  ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_40087415">来自：	<span class="blog_title"> 刘鹏博的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					65万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaMgwsNjYtZWR1.html" target="_blank">
+                        区块链什么时候出现的</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/Ntzacg4sMTEtZWR1.html" target="_blank">
+                        java学习常出现的问题</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/weiwei_pig">
+              <img src="https://avatar.csdn.net/6/E/9/3_weiwei_pig.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/4.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/weiwei_pig" target="_blank" class="" id="uid">韦玮老师</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="8">
+                        <dt><a href="https://blog.csdn.net/weiwei_pig?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/weiwei_pig?t=1"><span class="count">8</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="469">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">469</span></dd>
+        </dl>
+        <dl class="text-center" title="37">
+            <dt>喜欢</dt>
+            <dd><span class="count">37</span></dd>
+        </dl>
+        <dl class="text-center" title="27">
+            <dt>评论</dt>
+            <dd><span class="count">27</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="3级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-3"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="106715">
+                10万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="570">
+                570            </dd>
+        </dl>
+        <dl title="125061">
+            <dt>排名：</dt>
+            <dd>12万+</dd>
+        </dl>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-703","con":",,"}' data-track-click='{"mod":"kp_popu_56-703","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左上视窗-20181120 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="7700527946"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weiwei_pig/article/details/83577247" target="_blank">Python机器学习&amp;数据挖掘7周实训！-韦玮-专题视频课程</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weiwei_pig/article/details/83575842" target="_blank">Python机器学习经典案例实战-韦玮-专题视频课程</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weiwei_pig/article/details/69891700" target="_blank">精通Python网络爬虫-书籍介绍</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weiwei_pig/article/details/54647680" target="_blank">使用fiddler抓取HTTPS协议数据与疑难杂症终极解决方案</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weiwei_pig/article/details/51178226" target="_blank">不走弯路之Android开发高薪就业指导</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weiwei_pig/article/category/6146769">
+                    <span class="title oneline">韦玮：解决Ubuntu的root账号无法登录SSH问题-Permission denied</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weiwei_pig/article/category/6146770">
+                    <span class="title oneline">please try again.</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weiwei_pig/article/category/8286511">
+                    <span class="title oneline">视频教程</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2017/01">
+                    2017年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2016/08">
+                    2016年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2016/04">
+                    2016年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2016/03">
+                    2016年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weiwei_pig/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/weiwei_pig/article/details/50954334">韦玮：解决Ubuntu的root账号无法登录SSH问题-Permission denied, please try again.</a>
+					<p class="read">阅读数 <span>37662</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weiwei_pig/article/details/51178226">不走弯路之Android开发高薪就业指导</a>
+					<p class="read">阅读数 <span>27843</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weiwei_pig/article/details/52123738">centos7安装出现license information(license not accepted)解决办法</a>
+					<p class="read">阅读数 <span>23467</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weiwei_pig/article/details/69891700">精通Python网络爬虫-书籍介绍</a>
+					<p class="read">阅读数 <span>10275</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weiwei_pig/article/details/54647680">使用fiddler抓取HTTPS协议数据与疑难杂症终极解决方案</a>
+					<p class="read">阅读数 <span>4277</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weiwei_pig/article/details/50954334#comments">韦玮：解决Ubuntu的root账...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_44268320" class="user-name" target="_blank">weixin_44268320：</a>好像没有用                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weiwei_pig/article/details/83575842#comments">Python机器学习经典案例实战-...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weiwei_pig" class="user-name" target="_blank">weiwei_pig：</a>[reply]Smart3S[/reply]
+抱歉，因为公司战略问题，跟平台已经不再合作。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weiwei_pig/article/details/52123738#comments">centos7安装出现licens...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_26023833" class="user-name" target="_blank">qq_26023833：</a>66666 这个操作                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weiwei_pig/article/details/69891700#comments">精通Python网络爬虫-书籍介绍</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qixinlei" class="user-name" target="_blank">qixinlei：</a>这个的书籍源码有地址吗？第12章那里添加IP池不知道是哪里的代码                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weiwei_pig/article/details/52123738#comments">centos7安装出现licens...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/ruren1" class="user-name" target="_blank">ruren1：</a>牛逼啊。被这个问题搞得我重装了好几次。                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-1158","con":",,"}' data-track-click='{"mod":"kp_popu_57-1158","con":",,"}'><!-- 广告位：PC-博客内页左下视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6272567',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="https://dup.baidustatic.com/js/os.js"></script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>13</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						8				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/weiwei_pig/article/details/51178226" title="不走弯路之Android开发高薪就业指导">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/weiwei_pig/article/details/54647680" title="使用fiddler抓取HTTPS协议数据与疑难杂症终极解决方案">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/weiwei_pig/article/details/51178226" title="不走弯路之Android开发高薪就业指导">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/weiwei_pig/article/details/54647680" title="使用fiddler抓取HTTPS协议数据与疑难杂症终极解决方案">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 89;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 0;
+    var articleId = "52123738";
+    var commentscount = 8;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/weiwei_pig/article/details/52123738";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "centos7安装出现license information(license not accepted)解决办法 - weiwei_pig的专栏";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["centos7","\u5b89\u88c5","\u51fa\u73b0","license","information","license","accepted","\u89e3\u51b3\u529e\u6cd5"];//高亮数组
+
+    var RecommendBlogExpertList = [];
+	var articleType = 1;
+	var CopyrightContent = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+	<script type="text/javascript">
+
+	</script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

@@ -1,0 +1,3525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/baimafujinji/article/details/89840023"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"深度学习的恶意样本实践（Adversarial Example） - 白马负金羁"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>深度学习的恶意样本实践（Adversarial Example） - 白马负金羁 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/baimafujinji\/article\/details\/89840023","appid":"1563894916825412","title":"\u6df1\u5ea6\u5b66\u4e60\u7684\u6076\u610f\u6837\u672c\u5b9e\u8df5\uff08Adversarial Example\uff09 - \u767d\u9a6c\u8d1f\u91d1\u7f81","images":["https:\/\/img-blog.csdnimg.cn\/20190506050747663.png","https:\/\/img-blog.csdnimg.cn\/2019050510030955.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iYWltYWZ1amluamkuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20190506041951397.png"],"pubDate":"2019-06-05T20:05:37"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-technology/skin-technology-c445da603f.min.css">
+        <script type="text/javascript">
+        var username = "baimafujinji";
+        var blog_address = "https://blog.csdn.net/baimafujinji";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/baimafujinji/article/details/89840023"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin-technology";
+        // 第四范式所需数据
+        var articleTitles = "深度学习的恶意样本实践（Adversarial Example） - 白马负金羁";
+        
+        var nickName = "白马负金羁";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/baimafujinji/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/baimafujinji/article/details/89840023";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">深度学习的恶意样本实践（Adversarial Example）</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年05月15日 09:40:31</span>
+          <a class="follow-nickName" href="https://me.csdn.net/baimafujinji" target="_blank">白马负金羁</a>
+          <span class="read-count">阅读数：2616</span>
+          
+                          <span class="tags-box artic-tag-box">
+                <span class="label">标签：</span>
+                                  <a data-track-click='{"mod":"popu_626","con":"深度学习"}' data-track-view='{"mod":"popu_626","con":"深度学习"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=深度学习&t=blog" target="_blank">深度学习                                    <a data-track-click='{"mod":"popu_626","con":"AE"}' data-track-view='{"mod":"popu_626","con":"AE"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=AE&t=blog" target="_blank">AE                                    <a data-track-click='{"mod":"popu_626","con":"恶意样本"}' data-track-view='{"mod":"popu_626","con":"恶意样本"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=恶意样本&t=blog" target="_blank">恶意样本                                  </a>
+              </span>
+                                      <div class="tags-box space">
+                <span class="label">个人分类：</span>
+                                  <a class="tag-link" href="https://blog.csdn.net/baimafujinji/article/category/7253599" target="_blank">深度学习与TensorFlow                                  </a>
+              </div>
+                                          </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+                      <svg class="icon" title="CSDN认证原创" aria-hidden="true" style="width:53px; height: 18px; vertical-align: -4px;">
+              <use xlink:href="#CSDN_Cert"></use>
+            </svg>
+          
+          版权声明：本文为博主原创文章，未经博主允许不得转载。          https://blog.csdn.net/baimafujinji/article/details/89840023        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+          <div class="htmledit_views" id="content_views">
+            <h2>〇、深度学习的恶意样本（Adversarial Example）</h2>
+
+<p>随着深度学习研究的深入，相关应用已经在许多领域展现出惊人的表现。一方面，深度学习的强大能力着实吸引着学术界和产业界的眼球。另外一方面，深度学习的安全问题也开始引起广泛地关注。对于一个给定的深度神经网络，经过训练，它可能在具体任务上（例如图像识别）表现出较高的准确率。但是在原本能够被正确分类的图像中引入稍许（人眼不易察觉）扰动，神经网络模型就可能被误导，从而得出错误的分类结果。例如，下图中最左侧的熊猫图片本来可以被正确分类，向其中加入一定的扰动，结果会得到右侧的熊猫图片。在人眼看来，它仍然是熊猫，但是神经网络模型却以相当高的置信率将其识别成了长臂猿。最右侧这个经过精心调整的能够误导神经网络模型的图像就被称为是恶意样本（Adversarial Example），或简称AE。</p>
+
+<p style="text-align:center;"><img alt="" class="has" height="180" src="https://img-blog.csdnimg.cn/20190506050747663.png" width="515" /></p>
+
+<p>本文主要介绍几种流行的恶意样本（Adversarial Example）的生成方法，以下实验代码采用Python语言，环境是Ubuntu 18.04,深度学习模型以残差神经网络ResNet为例，它是基于Keras框架实现的。欢迎关注<a href="https://baimafujinji.blog.csdn.net/" rel="nofollow">白马负金羁</a>的博客 ，为保证公式、图表得以正确显示，强烈建议你从该地址（<a href="http://blog.csdn.net/baimafujinji" rel="nofollow">http://blog.csdn.net/baimafujinji</a>）上查看原版博文。本博客主要关注方向包括：数字图像处理、算法设计与分析、数据结构、机器学习、数据挖掘、统计分析方法、自然语言处理。</p>
+
+<p> </p>
+
+<h2>一、预备工作：CIFAR10与ResNet</h2>
+
+<p>Adversarial Example可以攻击各种深度学习应用，包括图像、声音、视频、甚至文本（在NLP领域）等。本文主要以图像的分类/识别任务为例来生成恶意样本。所选择之数据集为经典的CIFAR10（来自文献【１】），如下图所示。该数据集中的图像均为32×32的彩色图像，所有图像都被分成飞机、汽车、鸟、猫等10个类别（分类标签为0~9）。</p>
+
+<p style="text-align:center;"><img alt="" class="has" src="https://img-blog.csdnimg.cn/2019050510030955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9iYWltYWZ1amluamkuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>我们以文献【３】中的代码为基础训练了一个专门用于对CIFAR10中之图像进行识别的分类器，特别地，这里的分类器指的是一个32层的残差神经网络ResNet。在下面的代码中，我们使用load_model()函数直接将训练好的ResNet模型导入。此外，下面的代码中还引入了一些后面将会用到的package，其中，art包是由IBM公司开发的AE工具箱（Adversarial Robustness Toolbox），参见文献【2】，在应用它之前，必须确认已经将其成功安装。</p>
+
+<pre class="has">
+<code class="language-python">from os.path import abspath
+import sys
+import os
+import tensorflow as tf
+sys.path.append(abspath('.'))
+
+import keras
+import numpy as np
+import pickle
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from keras.datasets import cifar10
+from keras.models import load_model
+from keras.utils import to_categorical
+
+from art.classifiers import KerasClassifier
+from art.attacks.fast_gradient import FastGradientMethod
+from art.attacks.iterative_method import BasicIterativeMethod
+from art.attacks.saliency_map import SaliencyMapMethod
+from art.attacks import DeepFool
+
+my_model = load_model('cifar10_ResNet32v1_model.189.h5')
+
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+x_train = x_train.astype('float32') / 255
+x_test = x_test.astype('float32') / 255
+x_train_mean = np.mean(x_train, axis=0)
+x_train -= x_train_mean
+x_test -= x_train_mean
+
+min_ = np.min(x_train) 
+max_ = np.max(x_train)</code></pre>
+
+<p>下面来在Test集上测试一下我们训练好的ResNet32网络：</p>
+
+<pre class="has">
+<code class="language-python">num_classes = 10
+y_train_vector = keras.utils.to_categorical(y_train, num_classes)
+y_test_vector = keras.utils.to_categorical(y_test, num_classes)
+
+scores = my_model.evaluate(x_test, y_test_vector, verbose=1)
+
+print('Test accuracy:', scores[1])</code></pre>
+
+<p>结果显示，这个网络在正常的测试集上可以达到91.96%的准确率。</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">10000/10000 [==============================] - 4s 375us/step
+Test accuracy: 0.9196
+</code></pre>
+</blockquote>
+
+<p>或者，你也可以使用下面的代码来测试，它的功能同之前的代码一致：</p>
+
+<pre class="has">
+<code class="language-python">len_index = x_test.shape[0]
+sum_success = 0
+
+for i in range(len_index):
+    y_pred = my_model.predict(x_test[i].reshape(1,32,32,3))
+    if (np.argmax(y_pred) == y_test[i]):
+        sum_success += 1
+
+print('Test accuracy:', sum_success/10000.0)</code></pre>
+
+<p>同样，可以得到91.96%的准确率：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">Test accuracy: 0.9196
+</code></pre>
+</blockquote>
+
+<p>做完上述这些必要的准备工作之后，就可以正式开启下面的AE生成实验了。再次提醒：尽管我们所使用的网络是ResNet32网络，但是你可以使用任何其他实现相同目的（即对CIFAR10中的图像进行分类）之网络来进行如下实验。欢迎关注<a href="https://baimafujinji.blog.csdn.net/" rel="nofollow">白马负金羁</a>的博客 ，为保证公式、图表得以正确显示，强烈建议你从该地址（<a href="http://blog.csdn.net/baimafujinji" rel="nofollow">http://blog.csdn.net/baimafujinji</a>）上查看原版博文。本博客主要关注方向包括：数字图像处理、算法设计与分析、数据结构、机器学习、数据挖掘、统计分析方法、自然语言处理。下面的代码都是在<span style="color:#7c79e5;"><strong>Jupyter Notebook</strong></span>开发环境中完成的，其他环境可能会略有出入，请读者注意。</p>
+
+<p> </p>
+
+<h2>二、FGSM</h2>
+
+<p>FGSM是一种比较简单的AE生成算法，它由来自谷歌大脑的三位研究者在文献【4】中提出，其中一位作者就是大名鼎鼎的 Goodfellow。Ian Goodfellow因提出了生成对抗网络（GANs）而闻名，他被誉为“GANs之父”，甚至被认为是当前人工智能领域的顶级专家。他还是著名的花书《Deep Learning》的作者。文献【4】中的另外一个作者是Samy Bengio，他除了是深度学习领域的一位知名专家以外，还是新晋图灵奖得主Yoshua Bengio的兄弟。IBM ART工具箱中的FastGradientMethod函数实现了这个算法，下面我们就调用这个函数来对之前训练好的ResNet32网络发动AE攻击。</p>
+
+<pre class="has">
+<code class="language-python">x_test_1K, y_test_1K = x_test[:1000], y_test_vector[:1000]
+
+classifier = KerasClassifier((min_, max_), model=my_model)
+
+# Craft adversarial samples with FGSM
+epsilon = 0.03  # Maximum perturbation
+adv_fgsm_crafter = FastGradientMethod(classifier)
+
+x_test_adv_fgsm = adv_fgsm_crafter.generate(x=x_test_1K, eps=epsilon)
+
+scores_adv_test = my_model.evaluate(x_test_adv_fgsm, y_test_1K, verbose=1)
+print('Accuracy on Test AEs based on FGSM:', scores_adv_test[1])</code></pre>
+
+<p>基于1000个测试AE给出的模型准确率如下，可见准确率已经被大大降低：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1000/1000 [==============================] - 0s 309us/step
+Accuracy on Test AEs based on FGSM: 0.187</code></pre>
+</blockquote>
+
+<p>下面的代码用于将原图及对应的AE绘制出来，以示对比：</p>
+
+<pre class="has">
+<code class="language-python">fig=plt.figure(figsize=(8, 2))
+columns = 8
+rows = 2
+for i in range(1, 9):
+    img = x_test[i+8].reshape(32,32,3) + x_train_mean
+    fig.add_subplot(rows, columns, i)
+    plt.imshow(img)
+    plt.axis('off')
+    
+for i in range(1, 9):
+    img_adv = x_test_adv_fgsm[i+8].reshape(32,32,3) + x_train_mean
+    fig.add_subplot(rows, columns, i+8)
+    plt.imshow(img_adv)
+    plt.axis('off')</code></pre>
+
+<p>上述代码的执行效果如下，可见基于FGSM生成的AE图像在人眼看来仍然是可以辨识的。</p>
+
+<p style="text-align:center;"><img alt="" class="has" height="117" src="https://img-blog.csdnimg.cn/20190506041951397.png" width="457" /></p>
+
+<p>但是将这些AE输入到神经网络后，则会发现神经网络均预测失败：</p>
+
+<pre class="has">
+<code class="language-python">for i in range(9, 17):
+    y_pred = my_model.predict(x_test[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')
+
+print("")
+for i in range(9, 17):
+    y_pred = my_model.predict(x_test_adv_fgsm[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')</code></pre>
+
+<p>如下所示，第一行给出的是正常图像的神经网络预测结果，第二行是相应AE之预测结果：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1 0 9 5 7 9 8 5 
+9 3 1 4 6 1 6 3 </code></pre>
+</blockquote>
+
+<p> </p>
+
+<h2>三、IGSM</h2>
+
+<p>同样在文献【4】中，Goodfellow等人还给出了一个多次迭代版本的AE生成算法——IGSM。IBM ART工具箱中的BasicIterativeMethod函数实现了这个算法，下面的代码就调用这个函数来对之前训练好的ResNet32网络发动AE攻击。</p>
+
+<pre class="has">
+<code class="language-python">epsilon=0.015  # Maximum perturbation
+stepsize=0.005
+adv_igsm_crafter = BasicIterativeMethod(classifier, eps=epsilon, eps_step=stepsize)
+
+x_test_adv_igsm = adv_igsm_crafter.generate(x=x_test_1K)
+
+scores_adv_test = my_model.evaluate(x_test_adv_igsm, y_test_1K, verbose=1)
+print('Accuracy on Test AEs based on IGSM:', scores_adv_test[1])</code></pre>
+
+<p>基于1000个测试AE给出的模型准确率如下，可见准确率已经被大大降低：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1000/1000 [==============================] - 0s 317us/step
+Accuracy on Test AEs based on IGSM: 0.063</code></pre>
+</blockquote>
+
+<p>欢迎关注<a href="https://baimafujinji.blog.csdn.net/" rel="nofollow">白马负金羁</a>的博客 ，为保证公式、图表得以正确显示，强烈建议你从该地址（<a href="http://blog.csdn.net/baimafujinji" rel="nofollow">http://blog.csdn.net/baimafujinji</a>）上查看原版博文。本博客主要关注方向包括：数字图像处理、算法设计与分析、数据结构、机器学习、数据挖掘、统计分析方法、自然语言处理。同样我们可以将原图及对应的AE绘制出来，以示对比。代码同前，这里略去。效果如下，可见基于IGSM生成的AE图像在人眼看来仍然是可以辨识的。</p>
+
+<p style="text-align:center;"><img alt="" class="has" height="115" src="https://img-blog.csdnimg.cn/20190506044143578.png" width="456" /></p>
+
+<p>但是将这些AE输入到神经网络后，则会发现神经网络均预测失败：</p>
+
+<pre class="has">
+<code class="language-python">for i in range(9, 17):
+    y_pred = my_model.predict(x_test[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')
+
+print("")
+for i in range(9, 17):
+    y_pred = my_model.predict(x_test_adv_igsm[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')</code></pre>
+
+<p>如下所示，第一行给出的是正常图像的神经网络预测结果，第二行是相应AE之预测结果：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1 0 9 5 7 9 8 5 
+9 4 1 4 1 1 6 3 </code></pre>
+</blockquote>
+
+<p> </p>
+
+<h2>四、DeepFool</h2>
+
+<p>2016年，发表在CVPR上的文献【6】中提出了一种AE生成算法——DeepFool。IBM ART工具箱中的DeepFool函数实现了这个算法，其中需要注意的参数是max_iter 和epsilon，前者是生成算法的最大迭代次数，后者表示最大的扰动程度。</p>
+
+<pre class="has">
+<code class="language-python"># Craft adversarial samples with DeepFool
+adv_df_crafter = DeepFool(classifier, max_iter=50, epsilon=0.01)
+
+x_test_adv_df = adv_df_crafter.generate(x_test_1K)
+
+scores_adv_test = my_model.evaluate(x_test_adv_df, y_test_1K, verbose=1)
+print('Accuracy on Test AEs based on DeepFool:', scores_adv_test[1])</code></pre>
+
+<p>与之前的情况类似，下面给出的是基于1000个测试AE给出的模型准确率，可见准确率已经被大大降低：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1000/1000 [==============================] - 0s 297us/step
+Accuracy on Test AEs based on DeepFool: 0.325</code></pre>
+</blockquote>
+
+<p>欢迎关注<a href="https://baimafujinji.blog.csdn.net/" rel="nofollow">白马负金羁</a>的博客 ，为保证公式、图表得以正确显示，强烈建议你从该地址（<a href="http://blog.csdn.net/baimafujinji" rel="nofollow">http://blog.csdn.net/baimafujinji</a>）上查看原版博文。本博客主要关注方向包括：数字图像处理、算法设计与分析、数据结构、机器学习、数据挖掘、统计分析方法、自然语言处理。同样我们可以将原图及对应的AE绘制出来，以示对比。代码同前，这里略去。效果如下，可见基于DeepFool生成的AE图像在人眼看来仍然是可以辨识的，而且效果比FGSM或IGSM的更贴近原图（也就是说引入的扰动更加细微）。</p>
+
+<p style="text-align:center;"><img alt="" class="has" height="116" src="https://img-blog.csdnimg.cn/20190506043804359.png" width="457" /></p>
+
+<p>但是将这些AE输入到神经网络后，则会发现神经网络大概率地会预测失败：</p>
+
+<pre class="has">
+<code class="language-python">for i in range(9, 17):
+    y_pred = my_model.predict(x_test[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')
+
+print("")
+for i in range(9, 17):
+    y_pred = my_model.predict(x_test_adv_df[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')</code></pre>
+
+<p>如下所示，第一行给出的是正常图像的神经网络预测结果，第二行是相应AE之预测结果：</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1 0 9 5 7 9 8 5 
+9 4 1 4 7 8 6 7 </code></pre>
+</blockquote>
+
+<p> </p>
+
+<h2>五、JSMA</h2>
+
+<p>JSMA是由Nicolas Papernot等在2016年的Euro S&amp;P上提出的一种<img alt="L_0" class="mathcode" src="https://private.codecogs.com/gif.latex?L_0" />类型的AE生成算法，参见文献【5】。与前面介绍的几种算法不同，JSMA是一种Targeted的攻击算法。也就是说，它不仅可以误导神经网络输出错误的分类结果，还可以预设一个目标，让神经网络输出指定的（错误）分类结果。因此，我们需要先给出预设的分类目标。这里采取的方法为，总是令神经网络输出原本的正确标签的下一个作为目标标签，例如正确的标签本应该是8，则AE会误导神经网络输出9，如果正确的标签本应该是9，则AE会误导神经网络输出0... ... 下面的代码用于生成预设之标签：</p>
+
+<pre class="has">
+<code class="language-python">test_len = y_test.shape[0]
+y_test_t = np.zeros(y_test.shape)
+
+for i in range(test_len):
+    y_test_t[i][0] = (y_test[i][0] + 1)%num_classes
+
+y_test_t_vector = keras.utils.to_categorical(y_test_t, num_classes)
+
+y_test_target = y_test_t_vector[:1000]</code></pre>
+
+<p>IBM ART工具箱中的SaliencyMapMethod函数实现了JSMA算法，下面的代码就调用这个函数来对之前训练好的ResNet32网络发动AE攻击。</p>
+
+<pre class="has">
+<code class="language-python"># Craft adversarial samples with JSMA
+adv_jsma_crafter = SaliencyMapMethod(classifier, theta=0.1)
+
+x_test_adv_jsma = adv_jsma_crafter.generate(x_test_1K, y = y_test_target)
+
+scores_adv_test = my_model.evaluate(x_test_adv_jsma, y_test_1K, verbose=1)
+print('Accuracy on Test AEs based on JSMA:', scores_adv_test[1])</code></pre>
+
+<p>同样可以将原图及对应的AE绘制出来，以示对比。代码同前，这里略去。效果如下，可见基于JSMA生成的AE图像在人眼看来仍然是可以辨识的。但作为一种<img alt="L_0" class="mathcode" src="https://private.codecogs.com/gif.latex?L_0" />类型的AE生成算法，被引入的扰动往往是人眼可见的。</p>
+
+<p style="text-align:center;"><img alt="" class="has" height="115" src="https://img-blog.csdnimg.cn/20190506042421844.png" width="455" /></p>
+
+<p>将这些AE输入到神经网络后，则会发现神经网络会被有方向地误导：</p>
+
+<pre class="has">
+<code class="language-python">for i in range(9, 17):
+    y_pred = my_model.predict(x_test[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')
+
+print("")
+for i in range(9, 17):
+    y_pred = my_model.predict(x_test_adv_jsma[i].reshape(1,32,32,3))
+    print(np.argmax(y_pred), end = ' ')</code></pre>
+
+<p>如下所示，第一行给出的是正常图像的神经网络预测结果，第二行是相应AE之预测结果。跟我们预想的一样，神经网络在面对AE时所给出的标签总是比相应的正常图像所给出的结果后移一位（当然这个误导的目标你也可以随意设定）。</p>
+
+<blockquote>
+<pre class="has">
+<code class="language-html">1 0 9 5 7 9 8 5 
+2 1 0 6 8 0 9 6 </code></pre>
+</blockquote>
+
+<p> </p>
+
+<h3>参考文献与推荐阅读材料：</h3>
+
+<p>【1】<a href="https://www.cs.toronto.edu/~kriz/cifar.html" rel="nofollow">https://www.cs.toronto.edu/~kriz/cifar.html</a></p>
+
+<p>【2】<a href="https://adversarial-robustness-toolbox.readthedocs.io/en/latest/" rel="nofollow">https://adversarial-robustness-toolbox.readthedocs.io/en/latest/</a></p>
+
+<p>【3】<a href="https://github.com/keras-team/keras/blob/master/examples/cifar10_resnet.py" rel="nofollow">https://github.com/keras-team/keras/blob/master/examples/cifar10_resnet.py</a></p>
+
+<p>【4】Alexey Kurakin, Ian Goodfellow, Samy Bengio, Adversarial examples in the physical world, https://arxiv.org/abs/1607.02533</p>
+
+<p>【5】Nicolas Papernot, Patrick McDaniel, Somesh Jha, Matt Fredrikson, Z. Berkay Celik, Ananthram Swami, The Limitations of Deep Learning in Adversarial Settings, IEEE European Symposium on Security &amp; Privacy, 2016</p>
+
+<p>【6】Seyed-Mohsen Moosavi-Dezfooli, Alhussein Fawzi, Pascal Frossard, DeepFool: a simple and accurate method to fool deep neural networks, CVPR, 2016</p>
+
+<p> </p>
+
+<p><strong><span style="color:#ffbb66;">（全文完）</span></strong></p>
+          </div>
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/baimafujinji/article/details/89840023,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/baimafujinji/article/details/89840023,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div class="recommend-box"><div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/cf2SudS8x8F0v/article/details/78999169,BlogCommendFromThirdServiceAll_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cf2SudS8x8F0v/article/details/78999169,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cf2SudS8x8F0v/article/details/78999169" target="_blank" title="产生和防御对抗样本的新方法 | 分享总结">
+		<h4 class="text-truncate oneline">
+				产生和防御对抗<em>样本</em>的新方法 | 分享总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2658</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cf2SudS8x8F0v/article/details/78999169" target="_blank" title="产生和防御对抗样本的新方法 | 分享总结">
+				<span class="desc oneline">来源：AI研习社作者：杨文在线上公开课上，来自清华大学的在读博士生廖方舟分享了他们团队在 NIPS2017上一个对抗样本攻防大赛中提到的两个新方法，这两个方法在大赛中分别获得了攻击方和防守方的第一名。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cf2SudS8x8F0v">来自：	<span class="blog_title"> 人工智能学家</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+</div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="89840023">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lxk9409/article/details/80226293,BlogCommendFromThirdServiceAll_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lxk9409/article/details/80226293,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lxk9409/article/details/80226293" target="_blank" title="对抗样本文章笔记（一）">
+		<h4 class="text-truncate oneline">
+				对抗<em>样本</em>文章笔记（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					367</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lxk9409/article/details/80226293" target="_blank" title="对抗样本文章笔记（一）">
+				<span class="desc oneline">论文笔记—DeepSafe:AData-drivenApproachforCheckingAdversarialRobustnessinNeuralNetworksDeepSafe方法1、对训练数据进...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lxk9409">来自：	<span class="blog_title"> lxk9409的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012373815/article/details/53837345,BlogCommendFromThirdServiceAll_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012373815/article/details/53837345,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012373815/article/details/53837345" target="_blank" title="drools 6.5 －DSL 领域特殊语言">
+		<h4 class="text-truncate oneline">
+				drools 6.5 －DSL 领域特殊语言		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5166</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012373815/article/details/53837345" target="_blank" title="drools 6.5 －DSL 领域特殊语言">
+				<span class="desc oneline">1.规则引擎面临的问题：业务规则的实现大部分是由开发人员来实现的业务规则需要业务分析人员能够阅读和理解业务规则的可读性和用户的友好性都不太好2.DSL领域特殊语言DSL==DomainSpecific...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012373815">来自：	<span class="blog_title"> 哎幽的成长</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Gavinmiaoc/article/details/86700738,BlogCommendFromThirdServiceAll_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Gavinmiaoc/article/details/86700738,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Gavinmiaoc/article/details/86700738" target="_blank" title="图像去雨实例（一）之AttentiveGAN">
+		<h4 class="text-truncate oneline">
+				图像去雨实例（一）之AttentiveGAN		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					993</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Gavinmiaoc/article/details/86700738" target="_blank" title="图像去雨实例（一）之AttentiveGAN">
+				<span class="desc oneline">论文阅读见：《AttentiveGenerativeAdversarialNetworkforRaindropRemovalfromASingleImage》首先环境准备：pip3install-rr...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Gavinmiaoc">来自：	<span class="blog_title"> Gavinmiaoc的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/smartbetter/article/details/53535435,BlogCommendFromThirdServiceAll_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/smartbetter/article/details/53535435,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/smartbetter/article/details/53535435" target="_blank" title="Linux 下 Elasticsearch 分布式集群安装与基本 API">
+		<h4 class="text-truncate oneline">
+				Linux 下 Elasticsearch 分布式集群安装与基本 API		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/smartbetter/article/details/53535435" target="_blank" title="Linux 下 Elasticsearch 分布式集群安装与基本 API">
+				<span class="desc oneline">ElasticSearch是一个基于Lucene的搜索服务器，是一个分布式、可扩展、实时的搜索与数据分析引擎，它能从项目一开始就赋予你的数据以搜索、分析和探索的能力，基于RESTfulweb接口。El...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/smartbetter">来自：	<span class="blog_title"> 郭朝的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/C_chuxin/article/details/85216846,BlogCommendFromBaidu_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/C_chuxin/article/details/85216846,BlogCommendFromBaidu_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/C_chuxin/article/details/85216846" target="_blank" title="对抗攻击（Adversarial attacks）的常用术语">
+		<h4 class="text-truncate oneline">
+				对抗攻击（<em>Adversarial</em> attacks）的常用术语		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1030</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/C_chuxin/article/details/85216846" target="_blank" title="对抗攻击（Adversarial attacks）的常用术语">
+				<span class="desc oneline">【时间】2018.12.22【题目】对抗攻击（Adversarialattacks）的常用术语概述   本文是论文《ThreatofAdversarialAttacksonDeepLearningin...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/C_chuxin">来自：	<span class="blog_title"> 小C的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/b224618/article/details/82025371,BlogCommendFromBaidu_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/b224618/article/details/82025371,BlogCommendFromBaidu_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/b224618/article/details/82025371" target="_blank" title="读书笔记17：Adversarial Attacks on Neural Networks for Graph Data">
+		<h4 class="text-truncate oneline">
+				读书笔记17：<em>Adversarial</em> Attacks on Neural Networks for Graph Data		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1226</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/b224618/article/details/82025371" target="_blank" title="读书笔记17：Adversarial Attacks on Neural Networks for Graph Data">
+				<span class="desc oneline">https://arxiv.org/pdf/1805.07984.pdf看过之后有一个思考，adversarialattack的目标是事先选定一个class，然后选择攻击方式，尽可能使得模型把样本分类...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/b224618">来自：	<span class="blog_title"> b224618的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fsFengQingYangheihei/article/details/82383152,BlogCommendClickRateRank_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fsFengQingYangheihei/article/details/82383152,BlogCommendClickRateRank_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fsFengQingYangheihei/article/details/82383152" target="_blank" title="机器视觉中使用深度学习所面临的对抗攻击——Survey（下）">
+		<h4 class="text-truncate oneline">
+				机器视觉中使用<em>深度学习</em>所面临的对抗攻击——Survey（下）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					238</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fsFengQingYangheihei/article/details/82383152" target="_blank" title="机器视觉中使用深度学习所面临的对抗攻击——Survey（下）">
+				<span class="desc oneline">机器视觉中使用深度学习所面临的对抗攻击——Survey（下）2018年05月31日08:54:01 阅读数：317版权声明：本文为博主原创文章，未经博主允许不得转载。https://blog.csdn...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fsFengQingYangheihei">来自：	<span class="blog_title"> fsFengQingYangheihei的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42137700/article/details/81130350,BlogCommendClickRateRank_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_42137700/article/details/81130350,BlogCommendClickRateRank_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_42137700/article/details/81130350" target="_blank" title="密码危机：深度学习正在加速密码破解！">
+		<h4 class="text-truncate oneline">
+				密码危机：<em>深度学习</em>正在加速密码破解！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					416</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_42137700/article/details/81130350" target="_blank" title="密码危机：深度学习正在加速密码破解！">
+				<span class="desc oneline">http://blog.itpub.net/28285180/viewspace-2157266/ 信息安全专家们一直在探索“生成式对抗网络”(GAN)如何提高我们的在线安全性，并取得了令人鼓舞的结果...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_42137700">来自：	<span class="blog_title"> 喜欢打酱油的老鸟</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/cocacola456/article/details/55194377,BlogCommendClickRateRank_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cocacola456/article/details/55194377,BlogCommendClickRateRank_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cocacola456/article/details/55194377" target="_blank" title="深度学习对抗样本的八个误解与事实">
+		<h4 class="text-truncate oneline">
+				<em>深度学习</em>对抗<em>样本</em>的八个误解与事实		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1836</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cocacola456/article/details/55194377" target="_blank" title="深度学习对抗样本的八个误解与事实">
+				<span class="desc oneline">到现在为止，几乎所有的输入都可以愚弄对象识别模型。以至于当对象识别正确工作的时候我们都无比惊讶。今天，通过一些基准测试测量，对象识别算法的识别能力已经达到人类的水准了，让我们感到惊讶的是，在非正常的输...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cocacola456">来自：	<span class="blog_title"> cocacola456的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_41776781/article/details/86652985,BlogCommendClickRateRank_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_41776781/article/details/86652985,BlogCommendClickRateRank_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_41776781/article/details/86652985" target="_blank" title="使用DCGAN训练celeba生成图像的结果">
+		<h4 class="text-truncate oneline">
+				使用DCGAN训练celeba生成图像的结果		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					517</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_41776781/article/details/86652985" target="_blank" title="使用DCGAN训练celeba生成图像的结果">
+				<span class="desc oneline">#第一次写博客不知道该写些什么有什么意见或则想法的可以留言</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_41776781">来自：	<span class="blog_title"> YYLin</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lichengyu/article/details/20743877,BlogCommendESEnWordWeight_11"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lichengyu/article/details/20743877,BlogCommendESEnWordWeight_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lichengyu/article/details/20743877" target="_blank" title="OpenCV实现Gabor滤波">
+		<h4 class="text-truncate oneline">
+				OpenCV实现Gabor滤波		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lichengyu/article/details/20743877" target="_blank" title="OpenCV实现Gabor滤波">
+				<span class="desc oneline">图1 不同中心震荡频率下在Gabor函数代码：根据http://blog.csdn.net/watkinsong/article/details/7876361实现#include#include#i...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lichengyu">来自：	<span class="blog_title"> lichengyu的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendESEnWordWeight_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendESEnWordWeight_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendESEnWordWeight_13"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendESEnWordWeight_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendESEnWordWeight_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendESEnWordWeight_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！Docker的三大核心概念：镜像、容器、仓库镜像：类似虚拟机的镜像、用俗话说就是安装文件。容器：类似一个轻量级的沙箱...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/baidu_41108490/article/details/80323492,BlogCommendESEnWordWeight_15"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/baidu_41108490/article/details/80323492,BlogCommendESEnWordWeight_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/baidu_41108490/article/details/80323492" target="_blank" title="恶意代码分析 Lab5">
+		<h4 class="text-truncate oneline">
+				<em>恶意</em>代码分析 Lab5		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					403</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/baidu_41108490/article/details/80323492" target="_blank" title="恶意代码分析 Lab5">
+				<span class="desc oneline">这一节完全是IDA的使用介绍1直接用IDAPro打开.dll文件,就直接来到Dllmain处,可以知道地址为0x1000D02E23要知道gethostbyname在WS2_32.dll就比较容易找到...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/baidu_41108490">来自：	<span class="blog_title"> baidu_41108490的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/homewm/10834492,BlogCommendFromQuerySearch_16"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/homewm/10834492,BlogCommendFromQuerySearch_16"}'>
+		<a href="https://download.csdn.net/download/homewm/10834492" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						python<em>恶意</em>URL识别多个代码汇总					</h4>
+					<span class="data float-right">12-07</span>
+				</div>
+				<div class="desc oneline">
+						内含多个恶意URL识别的Python工程代码，涉及机器学习和深度学习的多个代码。是我在做项目调研时找到的。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34133829/article/details/86126398,BlogCommendFromQuerySearch_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34133829/article/details/86126398,BlogCommendFromQuerySearch_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34133829/article/details/86126398" target="_blank" title="准确率99%！基于深度学习的二进制恶意样本检测——瀚思APT 沙箱恶意文件检测使用的是CNN，LSTM TODO...">
+		<h4 class="text-truncate oneline">
+				准确率99%！基于<em>深度学习</em>的二进制<em>恶意</em><em>样本</em>检测——瀚思APT 沙箱<em>恶意</em>文件检测使用的是CNN，LSTM TODO...		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					119</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34133829/article/details/86126398" target="_blank" title="准确率99%！基于深度学习的二进制恶意样本检测——瀚思APT 沙箱恶意文件检测使用的是CNN，LSTM TODO...">
+				<span class="desc oneline">所以我们的流程如图所示。将正负样本按1：1的比例转换为图像。将ImageNet中训练好的图像分类模型作为迁移学习的输入。在GPU集群中进行训练。我们同时训练了标准模型和压缩模型，对应不同的客户需求（有...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34133829">来自：	<span class="blog_title"> weixin_34133829的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/a1065147740/article/details/84502606,BlogCommendFromQuerySearch_18"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a1065147740/article/details/84502606,BlogCommendFromQuerySearch_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a1065147740/article/details/84502606" target="_blank" title="[论文笔记]集成方法提高神经网络的对抗鲁棒性">
+		<h4 class="text-truncate oneline">
+				[论文笔记]集成方法提高神经网络的对抗鲁棒性		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					713</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a1065147740/article/details/84502606" target="_blank" title="[论文笔记]集成方法提高神经网络的对抗鲁棒性">
+				<span class="desc oneline">集成方法提高神经网络的对抗鲁棒性一、多个弱防御的集成不能形成强防御1.攻击者2.防御策略3.对抗样本生成方法4.干扰大小的度量5.实验6.结论二、简单集成神经网络是一种防御对抗干扰的方法1.攻击方法2...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a1065147740">来自：	<span class="blog_title"> a1065147740的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/cdpac/article/details/53170940,BlogCommendFromQuerySearch_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cdpac/article/details/53170940,BlogCommendFromQuerySearch_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cdpac/article/details/53170940" target="_blank" title="对抗样本与对抗训练">
+		<h4 class="text-truncate oneline">
+				对抗<em>样本</em>与对抗训练		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cdpac/article/details/53170940" target="_blank" title="对抗样本与对抗训练">
+				<span class="desc oneline">本文将会介绍对抗样本与对抗训练的相关知识（请将此对抗训练与IanGoodfellow的生成对抗网络区别开来）。综合IanGoodfelow在BurkeleyCS294-131的deeplearning...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cdpac">来自：	<span class="blog_title"> cdpac的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/shenxiaolu1984/article/details/52215983,BlogCommendFromQuerySearch_20"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/shenxiaolu1984/article/details/52215983,BlogCommendFromQuerySearch_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/shenxiaolu1984/article/details/52215983" target="_blank" title="【深度学习】生成对抗网络Generative Adversarial Nets">
+		<h4 class="text-truncate oneline">
+				【<em>深度学习</em>】生成对抗网络Generative <em>Adversarial</em> Nets		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/shenxiaolu1984/article/details/52215983" target="_blank" title="【深度学习】生成对抗网络Generative Adversarial Nets">
+				<span class="desc oneline">介绍非监督深度学习经典论文GAN(GenerativeAdversarialNets)</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/shenxiaolu1984">来自：	<span class="blog_title"> shenxiaolu1984的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/roguesir/article/details/77104246,BlogCommendFromThirdServiceAll_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/roguesir/article/details/77104246,BlogCommendFromThirdServiceAll_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/roguesir/article/details/77104246" target="_blank" title="人脸检测工具face_recognition的安装与应用">
+		<h4 class="text-truncate oneline">
+				人脸检测工具face_recognition的安装与应用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/roguesir/article/details/77104246" target="_blank" title="人脸检测工具face_recognition的安装与应用">
+				<span class="desc oneline">人脸检测工具face_recognition的安装与应用</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/roguesir">来自：	<span class="blog_title"> roguesir的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendFromThirdServiceAll_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendFromThirdServiceAll_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					26万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：核心Spring框架一个modulespring-boot-baseservice和dao一个moduleserver-core提供系统后台数据管...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sylar49/article/details/74923353,BlogCommendFromThirdServiceAll_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sylar49/article/details/74923353,BlogCommendFromThirdServiceAll_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sylar49/article/details/74923353" target="_blank" title="GAN入门实践">
+		<h4 class="text-truncate oneline">
+				GAN入门<em>实践</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					870</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sylar49/article/details/74923353" target="_blank" title="GAN入门实践">
+				<span class="desc oneline">看到最近GAN特别特别的火，上周在组会就心血来潮的讲了一下GAN的相关论文，然后用现成的轮子DCGAN看看效果如何训练集是我论文里的钙化图片然后让它先训练==，我们来喝茶唠唠嗑，看看GAN干了啥GAN...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_35414569/article/details/80324208,BlogCommendFromThirdServiceAll_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_35414569/article/details/80324208,BlogCommendFromThirdServiceAll_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_35414569/article/details/80324208" target="_blank" title="机器视觉中使用深度学习所面临的对抗攻击——Survey（上）">
+		<h4 class="text-truncate oneline">
+				机器视觉中使用<em>深度学习</em>所面临的对抗攻击——Survey（上）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6022</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_35414569/article/details/80324208" target="_blank" title="机器视觉中使用深度学习所面临的对抗攻击——Survey（上）">
+				<span class="desc oneline">1、Box-constrainedL-BFGSSzegedy[22]等人首次证明了可以通过对图像添加小量的人类察觉不到的扰动误导神经网络做出误分类。他们首先尝试求解让神经网络做出误分类的最小扰动的方程...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_35414569">来自：	<span class="blog_title"> Erpim的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/petSym/article/details/83992033,BlogCommendFromThirdServiceAll_25"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/petSym/article/details/83992033,BlogCommendFromThirdServiceAll_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/petSym/article/details/83992033" target="_blank" title="学习了解online hard example mining在线难例挖掘">
+		<h4 class="text-truncate oneline">
+				学习了解online hard <em>example</em> mining在线难例挖掘		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					906</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/petSym/article/details/83992033" target="_blank" title="学习了解online hard example mining在线难例挖掘">
+				<span class="desc oneline">对于每一个网络，相当于一个桶，总有样本效果比较好，有的样本比较差，多用效果差的样本进行训练，那提高了整个网络的短板，总体的效果也会有提升。一、难例挖掘是指，针对模型训练过程中导致损失值很大的一些样本(...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/petSym">来自：	<span class="blog_title"> petSym的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Candy_GL/article/details/80764549,BlogCommendClickRateRank_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Candy_GL/article/details/80764549,BlogCommendClickRateRank_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Candy_GL/article/details/80764549" target="_blank" title="浅谈数据仓库和大数据">
+		<h4 class="text-truncate oneline">
+				浅谈数据仓库和大数据		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3743</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Candy_GL/article/details/80764549" target="_blank" title="浅谈数据仓库和大数据">
+				<span class="desc oneline">转自：https://blog.csdn.net/Gospelanswer/article/details/78208761前言数据仓库是今年来适应利用数据支持决策分析的强烈需求而发展起来的数据库应用...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Candy_GL">来自：	<span class="blog_title"> Candy_GL的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_41776781/article/details/86651799,BlogCommendClickRateRank_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_41776781/article/details/86651799,BlogCommendClickRateRank_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_41776781/article/details/86651799" target="_blank" title="深度学习 使用DCGAN训练celebA 并且附上有关代码的说明">
+		<h4 class="text-truncate oneline">
+				<em>深度学习</em> 使用DCGAN训练celebA 并且附上有关代码的说明		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					335</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_41776781/article/details/86651799" target="_blank" title="深度学习 使用DCGAN训练celebA 并且附上有关代码的说明">
+				<span class="desc oneline">main函数的入口：#程序的入口main函数if__name__=='__main__':#程序开始首先指定使用那块GPU不使用该语句的时候使用所有的GPUos.environ['CUDA_VISIB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_41776781">来自：	<span class="blog_title"> YYLin</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xinzhangyanxiang/article/details/53872121,BlogCommendClickRateRank_28"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xinzhangyanxiang/article/details/53872121,BlogCommendClickRateRank_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xinzhangyanxiang/article/details/53872121" target="_blank" title="深度卷积对抗生成网络(DCGAN)">
+		<h4 class="text-truncate oneline">
+				深度卷积对抗生成网络(DCGAN)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xinzhangyanxiang/article/details/53872121" target="_blank" title="深度卷积对抗生成网络(DCGAN)">
+				<span class="desc oneline">卷积神经网络在有监督学习中的各项任务上都有很好的表现，但在无监督学习领域，却比较少。本文介绍的算法将有监督学习中的CNN和无监督学习中的GAN结合到了一起。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xinzhangyanxiang">来自：	<span class="blog_title"> 雨石</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fu6543210/article/details/80514798,BlogCommendClickRateRank_29"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fu6543210/article/details/80514798,BlogCommendClickRateRank_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fu6543210/article/details/80514798" target="_blank" title="DCGAN 训练+代码总结">
+		<h4 class="text-truncate oneline">
+				DCGAN 训练+代码总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1945</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fu6543210/article/details/80514798" target="_blank" title="DCGAN 训练+代码总结">
+				<span class="desc oneline">HowtoTrainaGAN?TipsandtrickstomakeGANswork1.Normalizetheinputsnormalizetheimagesbetween-1and1Tanhast...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fu6543210">来自：	<span class="blog_title"> fu6543210的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/kezhen/article/details/12750877,BlogCommendESEnWordWeight_30"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/kezhen/article/details/12750877,BlogCommendESEnWordWeight_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kezhen/article/details/12750877" target="_blank" title="自己动手搭建恶意软件样本行为分析环境">
+		<h4 class="text-truncate oneline">
+				自己动手搭建<em>恶意</em>软件<em>样本</em>行为分析环境		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3682</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kezhen/article/details/12750877" target="_blank" title="自己动手搭建恶意软件样本行为分析环境">
+				<span class="desc oneline">文章同时发表在: [url]http://netsecurity.51cto.com/art/200707/52055.htm[/url]       互联网的飞速发展在给用户的日常工作生活带来了巨大...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kezhen">来自：	<span class="blog_title"> kezhen的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yywan1314520/article/details/50454063,BlogCommendESEnWordWeight_31"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yywan1314520/article/details/50454063,BlogCommendESEnWordWeight_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yywan1314520/article/details/50454063" target="_blank" title="最新隐马尔可夫模型HMM详解">
+		<h4 class="text-truncate oneline">
+				最新隐马尔可夫模型HMM详解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yywan1314520/article/details/50454063" target="_blank" title="最新隐马尔可夫模型HMM详解">
+				<span class="desc oneline">隐马尔可夫模型 (HiddenMarkovModel，HMM)最初由L.E.Baum和其它一些学者发表在一系列的统计学论文中，随后在语言识别，自然语言处理以及生物信息等领域体现了很大的价值。平时，经常...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yywan1314520">来自：	<span class="blog_title"> dragon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/omnispace/article/details/79676672,BlogCommendESEnWordWeight_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/omnispace/article/details/79676672,BlogCommendESEnWordWeight_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/omnispace/article/details/79676672" target="_blank" title="对深度学习的逃逸攻击 — 探究人工智能系统中的安全盲区">
+		<h4 class="text-truncate oneline">
+				对<em>深度学习</em>的逃逸攻击 — 探究人工智能系统中的安全盲区		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					881</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/omnispace/article/details/79676672" target="_blank" title="对深度学习的逃逸攻击 — 探究人工智能系统中的安全盲区">
+				<span class="desc oneline">ISC2017中国互联网安全大会举办了人工智能安全论坛。我们把论坛总结成为一系列文章，本文为系列中的第二篇。作者：肖奇学1,许伟林2,李康1 (1.来自360TeamSeri0us团队,2.美国弗吉尼...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/omnispace">来自：	<span class="blog_title"> omnispace的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendESEnWordWeight_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendESEnWordWeight_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					66万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：简言之就是找环（每条边只走一次，两两可达）孤立的一个点也是一个连通分量 使用tarjan算法在嵌套的多个环中优先得到最大环(最小环就是每个孤立点） 定义：intTime,DFN[N],Lo...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_38262728/article/details/86552815,BlogCommendESEnWordWeight_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_38262728/article/details/86552815,BlogCommendESEnWordWeight_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_38262728/article/details/86552815" target="_blank" title="恶意软件的检测和攻击 文献整理">
+		<h4 class="text-truncate oneline">
+				<em>恶意</em>软件的检测和攻击 文献整理		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1150</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_38262728/article/details/86552815" target="_blank" title="恶意软件的检测和攻击 文献整理">
+				<span class="desc oneline">本文按照时间顺序整理了恶意软件攻防对抗近些年来的文献发表情况，希望能和对该领域感兴趣的研究人员做一个分享。有些文献我只是大概地浏览了一下，如下文有错误，请为我指出来，感激不尽！感兴趣的朋友可以在评论里...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_38262728">来自：	<span class="blog_title"> ScottYuan</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_35414569/article/details/82383788,BlogCommendFromQuerySearch_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_35414569/article/details/82383788,BlogCommendFromQuerySearch_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_35414569/article/details/82383788" target="_blank" title="对抗样本可转移性与黑盒攻击_学习笔记">
+		<h4 class="text-truncate oneline">
+				对抗<em>样本</em>可转移性与黑盒攻击_学习笔记		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2539</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_35414569/article/details/82383788" target="_blank" title="对抗样本可转移性与黑盒攻击_学习笔记">
+				<span class="desc oneline">1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;am...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_35414569">来自：	<span class="blog_title"> Erpim的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82783874,BlogCommendFromQuerySearch_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82783874,BlogCommendFromQuerySearch_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82783874" target="_blank" title="杜伦大学提出GANomaly：无需负例样本实现异常检测">
+		<h4 class="text-truncate oneline">
+				杜伦大学提出GANomaly：无需负例<em>样本</em>实现异常检测		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2444</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/82783874" target="_blank" title="杜伦大学提出GANomaly：无需负例样本实现异常检测">
+				<span class="desc oneline">在碎片化阅读充斥眼球的时代，越来越少的人会去关注每篇论文背后的探索和思考。在这个栏目里，你会快速get每篇精选论文的亮点和痛点，时刻紧跟AI前沿成果。点击本文底部......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/c9Yv2cf9I06K2A9E">来自：	<span class="blog_title"> Paper weekly</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/wulala789/10228688,BlogCommendFromQuerySearch_37"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/wulala789/10228688,BlogCommendFromQuerySearch_37"}'>
+		<a href="https://download.csdn.net/download/wulala789/10228688" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						dlcv_<em>adversarial</em>_<em>example</em>_demo_demo.py例子					</h4>
+					<span class="data float-right">01-28</span>
+				</div>
+				<div class="desc oneline">
+						官方例子，深度学习专用，机器学习专用，代码简单，一看就会(dlcv adversarial example demo demo)				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/fangyuenju/10620279,BlogCommendFromQuerySearch_38"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/fangyuenju/10620279,BlogCommendFromQuerySearch_38"}'>
+		<a href="https://download.csdn.net/download/fangyuenju/10620279" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>Adversarial</em> <em>Example</em>s Are Not Easily Detected——Bypassing Ten Detection Methods					</h4>
+					<span class="data float-right">08-22</span>
+				</div>
+				<div class="desc oneline">
+						本文详细介绍了如何攻破已经发表的10种对抗样本防御方法。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zb14zb14/article/details/76284351,BlogCommendFromQuerySearch_39"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zb14zb14/article/details/76284351,BlogCommendFromQuerySearch_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zb14zb14/article/details/76284351" target="_blank" title="&quot;深度学习的迁移模型&quot;主题报告速记与评述（四）">
+		<h4 class="text-truncate oneline">
+				&quot;<em>深度学习</em>的迁移模型&quot;主题报告速记与评述（四）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2421</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zb14zb14/article/details/76284351" target="_blank" title="&quot;深度学习的迁移模型&quot;主题报告速记与评述（四）">
+				<span class="desc oneline">笔者按：机器学习正在走向基于“语义”的可解释模型的新时代。迁移学习很有可能接过监督学习今天的辉煌，显著提升模型的可解释性和适应性：不仅在有着大数据的领域好用，还能迁移到只有小数据的新领域中好用。概要C...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zb14zb14">来自：	<span class="blog_title"> 白楚的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34128534/article/details/87189739,BlogCommendFromThirdServiceAll_40"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34128534/article/details/87189739,BlogCommendFromThirdServiceAll_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34128534/article/details/87189739" target="_blank" title="Python之利用机器学习检测安卓恶意软件实现（二）">
+		<h4 class="text-truncate oneline">
+				Python之利用机器学习检测安卓<em>恶意</em>软件实现（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					149</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34128534/article/details/87189739" target="_blank" title="Python之利用机器学习检测安卓恶意软件实现（二）">
+				<span class="desc oneline">前言继续昨天的话题，使用Python实现机器学习算法对安卓APP进行检测。准备工作已经差不多了，那么这篇文章就来详细记录如何将机器学习算法应用到安卓恶意软件检测上以及如何实现常见机器学习算法。准备工作...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34128534">来自：	<span class="blog_title"> weixin_34128534的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meng_qiqi/article/details/85156623,BlogCommendFromThirdServiceAll_41"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meng_qiqi/article/details/85156623,BlogCommendFromThirdServiceAll_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng_qiqi/article/details/85156623" target="_blank" title="Virusshare的恶意apk样本">
+		<h4 class="text-truncate oneline">
+				Virusshare的<em>恶意</em>apk<em>样本</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1009</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng_qiqi/article/details/85156623" target="_blank" title="Virusshare的恶意apk样本">
+				<span class="desc oneline">由于最近在做Android的恶意软件检测方面的研究，从VirusShare上下载了一个恶意apk压缩包.,接近6个G，包含10000多样本。如果有哪位伙伴有良性apk压缩包，可以交换一下吗？......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng_qiqi">来自：	<span class="blog_title"> meng_qiqi的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33686714/article/details/86013464,BlogCommendFromThirdServiceAll_42"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33686714/article/details/86013464,BlogCommendFromThirdServiceAll_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33686714/article/details/86013464" target="_blank" title="基于深度学习的恶意样本行为检测（含源码） ----采用CNN深度学习算法对Cuckoo沙箱的动态行为日志进行检测和分类...">
+		<h4 class="text-truncate oneline">
+				基于<em>深度学习</em>的<em>恶意</em><em>样本</em>行为检测（含源码） ----采用CNN<em>深度学习</em>算法对Cuckoo沙箱的动态行为日志进行检测和分类...		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					276</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33686714/article/details/86013464" target="_blank" title="基于深度学习的恶意样本行为检测（含源码） ----采用CNN深度学习算法对Cuckoo沙箱的动态行为日志进行检测和分类...">
+				<span class="desc oneline">from:http://www.freebuf.com/articles/system/182566.html0×01前言目前的恶意样本检测方法可以分为两大类：静态检测和动态检测。静态检测是指并不实际...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33686714">来自：	<span class="blog_title"> weixin_33686714的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendFromThirdServiceAll_43"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendFromThirdServiceAll_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包 http://www.pythonware.com/products/pil/ 2.解压后，进入到目录下cd/Users/jianan/Downloads/Ima...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+node.js网络游戏开发</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/StillCity/article/details/16988317,BlogCommendFromThirdServiceAll_44"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/StillCity/article/details/16988317,BlogCommendFromThirdServiceAll_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/StillCity/article/details/16988317" target="_blank" title="openfire 3.8.2 源码部署 /开发配置 / 二次开发">
+		<h4 class="text-truncate oneline">
+				openfire 3.8.2 源码部署 /开发配置 / 二次开发		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9882</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/StillCity/article/details/16988317" target="_blank" title="openfire 3.8.2 源码部署 /开发配置 / 二次开发">
+				<span class="desc oneline">最近新搞了openfire从网上找了很多源码部署的相关文章但都是大同小异，拷贝加修改，我如是按照各个文章版本部署目前最新的3.8.2版本，无一例外，各种报错，头疼死我也，一次次失败，我TMD就想为啥官...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/StillCity">来自：	<span class="blog_title"> StillCity的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendESEnWordWeight_45"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendESEnWordWeight_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline">#yuminstallyum-utils设置源:[base-src]name=CentOS-5.4-Basesrc-baseurl=http://vault.centos.org/5.4/os/SRP...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/hjimce/article/details/54411244,BlogCommendESEnWordWeight_46"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hjimce/article/details/54411244,BlogCommendESEnWordWeight_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hjimce/article/details/54411244" target="_blank" title="深度学习（四十六）Adversarial Autoencoders学习笔记">
+		<h4 class="text-truncate oneline">
+				<em>深度学习</em>（四十六）<em>Adversarial</em> Autoencoders学习笔记		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7214</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hjimce/article/details/54411244" target="_blank" title="深度学习（四十六）Adversarial Autoencoders学习笔记">
+				<span class="desc oneline">如上图所示，x、z分别表示输入样本输入、编码向量z。p(z)是我们希望加入的潜变量先验分布，q(z|x)是编码分布函数，p(x|z)是解码分布函数，pd(x)表示真实的数据分布，p(x)表示模型数据分...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hjimce">来自：	<span class="blog_title"> hjimce的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u011534057/article/details/52839161,BlogCommendESEnWordWeight_47"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u011534057/article/details/52839161,BlogCommendESEnWordWeight_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u011534057/article/details/52839161" target="_blank" title="GANs学习系列(4):对抗样本和对抗网络">
+		<h4 class="text-truncate oneline">
+				GANs学习系列(4):对抗<em>样本</em>和对抗网络		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2694</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u011534057/article/details/52839161" target="_blank" title="GANs学习系列(4):对抗样本和对抗网络">
+				<span class="desc oneline">前言：本文转载lancezhange 的博文《对抗样本和对抗网络》，文章介绍了对抗样本的概念和相关文献，并且进一步介绍了生成式对抗网络（GenerativeAdversarialNets,GAN）。 ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u011534057">来自：	<span class="blog_title"> Focusing on your own Mind :)  －>   站在巨人的肩膀上</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/maoyuanming0806/article/details/78067446,BlogCommendESEnWordWeight_48"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/maoyuanming0806/article/details/78067446,BlogCommendESEnWordWeight_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/maoyuanming0806/article/details/78067446" target="_blank" title="搭建图片服务器《二》-linux安装nginx">
+		<h4 class="text-truncate oneline">
+				搭建图片服务器《二》-linux安装nginx		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/maoyuanming0806/article/details/78067446" target="_blank" title="搭建图片服务器《二》-linux安装nginx">
+				<span class="desc oneline">nginx是个好东西，Nginx(enginex)是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler....</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/maoyuanming0806">来自：	<span class="blog_title"> maoyuanming0806的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Scythe666/article/details/84786834,BlogCommendESEnWordWeight_49"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Scythe666/article/details/84786834,BlogCommendESEnWordWeight_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Scythe666/article/details/84786834" target="_blank" title="[work] 清华朱军 NIPS 2017对抗样本攻防竞赛总结（附学习资料）">
+		<h4 class="text-truncate oneline">
+				[work] 清华朱军 NIPS 2017对抗<em>样本</em>攻防竞赛总结（附学习资料）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					916</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Scythe666/article/details/84786834" target="_blank" title="[work] 清华朱军 NIPS 2017对抗样本攻防竞赛总结（附学习资料）">
+				<span class="desc oneline">本次比赛总结由谷歌大脑、清华大学以及其它参与研究人员们联合撰写，为你介绍NIPS2017对抗样本攻防比赛的情况。自IanGoodfellow等研究者发现了可以让图像分类器给出异常结果的&amp;quot;对抗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Scythe666">来自：	<span class="blog_title"> This is bill的专属博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaAg2sNTQtZWR1.html" target="_blank">
+                        java实践 深度学习</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtjaUg4sMDYtZWR1.html" target="_blank">
+                        数据库课程设计样本</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/baimafujinji">
+              <img src="https://avatar.csdn.net/D/4/E/3_baimafujinji.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/12.png" class="user-years">
+                          </a>
+                          <svg id="csdnc-memberhead" viewBox="0 0 1303 1024"><path d="M1129.770822 419.281455A93.090909 93.090909 0 1 1 1210.201367 465.454545h-2.141091l-56.971636 478.952728c-5.399273 45.242182-46.731636 79.592727-95.790545 79.592727H249.875549c-48.965818 0-90.112-34.164364-95.697454-79.406545L95.34464 465.454545H93.110458a93.090909 93.090909 0 1 1 80.337455-46.08l229.189818 142.056728 187.485091-398.429091A93.184 93.184 0 0 1 651.655913 0a93.090909 93.090909 0 0 1 61.160727 163.281455l187.485091 398.149818 229.469091-142.149818z" fill="#FDD840"></path><path d="M1117.110458 372.363636a93.090909 93.090909 0 1 1 93.090909 93.090909h-2.141091l-56.971636 478.952728c-5.399273 45.242182-46.731636 79.592727-95.790545 79.592727H652.586822C651.935185 845.451636 651.655913 504.087273 651.655913 0a93.090909 93.090909 0 0 1 61.160727 163.281455l187.485091 398.149818 229.469091-142.149818A93.090909 93.090909 0 0 1 1117.110458 372.363636z" fill="#FFBE00"></path></svg> 
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/baimafujinji" target="_blank" class="" id="uid">白马负金羁</a>
+            </p>
+                          <p class="flag expert">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="363">
+                        <dt><a href="https://blog.csdn.net/baimafujinji?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/baimafujinji?t=1"><span class="count">363</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="15346">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">1万+</span></dd>
+        </dl>
+        <dl class="text-center" title="3888">
+            <dt>喜欢</dt>
+            <dd><span class="count">3888</span></dd>
+        </dl>
+        <dl class="text-center" title="4596">
+            <dt>评论</dt>
+            <dd><span class="count">4596</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="8级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-8"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="3787600">
+                378万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="34571">
+                3万+            </dd>
+        </dl>
+        <dl title="224">
+            <dt>排名：</dt>
+            <dd>224</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="专栏达人">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                                   <p>专栏达人</p>
+                               </div>
+                               <div class="right-box">
+                                   授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="持之以恒">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                                   <p>持之以恒</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="博客之星">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/bokezhixing.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/bokezhixing.svg" alt="">
+                                   <p>博客之星</p>
+                               </div>
+                               <div class="right-box">
+                                   授予通过"CSDN博客之星评选"中脱颖而出的十大博客之星称号的用户。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<!--自定义模块-->
+<div id="asideCustom41382567" class="aside-box custom-box">
+    <h3 class="aside-title">图像处理</h3>
+    <div class="aside-content clearfix">
+        
+<font size="3">
+<center><br>
+<b>《图像处理中的数学修炼》</b></center></font>
+<center><img src="https://img-blog.csdn.net/20161025163122277"></center>
+<center><b><font color="red">图像处理书籍读者群<br>
+（155911675）</font></b></center>
+<b><br>
+<center><b>
+<a href="https://blog.csdn.net/baimafujinji/article/details/84474487">【特惠购书链接】</a><br>
+<a href="https://blog.csdn.net/baimafujinji/article/details/83550260">【读者群说明，加群前必读】</a>
+</b></center>
+<br>
+<b>联系方式：</b><br>邮件fzuo#foxmail.com，将#换成@。    </div>
+</div>
+<div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/baimafujinji/column/info/math-imageprocess">
+                            <img src="https://img-blog.csdn.net/20151123180557677?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/baimafujinji/column/info/math-imageprocess">图像处理中的数学原理详解</a></p>
+                        <div class="data">文章数：<span class="count">46 篇</span> 访问量：<span>62万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/baimafujinji/column/info/14749">
+                            <img src="https://img-blog.csdn.net/20170308193632872?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/baimafujinji/column/info/14749">机器学习中的数学原理详解</a></p>
+                        <div class="data">文章数：<span class="count">2 篇</span> 访问量：<span>5万+</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/baimafujinji/article/details/89742158#comments">图像处理书籍读者群代码分享计划</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/baimafujinji" class="user-name" target="_blank">baimafujinji：</a>[reply]xuxinl[/reply]
+抱歉，没有这样的书存在呢。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/baimafujinji/article/details/89742158#comments">图像处理书籍读者群代码分享计划</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/baimafujinji" class="user-name" target="_blank">baimafujinji：</a>[reply]IGNIZ123[/reply]
+你在我们的读者群里吗？                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/baimafujinji/article/details/89742158#comments">图像处理书籍读者群代码分享计划</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/IGNIZ123" class="user-name" target="_blank">IGNIZ123：</a>[reply]baimafujinji[/reply]
+咋没看到百度云链接啊                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/baimafujinji/article/details/72456826#comments">Visual Basic快捷教程—...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_44715221" class="user-name" target="_blank">weixin_44715221：</a>终于知道怎么弄了，谢谢                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/baimafujinji/article/details/72863106#comments">自然抠图算法：以经典的贝叶斯抠图为...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/u011507587" class="user-name" target="_blank">u011507587：</a>您好，我想问问camera variance是啥意思？                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/baimafujinji/article/details/51281816">自然语言处理中的N-Gram模型详解</a>
+					<p class="read">阅读数 <span>107193</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/baimafujinji/article/details/53456931">数据挖掘十大算法之Apriori详解</a>
+					<p class="read">阅读数 <span>81780</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/baimafujinji/article/details/51724371">数据挖掘十大算法之决策树详解（1）</a>
+					<p class="read">阅读数 <span>75011</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/baimafujinji/article/details/51285082">机器学习中的隐马尔科夫模型（HMM）详解</a>
+					<p class="read">阅读数 <span>60385</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/baimafujinji/article/details/50750468">如何学好图像处理——从小白到大神？</a>
+					<p class="read">阅读数 <span>60161</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/1608089">
+                    <span class="title oneline">编程语言与程序设计</span>
+                    <span class="count float-right">25篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/1608093">
+                    <span class="title oneline">图像与信号处理</span>
+                    <span class="count float-right">28篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/1608099">
+                    <span class="title oneline">数据结构与算法</span>
+                    <span class="count float-right">29篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/1608131">
+                    <span class="title oneline">其他杂文</span>
+                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/5937321">
+                    <span class="title oneline">应用技巧</span>
+                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6048234">
+                    <span class="title oneline">经济研究</span>
+                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6048259">
+                    <span class="title oneline">机器学习</span>
+                    <span class="count float-right">30篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/7313379">
+                    <span class="title oneline">数据挖掘十大算法</span>
+                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6277600">
+                    <span class="title oneline">自然语言处理与信息检索</span>
+                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6277601">
+                    <span class="title oneline">图像处理中的数学</span>
+                    <span class="count float-right">38篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6277677">
+                    <span class="title oneline">线性代数</span>
+                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6411216">
+                    <span class="title oneline">多核编程与并行计算</span>
+                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6418785">
+                    <span class="title oneline">废言集</span>
+                    <span class="count float-right">34篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6435757">
+                    <span class="title oneline">文学与诗歌</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6435759">
+                    <span class="title oneline">学习方法与方法论</span>
+                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/6741736">
+                    <span class="title oneline">已出版图书的相关资源</span>
+                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/7253599">
+                    <span class="title oneline">深度学习与TensorFlow</span>
+                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/baimafujinji/article/category/7313378">
+                    <span class="title oneline">有关LLVM的一切</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>19</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						4				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/baimafujinji/article/details/89784555" title="Ubuntu 18.04安装Docker CE+NVIDIA-Docker+TensorFlow">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/baimafujinji/article/details/89784555" title="Ubuntu 18.04安装Docker CE+NVIDIA-Docker+TensorFlow">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+											</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 81;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 28;
+    var articleId = "89840023";
+    var commentscount = 4;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/baimafujinji/article/details/89840023";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "深度学习的恶意样本实践（Adversarial Example） - 白马负金羁";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["\u6df1\u5ea6\u5b66\u4e60","\u6076\u610f","\u6837\u672c","\u5b9e\u8df5","adversarial","example"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"Together_CZ","nick_name":"Together_CZ","avatar":"https:\/\/avatar.csdn.net\/6\/A\/A\/3_together_cz.jpg","is_expert":true,"article_count":724,"rank":"314"},{"user_name":"weixin_34133829","nick_name":"weixin_34133829","avatar":"https:\/\/avatar.csdn.net\/3\/E\/7\/3_weixin_34133829.jpg","is_expert":false,"article_count":2907,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"a1065147740","nick_name":"Xie Zhuang","avatar":"https:\/\/avatar.csdn.net\/6\/8\/2\/3_a1065147740.jpg","is_expert":false,"article_count":6,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"cdpac","nick_name":"cdpac","avatar":"https:\/\/avatar.csdn.net\/C\/B\/C\/3_cdpac.jpg","is_expert":false,"article_count":14,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"shenxiaolu1984","nick_name":"shenxiaolu1984","avatar":"https:\/\/avatar.csdn.net\/9\/9\/8\/3_shenxiaolu1984.jpg","is_expert":false,"article_count":72,"rank":"5000+"},{"user_name":"qq_35414569","nick_name":"Erpim","avatar":"https:\/\/avatar.csdn.net\/1\/A\/C\/3_qq_35414569.jpg","is_expert":false,"article_count":26,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"c9Yv2cf9I06K2A9E","nick_name":"Paper_weekly","avatar":"https:\/\/avatar.csdn.net\/A\/0\/A\/3_c9yv2cf9i06k2a9e.jpg","is_expert":false,"article_count":554,"rank":"6000+"},{"user_name":"zb14zb14","nick_name":"\u767d\u695a","avatar":"https:\/\/avatar.csdn.net\/1\/2\/0\/3_zb14zb14.jpg","is_expert":false,"article_count":21,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u012249528","nick_name":"yvanbu","avatar":"https:\/\/avatar.csdn.net\/2\/1\/6\/3_u012249528.jpg","is_expert":false,"article_count":57,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"bjtbjt","nick_name":"5t4rk","avatar":"https:\/\/avatar.csdn.net\/9\/B\/7\/3_bjtbjt.jpg","is_expert":false,"article_count":191,"rank":"3000+"}];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+	<script type="text/javascript">
+
+	</script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

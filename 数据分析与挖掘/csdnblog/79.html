@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/haoyongxin781"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"【haoyongxin781的博客】Python_python从0到1"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>【haoyongxin781的博客】Python_python从0到1 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/list-07440acc4e.min.css">
+            
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "haoyongxin781";
+        var blog_address = "https://blog.csdn.net/haoyongxin781";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/haoyongxin781"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "【haoyongxin781的博客】Python_python从0到1";
+        
+        var nickName = "疯子程序员I";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/haoyongxin781/phoenix/comment";
+        var articleDetailUrl = "";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<header>
+	<div class="container d-flex clearfix" style="background-image: ">
+		<div class="title-box">
+			<h1 class="title-blog">
+				<a href="https://blog.csdn.net/haoyongxin781">haoyongxin781的博客</a>
+			</h1>
+			<p class="description "></p>
+		</div>
+		<div class="opt-box d-flex justify-content-end">
+					</div>
+	</div>
+	</header>
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+    <main>
+      <div class="filter-box d-flex align-items-center">
+      <form action="" id=seeOriginal>
+    <label class="chk-box" for="chkOriginal">
+      <input onchange="this.checked ? document.getElementById('seeOriginal').submit() : location.href = 'https://blog.csdn.net/haoyongxin781'" type="checkbox" name="t" value="1"  id="chkOriginal">只看原创</label></form>
+    <dl class="filter-sort-box d-flex align-items-center">
+    <dt>排序：</dt>
+    <dd><a href="javascript:void(0);" class="btn-filter-sort active" target="_self">默认</a></dd>
+    <dd><a href="https://blog.csdn.net/haoyongxin781?orderby=UpdateTime" class="btn-filter-sort " target="_self">按更新时间</a></dd>
+    <dd><a href="https://blog.csdn.net/haoyongxin781?orderby=ViewCount" class="btn-filter-sort " target="_self">按访问量</a></dd>
+    <dd><a class="btn btn-sm rss" href="https://blog.csdn.net/haoyongxin781/rss/list">
+		<svg class="icon" aria-hidden="true">
+			<use xlink:href="#csdnc-rss"></use>
+		</svg>RSS订阅</a>
+    </dd>
+  </dl>
+</div>
+
+
+
+<div class="article-list">
+    
+    <div class="article-item-box csdn-tracking-statistics" style="display: none;" data-articleid="82762601">
+        <h4 class="">
+            <a href="https://blog.csdn.net/yoyo_liyy/article/details/82762601" target="_blank">
+            <span class="article-type type-1">原</span>帝都的凛冬</a>
+        </h4>
+        <p class="content">
+            <a href="https://blog.csdn.net/yoyo_liyy/article/details/82762601" target="_blank">
+                各种AI、人工智能、大数据如秋日凉爽的风，杳然erzhi；区块链的风头得到短暂的下降。
+
+                此次山竹台风造成了多少伤亡和破坏？人民的生命和财产遭受重大损失
+            </a>
+        </p>
+        <div class="info-box d-flex align-content-center">
+            <p>
+                <span class="date">2019-06-05 20:02:51</span>
+            </p>
+            <p>
+                <span class="read-num">阅读数：13</span>
+            </p>
+            <p>
+                <span class="read-num">评论数：2</span>
+            </p>
+        </div>
+    </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90521977">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90521977" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        用python爬取 20w 表情包之后，感叹我族人是多么强大！      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90521977" target="_blank">
+        是这样的
+有一次想要斗图
+配图
+就在网上搜索表情包
+然后发现了一个表情巨多的网站
+不小心动起了邪念
+产生了兴趣
+
+那就
+把它们存下来吧
+用 requests 请求了一下
+发现这个网站没有做反爬
+
+发现这里有 4k+ 的页面
+
+简单的切换一下页面
+可以发现
+第一页的链接是这样的
+https://fa...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-24 21:07:28</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">49</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90521918">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90521918" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        第5个年头了，我还在坚持学Python      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90521918" target="_blank">
+        初级开发者学Python容易陷入茫然，面对市面上种类众多的编程语言和框架，重要的是坚持自己的选择，宜精不宜杂。本文是一篇指路文，概述了从编程基础、引导、文档阅读、书籍和视频、源代码等学习和积累环节，值得初学者参考。
+作为一个开发者，为何要选择Python？
+为什么要学习Python？为什么要选择P...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-24 19:29:29</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">117</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90521928">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90521928" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        程序人生：“自学Python，如何拿下了月薪15k的工作”      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90521928" target="_blank">
+        Python的热度一直高居不下，除了简单易学之外，落地到应用层面也有很多方向，运维，自动化测试，后端开发，机器学习…更接地气的是Python在数据分析领域的表现：
+
+使用Python数据分析进行实战案例研究
+“人生苦短，我用Python”，各个行业都会有大量的数据需要处理，Python在数据处理领...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-24 19:29:18</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">1336</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90488903">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90488903" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        Python就业前景      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90488903" target="_blank">
+        事情的起源是这样的，某个风和日丽的下午… 习惯性的打开知乎准备划下水，看到一个问题刚好邀请回答
+
+于是就萌生了采集下某招聘网站Python岗位招聘的信息，看一下目前的薪水和岗位分布，说干就干。
+先说下数据采集过程中遇到的问题，首先请求头是一定要伪装的，否则第一步就会给你弹出你的请求太频繁，请稍后再...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-23 22:00:02</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">71</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90409233">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90409233" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:获取电脑中的磁盘信息方法      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90409233" target="_blank">
+        外部存储器中也采用了类似磁带的装置，比较常用的一种叫磁盘，将圆形的磁性盘片装在一个方的密封盒子里，这样做的目的是为了防止磁盘表面划伤，导致数据丢失。这是百科上面准确的介绍,下面我们就用python来获取电脑中磁盘的信息,需要用到psutil这个第三方库
+安装库
+
+查看电脑中的磁盘使用百分比...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:49:09</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">60</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90409536">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90409536" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:将python文件打包成EXE应用程序      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90409536" target="_blank">
+        相信大家都想把自己完成的项目打包成EXE应用文件,然后就可以放在桌面随时都能运行了,下面来分享利用pytinstaller这个第三方库来打包程序,既简单又快捷,我也试过用其他的方式来打包Python文件,但是都没有pyinstaller这个好用和快捷
+首先我将详细的将整个操作过程写出来,你首先要安...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:45:27</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">50</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90409363">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90409363" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:基于yagmail库实现三行代码发送邮件      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90409363" target="_blank">
+        今天为大家介绍一个利用yagmail库实现三行代码发送邮件的案例,最初是在GitHub上看到的,感觉非常的实用就给大家介绍一下,(地址等下在最后放),但是首先为大家介绍另一个发送邮件的原理,虽然不难,但也没三行代码那么简单
+导入第三方库
+
+编写邮件信息
+
+正文
+
+链接发送
+
+大家在学python的...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:44:35</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">53</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">1</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90409100">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90409100" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:监控当前联网状态详情      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90409100" target="_blank">
+        介绍一个利用Python监控当前联网状态情况的python代码,它可以清楚地知道,你的电脑网络是否是链接成功或失败,通俗的说,就是查看你的电脑有木有网,代码如下:
+调用系统网络诊断
+
+监控网络是否链接成功
+
+大家在学python的时候肯定会遇到很多难题，以及对于新技术的追求，这里推荐一下我们的Py...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:12:59</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">72</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90408650">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90408650" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:实现黑客暮雨效果      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90408650" target="_blank">
+        给大家分享一个利用Python制作黑客暮雨效果,是一个非常酷炫的效果,具有一定的参考价值,希望能够帮助到大家,代码如下:
+导入第三方库
+
+定义一些数据
+
+随机颜色
+
+大家在学python的时候肯定会遇到很多难题，以及对于新技术的追求，这里推荐一下我们的Python学习扣qun：784758214，...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:06:10</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">43</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90408557">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90408557" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:selenium控制浏览器爬取淘宝商品信息      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90408557" target="_blank">
+        今天为大家介绍一个Python利用selenium打开浏览器的方式来爬取淘宝商品的信息,下面就来看看,关于selenium的知识点,是如何做到控制浏览器获取网站的信息
+导入第三方库
+
+关键词搜索
+
+抓取索引页
+
+大家在学python的时候肯定会遇到很多难题，以及对于新技术的追求，这里推荐一下我们的...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:05:35</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">42</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90408487">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90408487" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        python基础项目实战:获取本机所有IP地址的方法      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90408487" target="_blank">
+        前言
+今天为大家介绍一个利用python获取本机所有IP地址的具体代码,具有一定的参考价值,希望能够帮助到大家,代码如下:
+导入第三方库
+
+查看主机名
+
+主机IP
+
+大家在学python的时候肯定会遇到很多难题，以及对于新技术的追求，这里推荐一下我们的Python学习扣qun：784758214，...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-21 16:04:31</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">39</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90347772">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90347772" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        Python小白的10个常犯错误，你还在这样操作吗？      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90347772" target="_blank">
+        下面是十个Python中很有用的贴士和技巧。其中一些是初学这门语言常常会犯的错误。
+注意：假设我们都用的是Python 3
+1. 列表推导式
+你有一个list：bag = [1, 2, 3, 4, 5]
+现在你想让所有元素翻倍，让它看起来是这个样子：[2, 4, 6, 8, 10]
+大多初学者，根...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 21:17:16</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">46</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90347614">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90347614" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        学 Python 你觉得是看书还是看视频？      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90347614" target="_blank">
+        “我准备开始学 Python，是看书还是看视频我很纠结，请问有什么建议”。这个问题可能是存在于很多初学者心里的问题，但也是一个很难回答的问题，因为每个人对于事物接收的方向和能力是有差距的，有人就是看不进书去，也有人就是觉得书中自有颜如玉。这个问题既然问的是我，那我就姑且说一下自己的看法，也正好给大...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 21:17:07</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">47</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90347329">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90347329" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        受用一生的 PyCharm 技巧大全（三）      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90347329" target="_blank">
+        11. 一键进行代码性能分析
+在 Python 中有许多模块可以帮助你分析并找出你的项目中哪里出现了性能问题。
+比如，常用的模块有 cProfile，在某些框架中，也内置了中间件帮助你进行性能分析，比如 Django ，WSGI。
+做为Python 的第一 IDE， PyCharm 本身就支持了这...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 21:16:57</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">56</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90347296">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90347296" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        受用一生的 PyCharm 技巧大全（二）      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90347296" target="_blank">
+        这个系列的一些小技巧，对于一些重试用户来说可能是小 case，如果你觉得简单，直接略过即可，不是所有人都像你一样，是个天才，在你之外，仍然有许多刚入门的小伙伴。
+6. 神一样的调试技巧
+假如我们在一个爬虫的项目中，会使用到 正则表达式 来匹配我们想要抓取的内容。正则这种东西，有几个人能够一步到位的...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 21:16:45</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">232</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90347266">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90347266" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        受用一生的 PyCharm 技巧大全（一）      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90347266" target="_blank">
+        大家在学习Python的时候，可以从 PyCharm 入手，写一些可以明显改善开发效率的使用技巧，一旦学会，受用一生。以下代码演示是在 Mac 环境下，Windows 也类似，Command 键 相当于 Windows 上的 Control 键。
+1. 代码排版，自动PEP8
+pep8 是Pyth...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-19 21:16:32</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">306</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90317464">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90317464" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        只有1%的Python 程序员搞懂过浮点数陷阱      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90317464" target="_blank">
+        容纯干货，先从一个例子说起
+&amp;gt;&amp;gt;&amp;gt; 0.1+0.2==0.3
+False
+
+当你第一次看到这个结果时可能会非常惊讶，原来还有个这么大的bug，再来看看表达式&amp;nbsp;0.1+0.2&amp;nbsp;到底等于多少？
+&amp;gt;&amp;gt...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-18 16:59:30</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">74</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90317379">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90317379" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        Python 也会传文件，再也不用看某某网盘的脸色了！      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90317379" target="_blank">
+        在我们的日常生活和工作中，难免会碰到要给别人传文件的时候。可能这对现在的你来说不是一件很难的事情，估计相当多的一部分人说我可以直接把文件拖进微信或者 qq 里发给别人，但这个只适用于文件较少的时候，文件较多的时候用聊天工具来进行文件传输就又变成了一件很麻烦的事情。
+这时候你可能又会说，那我可以传到...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-18 16:54:56</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">85</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90317176">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90317176" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        万能的Python竟然算不明白“钱”？损失惨重！      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90317176" target="_blank">
+        金融行业的同学，经常会遇到“钱”的转换问题，在进行金额的计算和转化时，稍微有不慎，则会损失惨重。
+1、带来经济损失，可能比较微小，
+2、严重影响了后续的日终对账业务，
+3、客户的投诉也会比较严重，严重影响公司的形象。
+因而，在使用Python的时候，需要学会算明白“钱”。
+先看一个例子，由“元”转...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-18 16:49:18</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">71</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="article-item-box csdn-tracking-statistics" data-articleid="90317015">
+        <h4 class="">
+        <a href="https://blog.csdn.net/haoyongxin781/article/details/90317015" target="_blank">
+        <span class="article-type type-1 float-none">原</span>        阿里大牛分享的 Python 开发中那些高级技巧      </a>
+    </h4>
+    <p class="content">
+      <a href="https://blog.csdn.net/haoyongxin781/article/details/90317015" target="_blank">
+        我总结了一些常见的技巧在这里，可能谈不上多高级，但掌握这些至少可以让你的代码看起来 Pythonic 一点。如果你还在按照类C语言的那套风格来写的话，在 code review 恐怕会要被吐槽了。
+
+列表推导式
+&amp;gt;&amp;gt;&amp;gt; chars = [ c for c ...      </a>
+    </p>
+    <div class="info-box d-flex align-content-center">
+      <p>
+        <span class="date">2019-05-18 16:48:57</span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">阅读数 <span class="num">75</span> </span>
+      </p>
+      <p class="point"></p>
+      <p>
+        <span class="read-num">评论数 <span class="num">0</span> </span>
+      </p>
+    </div>
+      </div>
+  <div class="pagination-box" id="pageBox"></div>
+</div>
+    </main>
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://me.csdn.net/haoyongxin781">
+              <img src="https://avatar.csdn.net/2/C/A/3_haoyongxin781.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/0.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://me.csdn.net/haoyongxin781" target="_blank" class="" id="uid">疯子程序员I</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="129">
+                        <dt><a href="https://blog.csdn.net/haoyongxin781?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/haoyongxin781?t=1"><span class="count">129</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="16">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">16</span></dd>
+        </dl>
+        <dl class="text-center" title="27">
+            <dt>喜欢</dt>
+            <dd><span class="count">27</span></dd>
+        </dl>
+        <dl class="text-center" title="17">
+            <dt>评论</dt>
+            <dd><span class="count">17</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="4级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-4"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="15242">
+                1万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="1387">
+                1387            </dd>
+        </dl>
+        <dl title="50867">
+            <dt>排名：</dt>
+            <dd>5万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="勤写标兵Lv2">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                                   <p>勤写标兵Lv2</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布4篇到6篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv3">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l3_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l3_t2.svg" alt="">
+                                   <p>勤写标兵Lv3</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布7篇到8篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv4">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l4_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l4_t2.svg" alt="">
+                                   <p>勤写标兵Lv4</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布9篇以上（包括9篇）原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <script type="text/javascript" src="//rabc1.iteye.com/production/openjs/d9o6b.js?bwo=coltly"></script>    </div>
+</div>
+<div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/haoyongxin781/article/category/8903336">
+                    <span class="title oneline">Python</span>
+                    <span class="count float-right">56篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/haoyongxin781/article/category/8909618">
+                    <span class="title oneline">python从0到1</span>
+                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/haoyongxin781/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">58篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/haoyongxin781/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">73篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/haoyongxin781/article/details/89159481">前端人才饱和？平均年薪25W难求优质程序员！</a>
+					<p class="read">阅读数 <span>2304</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/haoyongxin781/article/details/90521928">程序人生：“自学Python，如何拿下了月薪15k的工作”</a>
+					<p class="read">阅读数 <span>1186</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/haoyongxin781/article/details/89892526">大规模异步新闻爬虫【6】：用asyncio实现异步爬虫</a>
+					<p class="read">阅读数 <span>808</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/haoyongxin781/article/details/89892480">大规模异步新闻爬虫【5】：网页正文的提取</a>
+					<p class="read">阅读数 <span>699</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/haoyongxin781/article/details/89099299">阿里程序员吐槽：相亲市场，月入3万，不如月入3千的公务员，什么眼光？</a>
+					<p class="read">阅读数 <span>618</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/haoyongxin781/article/details/90175297#comments">超2万名开发人员调查：会 Pyth...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_42017469" class="user-name" target="_blank">qq_42017469：</a>一个人学习会有迷茫，动力不足，这里推荐一下我们的Python学习扣qun：456875194，这里是python学习者聚集地！！同时，自己是一名高级python开发工程师，从基础的python脚本到web开发、爬虫、django、数据挖掘等，零基础到项目实战的资料都有整理。送给每一位python的小伙伴！每日分享一些学习的方法和需要注意的小细节                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/haoyongxin781/article/details/89930482#comments">利用Python暴力破解zip，P...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/haoyongxin781" class="user-name" target="_blank">haoyongxin781：</a>[reply]weixin_44995162[/reply]
+？？？？？                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/haoyongxin781/article/details/89930482#comments">利用Python暴力破解zip，P...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_44995162" class="user-name" target="_blank">weixin_44995162：</a>看不到图片                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/haoyongxin781/article/details/89856306#comments">大规模异步新闻爬虫【3】：让MyS...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/mosyu" class="user-name" target="_blank">mosyu：</a>程序员这个学的不错                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/haoyongxin781/article/details/89856306#comments">大规模异步新闻爬虫【3】：让MyS...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_44914694" class="user-name" target="_blank">weixin_44914694：</a>程序员这个学的不错                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<script type="text/javascript" src="//rabc1.iteye.com/source/h751.js?avneunkw=b"></script>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask"></div>
+<div class="promptBox clearfix">
+    <div class="title clearfix bottom-dis-16">
+        <span class="float-left">提示</span>
+        <a class="float-right Boxclose">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-times"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="text">确定要删除当前文章？</div>
+    <div class="pro-btn float-right">
+        <a class="clickNo">取消</a>
+        <a class="clickYes">删除</a>
+    </div>
+</div>
+<script>
+    var currentPage = 1;
+    var baseUrl = 'https://blog.csdn.net/haoyongxin781/article/list' ;
+    var pageSize = 20 ;
+    var listTotal = 131 ;
+    var pageQueryStr = '?';
+    function getAllUrl(page) {
+        return baseUrl + "/" + page + pageQueryStr;
+    }
+</script>
+<script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js?t=20190307095522"></script>
+
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/list-7c51275791.min.js"></script>
+
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8
+    })
+</script>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,3192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/CSDoneRight/article/details/90720786"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"BSL编程语言 —— 系统化程序设计 - CSDoneRight的博客"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>BSL编程语言 —— 系统化程序设计 - CSDoneRight的博客 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/CSDoneRight\/article\/details\/90720786","appid":"1563894916825412","title":"BSL\u7f16\u7a0b\u8bed\u8a00 \u2014\u2014 \u7cfb\u7edf\u5316\u7a0b\u5e8f\u8bbe\u8ba1 - CSDoneRight\u7684\u535a\u5ba2","images":["https:\/\/img-blog.csdnimg.cn\/2019053117360125.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRG9uZVJpZ2h0,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20190603115857934.png","https:\/\/img-blog.csdnimg.cn\/20190603115949163.png"],"pubDate":"2019-06-05T20:03:01"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "CSDoneRight";
+        var blog_address = "https://blog.csdn.net/csdoneright";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/CSDoneRight/article/details/90720786"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "BSL编程语言 —— 系统化程序设计 - CSDoneRight的博客";
+        
+        var nickName = "CSDoneRight";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/csdoneright/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/CSDoneRight/article/details/90720786";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-845","con":",,"}' data-track-click='{"mod":"kp_popu_476-845","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.7/indexSuperise.js?20190508180304"></script>
+<script>
+window.csdn.indexSuperise({
+zIndex:11000,
+      smallMoveImg: '//img-ads.csdn.net/2019/201905051104247931.png',
+      bigMoveImg: '//img-ads.csdn.net/2019/201905051104104645.png',
+     link:'//edu.csdn.net/topic/python115?utm_source=blogpopup',
+boxStyle:140,
+trackSuperId:476,
+smallMove:'notMove',  
+trackSId:845
+    });
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">BSL编程语言 —— 系统化程序设计</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年06月03日 13:46:27</span>
+          <a class="follow-nickName" href="https://me.csdn.net/CSDoneRight" target="_blank">CSDoneRight</a>
+          <span class="read-count">阅读数：41</span>
+                  </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <p><code>BSL编程语言简介</code></p>
+<p></p><div class="toc"><h3>文章目录</h3><ul><ul><ul><li><a href="#0__4" rel="nofollow">0. 选择编程语言</a></li><li><a href="#1_Expression_17" rel="nofollow">1. 写简单的表达式（Expression）</a></li><li><a href="#2__43" rel="nofollow">2. 表达式求值</a></li><li><a href="#3__64" rel="nofollow">3. 字符串和图像</a></li><li><a href="#4__104" rel="nofollow">4. 常数</a></li></ul></ul></ul></div><p></p>
+<h3><a id="0__4"></a>0. 选择编程语言</h3>
+<p>如果你第一次使用DrRacket，打开后需要选择Beginning Student Language (BSL)</p>
+<blockquote>
+<p>Language -&gt; Choose Language (或直接按Ctrl + L），看到如下洁面后选择Beginning Student，点击OK<br>
+<img src="https://img-blog.csdnimg.cn/2019053117360125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NTRG9uZVJpZ2h0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+<p>定义区【Definition Area】—写代码的地方</p>
+<p>互动区【Interactive Area】 — 代码结果输出的地方</p>
+<h3><a id="1_Expression_17"></a>1. 写简单的表达式（Expression）</h3>
+<p>让我们从最简单的四则运算开始【所有BSL表达式都必须在<code>()</code>中】</p>
+<pre><code>(+ 3 4)
+</code></pre>
+<p>点击右上角的运行按钮，互动区将显示<code>7</code>。其中，<code>+</code>是运算符(operator)，<code>3</code>和<code>4</code>操作数(operand)。BSL使用前缀表示法，即把运算符放在前面，操作数放在后面。这与函数f(x)的表达方法相同，也保持了一致性，但与3+4的表达方法略有不同。即使是简单的表达式，如果将多个数字相加，只需要写1次加号：</p>
+<pre><code>(+ 3 3 1)   ; + can add more than 2 numbers
+</code></pre>
+<p>上面的表达式中，<code>;</code>表示注释，该行在分号后的内容运行时都将被忽略，可以用于解释代码。</p>
+<p>表达式可以相互嵌套，下面的表达式同样返回7.</p>
+<pre><code>(+ 3 (* 2 2))
+</code></pre>
+<p>加(+)减(-)乘(*)除(/)都可以进行运算，这里再引入两个运算<code>sqr</code>和<code>sqrt</code>:</p>
+<pre><code>(sqr 2)    ; 计算2的平方，4
+(sqrt 4)   ; 计算4的平方根，2
+</code></pre>
+<h3><a id="2__43"></a>2. 表达式求值</h3>
+<p>原始表达式求值规则（从左到右，从内到外）：</p>
+<ul>
+<li>首先对操作数求值</li>
+<li>然后会原始表达式求值</li>
+</ul>
+<p>To evaluate a primitive call:</p>
+<ul>
+<li>first reduce operands to values</li>
+<li>apply primitives to the values</li>
+</ul>
+<pre><code>; Example
+; 从左到右，2个数相乘，从左到右，从内到外，依次求值
+; =============================================
+(/ (* 3 4) (+ (- 7 4) 3))
+(/ 12      (+ (- 7 4) 3))
+(/ 12      (+ 3       3))
+(/ 12      6)
+2
+</code></pre>
+<h3><a id="3__64"></a>3. 字符串和图像</h3>
+<p>字符串是一系列由双引号框起来的字符组，如<code>"Hello"</code>。</p>
+<p>对于字符串的主要操作</p>
+<pre><code>(string-append "hello" "_" "world")    ; 连接字符串，返回"hello_world"
+(string-length "hello")                ; 求字符串长度，返回5
+(substring "hello" 1 3)                ; 取字符串的一部分，返回"el"
+
+; 0-based indexing: 
+; substring有三个参数，字符串，开始位置，结束位置（不包括）
+; "hello"
+; "01234"
+; (substring "hello" 1 3) 返回 "el"
+</code></pre>
+<p>使用任何图形函数都需要在BSL文件头加入<code>(require 2htdp/image)</code>，使用库中的相关函数。</p>
+<pre><code>; 一些基本图形
+(circle 10 "solid" "red")
+(rectangle 20 40 "outline" "blue")
+(text "Hello" 24 "orange")
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20190603115857934.png" alt="在这里插入图片描述"></p>
+<p>除了基本图形之外，我们还可以组合出一些更有趣的图形</p>
+<pre><code>; 一些图形组合
+(above (circle 20 "solid" "red")
+       (circle 20 "solid" "yellow")
+       (circle 20 "solid" "green"))
+
+(overlay (circle 10 "solid" "red")
+         (circle 20 "solid" "yellow")
+         (circle 30 "solid" "green"))
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20190603115949163.png" alt="在这里插入图片描述"></p>
+<h3><a id="4__104"></a>4. 常数</h3>
+<p>定义常数，可以增加程序的可读性，并方便日后的修改<br>
+通常，使用大写字母作为常数名称，定义时可以用表达式作为常数名的值</p>
+<pre><code>(define WIDTH 400)
+(define WIDTH-TO-HEIGHT 1.5)
+(define HEIGHT (* WIDTH WIDTH-TO-HEIGHT))  ; 用表达式定义常数
+</code></pre>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/CSDoneRight/article/details/90720786,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/CSDoneRight/article/details/90720786,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-386","con":",,"}' data-track-click='{"mod":"kp_popu_58-386","con":",,"}'><div style="width:100%;background:#fff;">
+<script type="text/javascript" src="//rabc1.iteye.com/production/resource/web/6xwm4l.js?lg=ydmpioh"></script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="90720786">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010568345/article/details/40806931,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010568345/article/details/40806931,BlogCommendFromQuerySearch_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010568345/article/details/40806931" target="_blank" title="MSP430  BSL编程原理">
+		<h4 class="text-truncate oneline">
+				MSP430  <em>BSL</em>编程原理		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1712</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010568345/article/details/40806931" target="_blank" title="MSP430  BSL编程原理">
+				<span class="desc oneline">http://www.cnblogs.com/Engin/archive/2011/08/31/2160534.html</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010568345">来自：	<span class="blog_title"> u010568345的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/c_ycy/article/details/53883797,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/c_ycy/article/details/53883797,BlogCommendFromQuerySearch_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/c_ycy/article/details/53883797" target="_blank" title="关于msp430的BSL下载">
+		<h4 class="text-truncate oneline">
+				关于msp430的<em>BSL</em>下载		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3052</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/c_ycy/article/details/53883797" target="_blank" title="关于msp430的BSL下载">
+				<span class="desc oneline">在使用msp430做硬件开发时，一般都不会把用于载入程序的CH340或PL2303等电路模块集成到电路板上，所以就需要一个下载器（或BSL程序烧录器）下载，这个很容易买到。不过，如果手头没有下载器的话...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/c_ycy">来自：	<span class="blog_title"> ChunyuY19的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_33003441/10392835,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_33003441/10392835,BlogCommendFromQuerySearch_2"}'>
+		<a href="https://download.csdn.net/download/qq_33003441/10392835" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>BSL</em>下载软件					</h4>
+					<span class="data float-right">05-04</span>
+				</div>
+				<div class="desc oneline">
+						程序下载的格式是 430 的TXT 文件，首先按正常使用IAR编写程序，然后用IAR编译生成TXT 文件				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/wsen2012/8686459,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/wsen2012/8686459,BlogCommendFromQuerySearch_3"}'>
+		<a href="https://download.csdn.net/download/wsen2012/8686459" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>BSL</em>下载原理图					</h4>
+					<span class="data float-right">05-11</span>
+				</div>
+				<div class="desc oneline">
+						用于MSP430全系统下载的，串行下载电路，BSL方式				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-78","con":",,"}' data-track-click='{"mod":"kp_popu_59-78","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3491668",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/lichao_qm/10546966,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/lichao_qm/10546966,BlogCommendFromQuerySearch_4"}'>
+		<a href="https://download.csdn.net/download/lichao_qm/10546966" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>BSL</em>下载工具					</h4>
+					<span class="data float-right">07-17</span>
+				</div>
+				<div class="desc oneline">
+						BSL下载工具，BSL下载工具，BSL下载工具，BSL下载工具				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/wfdtxz/4762647,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/wfdtxz/4762647,BlogCommendFromQuerySearch_5"}'>
+		<a href="https://download.csdn.net/download/wfdtxz/4762647" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430，<em>BSL</em>下载工具（中文版）					</h4>
+					<span class="data float-right">11-13</span>
+				</div>
+				<div class="desc oneline">
+						MSP430采用BSL接口下载程序，熔断保险丝，使JTAG仿真接口失效				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/zhengyangliu123/7654829,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/zhengyangliu123/7654829,BlogCommendFromQuerySearch_6"}'>
+		<a href="https://download.csdn.net/download/zhengyangliu123/7654829" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430 <em>BSL</em>下载软件加接口图片					</h4>
+					<span class="data float-right">07-20</span>
+				</div>
+				<div class="desc oneline">
+						BSL下载软件 ，里面有MSP的下载接口接线方法，非常简单好用的一款MSP430 BSL的下载软件				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wfdtxz/article/details/8178042,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wfdtxz/article/details/8178042,BlogCommendFromQuerySearch_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wfdtxz/article/details/8178042" target="_blank" title="MSP430下载程序BSL">
+		<h4 class="text-truncate oneline">
+				MSP430下载程序<em>BSL</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3397</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wfdtxz/article/details/8178042" target="_blank" title="MSP430下载程序BSL">
+				<span class="desc oneline">MSPFET工具下载（英文版）MSPFET工具下载（中文版）程序下载的格式是430的TXT文件，首先按正常使用IAR编写程序，然后用IAR编译生成TXT文件，要生成这种可以下载的文件，需要对IAR做如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wfdtxz">来自：	<span class="blog_title"> wfdtxz的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/q553716434/article/details/7657630,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/q553716434/article/details/7657630,BlogCommendFromQuerySearch_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/q553716434/article/details/7657630" target="_blank" title="自制BSL编程MSP430单片机">
+		<h4 class="text-truncate oneline">
+				自制<em>BSL</em>编程MSP430单片机		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1769</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/q553716434/article/details/7657630" target="_blank" title="自制BSL编程MSP430单片机">
+				<span class="desc oneline">MSP430单片机闪存编程的方法有三种：JATG端口、BSL或用户开发程序。通过电脑的并行端口自制下载线连接MSP430单片机的JATG端口编程，这种方法大家已经比较熟悉了，有很多介绍自制并口下载线的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/q553716434">来自：	<span class="blog_title"> sunshine</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-763","con":",,"}' data-track-click='{"mod":"kp_popu_60-763","con":",,"}'><script type="text/javascript" src="//rabc1.iteye.com/production/source/web/h53bu.js?avnubb=xre"></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/limanjihe/article/details/48052137,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/limanjihe/article/details/48052137,BlogCommendFromQuerySearch_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/limanjihe/article/details/48052137" target="_blank" title="MSP430的BSL下载经验">
+		<h4 class="text-truncate oneline">
+				MSP430的<em>BSL</em>下载经验		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					584</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/limanjihe/article/details/48052137" target="_blank" title="MSP430的BSL下载经验">
+				<span class="desc oneline">REFERENCE:http://www.360doc.com/content/14/0115/17/14530056_345504228.shtml1、运行IAREmbeddedWorkbench，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/limanjihe">来自：	<span class="blog_title"> limanjihe的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/luoyouren/article/details/51202587,BlogCommendFromQuerySearch_10"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/luoyouren/article/details/51202587,BlogCommendFromQuerySearch_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/luoyouren/article/details/51202587" target="_blank" title="JTAG、SBW、BSL 三种接口的区别">
+		<h4 class="text-truncate oneline">
+				JTAG、SBW、<em>BSL</em> 三种接口的区别		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4435</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/luoyouren/article/details/51202587" target="_blank" title="JTAG、SBW、BSL 三种接口的区别">
+				<span class="desc oneline">MSP430无论是仿真还是烧写程序，一般可以通过：JTAG、SBW、BSL接口进行。1、JTAG是利用边界扫描技术，在430内部有逻辑接口给JTAG使用，内部有若干个寄存器连接到了430内部数据地址总...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/luoyouren">来自：	<span class="blog_title"> luoyouren的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/pcf00/809562,BlogCommendFromQuerySearch_11"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/pcf00/809562,BlogCommendFromQuerySearch_11"}'>
+		<a href="https://download.csdn.net/download/pcf00/809562" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						经典的430<em>BSL</em>编程器					</h4>
+					<span class="data float-right">11-26</span>
+				</div>
+				<div class="desc oneline">
+						430编程器，支持BSL下载代码，在这里你可以为你的代码加密，使别人无法破解				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/CoekJin/article/details/52241045,BlogCommendFromQuerySearch_12"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/CoekJin/article/details/52241045,BlogCommendFromQuerySearch_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/CoekJin/article/details/52241045" target="_blank" title="使用IAR和BSL下载程序至MSP430F2122">
+		<h4 class="text-truncate oneline">
+				使用IAR和<em>BSL</em>下载程序至MSP430F2122		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1756</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/CoekJin/article/details/52241045" target="_blank" title="使用IAR和BSL下载程序至MSP430F2122">
+				<span class="desc oneline">前言msp430是一种相对低功耗的单片机，下载程序的方式也是多样的，包括串口BSL:TX,RX,DTR(RST),RTS(TEST),VCC,GND2线SBW:TCK,DIO,VCC,GND4线JTA...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/CoekJin">来自：	<span class="blog_title"> CoekJin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/gattaca2011/5872139,BlogCommendFromQuerySearch_13"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/gattaca2011/5872139,BlogCommendFromQuerySearch_13"}'>
+		<a href="https://download.csdn.net/download/gattaca2011/5872139" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						[Dart] Dart 语言<em>程序设计</em> (英文版)					</h4>
+					<span class="data float-right">08-05</span>
+				</div>
+				<div class="desc oneline">
+						☆ 资源说明：☆
+
+[Pragmatic Bookshelf] Dart 语言程序设计 (英文版)
+
+[Pragmatic Bookshelf] Dart for Hipsters (E-Book)
+
+☆ 出版信息：☆
+
+[作者信息] C...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-622","con":",,"}' data-track-click='{"mod":"kp_popu_61-622","con":",,"}'><script type="text/javascript" src="//rabc1.iteye.com/common/web/production/79m9.js?f=aszggcwz"></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wxw060709/article/details/83445924,BlogCommendFromQuerySearch_14"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wxw060709/article/details/83445924,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wxw060709/article/details/83445924" target="_blank" title="系统学习编程之学习计划">
+		<h4 class="text-truncate oneline">
+				系统学习编程之学习计划		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					707</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wxw060709/article/details/83445924" target="_blank" title="系统学习编程之学习计划">
+				<span class="desc oneline">启蒙阶段任务一：•完成MIT6.00.1x（麻省理工：计算机科学和Python编程导论）。虽然该课程的教学语言为Python，但作为一门优秀的导论课，它强调学习计算机科学领域里的重要概念和范式，而不仅...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wxw060709">来自：	<span class="blog_title"> wxw060709的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zjt289198457/article/details/8450445,BlogCommendFromQuerySearch_15"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zjt289198457/article/details/8450445,BlogCommendFromQuerySearch_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zjt289198457/article/details/8450445" target="_blank" title="MSP430F149利用JTAG以及BSL下载配置图解！">
+		<h4 class="text-truncate oneline">
+				MSP430F149利用JTAG以及<em>BSL</em>下载配置图解！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9769</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zjt289198457/article/details/8450445" target="_blank" title="MSP430F149利用JTAG以及BSL下载配置图解！">
+				<span class="desc oneline">一、利用JTAG下载配置图解1、利用IAR打开新建或者是已有的项目工程，如下图所示。右键单击*****-Debug，选择Option选项，会出现如下图所示的对话框。2、选择Category选项栏目中的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zjt289198457">来自：	<span class="blog_title"> zjt289198457的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zhanshen112/article/details/84979488,BlogCommendFromQuerySearch_16"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhanshen112/article/details/84979488,BlogCommendFromQuerySearch_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhanshen112/article/details/84979488" target="_blank" title="编程语言总结">
+		<h4 class="text-truncate oneline">
+				<em>编程语言</em>总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8441</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhanshen112/article/details/84979488" target="_blank" title="编程语言总结">
+				<span class="desc oneline">学了C/C++，并了解了一点Python，对编程语言之间的共性有一点点自己的认识，总结如下：1、编程语言的结构语言本身是一种实现沟通烦人工具，从这个角度考虑，编程语言本身是一个实现人与计算机交流，从而...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhanshen112">来自：	<span class="blog_title"> 心纯净，行致远</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/zhangpengfei0802/9152335,BlogCommendFromQuerySearch_17"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/zhangpengfei0802/9152335,BlogCommendFromQuerySearch_17"}'>
+		<a href="https://download.csdn.net/download/zhangpengfei0802/9152335" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430F5系列<em>BSL</em>下载器、下载软件(最新)					</h4>
+					<span class="data float-right">10-02</span>
+				</div>
+				<div class="desc oneline">
+						MSP430F5系列BSL下载器、下载软件、编程器(最新版本)，支持MSP430F5438A等，下载稳定、可靠。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/csdnhuiyuan726/8950481,BlogCommendFromQuerySearch_18"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/csdnhuiyuan726/8950481,BlogCommendFromQuerySearch_18"}'>
+		<a href="https://download.csdn.net/download/csdnhuiyuan726/8950481" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						msp430系列单片机<em>BSL</em>编程下载器					</h4>
+					<span class="data float-right">07-31</span>
+				</div>
+				<div class="desc oneline">
+						用于下载msp430程序的软件，小巧好用。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-623","con":",,"}' data-track-click='{"mod":"kp_popu_62-623","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3600849",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/u012802717/8669775,BlogCommendFromQuerySearch_19"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/u012802717/8669775,BlogCommendFromQuerySearch_19"}'>
+		<a href="https://download.csdn.net/download/u012802717/8669775" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430F5438A <em>BSL</em>烧录软件					</h4>
+					<span class="data float-right">05-06</span>
+				</div>
+				<div class="desc oneline">
+						一款MSP430F5438A的BSL烧录软件，是你学习MSP430F5438A的一款利器				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/wfdtxz/4762641,BlogCommendFromQuerySearch_20"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/wfdtxz/4762641,BlogCommendFromQuerySearch_20"}'>
+		<a href="https://download.csdn.net/download/wfdtxz/4762641" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430，<em>BSL</em>下载软件（英文版本）					</h4>
+					<span class="data float-right">11-13</span>
+				</div>
+				<div class="desc oneline">
+						MSP430采用BSL接口下载程序，熔断保险丝，使JTAG仿真接口失效				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Perfect886/article/details/80689661,BlogCommendFromQuerySearch_21"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Perfect886/article/details/80689661,BlogCommendFromQuerySearch_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Perfect886/article/details/80689661" target="_blank" title="《Python程序设计应用教程》——基础篇">
+		<h4 class="text-truncate oneline">
+				《Python<em>程序设计</em>应用教程》——基础篇		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					422</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Perfect886/article/details/80689661" target="_blank" title="《Python程序设计应用教程》——基础篇">
+				<span class="desc oneline">Python语言概述Python是一种跨平台、开源、免费的解释型高级动态编程语言。IDLE: Python自带的简洁的集成开发环境。开启步骤：开始——所有程序——找到自己的Python版本——IDLE...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Perfect886">来自：	<span class="blog_title"> Perfect886的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/cwqcwk1/article/details/37813635,BlogCommendFromQuerySearch_22"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cwqcwk1/article/details/37813635,BlogCommendFromQuerySearch_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cwqcwk1/article/details/37813635" target="_blank" title="简单谈谈Erlang的几种运算符">
+		<h4 class="text-truncate oneline">
+				简单谈谈Erlang的几种运算符		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cwqcwk1/article/details/37813635" target="_blank" title="简单谈谈Erlang的几种运算符">
+				<span class="desc oneline">Erlang有好几种运算符，比较运算符、数学运算符、布尔运算符，文章针对这几种运算符做讨论，参考erlang文档，以例子说明。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cwqcwk1">来自：	<span class="blog_title"> 没有开花的树</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/sinat_41900014/10383735,BlogCommendFromQuerySearch_23"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/sinat_41900014/10383735,BlogCommendFromQuerySearch_23"}'>
+		<a href="https://download.csdn.net/download/sinat_41900014/10383735" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430 <em>BSL</em>软件					</h4>
+					<span class="data float-right">04-30</span>
+				</div>
+				<div class="desc oneline">
+						支持MSP430 5X系列，一款BSL烧录软件，功能强大的一款。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-1059","con":",,"}' data-track-click='{"mod":"kp_popu_63-1059","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/234?positionId=63&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq446856855/3877939,BlogCommendFromQuerySearch_24"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq446856855/3877939,BlogCommendFromQuerySearch_24"}'>
+		<a href="https://download.csdn.net/download/qq446856855/3877939" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>BSL</em>使用说明					</h4>
+					<span class="data float-right">12-04</span>
+				</div>
+				<div class="desc oneline">
+						BSL使用说明 BSL使用说明 BSL使用说明 BSL使用说明				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/MirrorAvatar/article/details/84702806,BlogCommendFromQuerySearch_25"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/MirrorAvatar/article/details/84702806,BlogCommendFromQuerySearch_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/MirrorAvatar/article/details/84702806" target="_blank" title="程序设计语言发展的三个时代思维导图">
+		<h4 class="text-truncate oneline">
+				<em>程序设计</em>语言发展的三个时代思维导图		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					206</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/MirrorAvatar/article/details/84702806" target="_blank" title="程序设计语言发展的三个时代思维导图">
+				<span class="desc oneline">程序设计语言发展，3个时代：机器语言时代，汇编语言时代和高级语言时代。 ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/MirrorAvatar">来自：	<span class="blog_title"> MirrorAvatar的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_37169103/article/details/78719594,BlogCommendFromQuerySearch_26"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_37169103/article/details/78719594,BlogCommendFromQuerySearch_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_37169103/article/details/78719594" target="_blank" title="sql数据库的四大程序设计语言的语句">
+		<h4 class="text-truncate oneline">
+				sql数据库的四大<em>程序设计</em>语言的语句		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1067</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_37169103/article/details/78719594" target="_blank" title="sql数据库的四大程序设计语言的语句">
+				<span class="desc oneline">sql</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_37169103">来自：	<span class="blog_title"> 小肥猫吃鱼的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_20375613/8508575,BlogCommendFromQuerySearch_27"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_20375613/8508575,BlogCommendFromQuerySearch_27"}'>
+		<a href="https://download.csdn.net/download/qq_20375613/8508575" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>bsl</em>下载器驱动					</h4>
+					<span class="data float-right">03-17</span>
+				</div>
+				<div class="desc oneline">
+						用bsl给msp430系列单片机下载程序的时候，需要bsl驱动				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/dipingxian2/4821180,BlogCommendFromQuerySearch_28"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/dipingxian2/4821180,BlogCommendFromQuerySearch_28"}'>
+		<a href="https://download.csdn.net/download/dipingxian2/4821180" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430F149开发板原理图 包括<em>BSL</em>下载电路部分					</h4>
+					<span class="data float-right">11-28</span>
+				</div>
+				<div class="desc oneline">
+						MSP430F149开发板原理图，其中包含了BSL下载电路部分，常用无线模块，串口，TFT液晶等				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-81","con":",,"}' data-track-click='{"mod":"kp_popu_64-81","con":",,"}'><div id="three_ad28" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad28",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/sunyanzheng/6434137,BlogCommendFromQuerySearch_29"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/sunyanzheng/6434137,BlogCommendFromQuerySearch_29"}'>
+		<a href="https://download.csdn.net/download/sunyanzheng/6434137" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						dart语言<em>程序设计</em>					</h4>
+					<span class="data float-right">10-22</span>
+				</div>
+				<div class="desc oneline">
+						这是一本讲述Dart语言程序设计的英文书，Dart语言将是javascript 络结语言。速度快效率高。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38184698/article/details/82827888,BlogCommendFromQuerySearch_30"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38184698/article/details/82827888,BlogCommendFromQuerySearch_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_38184698/article/details/82827888" target="_blank" title="华盛顿大学程序设计语言B作业4">
+		<h4 class="text-truncate oneline">
+				华盛顿大学<em>程序设计</em>语言B作业4		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					149</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_38184698/article/details/82827888" target="_blank" title="华盛顿大学程序设计语言B作业4">
+				<span class="desc oneline">#langracket(provide(all-defined-out));;sowecanputtestsinasecondfile;;putyourcodebelow(define(sequenc...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_38184698">来自：	<span class="blog_title"> qq_38184698的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sphinz1/article/details/52902284,BlogCommendFromQuerySearch_31"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sphinz1/article/details/52902284,BlogCommendFromQuerySearch_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sphinz1/article/details/52902284" target="_blank" title="MSP430熔丝及加密总结">
+		<h4 class="text-truncate oneline">
+				MSP430熔丝及加密总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3562</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sphinz1/article/details/52902284" target="_blank" title="MSP430熔丝及加密总结">
+				<span class="desc oneline">MSP430熔丝及加密总结MSP430是使用熔丝或者电子熔丝去做内部代码的保护，如果熔丝烧断，那么将不能使用JTAG或者BSL去非法访问内部代码。MSP430F1/F2/F4系列是采用物理熔丝的方式，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sphinz1">来自：	<span class="blog_title"> 科技四路</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/moqianmoqian/10698557,BlogCommendFromQuerySearch_32"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/moqianmoqian/10698557,BlogCommendFromQuerySearch_32"}'>
+		<a href="https://download.csdn.net/download/moqianmoqian/10698557" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						程序语言基础知识（思维导图）					</h4>
+					<span class="data float-right">09-30</span>
+				</div>
+				<div class="desc oneline">
+						画了一张软考中软件设计师第二章（程序语言基础知识）的思维导图。好吧，我承认有些密，都可以媲美小笔记了，不过知识比较详实，书上提到的这里都有。有限自动机和状态转化图相关知识点，我放在https://www.jianshu.com/p/7ff...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/yueguanyun/article/details/76794745,BlogCommendFromQuerySearch_33"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yueguanyun/article/details/76794745,BlogCommendFromQuerySearch_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yueguanyun/article/details/76794745" target="_blank" title="2017年7月编程语言排行榜">
+		<h4 class="text-truncate oneline">
+				2017年7月<em>编程语言</em>排行榜		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5429</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yueguanyun/article/details/76794745" target="_blank" title="2017年7月编程语言排行榜">
+				<span class="desc oneline">2017年7月编程语言排行榜转自：http://www.sohu.com/a/155871045_4652212017年7月TIOBE编程语言排行榜：Java第一无悬念，Go首次进入Top10TIOB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yueguanyun">来自：	<span class="blog_title"> yueguanyun的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-84","con":",,"}' data-track-click='{"mod":"kp_popu_65-84","con":",,"}'><div id="three_ad33" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad33",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/yesi1983/9609787,BlogCommendFromQuerySearch_34"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/yesi1983/9609787,BlogCommendFromQuerySearch_34"}'>
+		<a href="https://download.csdn.net/download/yesi1983/9609787" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430 <em>BSL</em>开发官方示例代码					</h4>
+					<span class="data float-right">08-22</span>
+				</div>
+				<div class="desc oneline">
+						MSP430 BSL开发官方示例代码
+VC工程,可以编译运行				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/yueguanyun/article/details/55101984,BlogCommendFromQuerySearch_35"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yueguanyun/article/details/55101984,BlogCommendFromQuerySearch_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yueguanyun/article/details/55101984" target="_blank" title="Elixir 函数式编程语言">
+		<h4 class="text-truncate oneline">
+				Elixir 函数式<em>编程语言</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1302</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yueguanyun/article/details/55101984" target="_blank" title="Elixir 函数式编程语言">
+				<span class="desc oneline">Elixir函数式编程语言Elixir是一种函数式编程语言，建立在Erlang虚拟机之上。它是一种动态语言,灵活的语法与宏支持,利用Erlang的能力来构建并发、分布式、容错应用程序与热代码升级。El...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yueguanyun">来自：	<span class="blog_title"> yueguanyun的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ymmygtl/article/details/48713555,BlogCommendFromQuerySearch_36"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ymmygtl/article/details/48713555,BlogCommendFromQuerySearch_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ymmygtl/article/details/48713555" target="_blank" title="程序设计语言组成要素">
+		<h4 class="text-truncate oneline">
+				<em>程序设计</em>语言组成要素		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					834</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ymmygtl/article/details/48713555" target="_blank" title="程序设计语言组成要素">
+				<span class="desc oneline">1.语法部分2.关键字和保留字部分3.变量部分4.数据类型部分5.操作符部分5.语句部分7.函数部分8.复合类型部分...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ymmygtl">来自：	<span class="blog_title"> ymmygtl的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/cs_fzt/7999633,BlogCommendFromQuerySearch_37"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/cs_fzt/7999633,BlogCommendFromQuerySearch_37"}'>
+		<a href="https://download.csdn.net/download/cs_fzt/7999633" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						Ada<em>程序设计</em>语言（入门教程） 中文版 PDF					</h4>
+					<span class="data float-right">10-03</span>
+				</div>
+				<div class="desc oneline">
+						Ada 美国国防部为克服软件开发危机 耗费20年弄出来的一种表现能力很强的通用程序设计语言 广泛应用与军工产品的研发 以及嵌入式和实时系统  
+    此外,Ada软件开发技术 嵌入式Linux C语言应用程序设计 C和指针 C陷阱与缺陷...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/a8845/article/details/79357507,BlogCommendFromQuerySearch_38"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/a8845/article/details/79357507,BlogCommendFromQuerySearch_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a8845/article/details/79357507" target="_blank" title="《系统化思维导论》杂谈">
+		<h4 class="text-truncate oneline">
+				《<em>系统化</em>思维导论》杂谈		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					915</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a8845/article/details/79357507" target="_blank" title="《系统化思维导论》杂谈">
+				<span class="desc oneline">前段时间看微信公众号推荐书籍我就顺手翻了下，发现了《系统化思维导论》一书，顿时颇有兴趣，然后就在网上找呀找，原谅我这种穷人只能找免费的看。。通过看译者序感觉还有点兴趣，再看前言，当时感觉这本书估计喜欢...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a8845">来自：	<span class="blog_title"> a8845的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-881","con":",,"}' data-track-click='{"mod":"kp_popu_66-881","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T38_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T38  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T38_render", "T38");
+</script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/mwib001/10975990,BlogCommendFromQuerySearch_40"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/mwib001/10975990,BlogCommendFromQuerySearch_40"}'>
+		<a href="https://download.csdn.net/download/mwib001/10975990" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						Lua<em>程序设计</em>					</h4>
+					<span class="data float-right">02-26</span>
+				</div>
+				<div class="desc oneline">
+						Lua程序设计，DOC轻量级文档，简单易懂，方便参看。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_43338842/article/details/85002899,BlogCommendFromQuerySearch_41"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_43338842/article/details/85002899,BlogCommendFromQuerySearch_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_43338842/article/details/85002899" target="_blank" title="最难学的10大编程语言排行榜，Java只排第三，第一出乎意料">
+		<h4 class="text-truncate oneline">
+				最难学的10大<em>编程语言</em>排行榜，Java只排第三，第一出乎意料		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					803</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_43338842/article/details/85002899" target="_blank" title="最难学的10大编程语言排行榜，Java只排第三，第一出乎意料">
+				<span class="desc oneline">2018年12月的TIOBE编程语言排行榜已经出炉，Python重回前三，Go语言跌出前十，VisualBasic.NET涨幅明显，保持第五名。TIOBE排行榜是根据互联网上有经验的程序员、课程和第三...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_43338842">来自：	<span class="blog_title"> weixin_43338842的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/allenjay11/article/details/51372776,BlogCommendFromQuerySearch_42"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/allenjay11/article/details/51372776,BlogCommendFromQuerySearch_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/allenjay11/article/details/51372776" target="_blank" title="erlang 运算符">
+		<h4 class="text-truncate oneline">
+				erlang 运算符		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1962</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/allenjay11/article/details/51372776" target="_blank" title="erlang 运算符">
+				<span class="desc oneline">erlang运算符helloworld,erlangisgood!EshellV5.9.3.1(abortwith^G)1&gt;1==1.0.true2&gt;1=:=1.0.false3&gt;1/=1.0.fal...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/allenjay11">来自：	<span class="blog_title"> 养码青年</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/good3651/9721277,BlogCommendFromQuerySearch_43"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/good3651/9721277,BlogCommendFromQuerySearch_43"}'>
+		<a href="https://download.csdn.net/download/good3651/9721277" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						WINDOWS网络与通信<em>程序设计</em>					</h4>
+					<span class="data float-right">12-26</span>
+				</div>
+				<div class="desc oneline">
+						电子书下载 ： http://blog.csdn.net/good3651/article/details/53420721 -------
+讲述Windows网络程序设计的入门教程，展示了各种WindowsI/O方法，详细说明了高性能可...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/drumdream/article/details/79942096,BlogCommendFromQuerySearch_44"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/drumdream/article/details/79942096,BlogCommendFromQuerySearch_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/drumdream/article/details/79942096" target="_blank" title="《系统化思维导论》读后摘要">
+		<h4 class="text-truncate oneline">
+				《<em>系统化</em>思维导论》读后摘要		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					671</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/drumdream/article/details/79942096" target="_blank" title="《系统化思维导论》读后摘要">
+				<span class="desc oneline">《系统化思维导论》读后摘要最近啃完了大师温伯格的经典之作：《系统化思维导论》，书早就买了，当时没看的下去，现在养成了读书的习惯，用一周的时间看完了，隐约感觉是一个伟大的世界，可是似乎只触及到的一点点光...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/drumdream">来自：	<span class="blog_title"> drumdream的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-track-click='{"mod":"kp_popu_67-882","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T43_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</script></div></div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/milanhacker/11076571,BlogCommendFromQuerySearch_45"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/milanhacker/11076571,BlogCommendFromQuerySearch_45"}'>
+		<a href="https://download.csdn.net/download/milanhacker/11076571" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						MSP430™ flash devices bootloader (<em>BSL</em>)					</h4>
+					<span class="data float-right">03-31</span>
+				</div>
+				<div class="desc oneline">
+						The MSP430™ bootloader (BSL) (formerly known as the bootstrap loader) allows users to communicate
+with embedded memory ...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/irisat163/article/details/52424984,BlogCommendFromQuerySearch_46"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/irisat163/article/details/52424984,BlogCommendFromQuerySearch_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/irisat163/article/details/52424984" target="_blank" title="温伯格的《系统化思维导论》，结合《语言本能》《改变》《科学革命的范式》和逻辑学的一些书，谈谈学科的边界">
+		<h4 class="text-truncate oneline">
+				温伯格的《<em>系统化</em>思维导论》，结合《语言本能》《改变》《科学革命的范式》和逻辑学的一些书，谈谈学科的边界		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					808</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/irisat163/article/details/52424984" target="_blank" title="温伯格的《系统化思维导论》，结合《语言本能》《改变》《科学革命的范式》和逻辑学的一些书，谈谈学科的边界">
+				<span class="desc oneline">学无止境，越看书越暴露自己的认识和能力的缺乏，看这类系统思维类的书，感到智商需要充值，尤甚。什么事情，都害怕认真二字，因为一认真，就要面对普通人在做人做事方方面面的考虑的欠缺。软件开发也是如此，软件开...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/irisat163">来自：	<span class="blog_title"> irisat163的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ZCMUCZX/article/details/80530591,BlogCommendFromQuerySearch_47"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ZCMUCZX/article/details/80530591,BlogCommendFromQuerySearch_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ZCMUCZX/article/details/80530591" target="_blank" title="程序设计语言及其文法">
+		<h4 class="text-truncate oneline">
+				<em>程序设计</em>语言及其文法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					709</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ZCMUCZX/article/details/80530591" target="_blank" title="程序设计语言及其文法">
+				<span class="desc oneline">编译器要对高级语言进行词法语法等分析，要想让计算机能够自动的分析语言要把语言学知识文法提供给计算机，文法也就是文章的书写法规，一般用来指以文字、词语、短句、句子的编排而组成的完整语句和文章的合理性组织...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ZCMUCZX">来自：	<span class="blog_title"> ZCMUCZX的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/hx18652266251/article/details/60956403,BlogCommendFromQuerySearch_48"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hx18652266251/article/details/60956403,BlogCommendFromQuerySearch_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hx18652266251/article/details/60956403" target="_blank" title="PLSQL程序设计(访问oracle数据库效率最高的语言)">
+		<h4 class="text-truncate oneline">
+				PLSQL<em>程序设计</em>(访问oracle数据库效率最高的语言)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					226</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hx18652266251/article/details/60956403" target="_blank" title="PLSQL程序设计(访问oracle数据库效率最高的语言)">
+				<span class="desc oneline">PLSQL是对sql语言的扩展，是面向过程的语言程序结构：setserveroutputon --打开oracle输出开关declare   --说明部分（变量，光标或者例外）begin   ---程...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hx18652266251">来自：	<span class="blog_title"> 世事如棋__2016的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/heary29/10332964,BlogCommendFromQuerySearch_49"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/heary29/10332964,BlogCommendFromQuerySearch_49"}'>
+		<a href="https://download.csdn.net/download/heary29/10332964" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						C++<em>程序设计</em>语言.pdf					</h4>
+					<span class="data float-right">04-08</span>
+				</div>
+				<div class="desc oneline">
+						C++语言之父的经典名著之最新版本，全面掌握标准C++11及其编程技术的权威指南！
+
+第1版1985年，第2版1991年，第3版1997年，特别版2000年，第4版2013年，经典无限延伸……
+
+C++程序设计语言(原书第4版)是在C++...				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-654","con":",,"}' data-track-click='{"mod":"kp_popu_68-654","con":",,"}'><div id="three_ad48" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 900,
+                h : 84,
+                showid : 'Afihld',
+                placeholderId: "three_ad48",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 16,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Microsoft Yahei',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 10,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					65万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaIg4sMjAtZWR1.html" target="_blank">
+                        系统化的学习java</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaQgysNDgtZWR1.html" target="_blank">
+                        系统化的学习java后台</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/CSDoneRight">
+              <img src="https://avatar.csdn.net/A/F/5/3_csdoneright.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/0.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/CSDoneRight" target="_blank" class="" id="uid">CSDoneRight</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="2">
+                        <dt><a href="https://blog.csdn.net/csdoneright?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/csdoneright?t=1"><span class="count">2</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="0">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>喜欢</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="1级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-1"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="50">
+                50            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="20">
+                20            </dd>
+        </dl>
+        <dl title="2425857">
+            <dt>排名：</dt>
+            <dd>242万+</dd>
+        </dl>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-876","con":",,"}' data-track-click='{"mod":"kp_popu_56-876","con":",,"}'><!-- 广告位：PC-博客内页左上视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6096221',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="//dup.baidustatic.com/js/os.js"></script></div>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/CSDoneRight/article/details/90719201" target="_blank">简介 —— 系统化程序设计</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/csdoneright/article/category/8998059">
+                    <span class="title oneline">How-to-Code</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/csdoneright/article/month/2019/06">
+                    2019年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/csdoneright/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/csdoneright/article/details/90720786">BSL编程语言 —— 系统化程序设计</a>
+					<p class="read">阅读数 <span>19</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/csdoneright/article/details/90719201">简介 —— 系统化程序设计</a>
+					<p class="read">阅读数 <span>4</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-1158","con":",,"}' data-track-click='{"mod":"kp_popu_57-1158","con":",,"}'><!-- 广告位：PC-博客内页左下视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6272567',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="https://dup.baidustatic.com/js/os.js"></script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box ">
+			<button class=" low-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>0</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/csdoneright/article/details/90719201" title="简介 —— 系统化程序设计">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/csdoneright/article/details/90719201" title="简介 —— 系统化程序设计">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+											</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 88;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 16;
+    var articleId = "90720786";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/CSDoneRight/article/details/90720786";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "BSL编程语言 —— 系统化程序设计 - CSDoneRight的博客";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+	var highlight = ["bsl","\u7f16\u7a0b\u8bed\u8a00","\u7cfb\u7edf\u5316","\u7a0b\u5e8f\u8bbe\u8ba1"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"cwqcwk1","nick_name":"\u6ca1\u6709\u5f00\u82b1\u7684\u6811","avatar":"https:\/\/avatar.csdn.net\/0\/9\/0\/3_cwqcwk1.jpg","is_expert":true,"article_count":162,"rank":"2000+"},{"user_name":"u010568345","nick_name":"\u6b66\u6b66haha","avatar":"https:\/\/avatar.csdn.net\/8\/1\/E\/3_u010568345.jpg","is_expert":false,"article_count":90,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"c_ycy","nick_name":"ChunyuY19","avatar":"https:\/\/avatar.csdn.net\/C\/1\/E\/3_c_ycy.jpg","is_expert":false,"article_count":13,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"wfdtxz","nick_name":"\u4eb2\u4f11\u606f\u5427","avatar":"https:\/\/avatar.csdn.net\/A\/1\/A\/3_wfdtxz.jpg","is_expert":false,"article_count":102,"rank":"5000+"},{"user_name":"q553716434","nick_name":"q553716434","avatar":"https:\/\/avatar.csdn.net\/5\/3\/3\/3_q553716434.jpg","is_expert":false,"article_count":195,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"limanjihe","nick_name":"limanjihe","avatar":"https:\/\/avatar.csdn.net\/0\/0\/D\/3_limanjihe.jpg","is_expert":false,"article_count":199,"rank":"8000+"},{"user_name":"luoyouren","nick_name":"SomebodyLuo","avatar":"https:\/\/avatar.csdn.net\/C\/1\/B\/3_luoyouren.jpg","is_expert":false,"article_count":235,"rank":"7000+"},{"user_name":"CoekJin","nick_name":"CoekJin","avatar":"https:\/\/avatar.csdn.net\/6\/E\/3\/3_coekjin.jpg","is_expert":false,"article_count":11,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"wxw060709","nick_name":"wxw060709","avatar":"https:\/\/avatar.csdn.net\/7\/8\/3\/3_wxw060709.jpg","is_expert":false,"article_count":68,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"zjt289198457","nick_name":"\u6ed4\u6ed4\u6c5f\u6c34","avatar":"https:\/\/avatar.csdn.net\/9\/4\/D\/3_zjt289198457.jpg","is_expert":false,"article_count":115,"rank":"9000+"}];
+	var articleType = 1;
+	var CopyrightContent = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

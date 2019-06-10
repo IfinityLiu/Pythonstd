@@ -1,0 +1,4094 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/feeltouch/article/details/89117818"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"架构系列---饿了么MySQL异地多活的数据双向复制 - FeelTouch"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>架构系列---饿了么MySQL异地多活的数据双向复制 - FeelTouch - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/feeltouch\/article\/details\/89117818","appid":"1563894916825412","title":"\u67b6\u6784\u7cfb\u5217---\u997f\u4e86\u4e48MySQL\u5f02\u5730\u591a\u6d3b\u7684\u6570\u636e\u53cc\u5411\u590d\u5236 - FeelTouch","images":["https:\/\/img-blog.csdnimg.cn\/20190409002717586.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20190409002821702.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20190409002922855.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70"],"pubDate":"2019-06-05T20:06:13"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-technology/skin-technology-c445da603f.min.css">
+        <script type="text/javascript">
+        var username = "FENGQIYUNRAN";
+        var blog_address = "https://blog.csdn.net/feeltouch";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/feeltouch/article/details/89117818"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin-technology";
+        // 第四范式所需数据
+        var articleTitles = "架构系列---饿了么MySQL异地多活的数据双向复制 - FeelTouch";
+        
+        var nickName = "FeelTouch";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/feeltouch/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/FENGQIYUNRAN/article/details/89117818";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">架构系列---饿了么MySQL异地多活的数据双向复制</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年04月09日 00:45:12</span>
+          <a class="follow-nickName" href="https://me.csdn.net/FENGQIYUNRAN" target="_blank">FeelTouch</a>
+          <span class="read-count">阅读数：19831</span>
+          
+                                      <div class="tags-box space">
+                <span class="label">个人分类：</span>
+                                  <a class="tag-link" href="https://blog.csdn.net/FENGQIYUNRAN/article/category/6984887" target="_blank">架构                                    <a class="tag-link" href="https://blog.csdn.net/FENGQIYUNRAN/article/category/7713445" target="_blank">Mysql                                    <a class="tag-link" href="https://blog.csdn.net/FENGQIYUNRAN/article/category/5606339" target="_blank">JAVA                                    <a class="tag-link" href="https://blog.csdn.net/FENGQIYUNRAN/article/category/2918029" target="_blank">分布式框架/中间件/接口/公用模块                                  </a>
+              </div>
+                                          </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+          
+          版权声明：阅读优秀源码，宛若一场探索未知的旅行，疑惑处惊奇，优雅处旖旎; 一切都是新奇的，千回百转与大师的心灵触碰，一场跨越时空的对话，涤荡了原有的愚昧，蜕变出更好的自己。          https://blog.csdn.net/FENGQIYUNRAN/article/details/89117818        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+          <div class="htmledit_views" id="content_views">
+            <blockquote>
+<p><strong>陈永庭</strong>，饿了么框架工具部高级架构师，主要负责MySQL异地双向数据复制，支撑饿了么异地多活项目。曾就职于WebEx、Cisco、腾讯等公司。</p>
+</blockquote>
+
+<p>今天我主要分享饿了么多活的底层数据实施，会和大家介绍在整个多活的设计和实施过程中我们是怎么处理异地数据同步的，而这个数据同步组件在我们公司内部称之为DRC。</p>
+
+<h3><strong>异地多活背景</strong></h3>
+
+<p>在讲DRC或者讲数据复制之前，先跟大家回顾一下异地多活的背景。</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409002717586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>去年我们在做多活调研的时候，整个公司所有的业务服务都是部署在北京机房，服务器大概有四千多台，灾备的机器是在云端，都是虚拟机，大概有三千多台。当时我们峰值的业务订单数量已经接近了千万级别，但是基本上北京机房（IDC）已经无法再扩容了，也就是说我们没有空余的机架，没有办法添加新的服务器了，必须要再建一个新的机房，于是我们在上海建一个新的机房，上海机房要在今年的4月份才会投入使用，所以需要在上海机房建成之后，异地多活项目能具备在生产环境上进行灰度。</p>
+
+<h3><strong>异地多活的底层数据同步实施</strong></h3>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409002821702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>这是异地多活的底层数据同步实施的一个简单的概要图，大家可以看到，我们有两个机房，一个是北京机房，一个是上海机房。在这个时候，我们期望目标是北方所有的用户请求、用户流量全部进入北京机房，南方所有的用户请求、用户流量进入上海机房。困难的地方是，这个用户有可能今天在北方，明天在南方，因为他在出差，还有就是存在一些区域在我们划分南北shard的时候，它是在边界上面的，这种情况会加剧同一个用户流量在南北机房来回漂移的发生。还有个情况，当我们某个机房出现故障，如核心交换机坏掉导致整个机房服务不可用，我们希望可以把这个机房的所有流量快速切到另外的数据中心去，从而提高整个饿了么服务的高可用性。</p>
+
+<p>以上所有的因素，都需要底层数据库的数据之间是打通的。而今天我所要分享的DRC项目就是饿了么异地MySQL数据库双向复制的组件服务，即上图中红色框标记的部分。</p>
+
+<h3><strong>异地多活对底层数据的要求</strong></h3>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409002922855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>我们在前期调研DRC实现的时候，主要总结了的三点，而在后续的设计和实施当中，基本上也是围绕这三点来去解决问题。</p>
+
+<p>第一个我们觉得是延迟要低，当时给自己定的目标是秒级的，我们希望在北京机房或上海机房写入的数据，需要在1秒钟之内同步到上海或者北京机房。整个延迟要小于1秒钟。</p>
+
+<p>第二个就是我们要确保数据的一致性，数据是不能丢也不能错的，如果出现数据的不一致性，可能会给上层的业务服务、甚至给产品带来灾难性的问题。</p>
+
+<p>第三个就是保证整个复制组件具备高吞吐处理能力，指的是它可以面对各种复杂的环境，比方说业务正在进行数据的批量操作、数据的维护、数据字典的变更情况，这些会产生瞬间大量的变更数据，DRC需要面对这种情况，需要具备高吞吐能力去扛住这些情况。</p>
+
+<p>数据低延迟和一致性之间，我们认为主要从数据的并发复制这个策略上去解决，安全、可靠、高效的并发策略，才能保证数据是低延迟的复制，在大量数据需要复制时，DRC并发处理才能快速在短时间内解决。数据一致性，用户的流量可能被路由到两个机房的任何一个机房去，也就是说同样一条记录可能在两个机房中被同时更改，所以DRC需要做数据冲突处理，最终保持数据一致性，也就是数据不能出错。如果出现冲突且DRC自身无法自动处理冲突，我们还提供了一套数据冲突订正平台，会要求业务方一道来制定数据订正规则。</p>
+
+<p>高吞吐刚才已经介绍了，正常情况用户流量是平稳的，DRC是能应对的，在1秒钟之内将数据快速复制到对端机房。当DBA对数据库数据进行数据归档、大表DDL等操作时，这些操作会在短时间内快速产生大量的变更数据需要我们复制，这些数据可能远远超出了DRC的最大处理能力，最终会导致DRC复制出现延迟，所以DRC与现有的DBA系统需要进行交互，提供一种弹性的数据归档机制，如当DRC出现大的复制延迟时，终止归档JOB，控制每轮归档的数据规模。如DRC识别属于大表DDL产生的binlog events，过滤掉这些events，避免这些数据被传输到其他机房，占用机房间带宽资源。</p>
+
+<p>以上是我们在实施异地多活的数据层双向复制时对DRC项目提出的主要要求。</p>
+
+<h3><strong>数据集群规模（多活改造前）</strong></h3>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409003029475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>这是我们在做多活之前的北京数据中心的数据规模，这个数据中心当时有超过250套MySQL的集群，一千多台MySQL的实例，Redis也超过四百个集群。</p>
+
+<p>DRC服务的目标对象就是这250套MySQL集群，因为在正在建设的第二个数据中心里未来也会有对应的250套MySQL集群，我们需要把两个机房业务对等的集群进行数据打通。</p>
+
+<h3><strong>多活下MySQL的用途分类</strong></h3>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409003136658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>我们按照业务的用途，给它划分了多种DB服务类型。为什么要总结这个呢？因为有一些类型，我们是不需要复制的，所以要甄别出来，首先第一个多活DB，我们认为它的服务需要做多活的。</p>
+
+<p>比方说支付、订单、下单，一个机房挂了，用户流量切到另外新的机房，这些业务服务在新的机房是工作的。我们把这些多活服务依赖的DB称为多活DB，我们优先让业务把DB改造成多活DB，DRC对多活DB进行数据双向复制，保障数据一致性。多活DB的优势刚才已经讲了，如果机房出现故障、核心交换机出问题，整个机房垮了，运维人员登不进机房机器，那么我们可以在云端就把用户流量切到其它的机房。有些业务对数据有强一致性要求，后面我会讲到其实DRC是没有办法做到数据的强一致性要求的，它是有数据冲突发生的，需要引入数据订正措施。</p>
+
+<p>业务如果对数据有强一致性要求，比方说用户注册，要求用户登录名全局唯一（DB字段上可能加了唯一约束），两个机房可能会在同一时间接收了相同用户登录名的注册请求，这种情况下，DRC是无法自身解决掉这个冲突，而且业务方对这个结果也是无法接受的，这种DB我们会把它归纳到GlobalDB里面，它的特性是什么呢？</p>
+
+<p>它的特性是单机房可写，多机房可读，因为你要保证数据的强一致性的话，必须让所有机房的请求处理结果，最终写到固定的一个机房中。这种DB的上层业务服务，在机房挂掉之后是有损的。比方说机房挂了，用户注册功能可能就不能使用了。</p>
+
+<p>最后一个非多活DB，它是很少的，主要集中于一些后端的管理平台，这种项目本身基本上不是多活的，所以这种DB我们不动它，还是采用原生的主备方式。</p>
+
+<h3><strong>DRC总体架构设计</strong></h3>
+
+<p><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409003231629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></p>
+
+<p>这是DRC复制组件的总体架构设计。我们有一个组件叫Replicator，它会从MySQL集群的Master上把binlog日志记录抽取出来，解析binlog记录并转换成我们自定义的数据，存放到一个超大的event buffer里面，event buffer支持TB级别的容量。</p>
+
+<p>在目标机房里我们会部署一个Applier服务，这个服务启一个TCP长连接到Replicator服务，Replicator会不断的推送数据到Applier，Applier通过JDBC最终把数据写入到目标数据库。我们会通过一个Console控制节点来进行配置管理、部署管理以及进行各个组件的HA协调工作。</p>
+
+<h3><strong>DRC Replicator Server</strong></h3>
+
+<p><strong><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409003340571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></strong></p>
+
+<p> </p>
+
+<p>这是DRC Replicator Server组件比较细的结构描述，主要是包含了一个MetaDB模块，MetaDB主要用来解决历史的Binlog的解析问题。</p>
+
+<p>我们成功解析Binlog记录之后，会把它转换成我们自己定义的一种数据结构，这种结构相对于原生的结构，Size更小，MySQL binlog event的定义在size角度上考虑事实上已经很极致了，但是可以结合我们自己的特性，我们会把不需要的event全部过滤掉（如table_map_event），把可以忽略的数据全部忽略掉。我们比对的结果是需要复制的event数据只有原始数据size的70%。</p>
+
+<h3><strong>DRC Applier Server</strong></h3>
+
+<p><strong><img alt="" class="has" src="https://img-blog.csdnimg.cn/20190409003447955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" /></strong></p>
+
+<p> </p>
+
+<p>往目标的MySQL集群复制写的时候，由DRC Applier Server负责，它会建一个长连接到Replicator上去，Replicator PUSH数据给Applier。Applier把数据拿到之后做事务的还原，最后通过JDBC把事务重新写到目标DB里面，写的过程当中，我们应用了并发的策略。</p>
+
+<p>并发策略在提供复制吞吐能力，降低复制延迟起到决定的作用，还有幂等也是非常重要的，后面有很多运维操作，还有一些Failover回退操作，会导致发生数据被重复处理的情况，幂等操作保障重复处理数据不会发生问题。</p>
+
+<h3><strong>DRC防止循环复制</strong></h3>
+
+<p><img alt="" class="has" height="598" src="https://img-blog.csdnimg.cn/20190409003557682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="875" /></p>
+
+<p>在做复制的时候，大家肯定会碰到解决循环复制的问题。我们在考虑这个问题的时候，查了很多资料，也问了很多一些做过类似项目的前辈，当时我们认为有两大类办法，第一大类办法一开始否决了，因为我们对MySQL的内核原码不熟悉，而且时间上也来不及，虽然我们知道通过MySQL的核内解决回路复制是最佳的、最优的。</p>
+
+<p>靠DRC自身解决这个问题，也有两种办法，一种办法是我们在Apply数据到目标DB的时候把binlog关闭掉，另外一种办法就是写目标DB的时候在事物中额外增加checkpoint表的数据，用于记录源DB的server_id。</p>
+
+<p>后来我们比较了一下，第一个办法是比较简单，实现容易，但是因为Binlog记录没有产生，导致不支持级联复制，也对后续的运维带来麻烦。所以我们最后选择的是第二个办法，通过把事务往目标DB复制的时候，在事务中hack一条checkpoint的数据来标识事务产生的原始server，DRC在解析MySQL binlog记录时就能正确分辨出数据的真正来源。</p>
+
+<h3><strong>DRC数据一致性保障</strong></h3>
+
+<p><img alt="" class="has" height="627" src="https://img-blog.csdnimg.cn/20190409003720260.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="889" /></p>
+
+<p>首先，因为数据库是多活的，我们必须从数据中心层面尽可能把数据冲突发生的概率降到最低，避免冲突，怎么避免呢？就是合理的流量切分，你可以按照用户的维度，按照地域的维度，对流量进行拆分。刚才我们讲的，北方用户的所有数据在北京机房，这些北方用户的下单、支付等的所有操作数据都是在北方机房产生的，所以用户在同一个机房中发生的数据变更操作绝对是安全的。我们最怕的是同一个数据同时或者是在相近的时间里同时在两个机房被修改，我们怕的是这个问题，因为这种情况就会引发数据冲突。所以我们通过合理的流量切分，保证绝大部分时候数据是不会冲突的。</p>
+
+<p>第二个我们认为你要保障数据一致性，首先你要确保数据不丢，一旦发生可能数据丢失的情况，我们会做一个比较保险的策略，就是把数据复制的时间位置回退，即使重复处理数据，也避免丢数据的可能，但是这个时候会带来数据重复处理的问题，所以数据的幂等操作特别重要。</p>
+
+<p>这些都是我们避免数据发生冲突的方法，那冲突实际上是不可避免的，冲突发生后，我们怎么解决？最终采用的办法是在数据库表上隐含地加一个时间字段(数据最后更新时间)，这个字段对业务是透明的，主要用来辅助DRC复制，一旦数据发生冲突，DRC复制组件可以通过这个时间来判断两个机房或者三个机房中的哪条数据是最后被更新的，最新优先的原则，谁最后的修改时间是最新的，就以它为准。</p>
+
+<h3><strong>DRC数据复制低延迟保障</strong></h3>
+
+<p><img alt="" class="has" height="619" src="https://img-blog.csdnimg.cn/20190409003906705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="874" /></p>
+
+<p>刚才我们讲的是数据的一致性，还有一个点非常重要，就是数据复制的低延迟保障。我们现在延迟包括用户高峰时间也是小于1秒的，只有在凌晨之后，各种归档、批量数据处理、DDL变更等操作会导致DRC延迟出现毛刺和抖动。如果你的延迟很高的话，第一在做流量切换时，因为运维优先保障产品服务的可用性，在不得以的情况会不考虑你的复制延迟，不会等数据复制追平之后再切流量，所以你的数据冲突的概率就变的很大。</p>
+
+<p>为了保证复制低延迟，我们认为主要策略、或者你在实施时主要的做法还是并发，因为你只有用高效的安全的并发复制策略，服务才有足够的吞吐处理能力，而不至于你的复制通道因为遇到“海量”数据而导致数据积压，从而加剧了复制延迟的产生。</p>
+
+<p>我们一开始采用的基于表级别的并发，但是表级别的并发在很多情况下，并发策略没办法被有效的利用，比方说有的业务线的数据库可能90%的数据集中在一张表或者是几个表里面，而大部分表数据量很小，那基于表的并发策略就并发不起来了。我们现在跑的是基于行级别的并发，这种并发它更能容忍和适应很多场景。</p>
+
+<h3><strong>DRC &amp; MySQL Master切换</strong></h3>
+
+<p><img alt="" class="has" height="729" src="https://img-blog.csdnimg.cn/20190409004027835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="835" /></p>
+
+<p>这个是DRC复制组件与MySQL集群的关系关联图，一旦MySQL集群里面的Master发生了主备切换，原来的Master挂了，DRC怎么处理？目前的解决方案是DBA系统的MHA工具会通知DRC控制中心，DRC的控制中心会找到对应的复制链路，然后把复制链路从老的Master切到新的Master，但是关键点是MHA在通知之前先把老的Master设置为不可写，阻断DRC可能往老的Master继续写数据。</p>
+
+<h3><strong>DRC线上运行状况（规模）</strong></h3>
+
+<p><img alt="" class="has" height="501" src="https://img-blog.csdnimg.cn/2019040900422219.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="1062" /></p>
+
+<p>这个是我们DRC上线之后的运行状况。现在大概有有将近400多条复制链路。这个复制链路是指单向的链路。我们提供的消息订阅大概有17个业务方接入，每天产生超过1亿条的消息。</p>
+
+<h3><strong>DRC线上运行状况（性能）</strong></h3>
+
+<p><img alt="" class="has" height="741" src="https://img-blog.csdnimg.cn/20190409004307817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9mZWVsZXIuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" width="1039" /></p>
+
+<p>这是DRC线上运行的一个性能监控快照，我们可以看到，它是上午11点多到12点多的一个小时的性能，你会发现其实有一个DB是有毛刺的，有一个复制链路有毛刺，复制延迟最高达到4s，但是大部分的复制链路的延迟大概也是在1秒或1秒以下。</p>
+
+<h3>Q&amp;A</h3>
+
+<p><strong>Q1：</strong>你好，想问一下饿了么是怎么避免各个机房中的PK冲突的？</p>
+
+<p><strong>A1：</strong>主键自增的步长在各个机房中是固定相同的，但是每个机房的增长offset是不同的，所以不会出现PK冲突。</p>
+
+<p> </p>
+
+<p><strong>Q2：</strong>DRC复制会不会对目标数据库造成性能影响？</p>
+
+<p><strong>A2：</strong>有影响。因为DRC会占用目标DB的IOPS。DRC Apply本身就是目标DB的上层服务。</p>
+
+<p> </p>
+
+<p><strong>Q3：</strong>DRC Applier采用JDBC去写目标DB，除了这个办法还有其它途径吗？</p>
+
+<p><strong>A3：</strong>目前我们分析binlog还原事务，然后通过JDBC把事务写到目标DB。我们曾经模拟过MySQL的binlog server，让目标DB启动一个Replication连接到我们伪造的binlog server上，我们的binlog server会把binlog记录发给目标DB，这个办法会存在很多问题，我们就放弃了这个办法。</p>
+
+<p> </p>
+
+<p><strong>Q4：</strong>有监测数据一致性的工具吗？</p>
+
+<p><strong>A4：</strong>这个是有的。DBA团队开发了一套checksum工具来实时监测数据一致性。</p>
+
+<p> </p>
+
+<p><strong>Q5：</strong>饿了么做异地双活主要的原因就是刚刚提到的单个机房是无法扩容吗？</p>
+
+<p><strong>A5：</strong>是的。</p>
+
+<p> </p>
+
+<p><strong>Q6：</strong>双向同步后期的运维成本高吗？</p>
+
+<p><strong>A6：</strong>对DBA的运维会造成影响，DBA的归档job、DDL发布等操作都需要考虑DRC的双向同步因素。</p>
+          </div>
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/feeltouch/article/details/89117818,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/feeltouch/article/details/89117818,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div class="recommend-box"><div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/javagaoji/article/details/80329825,BlogCommendFromThirdServiceAll_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/javagaoji/article/details/80329825,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/javagaoji/article/details/80329825" target="_blank" title="微博and阿里，“异地多活”部署经验谈">
+		<h4 class="text-truncate oneline">
+				微博and阿里，“<em>异地</em>多活”部署经验谈		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1297</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/javagaoji/article/details/80329825" target="_blank" title="微博and阿里，“异地多活”部署经验谈">
+				<span class="desc oneline">异地多活的好处阿里巴巴的同学已经充分阐述，微博的初始出发点包括异地灾备、提升南方电信用户访问速度、提升海外用户访问速度、降低部署成本（北京机房机架费太贵了）等。通过实践，我们发现优势还包括异地容灾、动...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/javagaoji">来自：	<span class="blog_title"> javagaoji的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+</div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="89117818">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/flysharkym/article/details/51404730,BlogCommendFromThirdServiceAll_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/flysharkym/article/details/51404730,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/flysharkym/article/details/51404730" target="_blank" title="mybatis一级缓存(session cache)引发的问题">
+		<h4 class="text-truncate oneline">
+				mybatis一级缓存(session cache)引发的问题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/flysharkym/article/details/51404730" target="_blank" title="mybatis一级缓存(session cache)引发的问题">
+				<span class="desc oneline">mybatis一级缓存(sessioncache)引发的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/flysharkym">来自：	<span class="blog_title"> flysharkym的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/chenyusiyuan/article/details/5967291,BlogCommendFromThirdServiceAll_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/chenyusiyuan/article/details/5967291,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/chenyusiyuan/article/details/5967291" target="_blank" title=" OpenCV学习笔记（18）双目测距与三维重建的OpenCV实现问题集锦（三）立体匹配与视差计算">
+		<h4 class="text-truncate oneline">
+				 OpenCV学习笔记（18）双目测距与三维重建的OpenCV实现问题集锦（三）立体匹配与视差计算		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/chenyusiyuan/article/details/5967291" target="_blank" title=" OpenCV学习笔记（18）双目测距与三维重建的OpenCV实现问题集锦（三）立体匹配与视差计算">
+				<span class="desc oneline">四、双目匹配与视差计算立体匹配主要是通过找出每对图像间的对应关系，根据三角测量原理，得到视差图；在获得了视差信息后，根据投影模型很容易地可以得到原始图像的深度信息和三维信息。立体匹配技术被普遍认为是立...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/chenyusiyuan">来自：	<span class="blog_title"> 晨宇思远</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/vhghhd/article/details/6853550,BlogCommendFromThirdServiceAll_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/vhghhd/article/details/6853550,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/vhghhd/article/details/6853550" target="_blank" title="字符驱动小例子解析">
+		<h4 class="text-truncate oneline">
+				字符驱动小例子解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3186</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/vhghhd/article/details/6853550" target="_blank" title="字符驱动小例子解析">
+				<span class="desc oneline">1. MODULE_LICENSE(&quot;GPL&quot;);inthello_major=250;inthello_minor=0;intnumber_of_devices=1;chardata[50]=&quot;fo...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zhanglong_web/article/details/78649717,BlogCommendFromThirdServiceAll_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhanglong_web/article/details/78649717,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhanglong_web/article/details/78649717" target="_blank" title="vue移动端flexible.js结合Muse-ui使用的小坑">
+		<h4 class="text-truncate oneline">
+				vue移动端flexible.js结合Muse-ui使用的小坑		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhanglong_web/article/details/78649717" target="_blank" title="vue移动端flexible.js结合Muse-ui使用的小坑">
+				<span class="desc oneline">因为公司有个项目有webapp的需求，在前期准备的期间考虑过使用ionic，毕竟该项目web端的框架使用的是Angular，项目组的人也都比较熟悉，但是我们毕竟只是做个移动的网页，不想用ionic那么...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhanglong_web">来自：	<span class="blog_title"> zhangl的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yangwei282367751/article/details/52426911,BlogCommendESEnWordWeight_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yangwei282367751/article/details/52426911,BlogCommendESEnWordWeight_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yangwei282367751/article/details/52426911" target="_blank" title="关于计算时间复杂度和空间复杂度">
+		<h4 class="text-truncate oneline">
+				关于计算时间复杂度和空间复杂度		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yangwei282367751/article/details/52426911" target="_blank" title="关于计算时间复杂度和空间复杂度">
+				<span class="desc oneline">相信学习编程的同学，或多或少都接触到算法的时间复杂度和空间复杂度了，那我来讲讲怎么计算。    常用的算法的时间复杂度和空间复杂度一，求解算法的时间复杂度，其具体步骤是：　　⑴ 找出算法中的基本语句；...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yangwei282367751">来自：	<span class="blog_title"> 杨威的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/candycat1992/article/details/41254799,BlogCommendESEnWordWeight_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/candycat1992/article/details/41254799,BlogCommendESEnWordWeight_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/candycat1992/article/details/41254799" target="_blank" title="【Unity技巧】四元数（Quaternion）和旋转">
+		<h4 class="text-truncate oneline">
+				【Unity技巧】四元数（Quaternion）和旋转		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					26万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/candycat1992/article/details/41254799" target="_blank" title="【Unity技巧】四元数（Quaternion）和旋转">
+				<span class="desc oneline">旋转，应该是三种坐标变换——缩放、旋转和平移，中最复杂的一种了。大家应该都听过，有一种旋转的表示方法叫四元数。按照我们的习惯，我们更加熟悉的是另外两种旋转的表示方法——矩阵旋转和欧拉旋转。矩阵旋转使用...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/candycat1992">来自：	<span class="blog_title"> candycat</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendESEnWordWeight_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendESEnWordWeight_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					26万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：核心Spring框架一个modulespring-boot-baseservice和dao一个moduleserver-core提供系统后台数据管...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_14959801/article/details/52988861,BlogCommendESEnWordWeight_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_14959801/article/details/52988861,BlogCommendESEnWordWeight_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_14959801/article/details/52988861" target="_blank" title="单链表-Python操作">
+		<h4 class="text-truncate oneline">
+				单链表-Python操作		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_14959801/article/details/52988861" target="_blank" title="单链表-Python操作">
+				<span class="desc oneline">链表是数据结构中最基本常用的，C++语言中单链表是利用指针操作实现的，python作为面向对象编程的，可以使用创建一个Node类来实现链表，利用类的属性引用来代替指针操作。下面我们创建了一个节点类，然...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_14959801">来自：	<span class="blog_title"> 令狐公子的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Main_Stage/article/details/41989499,BlogCommendESEnWordWeight_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Main_Stage/article/details/41989499,BlogCommendESEnWordWeight_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Main_Stage/article/details/41989499" target="_blank" title="Android圆形图片--自定义控件">
+		<h4 class="text-truncate oneline">
+				Android圆形图片--自定义控件		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Main_Stage/article/details/41989499" target="_blank" title="Android圆形图片--自定义控件">
+				<span class="desc oneline">Android圆形图片--自定义控件</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Main_Stage">来自：	<span class="blog_title"> Main_Stage的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Mes8Y62b6ogV207/article/details/79786961,BlogCommendFromQuerySearch_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Mes8Y62b6ogV207/article/details/79786961,BlogCommendFromQuerySearch_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Mes8Y62b6ogV207/article/details/79786961" target="_blank" title="饿了么异地多活技术实现">
+		<h4 class="text-truncate oneline">
+				饿了么<em>异地</em>多活技术实现		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3278</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Mes8Y62b6ogV207/article/details/79786961" target="_blank" title="饿了么异地多活技术实现">
+				<span class="desc oneline">饿了么技术团队花了1年多的时间，实现了业务的整体异地多活，能够灵活的在多个异地机房之间调度用户，实现了自由扩容和多机房容灾的目标。本文介绍这个项目的整体结构，还简要介绍实现多活的5大核心基础组件，为读...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Mes8Y62b6ogV207">来自：	<span class="blog_title"> 高效运维</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/huangweizhanghwz/9992331,BlogCommendFromQuerySearch_11"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/huangweizhanghwz/9992331,BlogCommendFromQuerySearch_11"}'>
+		<a href="https://download.csdn.net/download/huangweizhanghwz/9992331" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						阿里<em>异地</em>多活与同城双活的<em>架构</em>演进					</h4>
+					<span class="data float-right">09-23</span>
+				</div>
+				<div class="desc oneline">
+						阿里异地多活与同城双活的架构演进				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012422829/article/details/83718296,BlogCommendFromQuerySearch_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012422829/article/details/83718296,BlogCommendFromQuerySearch_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012422829/article/details/83718296" target="_blank" title="全球异地多活架构设计(一):  Why and How">
+		<h4 class="text-truncate oneline">
+				全球<em>异地</em>多活<em>架构</em>设计(一):  Why and How		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1431</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012422829/article/details/83718296" target="_blank" title="全球异地多活架构设计(一):  Why and How">
+				<span class="desc oneline">很多全球化的产品，比如facebook、twitter，它们的用户遍布世界各地。工程师们往往会在全球设立多个数据中心（DC）供用户访问，我们可以称之为异地多活。在后续一段时间里，我会写一系列的博客，和...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012422829">来自：	<span class="blog_title"> 沈鸿斌的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/u011499747/10167399,BlogCommendFromQuerySearch_13"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/u011499747/10167399,BlogCommendFromQuerySearch_13"}'>
+		<a href="https://download.csdn.net/download/u011499747/10167399" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						饿了么<em>异地</em>多活的基础设施建设					</h4>
+					<span class="data float-right">12-21</span>
+				</div>
+				<div class="desc oneline">
+						饿了么异地多活的基础设施建设，饿了么异地多活的基础设施建设，饿了么异地多活的基础设施建设				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xuciyisheng/article/details/82113598,BlogCommendFromQuerySearch_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xuciyisheng/article/details/82113598,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuciyisheng/article/details/82113598" target="_blank" title="MongoDB云上灾备：如何快速复制阿里异地灾备、多活架构">
+		<h4 class="text-truncate oneline">
+				MongoDB云上灾备：如何快速<em>复制</em>阿里<em>异地</em>灾备、多活<em>架构</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					926</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuciyisheng/article/details/82113598" target="_blank" title="MongoDB云上灾备：如何快速复制阿里异地灾备、多活架构">
+				<span class="desc oneline">1.背景  当前的数据库系统生态中，大部分系统都支持多个节点实例间的数据同步机制，如MysqlMaster/Slave主从同步，RedisAOF主从同步等，MongoDB更是支持3节点(及以上)Rep...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuciyisheng">来自：	<span class="blog_title"> xuciyisheng的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/z173273946/article/details/52163974,BlogCommendESEnWordWeight_15"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/z173273946/article/details/52163974,BlogCommendESEnWordWeight_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/z173273946/article/details/52163974" target="_blank" title="异地多活问题">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活问题		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5205</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/z173273946/article/details/52163974" target="_blank" title="异地多活问题">
+				<span class="desc oneline">摘要： 1.引言有幸参与了阿里游戏的一个高可用方案的设计，并且在网上发表了方案（面向业务的立体化高可用架构设计），后来参加GOPS全球运维大会深圳站，与众多行业高手交流，发现大家对&quot;异地多活&quot;这个方案...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/z173273946">来自：	<span class="blog_title"> z173273946的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/abcd1f2/article/details/47054913,BlogCommendESEnWordWeight_16"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/abcd1f2/article/details/47054913,BlogCommendESEnWordWeight_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/abcd1f2/article/details/47054913" target="_blank" title="微博“异地多活”部署经验谈">
+		<h4 class="text-truncate oneline">
+				微博“<em>异地</em>多活”部署经验谈		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1561</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/abcd1f2/article/details/47054913" target="_blank" title="微博“异地多活”部署经验谈">
+				<span class="desc oneline">昨天在微信朋友圈简单发了一版，并根据大家的反馈做了一些更新，欢迎继续质疑&amp;反馈。--------------------------------------------------------近期阿里...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/abcd1f2">来自：	<span class="blog_title"> abcd1f2的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/opensure/article/details/46453681,BlogCommendESEnWordWeight_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/opensure/article/details/46453681,BlogCommendESEnWordWeight_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/opensure/article/details/46453681" target="_blank" title="Hbase 布隆过滤器BloomFilter介绍">
+		<h4 class="text-truncate oneline">
+				Hbase 布隆过滤器BloomFilter介绍		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/opensure/article/details/46453681" target="_blank" title="Hbase 布隆过滤器BloomFilter介绍">
+				<span class="desc oneline">1、主要功能提高随机读的性能2、存储开销bloomfilter的数据存在StoreFile的meta中，一旦写入无法更新，因为StoreFile是不可变的。Bloomfilter是一个列族（cf）级别...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/opensure">来自：	<span class="blog_title"> opensure的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/a635661820/article/details/45390671,BlogCommendESEnWordWeight_18"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/a635661820/article/details/45390671,BlogCommendESEnWordWeight_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+		<h4 class="text-truncate oneline">
+				LSTM简介以及数学推导(FULL BPTT)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/a635661820/article/details/45390671" target="_blank" title="LSTM简介以及数学推导(FULL BPTT)">
+				<span class="desc oneline">前段时间看了一些关于LSTM方面的论文，一直准备记录一下学习过程的，因为其他事儿，一直拖到了现在，记忆又快模糊了。现在赶紧补上，本文的组织安排是这样的：先介绍rnn的BPTT所存在的问题，然后介绍最初...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/a635661820">来自：	<span class="blog_title"> 天道酬勤，做一个务实的理想主义者</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012422829/article/details/83932829,BlogCommendESEnWordWeight_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012422829/article/details/83932829,BlogCommendESEnWordWeight_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012422829/article/details/83932829" target="_blank" title="全球异地多活架构设计(二): 数据层的支持">
+		<h4 class="text-truncate oneline">
+				全球<em>异地</em>多活<em>架构</em>设计(二): <em>数据</em>层的支持		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					882</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012422829/article/details/83932829" target="_blank" title="全球异地多活架构设计(二): 数据层的支持">
+				<span class="desc oneline">要做到全球异地多活，一定要在数据层支持多机房写入，并且对大多数业务场景提供最终一致性的解决方案。原因如下：跨洲的网络延迟在100ms的数量级，如果只有单点写，对于用户体验是种灾难对于高频操作来说,如果...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012422829">来自：	<span class="blog_title"> 沈鸿斌的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box recommend-box-ident recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/oqqhun12/10785748,BlogCommendFromQuerySearch_20"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/oqqhun12/10785748,BlogCommendFromQuerySearch_20"}'>
+		<a href="https://download.csdn.net/download/oqqhun12/10785748" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						终稿-时晖-<em>异地</em>多活单元化<em>架构</em>下的微服务体系					</h4>
+					<span class="data float-right">11-15</span>
+				</div>
+				<div class="desc oneline">
+						终稿-时晖-异地多活单元化架构下的微服务体系.pdf 原始驱动⼒力力
+• 异地多活容灾需求带来的数据访问耗时问题，量量变引起质变
+• 数据库连接数瓶颈制约了了整体⽔水平扩展能⼒力力，危急存亡之秋				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/java1856905/article/details/83476603,BlogCommendFromQuerySearch_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/java1856905/article/details/83476603,BlogCommendFromQuerySearch_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/java1856905/article/details/83476603" target="_blank" title="不理解Zookeeper一致性原理，谈何异地多活改造">
+		<h4 class="text-truncate oneline">
+				不理解Zookeeper一致性原理，谈何<em>异地</em>多活改造		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					785</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/java1856905/article/details/83476603" target="_blank" title="不理解Zookeeper一致性原理，谈何异地多活改造">
+				<span class="desc oneline">2017年在饿了么做异地多活建设之时，我的团队承担了Zookeeper的异地多活改造。在此期间，我听到了关于Zookeeper一致性的两种不同说法：Zookeeper是最终一致性的，由于多副本，以及保...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/java1856905">来自：	<span class="blog_title"> java1856905的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33981932/article/details/85849462,BlogCommendFromQuerySearch_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_33981932/article/details/85849462,BlogCommendFromQuerySearch_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_33981932/article/details/85849462" target="_blank" title="异地多活（异地双活）实践经验 - HiPhone运维之道 - 博客频道 - CSDN.NET">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活（<em>异地</em>双活）实践经验 - HiPhone运维之道 - 博客频道 - CSDN.NET		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					163</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_33981932/article/details/85849462" target="_blank" title="异地多活（异地双活）实践经验 - HiPhone运维之道 - 博客频道 - CSDN.NET">
+				<span class="desc oneline">异地多活（异地双活）实践经验-HiPhone运维之道-博客频道-CSDN.NET</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_33981932">来自：	<span class="blog_title"> weixin_33981932的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010942020/article/details/51914719,BlogCommendFromQuerySearch_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010942020/article/details/51914719,BlogCommendFromQuerySearch_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010942020/article/details/51914719" target="_blank" title="分布式多活的异地多活设计四大误区">
+		<h4 class="text-truncate oneline">
+				分布式多活的<em>异地</em>多活设计四大误区		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6501</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010942020/article/details/51914719" target="_blank" title="分布式多活的异地多活设计四大误区">
+				<span class="desc oneline">其实大部分问题我们之前也遇到过，这些问题当时也困扰着我们，后来我们经过讨论和思考，发现其实很多时候我们困扰的主要原因是过于“追求完美的异地多活方案”，这样导致“异地多活”设计中出现很多了的思维误区，而...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/JeffreyNicole/article/details/48135093,BlogCommendFromQuerySearch_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/JeffreyNicole/article/details/48135093,BlogCommendFromQuerySearch_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/JeffreyNicole/article/details/48135093" target="_blank" title="异地多活（异地双活）实践经验">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活（<em>异地</em>双活）实践经验		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/JeffreyNicole/article/details/48135093" target="_blank" title="异地多活（异地双活）实践经验">
+				<span class="desc oneline">异地多活（异地双活）是最近业界讨论比较多的话题，特别是前一阵子支付宝机房光纤故障和携程网数据库丢失之后，更加唤起了技术人员们对异地容灾的考虑。而异地多活比异地容灾更高一级，因为异地容灾仅仅是一个冷备的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/JeffreyNicole">来自：	<span class="blog_title"> HiPhone运维之道</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xinzhangyanxiang/article/details/37317863,BlogCommendESEnWordWeight_25"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xinzhangyanxiang/article/details/37317863,BlogCommendESEnWordWeight_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xinzhangyanxiang/article/details/37317863" target="_blank" title="图像物体检测识别中的LBP特征">
+		<h4 class="text-truncate oneline">
+				图像物体检测识别中的LBP特征		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xinzhangyanxiang/article/details/37317863" target="_blank" title="图像物体检测识别中的LBP特征">
+				<span class="desc oneline">1996年，Ojala老大爷搞出了LBP特征，也即参考文献1。当时好像并未引发什么波澜。到了2002年的时候，老大爷又对LBP的特性进行了总结，产生了参考文献2，这篇文献目前为止引用数目4600+，足...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xinzhangyanxiang">来自：	<span class="blog_title"> 雨石</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/cx136295988/article/details/76690605,BlogCommendESEnWordWeight_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cx136295988/article/details/76690605,BlogCommendESEnWordWeight_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cx136295988/article/details/76690605" target="_blank" title="使用otter实现MySQL跨机房双向同步">
+		<h4 class="text-truncate oneline">
+				使用otter实现<em>MySQL</em>跨机房<em>双向</em>同步		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2159</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cx136295988/article/details/76690605" target="_blank" title="使用otter实现MySQL跨机房双向同步">
+				<span class="desc oneline">使用otter实现MySQL跨机房双向同步工作流程环境目标名词解释安装配置配置mysql导入manager系统表导入node同步算法依赖的系统表管理配置添加zookeeper主机添加node添加数据源...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cx136295988">来自：	<span class="blog_title"> cx136295988的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34202952/article/details/85095142,BlogCommendESEnWordWeight_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_34202952/article/details/85095142,BlogCommendESEnWordWeight_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34202952/article/details/85095142" target="_blank" title="MySQL双活部署方案">
+		<h4 class="text-truncate oneline">
+				<em>MySQL</em>双活部署方案		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					512</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34202952/article/details/85095142" target="_blank" title="MySQL双活部署方案">
+				<span class="desc oneline">Pactera文思海辉运维云系统MySQL双活部署方案目录			1.概述5			1.1.本文目的5		2.安装MYSQL5		2.1.下载和安装5		2.2.初始化密码7		2.3.设置root权限7...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34202952">来自：	<span class="blog_title"> weixin_34202952的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/liuzhenfeng/article/details/54340676,BlogCommendESEnWordWeight_28"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/liuzhenfeng/article/details/54340676,BlogCommendESEnWordWeight_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/liuzhenfeng/article/details/54340676" target="_blank" title="分布式数据库和多活数据库的区别">
+		<h4 class="text-truncate oneline">
+				分布式<em>数据</em>库和多活<em>数据</em>库的区别		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3233</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/liuzhenfeng/article/details/54340676" target="_blank" title="分布式数据库和多活数据库的区别">
+				<span class="desc oneline">分布式数据库分布式数据库每个节点上存的数据与其它节点都不同，业务的全部数据是分布式数据库各个节点数据的和。多活数据库每个节点都是一套完整的业务数据，各个节点之间是相互备份的关系。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/liuzhenfeng">来自：	<span class="blog_title"> 刘振锋的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/H_Gao/article/details/52107122,BlogCommendESEnWordWeight_29"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/H_Gao/article/details/52107122,BlogCommendESEnWordWeight_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/H_Gao/article/details/52107122" target="_blank" title="android开发中Settings结构简单分析">
+		<h4 class="text-truncate oneline">
+				android开发中Settings结构简单分析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/H_Gao/article/details/52107122" target="_blank" title="android开发中Settings结构简单分析">
+				<span class="desc oneline">Settings界面结构简单分析Setting是android系统很重要的模块，这个模块并不是很复杂，这部分也一直在看，很多时候都是在看某个具体的选项，比如WLAN，蓝牙这样具体的源码，但是对于主界面...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/H_Gao">来自：	<span class="blog_title"> H_Gao的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/javahongxi/article/details/79500861,BlogCommendFromQuerySearch_30"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/javahongxi/article/details/79500861,BlogCommendFromQuerySearch_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/javahongxi/article/details/79500861" target="_blank" title="异地多活没那么难">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活没那么难		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4416</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/javahongxi/article/details/79500861" target="_blank" title="异地多活没那么难">
+				<span class="desc oneline">1. 引言有幸参与了阿里游戏的一个高可用方案的设计，并且在网上发表了方案（面向业务的立体化高可用架构设计），后来参加GOPS全球运维大会深圳站，与众多行业高手交流，发现大家对“异地多活”这个方案设计非...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/javahongxi">来自：	<span class="blog_title"> blog.hongxi.org</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fedge/article/details/79044857,BlogCommendFromQuerySearch_31"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fedge/article/details/79044857,BlogCommendFromQuerySearch_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fedge/article/details/79044857" target="_blank" title="GoldenGate_Oracle灾备_双业务解决方案——双向复制配置">
+		<h4 class="text-truncate oneline">
+				GoldenGate_Oracle灾备_双业务解决方案——<em>双向</em><em>复制</em>配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					510</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fedge/article/details/79044857" target="_blank" title="GoldenGate_Oracle灾备_双业务解决方案——双向复制配置">
+				<span class="desc oneline">OracleGoldenGate容灾、双业务解决方案双向复制的实现两单机、RAC集群服务器之间在非计划停机时保持业务连续性，在高可用基础上分担业务负载。双向复制的优缺点优点：1.当任何一端挂起或崩溃时...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fedge">来自：	<span class="blog_title"> fedge的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sreng/article/details/78549510,BlogCommendFromQuerySearch_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sreng/article/details/78549510,BlogCommendFromQuerySearch_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sreng/article/details/78549510" target="_blank" title="异地，多活，Mysql数据库改造">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>，多活，<em>Mysql</em><em>数据</em>库改造		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					903</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sreng/article/details/78549510" target="_blank" title="异地，多活，Mysql数据库改造">
+				<span class="desc oneline">敬请期待！</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sreng">来自：	<span class="blog_title"> test</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meiliangdeng1990/article/details/80291451,BlogCommendFromQuerySearch_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meiliangdeng1990/article/details/80291451,BlogCommendFromQuerySearch_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meiliangdeng1990/article/details/80291451" target="_blank" title="互联网异地多活方案发展历史">
+		<h4 class="text-truncate oneline">
+				互联网<em>异地</em>多活方案发展历史		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1309</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meiliangdeng1990/article/details/80291451" target="_blank" title="互联网异地多活方案发展历史">
+				<span class="desc oneline">原创声明：本文系作者原创，谢绝个人、媒体、公众号或网站未经授权转载，违者追究其法律责任。 今日的互联网环境，已经是标准的大数据规模，各大主流互联网平台都是PB级别数据及准PB级。异地多活技术是随着互联...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meiliangdeng1990">来自：	<span class="blog_title"> TY1972的专栏(qq群:576012324,微信号:meiliangdeng)</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013970991/article/details/77370894,BlogCommendFromQuerySearch_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013970991/article/details/77370894,BlogCommendFromQuerySearch_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013970991/article/details/77370894" target="_blank" title="最近一个多月我学习的关于数据双活的文章与书籍">
+		<h4 class="text-truncate oneline">
+				最近一个多月我学习的关于<em>数据</em>双活的文章与书籍		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3506</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013970991/article/details/77370894" target="_blank" title="最近一个多月我学习的关于数据双活的文章与书籍">
+				<span class="desc oneline">一、Mysql数据库双活1、Mysqlbinlog介绍官网：https://dev.mysql.com/doc/refman/5.5/en/binary-log.html中文：*http://www....</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013970991">来自：	<span class="blog_title"> 小程故事多的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/jiangbb8686/article/details/84919165,BlogCommendESEnWordWeight_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jiangbb8686/article/details/84919165,BlogCommendESEnWordWeight_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jiangbb8686/article/details/84919165" target="_blank" title="银行跨数据中心数据库双活架构设计：五大难点攻克">
+		<h4 class="text-truncate oneline">
+				银行跨<em>数据</em>中心<em>数据</em>库双活<em>架构</em>设计：五大难点攻克		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					906</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jiangbb8686/article/details/84919165" target="_blank" title="银行跨数据中心数据库双活架构设计：五大难点攻克">
+				<span class="desc oneline">数据库双活技术已成为企业重点关注的对象，社区最近组织了交流活动，以帮助大家更好的明确理解数据中心建设。我们将活动内容总结为设计原则、技术选型和五大难点攻克。前篇见：银行跨数据中心数据库双活架构设计：设...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jiangbb8686">来自：	<span class="blog_title"> jiangbb8686的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendESEnWordWeight_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendESEnWordWeight_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+		<h4 class="text-truncate oneline">
+				史上最好的LDA(线性判别分析)教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+				<span class="desc oneline">一、前言最近由于研究需要，要用到线性判别分析(LDA)。于是找了很多资料来看，结果发现大部分讲的都是理论知识，因此最后还是看的一知半解，后来终于找到了个英文的文档，作者由PCA引入LDA，看过后豁然开...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jnulzl">来自：	<span class="blog_title"> jnulzl的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/liuhex/article/details/54617442,BlogCommendESEnWordWeight_37"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/liuhex/article/details/54617442,BlogCommendESEnWordWeight_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/liuhex/article/details/54617442" target="_blank" title="绝对干货:解密阿里巴巴“异地多活”技术">
+		<h4 class="text-truncate oneline">
+				绝对干货:解密阿里巴巴“<em>异地</em>多活”技术		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1745</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/liuhex/article/details/54617442" target="_blank" title="绝对干货:解密阿里巴巴“异地多活”技术">
+				<span class="desc oneline">http://servers.pconline.com.cn/721/7215376.html编者按：11月16日，阿里“双十一”技术分享会上，阿里巴巴技术保障部研究员林昊详细解析了“异地多活”技术。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/liuhex">来自：	<span class="blog_title"> liuhex的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/bystarlight/article/details/71522486,BlogCommendESEnWordWeight_38"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/bystarlight/article/details/71522486,BlogCommendESEnWordWeight_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/bystarlight/article/details/71522486" target="_blank" title="技术圈重磅！饿了么多活终于成功_实现首次多活生产环境全网切换">
+		<h4 class="text-truncate oneline">
+				技术圈重磅！饿了么多活终于成功_实现首次多活生产环境全网切换		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1188</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/bystarlight/article/details/71522486" target="_blank" title="技术圈重磅！饿了么多活终于成功_实现首次多活生产环境全网切换">
+				<span class="desc oneline">原文链接技术圈重磅！饿了么多活终于成功实现首次多活生产环境全网切换身行 2017-05-0911:59:46 浏览624 评论0云栖社区 阿里云 HTTPS 阿里巴巴 集群 平台架构 淘宝 aliyu...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/bystarlight">来自：	<span class="blog_title"> bystarlight的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/A_BlackMoon/article/details/82880427,BlogCommendESEnWordWeight_39"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/A_BlackMoon/article/details/82880427,BlogCommendESEnWordWeight_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/A_BlackMoon/article/details/82880427" target="_blank" title="从“两地三中心”到“分布式多活”——企业多数据中心架构演进">
+		<h4 class="text-truncate oneline">
+				从“两地三中心”到“分布式多活”——企业多<em>数据</em>中心<em>架构</em>演进		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1665</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/A_BlackMoon/article/details/82880427" target="_blank" title="从“两地三中心”到“分布式多活”——企业多数据中心架构演进">
+				<span class="desc oneline">数据大集中之后，企业的经营活动越来越依赖于数据中心与网络等IT基础设施，IT的7*24全天业务连续运营成为大型企业IT建设运营与企业经营追求的目标。如何实现减少甚至消除正常和非正常的停机对业务可用性造...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/A_BlackMoon">来自：	<span class="blog_title"> 一诺</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meiliangdeng1990/article/details/80322007,BlogCommendFromQuerySearch_40"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meiliangdeng1990/article/details/80322007,BlogCommendFromQuerySearch_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meiliangdeng1990/article/details/80322007" target="_blank" title="异地多活的单元化设计">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活的单元化设计		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1535</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meiliangdeng1990/article/details/80322007" target="_blank" title="异地多活的单元化设计">
+				<span class="desc oneline">原创声明：本文系作者原创，谢绝个人、媒体、公众号或网站未经授权转载，违者追究其法律责任。 现在的互联网技术从业者或多或少知道阿里&amp;quot;单元化&amp;quot;技术这个词，阿里的很多业务线和系统，都已实...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meiliangdeng1990">来自：	<span class="blog_title"> TY1972的专栏(qq群:576012324,微信号:meiliangdeng)</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/cn_yaojin/article/details/82908814,BlogCommendFromQuerySearch_41"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/cn_yaojin/article/details/82908814,BlogCommendFromQuerySearch_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/cn_yaojin/article/details/82908814" target="_blank" title="阿里和微博的异地多活方案">
+		<h4 class="text-truncate oneline">
+				阿里和微博的<em>异地</em>多活方案		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					521</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/cn_yaojin/article/details/82908814" target="_blank" title="阿里和微博的异地多活方案">
+				<span class="desc oneline">原文地址：https://blog.csdn.net/u013793650/article/details/49358507总结：多活基本思路：每个中心都是活的，可以实时承担流量，任何一点出问题，都可...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/cn_yaojin">来自：	<span class="blog_title"> cn_yaojin</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/baichoufei90/article/details/84451226,BlogCommendFromQuerySearch_42"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/baichoufei90/article/details/84451226,BlogCommendFromQuerySearch_42"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/baichoufei90/article/details/84451226" target="_blank" title="数据库-异地多活多中心概念">
+		<h4 class="text-truncate oneline">
+				<em>数据</em>库-<em>异地</em>多活多中心概念		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					687</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/baichoufei90/article/details/84451226" target="_blank" title="数据库-异地多活多中心概念">
+				<span class="desc oneline">数据库-异地多活多中心概念0x01摘要本文简要谈谈我对异地多活多中心浅显理解，以及互相产生的记录不冲突的原因。0x02什么是多活多活就是指业务服务部署在N个机房，那么可以容忍N-1个机房挂掉，还是能正...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/baichoufei90">来自：	<span class="blog_title"> baichoufei90的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yah99_wolf/article/details/53337327,BlogCommendFromQuerySearch_43"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yah99_wolf/article/details/53337327,BlogCommendFromQuerySearch_43"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yah99_wolf/article/details/53337327" target="_blank" title="异地多活有哪些Impossible Mission？">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活有哪些Impossible Mission？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3915</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yah99_wolf/article/details/53337327" target="_blank" title="异地多活有哪些Impossible Mission？">
+				<span class="desc oneline">《碟中谍》系列电影中，汤姆克鲁斯主演的亨特特工，无论什么情况，什么环境下都能够有惊无险的完成那些看似不可能的任务。对于技术人员来说，如果也能像汤姆克鲁斯那样，不管什么missionimpossible...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yah99_wolf">来自：	<span class="blog_title"> 华仔-技术博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/miller_lover/article/details/41476981,BlogCommendFromQuerySearch_44"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/miller_lover/article/details/41476981,BlogCommendFromQuerySearch_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/miller_lover/article/details/41476981" target="_blank" title="阿里超大数据中心“异地双活”实践">
+		<h4 class="text-truncate oneline">
+				阿里超大<em>数据</em>中心“<em>异地</em>双活”实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2515</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/miller_lover/article/details/41476981" target="_blank" title="阿里超大数据中心“异地双活”实践">
+				<span class="desc oneline">灾备系统和应急管理体系建设是数据中心永不变更的热点话题。从“两地三中心”、“同城双活”到“异地双活”，业内的讨论层出不穷。即使在容灾备份领域较早入手的金融行业，在灾备切换时也是谨慎再谨慎的，在历年“真...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/miller_lover">来自：	<span class="blog_title"> miller_lover的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/eo63y6pKI42Ilxr/article/details/86110463,BlogCommendESEnWordWeight_45"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/eo63y6pKI42Ilxr/article/details/86110463,BlogCommendESEnWordWeight_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/eo63y6pKI42Ilxr/article/details/86110463" target="_blank" title="如何基于OceanBase构建应用和数据库的异地多活">
+		<h4 class="text-truncate oneline">
+				如何基于OceanBase构建应用和<em>数据</em>库的<em>异地</em>多活		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					858</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/eo63y6pKI42Ilxr/article/details/86110463" target="_blank" title="如何基于OceanBase构建应用和数据库的异地多活">
+				<span class="desc oneline">云栖君导读：OceanBase是一个通用的分布式的关系型数据库，有很多独特的特点。比如数据库的多租户、高可用、极致弹性伸缩能力。如果把OceanBase当作单库使用，就没......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/eo63y6pKI42Ilxr">来自：	<span class="blog_title"> 云栖社区</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/YanghuiNipurean/article/details/52251107,BlogCommendESEnWordWeight_46"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/YanghuiNipurean/article/details/52251107,BlogCommendESEnWordWeight_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/YanghuiNipurean/article/details/52251107" target="_blank" title="Android 抽奖转盘的实现">
+		<h4 class="text-truncate oneline">
+				Android 抽奖转盘的实现		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/YanghuiNipurean/article/details/52251107" target="_blank" title="Android 抽奖转盘的实现">
+				<span class="desc oneline">序言最近需要实现一个抽奖的控件，我简单搜索了下，感觉要不很多细节地方没有处理，要么，根本就不能用。索性想自己实现个，从千图网搜了下，挑选了个自己比较喜欢的出来，psd打开后效果如下：最终实现效果如下：...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/YanghuiNipurean">来自：	<span class="blog_title"> Nipuream</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/leiricong/article/details/54571040,BlogCommendESEnWordWeight_47"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/leiricong/article/details/54571040,BlogCommendESEnWordWeight_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leiricong/article/details/54571040" target="_blank" title="异地多活IDC机房架构">
+		<h4 class="text-truncate oneline">
+				<em>异地</em>多活IDC机房<em>架构</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3985</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leiricong/article/details/54571040" target="_blank" title="异地多活IDC机房架构">
+				<span class="desc oneline">﻿﻿多机房架构存在的原因单机房一旦死机，断电、维护根本无法挽回整个数据，想离线读取等都不行。当一个机房不可用，所有的业务就都不可用。荔枝FM要求业务离用户最近，南方的用户连南方的机房，北方的用户连北方...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leiricong">来自：	<span class="blog_title"> LRC的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/renwotao2009/article/details/51533387,BlogCommendESEnWordWeight_48"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/renwotao2009/article/details/51533387,BlogCommendESEnWordWeight_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/renwotao2009/article/details/51533387" target="_blank" title="Linux中的计划任务-Crontab">
+		<h4 class="text-truncate oneline">
+				Linux中的计划任务-Crontab		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5086</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/renwotao2009/article/details/51533387" target="_blank" title="Linux中的计划任务-Crontab">
+				<span class="desc oneline">Crontab是什么Crontab是一个用于设置周期性被执行的任务工具。被周期性执行的任务我们称为CronJob周期性执行的任务列表我们称为CronTableCrontab实践相关工具开源免费的ssh...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/renwotao2009">来自：	<span class="blog_title"> renwotao2009的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/suifeng629/article/details/89326048,BlogCommendESEnWordWeight_49"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/suifeng629/article/details/89326048,BlogCommendESEnWordWeight_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/suifeng629/article/details/89326048" target="_blank" title="[分布式]异地多活架构">
+		<h4 class="text-truncate oneline">
+				[分布式]<em>异地</em>多活<em>架构</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					230</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/suifeng629/article/details/89326048" target="_blank" title="[分布式]异地多活架构">
+				<span class="desc oneline">异地指地理位置上的不同，多活指不同地理位置上的系统都能够提供业务服务。判断标准：	正常情况下，用户无论访问哪一个地点的业务系统，都能够得到正确的业务服务。			某地异常时，用户访问其他地方正常的业务系...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/suifeng629">来自：	<span class="blog_title"> happy的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					65万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtDagg3sNjQtZWR1.html" target="_blank">
+                        饿了么大数据视频</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtDaYgysNzItZWR1.html" target="_blank">
+                        饿了么大数据基础架构实践</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/FENGQIYUNRAN">
+              <img src="https://avatar.csdn.net/8/0/9/3_fengqiyunran.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/11.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN" target="_blank" class="" id="uid">FeelTouch</a>
+            </p>
+                          <p class="flag expert">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="290">
+                        <dt><a href="https://blog.csdn.net/feeltouch?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/feeltouch?t=1"><span class="count">290</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="262">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">262</span></dd>
+        </dl>
+        <dl class="text-center" title="91">
+            <dt>喜欢</dt>
+            <dd><span class="count">91</span></dd>
+        </dl>
+        <dl class="text-center" title="47">
+            <dt>评论</dt>
+            <dd><span class="count">47</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="7级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-7"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="865743">
+                86万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="11048">
+                1万+            </dd>
+        </dl>
+        <dl title="2524">
+            <dt>排名：</dt>
+            <dd>2524</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="专栏达人">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                                   <p>专栏达人</p>
+                               </div>
+                               <div class="right-box">
+                                   授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t4.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv2">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l2_t1.svg" alt="">
+                                   <p>勤写标兵Lv2</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布4篇到6篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<!--自定义模块-->
+<div id="asideCustom69866512" class="aside-box custom-box">
+    <h3 class="aside-title">我的微信公众号</h3>
+    <div class="aside-content clearfix">
+        <ul><strong>扫码关注 ------ <font color="red"> JavGop</font></strong></ul>
+<ul><strong>内涵大量Java架构、Python深度、Go实战资料，是工程师升职加薪必备神器</strong></ul>
+<img src="https://img-blog.csdnimg.cn/20190121110119282.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZFTkdRSVlVTlJBTg==,size_16,color_FFFFFF,t_70" width="100%">
+<ul><strong>扫码关注 ------ <font color="red"> i经典电影台词</font></strong></ul>
+<ul><strong>内涵大量经典书籍、电影的分析、感悟、摘抄，提高修养和视野必备利器</ul>
+<img src="https://img-blog.csdnimg.cn/20190128180330602.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZFTkdRSVlVTlJBTg==,size_16,color_FFFFFF,t_70" width="100%">    </div>
+</div>
+<div id="asideColumn" class="aside-box flexible-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/inspired">
+                            <img src="https://img-blog.csdn.net/20151123175511583?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/inspired">产品艺术</a></p>
+                        <div class="data">文章数：<span class="count">21 篇</span> 访问量：<span>2万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/14543">
+                            <img src="https://img-blog.csdn.net/20170218154509409?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/14543">Java弥散</a></p>
+                        <div class="data">文章数：<span class="count">10 篇</span> 访问量：<span>1864</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/17816">
+                            <img src="https://img-blog.csdn.net/20171024173941389?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/17816">Java多并高</a></p>
+                        <div class="data">文章数：<span class="count">20 篇</span> 访问量：<span>1万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/18162">
+                            <img src="https://img-blog.csdn.net/20171126112350504?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/18162">XShowAlgorithm</a></p>
+                        <div class="data">文章数：<span class="count">10 篇</span> 访问量：<span>1842</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21458">
+                            <img src="//img-blog.csdn.net/20180410224735477?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21458">Spring</a></p>
+                        <div class="data">文章数：<span class="count">5 篇</span> 访问量：<span>777</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21459">
+                            <img src="//img-blog.csdn.net/20180410225144743?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21459">架构之海</a></p>
+                        <div class="data">文章数：<span class="count">11 篇</span> 访问量：<span>262</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21461">
+                            <img src="//img-blog.csdn.net/20180410225745371?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/21461">研发管理</a></p>
+                        <div class="data">文章数：<span class="count">2 篇</span> 访问量：<span>1343</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/28225">
+                            <img src="//img-blog.csdn.net/20181007153636119?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/28225">画声</a></p>
+                        <div class="data">文章数：<span class="count">7 篇</span> 访问量：<span>5498</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/FENGQIYUNRAN/column/info/28772">
+                            <img src="//img-blog.csdn.net/20181021114912469?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/FENGQIYUNRAN/column/info/28772">Python花园</a></p>
+                        <div class="data">文章数：<span class="count">28 篇</span> 访问量：<span>236</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN/article/details/90819219" target="_blank">架构系列---蚂蚁金服面对亿级并发场景的组件体系设计</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN/article/details/90761696" target="_blank">Mysql进行数据分布统计经典专用SQL</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN/article/details/90761521" target="_blank">连接Mysql 报2013  lost connection to MYSQL server during query 错误问题解决方案</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN/article/details/90744620" target="_blank">架构系列---Redis缓存雪崩、缓存穿透、缓存与数据库双写一致</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/FENGQIYUNRAN/article/details/90649876" target="_blank">Spring系列---RestTemplate深入理解</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/569684">
+                    <span class="title oneline">网络通信/服务器端/后端/多线程</span>
+                    <span class="count float-right">51篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/569662">
+                    <span class="title oneline">技术思想/开发管理/工具使用</span>
+                    <span class="count float-right">58篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/940864">
+                    <span class="title oneline">音视频/编解码/通信/协议</span>
+                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1087407">
+                    <span class="title oneline">C/C++</span>
+                    <span class="count float-right">62篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1100114">
+                    <span class="title oneline">站点/商业/财经/职场/养生</span>
+                    <span class="count float-right">29篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1414626">
+                    <span class="title oneline">Unix/Linux/Shell/Vim/Awk/Tcl</span>
+                    <span class="count float-right">61篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1489445">
+                    <span class="title oneline">安全/防御/逆向解析/漏洞</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1524131">
+                    <span class="title oneline">数据结构/编程算法/技术思想</span>
+                    <span class="count float-right">38篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1524133">
+                    <span class="title oneline">性能优化/代码重构</span>
+                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1543239">
+                    <span class="title oneline">大数据/云计算/数据库</span>
+                    <span class="count float-right">57篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/1549025">
+                    <span class="title oneline">考试/面试/笔试</span>
+                    <span class="count float-right">58篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/2895483">
+                    <span class="title oneline">Python</span>
+                    <span class="count float-right">54篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/2918029">
+                    <span class="title oneline">分布式框架/中间件/接口/公用模块</span>
+                    <span class="count float-right">37篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/3084757">
+                    <span class="title oneline">操作系统/编译原理</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/5606339">
+                    <span class="title oneline">JAVA</span>
+                    <span class="count float-right">157篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/6984887">
+                    <span class="title oneline">架构</span>
+                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7247056">
+                    <span class="title oneline">缓存</span>
+                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7417810">
+                    <span class="title oneline">TCP/IP/UDP/RTCP</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7591465">
+                    <span class="title oneline">流媒体/直播/短视频</span>
+                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7660029">
+                    <span class="title oneline">Spring/Springboot/SpringMVC</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7660303">
+                    <span class="title oneline">AWS Around</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7660337">
+                    <span class="title oneline">运维管理</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7660352">
+                    <span class="title oneline">RocketMQ</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7661620">
+                    <span class="title oneline">RPC</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7713445">
+                    <span class="title oneline">Mysql</span>
+                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/7980977">
+                    <span class="title oneline">ORM</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/8263041">
+                    <span class="title oneline">NOSQL</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/8722825">
+                    <span class="title oneline">Redis</span>
+                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/8767657">
+                    <span class="title oneline">容器化技术</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/8788785">
+                    <span class="title oneline">MongDB</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/fengqiyunran/article/category/8907911">
+                    <span class="title oneline">ElasticSearch</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/06">
+                    2019年6月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">20篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2019/01">
+                    2019年1月                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/12">
+                    2018年12月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/11">
+                    2018年11月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/10">
+                    2018年10月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/09">
+                    2018年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">20篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">27篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2017/01">
+                    2017年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/08">
+                    2016年8月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/06">
+                    2016年6月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2016/05">
+                    2016年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/09">
+                    2015年9月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/08">
+                    2015年8月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/07">
+                    2015年7月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/06">
+                    2015年6月                    <span class="count float-right">49篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/05">
+                    2015年5月                    <span class="count float-right">29篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/04">
+                    2015年4月                    <span class="count float-right">51篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/03">
+                    2015年3月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2015/02">
+                    2015年2月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/11">
+                    2014年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/10">
+                    2014年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/09">
+                    2014年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/05">
+                    2014年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/04">
+                    2014年4月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2014/03">
+                    2014年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2013/08">
+                    2013年8月                    <span class="count float-right">45篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2013/07">
+                    2013年7月                    <span class="count float-right">25篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2013/06">
+                    2013年6月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2013/05">
+                    2013年5月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2013/04">
+                    2013年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2012/06">
+                    2012年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2012/02">
+                    2012年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2011/12">
+                    2011年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2011/11">
+                    2011年11月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2009/10">
+                    2009年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/fengqiyunran/article/month/2009/07">
+                    2009年7月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/fengqiyunran/article/details/49404747">Python进阶---python实现substring截取子字符串</a>
+					<p class="read">阅读数 <span>37242</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/fengqiyunran/article/details/49404671">Python进阶---python strip() split()函数实战</a>
+					<p class="read">阅读数 <span>30955</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/fengqiyunran/article/details/46643065">mysql---mysql -e详解</a>
+					<p class="read">阅读数 <span>26290</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/fengqiyunran/article/details/21830541">iptables：unrecognized service 的解决方法</a>
+					<p class="read">阅读数 <span>26190</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/fengqiyunran/article/details/89117818">架构系列---饿了么MySQL异地多活的数据双向复制</a>
+					<p class="read">阅读数 <span>19799</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/fengqiyunran/article/details/89117818#comments">架构系列---饿了么MySQL异地...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/E09620126" class="user-name" target="_blank">E09620126：</a>学习学习                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/fengqiyunran/article/details/79091418#comments">Java中的笔试和面试---知识点...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/a_java_noob" class="user-name" target="_blank">a_java_noob：</a>插眼                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/fengqiyunran/article/details/45077543#comments">数组试题---找出第k大的数</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_43340796" class="user-name" target="_blank">weixin_43340796：</a>第四步把数组分成两个部分具体是怎么分的。才能使这个数组大致有序                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/fengqiyunran/article/details/87480657#comments">中间件---分布式跟踪---Pin...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/yangxuedong001" class="user-name" target="_blank">yangxuedong001：</a>[reply]FENGQIYUNRAN[/reply]
+什么意思？比如我要监控应用访问mysql，我的做法是给mysql服务启动前也添加探针，就是那三行参数，出现的情况就是在上面选一个app就只显示一个，并不是链式的                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/fengqiyunran/article/details/87480657#comments">中间件---分布式跟踪---Pin...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/FENGQIYUNRAN" class="user-name" target="_blank">FENGQIYUNRAN：</a>[reply]yangxuedong001[/reply]
+确认下，调用链数据都收集到了么                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box ">
+			<button class=" low-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>0</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						1				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/feeltouch/article/details/89007544" title="Redis 中 Sorted-Set时间复杂度和实战">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/feeltouch/article/details/89118482" title="架构系列---架构师之路17年精选80篇">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/feeltouch/article/details/89007544" title="Redis 中 Sorted-Set时间复杂度和实战">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/feeltouch/article/details/89118482" title="架构系列---架构师之路17年精选80篇">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 87;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 15;
+    var articleId = "89117818";
+    var commentscount = 1;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/feeltouch/article/details/89117818";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "架构系列---饿了么MySQL异地多活的数据双向复制 - FeelTouch";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = 'dracula';
+	var highlight = ["\u67b6\u6784","\u7cfb\u5217","mysql","\u5f02\u5730","\u6570\u636e","\u53cc\u5411","\u590d\u5236"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"u013970991","nick_name":"\u5c0f\u7a0b\u6545\u4e8b\u591a_80","avatar":"https:\/\/avatar.csdn.net\/F\/D\/6\/3_u013970991.jpg","is_expert":true,"article_count":208,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"mindfloating","nick_name":"mindwind-_-","avatar":"https:\/\/avatar.csdn.net\/6\/8\/8\/3_mindfloating.jpg","is_expert":true,"article_count":137,"rank":"4000+"},{"user_name":"xunzaosiyecao","nick_name":"\u8863\u821e\u6668\u98ce","avatar":"https:\/\/avatar.csdn.net\/7\/7\/C\/3_xunzaosiyecao.jpg","is_expert":true,"article_count":1138,"rank":"140"},{"user_name":"Mes8Y62b6ogV207","nick_name":"\u9ad8\u6548\u8fd0\u7ef4","avatar":"https:\/\/avatar.csdn.net\/C\/A\/2\/3_mes8y62b6ogv207.jpg","is_expert":false,"article_count":146,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u012422829","nick_name":"\u6c88\u9e3f\u658c","avatar":"https:\/\/avatar.csdn.net\/F\/1\/0\/3_u012422829.jpg","is_expert":false,"article_count":161,"rank":"7000+"},{"user_name":"xuciyisheng","nick_name":"xuciyisheng","avatar":"https:\/\/avatar.csdn.net\/7\/5\/E\/3_xuciyisheng.jpg","is_expert":false,"article_count":508,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"java1856905","nick_name":"java1856905","avatar":"https:\/\/avatar.csdn.net\/8\/7\/A\/3_java1856905.jpg","is_expert":false,"article_count":236,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"weixin_33981932","nick_name":"weixin_33981932","avatar":"https:\/\/avatar.csdn.net\/3\/B\/B\/3_weixin_33981932.jpg","is_expert":false,"article_count":2892,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"u010942020","nick_name":"\u540e\u6d77hh","avatar":"https:\/\/avatar.csdn.net\/4\/E\/F\/3_u010942020.jpg","is_expert":false,"article_count":109,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"JeffreyNicole","nick_name":"Hi\u5cf0\u5144","avatar":"https:\/\/avatar.csdn.net\/E\/4\/9\/3_jeffreynicole.jpg","is_expert":false,"article_count":24,"rank":"\u5343\u91cc\u4e4b\u5916"}];
+	var articleType = 1;
+	var CopyrightContent = '阅读优秀源码，宛若一场探索未知的旅行，疑惑处惊奇，优雅处旖旎; 一切都是新奇的，千回百转与大师的心灵触碰，一场跨越时空的对话，涤荡了原有的愚昧，蜕变出更好的自己。';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/dracula.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+	<script type="text/javascript">
+
+	</script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

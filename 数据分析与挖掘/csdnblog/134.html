@@ -1,0 +1,3559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/Yong_Qi2015/article/details/88220607"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"一分钟详解「手眼标定」基本原理 - 3D视觉工坊"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>一分钟详解「手眼标定」基本原理 - 3D视觉工坊 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/Yong_Qi2015\/article\/details\/88220607","appid":"1563894916825412","title":"\u4e00\u5206\u949f\u8be6\u89e3\u300c\u624b\u773c\u6807\u5b9a\u300d\u57fa\u672c\u539f\u7406 - 3D\u89c6\u89c9\u5de5\u574a","images":["http:\/\/upload-images.jianshu.io\/upload_images\/11040803-a8c9d4d7d68bdf2e?imageMogr2\/auto-orient\/strip%7CimageView2\/2\/w\/1240","http:\/\/upload-images.jianshu.io\/upload_images\/11040803-26e59e68f2129584?imageMogr2\/auto-orient\/strip%7CimageView2\/2\/w\/1240","http:\/\/upload-images.jianshu.io\/upload_images\/11040803-971ff2231f6bf101?imageMogr2\/auto-orient\/strip%7CimageView2\/2\/w\/1240"],"pubDate":"2019-06-05T20:05:51"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "Yong_Qi2015";
+        var blog_address = "https://blog.csdn.net/yong_qi2015";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/Yong_Qi2015/article/details/88220607"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "一分钟详解「手眼标定」基本原理 - 3D视觉工坊";
+        
+        var nickName = "3D视觉工坊";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/yong_qi2015/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/Yong_Qi2015/article/details/88220607";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">一分钟详解「手眼标定」基本原理</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年03月06日 10:16:14</span>
+          <a class="follow-nickName" href="https://me.csdn.net/Yong_Qi2015" target="_blank">3D视觉工坊</a>
+          <span class="read-count">阅读数：20566</span>
+          
+                          <span class="tags-box artic-tag-box">
+                <span class="label">标签：</span>
+                                  <a data-track-click='{"mod":"popu_626","con":"手眼标定"}' data-track-view='{"mod":"popu_626","con":"手眼标定"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=手眼标定&t=blog" target="_blank">手眼标定                                    <a data-track-click='{"mod":"popu_626","con":"eye-in-hand"}' data-track-view='{"mod":"popu_626","con":"eye-in-hand"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=eye-in-hand&t=blog" target="_blank">eye-in-hand                                    <a data-track-click='{"mod":"popu_626","con":"eye-to-hand"}' data-track-view='{"mod":"popu_626","con":"eye-to-hand"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=eye-to-hand&t=blog" target="_blank">eye-to-hand                                  </a>
+              </span>
+                                      <div class="tags-box space">
+                <span class="label">个人分类：</span>
+                                  <a class="tag-link" href="https://blog.csdn.net/Yong_Qi2015/article/category/7419418" target="_blank">OpenCV                                  </a>
+              </div>
+                                          </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+          
+          版权声明：本文为博主原创文章，未经博主允许不得转载。          https://blog.csdn.net/Yong_Qi2015/article/details/88220607        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <p>原文首发于【3D视觉工坊】知识星球：<a href="https://wx.zsxq.com/dweb/#/index/825412441552" rel="nofollow">传送门</a>。</p>
+<h2><a id="___3"></a>一  前言</h2>
+<p>机器人的视觉系统分为固定场景视觉系统和运动的「手-眼」视觉系统。摄像机与机器人的手部末端，构成手眼视觉系统。根据摄像机与机器人相互位置的不同，手眼视觉系统分为Eye-in-Hand系统和Eye-to-Hand系统。Eye-in-Hand系统的摄像机安装在机器人手部末端（end-effector），在机器人工作过程中随机器人一起运动。Eye-to-Hand系统的摄像机安装在机器人本体外的固定位置，在机器人工作工程中不随机器人一起运动。</p>
+<p><strong>Eye-in-Hand</strong>系统的在工业机器人中应用比较广泛，随着机械手逐渐接近目标，摄像机与目标的距离越来越小，被测物体位置参数的绝对误差会随之降低。在<strong>Eye-in-Hand</strong>系统中，采用基于图像的视觉控制、基于位置的视觉控制以及结合两者的混合视觉控制，可以快速有效地标定被测物体的坐标。</p>
+<p>手眼标定方法通常分为3类：标准手眼标定、基于旋转运动的手眼标定以及在线手眼标定。以上方法是将摄像机标定与手眼标定分开进行，也有的论文采用的是联合标定法。</p>
+<p>本文重点讲解<strong>Eye-in-Hand</strong>的一般方法，重在阐述其基本原理。</p>
+<h2><a id="__EyeinHand_13"></a>二  Eye-in-Hand</h2>
+<h3><a id="21__14"></a>2.1 基础知识准备</h3>
+<p>在研究相机标定时，已较为熟悉，在本公众号「3D视觉工坊」里已有几篇文章做过总结，如：<br>
+a)	<a href="https://mp.weixin.qq.com/s/sZNubF-pTvu8dD8bfAXCIQ" rel="nofollow">一分钟详解OpenCV之相机标定函数calibrateCamera()</a>；<br>
+b)	<a href="https://mp.weixin.qq.com/s/aslqciWhkzgnZ6GjU_vi_w" rel="nofollow">一分钟详解「本质矩阵」推导过程</a>；<br>
+c)	<a href="https://mp.weixin.qq.com/s/47VDCDRubK-lnVYAZ8bbtA" rel="nofollow">计算机视觉基本原理——RANSAC</a>；<br>
+d)	<a href="https://mp.weixin.qq.com/s/hdVIJ0LzHAbS64sYcTblbw" rel="nofollow">再谈「相机标定」</a>；</p>
+<p>此处就不详细展开叙述了。</p>
+<h3><a id="22_EyeinHand_23"></a>2.2 Eye-in-Hand基本原理</h3>
+<p>对目标点的空间三维坐标进行变换的过程中，<strong>首先</strong>遇到的<strong>问题</strong>是机器人末端关节坐标系与摄像机坐标系之间的位置变换关系，也就是机器人的手眼位置关系，该关系用符号X表示，具体可以用方程AX=XB求解。其中A表示相邻两次运动时机器人末端关节的变换关系；B表示相邻两次运动时摄像机坐标的相对运动。</p>
+<p>下面，简单介绍一下本问题模型中为何会引入AX=XB模型。<br>
+如图1所示，为眼在手上，也即eye-in-hand。（本篇文章重点讨论的是双目，所以此处仅是为了演示效果图，而非真实的实验场景）。相机固定在机械臂末端，会随着机械臂的运动而运动。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11040803-a8c9d4d7d68bdf2e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图1 眼在手上"></p>
+<p>我们会得到一堆坐标系和坐标变换关系：</p>
+<ul>
+<li>
+<p>A：机器人末端在机械臂坐标系下的位姿，这其实就是机器人运动学正解的问题。（已知）。</p>
+</li>
+<li>
+<p>B：相机在机器人末端坐标系下的位姿，这个变换是固定的，只要知道这个变换，我们就可以随时计算相机的实际位置，所以这就是我们想求的东西。（未知，待求）</p>
+</li>
+<li>
+<p>C：相机在标定板坐标系下的位姿，这个其实就是求解相机的外参（已知）。</p>
+</li>
+<li>
+<p>D：相机在机器人基坐标系下的位姿。实际使用过程中标定板并不存在，所以这个变换关系我们不关心。</p>
+</li>
+</ul>
+<p>所以，只要我们能计算得到B变换，那么相机在机器人坐标系下的位姿D也就自然得到了。</p>
+<p>如图2所示，我们让机械臂运动两个位置，保证这两个位置下都可以看到标定板，然后构建空间变换回路：<br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-26e59e68f2129584?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图2 机械臂运动到两个位置，构建变换回路"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11040803-971ff2231f6bf101?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/11040803-581d8f10fd5597dc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图3 谷歌学术搜索"></p>
+<p>在谷歌学术用关键词「AX=XB」搜索便可以得到各种求解办法，见图3所示。</p>
+<p>以上图中的几篇论文，都很详细地给出了推导过程，按照它们写程序基本没问题。</p>
+<p>这样，我们便有了A、B和C，就能直接求解得到我们想要的手眼标定结果D了。</p>
+<p>前面主要是为了理清思路，对于每个部分的细节都给省略掉了，接下来进行详细说明。</p>
+<p><strong>1）变换A:</strong> 它是机械臂末端在机器人基座坐标系下的位姿，其实就是机器人学里面最基础的运动学正解。如图4所示。<br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-f8e7d2225d0dcbea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图4 机器人运动学正解模型"><br>
+用DH矩阵等方法来计算机器人运动学正解。可以参看熊有伦主编的《机器人技术基础》这本书。在实际操作中，根据机器人的示教器读出欧拉角，即可换算出机械手爪坐标系到机械臂基座的转换矩阵。<br>
+<img src="https://img-blog.csdnimg.cn/20190306101445493.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly95b25ncWkuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>2）变换C：</strong> 它是相机在标定板坐标系下的位姿。其实就是相机的外参。如图5所示，其中的R,T 即为相机在标定板下的位姿。<br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-9f6da2c00ea03572?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图5 相机在标定板板坐标系下的位姿"><br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-617cbc9c76bdfeea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-31bc57bfe4602fea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图6 相机模型"></p>
+<p>相机模型有了，我们要做的就是先确定内参矩阵，然后根据不同时刻拍摄的标定板图片来求取外参矩阵：也即<strong>相机在世界坐标系下的变换关系C</strong>。</p>
+<p>目前来说，要解决这个问题，基本上都是采用张正友老师的方法。这个在之前的相机标定过程中，已经实现。</p>
+<p><strong>3）求解AX=XB。</strong></p>
+<p>关于这个公式的求解，对应着多种不同的解法，此处推荐一篇文章，如下：</p>
+<blockquote>
+<ol>
+<li>Daniilidis, Konstantinos. “Hand-eye calibration using dual quaternions.” The International Journal of Robotics Research 18.3 (1999): 286-298.</li>
+</ol>
+</blockquote>
+<p><strong>注：</strong> 在公众号【3D视觉工坊】后台回复「解AX=XB」,即可获得下载上述文章的下载链接。</p>
+<p>得到X也即手眼关系，最后得到相机坐标系到机器人基座的坐标变换关系：D=A*X。<br>
+式中A代表：机器人手抓到机器人基座坐标变换；X表示相机到机器人手抓的坐标变换。<br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-f22c6d53bfada0fc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>以上手眼标定流程，大体可以总结如图7所示：<br>
+<img src="http://upload-images.jianshu.io/upload_images/11040803-14fa748e4f06005f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图7 手眼标定流程示意图"></p>
+<p>手眼标定的基本原理如上所述，至于正确性，仍需由实验进一步验证。</p>
+<p>原文部分内容参考：<a href="https://mp.weixin.qq.com/s/nJx1dlpBXaL2_iT_J4W5Kg" rel="nofollow">https://mp.weixin.qq.com/s/nJx1dlpBXaL2_iT_J4W5Kg</a></p>
+<p>附：<br>
+  编写好的手眼标定界面如图：<br>
+<img src="https://img-blog.csdnimg.cn/2019030615484689.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly95b25ncWkuYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190306101313361.jpg" alt="在这里插入图片描述"></p>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/Yong_Qi2015/article/details/88220607,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/Yong_Qi2015/article/details/88220607,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div class="recommend-box"><div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/KayChanGEEK/article/details/73878994,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/KayChanGEEK/article/details/73878994" target="_blank" title="工业现场相机坐标系和机械手坐标系的标定(1)-相机和机械手分离的情况">
+		<h4 class="text-truncate oneline">
+				工业现场相机坐标系和机械手坐标系的<em>标定</em>(1)-相机和机械手分离的情况		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/KayChanGEEK/article/details/73878994" target="_blank" title="工业现场相机坐标系和机械手坐标系的标定(1)-相机和机械手分离的情况">
+				<span class="desc oneline">工业现场使用视觉时一般需要相机坐标系和机械手臂坐标系的转化，这里介绍一种比较简单的标定方案。没有使用到标定板。经过几个项目的测试，精度还算可以，如果要求高精度的场合，就用标定板标定吧！如上图所示：OX...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/KayChanGEEK">来自：	<span class="blog_title"> 楷尘·极客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+</div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="88220607">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_16481211/article/details/79764730,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_16481211/article/details/79764730" target="_blank" title="深入浅出地理解机器人手眼标定">
+		<h4 class="text-truncate oneline">
+				深入浅出地理解机器人<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_16481211/article/details/79764730" target="_blank" title="深入浅出地理解机器人手眼标定">
+				<span class="desc oneline">所谓手眼系统，就是人眼镜看到一个东西的时候要让手去抓取，就需要大脑知道眼镜和手的坐标关系。如果把大脑比作B，把眼睛比作A，把手比作C,如果A和B的关系知道，B和C的关系知道，那么C和A的关系就知道了，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_16481211">来自：	<span class="blog_title"> 二毛的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u011089570/article/details/47945733,BlogCommendFromBaidu_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u011089570/article/details/47945733" target="_blank" title="手眼标定的两种方式">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>的两种方式		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u011089570/article/details/47945733" target="_blank" title="手眼标定的两种方式">
+				<span class="desc oneline">最近在学习手眼标定，做下笔记，和大家分享下学习经历：一手眼标定的两种情形首先讲一下在工业应用中，手和眼（摄像机）的两种位置关系，第一种是将摄像机（眼）固定在机械手（手）上面，眼随手移动；第二种是摄像机...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u011089570">来自：	<span class="blog_title"> wzj5530的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wjdexz/article/details/78516585,BlogCommendFromBaidu_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wjdexz/article/details/78516585" target="_blank" title="经典手眼标定算法之Tsai-Lenz">
+		<h4 class="text-truncate oneline">
+				经典<em>手眼</em><em>标定</em>算法之Tsai-Lenz		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2375</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wjdexz/article/details/78516585" target="_blank" title="经典手眼标定算法之Tsai-Lenz">
+				<span class="desc oneline">文章转载自：经典手眼标定算法之Tsai-Lenz的OpenCV实现：http://blog.csdn.net/YunlinWang/article/details/51622143本文主要是讲解经典手...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wjdexz">来自：	<span class="blog_title"> wjdexz的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Sandy_WYM_/article/details/83503861,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Sandy_WYM_/article/details/83503861" target="_blank" title="手眼标定（一）：AX = XB方程详细推导">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>（一）：AX = XB方程详细推导		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-06</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3490</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Sandy_WYM_/article/details/83503861" target="_blank" title="手眼标定（一）：AX = XB方程详细推导">
+				<span class="desc oneline"></span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Sandy_WYM_">来自：	<span class="blog_title"> Sandy_WYM_的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/heretic1993/article/details/82116742,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/heretic1993/article/details/82116742" target="_blank" title="让机械臂自动进行手眼标定---以Dobot Magician和Realsense为例（附示例代码）">
+		<h4 class="text-truncate oneline">
+				让机械臂自动进行<em>手眼</em><em>标定</em>---以Dobot Magician和Realsense为例（附示例代码）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5964</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/heretic1993/article/details/82116742" target="_blank" title="让机械臂自动进行手眼标定---以Dobot Magician和Realsense为例（附示例代码）">
+				<span class="desc oneline">你需要看这篇文章吗？  这篇文章描述的是如何自动化手眼标定（眼在手外，eye-to-hand）过程，以建立机械臂坐标系和摄像头坐标系之间的转换关系。示例的硬件环境是DobotMagician机械手、I...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/heretic1993">来自：	<span class="blog_title"> heretic1993的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hit1524468/article/details/79782276,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hit1524468/article/details/79782276" target="_blank" title="相机标定序列——Tsai两步标定">
+		<h4 class="text-truncate oneline">
+				相机<em>标定</em>序列——Tsai两步<em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2066</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hit1524468/article/details/79782276" target="_blank" title="相机标定序列——Tsai两步标定">
+				<span class="desc oneline"></span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hit1524468">来自：	<span class="blog_title"> hit1524468的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_24946843/article/details/84376894,BlogCommendFromBaidu_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_24946843/article/details/84376894" target="_blank" title="halcon第二十四讲：手眼标定基本原理">
+		<h4 class="text-truncate oneline">
+				halcon第二十四讲：<em>手眼</em><em>标定</em><em>基本原理</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2551</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_24946843/article/details/84376894" target="_blank" title="halcon第二十四讲：手眼标定基本原理">
+				<span class="desc oneline">手眼标定涉及的坐标系有：工件坐标系	工具坐标系	相机坐标系（相机坐标系里又有图像坐标系和像素坐标系，这其实就是前面讲的单目标定的内容）	基坐标系手眼标定一般有两种形式：1、相机固定（eye-to-ha...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_24946843">来自：	<span class="blog_title"> qq_24946843的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/392036608,BlogCommendFromBaidu_7"}'>
+	<a href="https://bbs.csdn.net/topics/392036608" target="_blank">
+		<h4 class="text-truncate oneline">
+				机械臂<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">10-23</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">只有机械臂的三维实体模型，无机械臂实体，能否进行手眼标定求取手眼关系啊，如果能应该怎么做 ，求助大神！</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_20161893/article/details/73302043,BlogCommendFromBaidu_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_20161893/article/details/73302043" target="_blank" title="Halcon学习（五）手眼标定之眼在手外">
+		<h4 class="text-truncate oneline">
+				Halcon学习（五）<em>手眼</em><em>标定</em>之眼在手外		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_20161893/article/details/73302043" target="_blank" title="Halcon学习（五）手眼标定之眼在手外">
+				<span class="desc oneline">首先了解变换的步骤，而后再深究其数学原理。眼在手外的标定，分为以下几步：1.图像处理，定位抓取点坐标。2.在放置物体的平面上放置halcon标定板，将标定板坐标系定义为参考坐标系，利用相机标定得到的内...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yaked/article/details/77161160,BlogCommendFromBaidu_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yaked/article/details/77161160" target="_blank" title="机器人手眼标定Ax=xB（eye to hand和eye in hand）及平面九点法标定">
+		<h4 class="text-truncate oneline">
+				机器人<em>手眼</em><em>标定</em>Ax=xB（eye to hand和eye in hand）及平面九点法<em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yaked/article/details/77161160" target="_blank" title="机器人手眼标定Ax=xB（eye to hand和eye in hand）及平面九点法标定">
+				<span class="desc oneline">一、背景机器人视觉应用中，手眼标定是一个非常基础且关键的问题。简单来说手眼标定的目的就是获取机器人坐标系和相机坐标系的关系，最后将视觉识别的结果转移到机器人坐标系下。手眼标定行业内分为两种形式，根据相...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yaked">来自：	<span class="blog_title"> Learning by doing</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huanghundechenxi/article/details/82025466,BlogCommendFromBaidu_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huanghundechenxi/article/details/82025466" target="_blank" title="手眼标定（九点法）">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>（九点法）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huanghundechenxi/article/details/82025466" target="_blank" title="手眼标定（九点法）">
+				<span class="desc oneline">所谓手眼系统，就是人眼镜看到一个东西的时候要让手去抓取，就需要大脑知道眼镜和手的坐标关系。如果把大脑比作B，把眼睛比作A，把手比作C,如果A和B的关系知道，B和C的关系知道，那么C和A的关系就知道了，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huanghundechenxi">来自：	<span class="blog_title"> 黄昏的晨曦</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/YunlinWang/article/details/51622143,BlogCommendFromBaidu_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/YunlinWang/article/details/51622143" target="_blank" title="经典手眼标定算法之Tsai-Lenz的OpenCV实现">
+		<h4 class="text-truncate oneline">
+				经典<em>手眼</em><em>标定</em>算法之Tsai-Lenz的OpenCV实现		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/YunlinWang/article/details/51622143" target="_blank" title="经典手眼标定算法之Tsai-Lenz的OpenCV实现">
+				<span class="desc oneline">本文主要是讲解经典手眼标定问题中的TSAI-LENZ文献方法，参考文献为“ANewTechniqueforFullyAutonomousandEfficient3DRoboticsHand/EyeCa...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/YunlinWang">来自：	<span class="blog_title"> YunlinWang的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34018169/article/details/87061110,BlogCommendFromBaidu_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34018169/article/details/87061110" target="_blank" title="手眼标定之基本原理">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>之<em>基本原理</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					500</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34018169/article/details/87061110" target="_blank" title="手眼标定之基本原理">
+				<span class="desc oneline">原文首发于微信公众号【视觉IMAX】。一前言机器人的视觉系统分为固定场景视觉系统和运动的「手-眼」视觉系统。摄像机与机器人的手部末端，构成手眼视觉系统。根据摄像机与机器人相互位置的不同，手眼视觉系统分...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34018169">来自：	<span class="blog_title"> weixin_34018169的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_16481211/article/details/79472613,BlogCommendFromBaidu_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_16481211/article/details/79472613" target="_blank" title="手眼标定">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1438</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_16481211/article/details/79472613" target="_blank" title="手眼标定">
+				<span class="desc oneline">两种情形手眼标定系统一般有两种情况：一种是相机固定在机械手末端，一种是相机和机械手分离，眼的位置相对于手是固定的。这个很容易理解。相机固定在机械臂上的情形我们会用到四个坐标系，分别是基础坐标系，机械手...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_16481211">来自：	<span class="blog_title"> 二毛的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/YunlinWang/article/details/51871520,BlogCommendFromBaidu_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/YunlinWang/article/details/51871520" target="_blank" title="经典手眼标定算法之Navy的OpenCV实现">
+		<h4 class="text-truncate oneline">
+				经典<em>手眼</em><em>标定</em>算法之Navy的OpenCV实现		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/YunlinWang/article/details/51871520" target="_blank" title="经典手眼标定算法之Navy的OpenCV实现">
+				<span class="desc oneline">介绍FrankC.ParkandBryanJ.Martin在文献Robotsensorcalibration:solvingAX=XBontheEuclideangroup中提出的手眼标定算法，该算法...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/YunlinWang">来自：	<span class="blog_title"> YunlinWang的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010128736/article/details/52860364,BlogCommendFromBaidu_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010128736/article/details/52860364" target="_blank" title="张正友标定算法原理详解">
+		<h4 class="text-truncate oneline">
+				张正友<em>标定</em>算法原理<em>详解</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010128736/article/details/52860364" target="_blank" title="张正友标定算法原理详解">
+				<span class="desc oneline">张正友标定算法原理详解</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010128736">来自：	<span class="blog_title"> sylvester的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wjdexz/article/details/78516586,BlogCommendFromBaidu_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wjdexz/article/details/78516586" target="_blank" title="经典手眼标定算法之Navy">
+		<h4 class="text-truncate oneline">
+				经典<em>手眼</em><em>标定</em>算法之Navy		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3131</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wjdexz/article/details/78516586" target="_blank" title="经典手眼标定算法之Navy">
+				<span class="desc oneline">文章转载自：经典手眼标定算法之Navy的OpenCV实现：http://blog.csdn.net/yunlinwang/article/details/51871520在我的上一篇博客中已经介绍了T...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wjdexz">来自：	<span class="blog_title"> wjdexz的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/happyjume/article/details/80847822,BlogCommendFromBaidu_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/happyjume/article/details/80847822" target="_blank" title="手眼标定之9点法">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>之9点法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/happyjume/article/details/80847822" target="_blank" title="手眼标定之9点法">
+				<span class="desc oneline">写在前面由于涉及到公司的一些内容，本文仅做方法和思路记录，请见谅。用途9点法标定是工业上使用广泛的二维手眼标定，所谓二维，即工作平面限制在一个平面上，常用于从固定平面抓取对象进行装配等操作，这种应用场...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/happyjume">来自：	<span class="blog_title"> GoRunningSnail的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/coldplayplay/article/details/79106134,BlogCommendFromBaidu_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/coldplayplay/article/details/79106134" target="_blank" title="手眼标定过程记录">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>过程记录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4777</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/coldplayplay/article/details/79106134" target="_blank" title="手眼标定过程记录">
+				<span class="desc oneline">手眼标定过程记录============================================================================================...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/coldplayplay">来自：	<span class="blog_title"> coldplayplay的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_20161893/article/details/73499786,BlogCommendFromBaidu_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_20161893/article/details/73499786" target="_blank" title="手眼标定中的closed chain">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>中的closed chain		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					577</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_20161893/article/details/73499786" target="_blank" title="手眼标定中的closed chain">
+				<span class="desc oneline">TheremainingtwotransformationsbaseHtooland camHcaloftheclosedchainoftransformationsdependonthe robot...</span>
+			</a>
+			<span class="blog_title_box oneline no-title">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/jjss0606/10111767,BlogCommendFromBaidu_21"}'>
+		<a href="https://download.csdn.net/download/jjss0606/10111767" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						机器人<em>手眼</em><em>标定</em>及视觉引导技术					</h4>
+					<span class="data float-right">11-09</span>
+				</div>
+				<div class="desc oneline">
+						机器人手眼标定及视觉引导技术				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Xiongchao99/article/details/52850990,BlogCommendFromBaidu_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Xiongchao99/article/details/52850990" target="_blank" title="基于视觉伺服的工业机器人系统研究（摄像机标定、手眼标定、目标单目定位）">
+		<h4 class="text-truncate oneline">
+				基于视觉伺服的工业机器人系统研究（摄像机<em>标定</em>、<em>手眼</em><em>标定</em>、目标单目定位）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Xiongchao99/article/details/52850990" target="_blank" title="基于视觉伺服的工业机器人系统研究（摄像机标定、手眼标定、目标单目定位）">
+				<span class="desc oneline">一、标定技术常见的机器人视觉伺服中要实现像素坐标与实际坐标的转换，首先就要进行标定，对于实现视觉伺服控制，这里的标定不仅包括摄像机标定，也包括机器人系统的手眼标定。以常见的焊接机器人系统为例，有两种构...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Xiongchao99">来自：	<span class="blog_title"> Xiongchao99的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/392488814,BlogCommendFromBaidu_23"}'>
+	<a href="https://bbs.csdn.net/topics/392488814" target="_blank">
+		<h4 class="text-truncate oneline">
+				机器人<em>手眼</em><em>标定</em>Matlab程序（高精度）下载		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">12-06</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">最近做科研用到手眼系统标定，在网上搜索方法无果，于是自己亲自编写手眼标定程序，经验证，具有较高精度。 相关下载链接：//download.csdn.net/download/qq_22790615/1</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/perfect_666/11018390,BlogCommendFromBaidu_24"}'>
+		<a href="https://download.csdn.net/download/perfect_666/11018390" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						机器视觉<em>手眼</em><em>标定</em><em>详解</em>，有用					</h4>
+					<span class="data float-right">03-14</span>
+				</div>
+				<div class="desc oneline">
+						目录 1. 相机固定不动 , 上往下看 引导 机器人 移动 2. 相机固定不动 , 下往上看 3. 相机固定在器人上 相机固定在器人上 ，离旋转中心较近 离旋转中心较近 离旋转中心较近 4. 相机固定				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Cedaroski/article/details/82491337,BlogCommendFromBaidu_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Cedaroski/article/details/82491337" target="_blank" title="手眼标定的一些经验（基于眼在手上和眼在手外）">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>的一些经验（基于眼在手上和眼在手外）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3584</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Cedaroski/article/details/82491337" target="_blank" title="手眼标定的一些经验（基于眼在手上和眼在手外）">
+				<span class="desc oneline">手眼标定是机器视觉进行应用的开端。狭义上将，进行机械臂抓取之前，必定要进行手眼标定，以完成视觉传感器到执行机械臂的互联。广义上讲，任何需要机器视觉以及执行机构的设备，比如自动驾驶系统，或者三维重构系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Cedaroski">来自：	<span class="blog_title"> Cedaroski的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/lingfengliujian/9157761,BlogCommendFromBaidu_26"}'>
+		<a href="https://download.csdn.net/download/lingfengliujian/9157761" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						Camera Calibration相机<em>标定</em><em>详解</em>（原理、模型、算法）					</h4>
+					<span class="data float-right">10-05</span>
+				</div>
+				<div class="desc oneline">
+						本资源主要分为三部分： （一）PDF文件：主要阐述摄像机标定的基本原理、标定方法的分类、以及传统摄像机标定方法、主动视觉摄像机标定方法、摄像机自标定方法这三类标定方法的应用背景、理论原理、算法实现和各				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Yong_Qi2015/article/details/81366067,BlogCommendFromBaidu_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Yong_Qi2015/article/details/81366067" target="_blank" title="一分钟详解OpenCV之相机标定函数calibrateCamera()">
+		<h4 class="text-truncate oneline">
+				<em>一分钟</em><em>详解</em>OpenCV之相机<em>标定</em>函数calibrateCamera()		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1674</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Yong_Qi2015/article/details/81366067" target="_blank" title="一分钟详解OpenCV之相机标定函数calibrateCamera()">
+				<span class="desc oneline">doublecv::calibrateCamera(InputArrayOfArraysobjectPoints,InputArrayOfArraysimagePoints,SizeimageSize...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Yong_Qi2015">来自：	<span class="blog_title"> 3D视觉工坊</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_16481211/article/details/79767100,BlogCommendFromBaidu_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_16481211/article/details/79767100" target="_blank" title="eye-in-hand手眼标定系统">
+		<h4 class="text-truncate oneline">
+				eye-in-hand<em>手眼</em><em>标定</em>系统		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6232</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_16481211/article/details/79767100" target="_blank" title="eye-in-hand手眼标定系统">
+				<span class="desc oneline">上一个博文说了一种手眼标定系统的特殊情况，就是相机随着机械手一起移动的情况。虽然前面简单介绍了一种办法，就是内次拍照时让相机回到之前标定的位置，但是这样处理机器人的工作效率就会大大降低，产生很多重复动...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_16481211">来自：	<span class="blog_title"> 二毛的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010368556/article/details/81585422,BlogCommendFromBaidu_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010368556/article/details/81585422" target="_blank" title="手眼标定算法---Navy算法（Robot sensor calibration: solving AX=XB on the Euclidean group）">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>算法---Navy算法（Robot sensor calibration: solving AX=XB on the Euclidean group）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3079</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010368556/article/details/81585422" target="_blank" title="手眼标定算法---Navy算法（Robot sensor calibration: solving AX=XB on the Euclidean group）">
+				<span class="desc oneline">本文主要介绍FrankC.ParkandBryanJ.Martin在文献Robotsensorcalibration:solvingAX=XBontheEuclideangroup中提出的手眼标定算法...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010368556">来自：	<span class="blog_title"> hairuiJY</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_26492643/article/details/88311216,BlogCommendFromBaidu_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_26492643/article/details/88311216" target="_blank" title="相机标定与手眼标定小记">
+		<h4 class="text-truncate oneline">
+				相机<em>标定</em>与<em>手眼</em><em>标定</em>小记		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					685</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_26492643/article/details/88311216" target="_blank" title="相机标定与手眼标定小记">
+				<span class="desc oneline">手眼标记（眼在手外）做到最后就发现相机标定最后要的就是相机内参矩阵以及畸变矩阵，opencv中有单独的函数可以根据内参和畸变矩阵以及图片中的角点来求出外参矩阵......</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_26492643">来自：	<span class="blog_title"> SZdSJ的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/opencv_learner/article/details/82113323,BlogCommendFromBaidu_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/opencv_learner/article/details/82113323" target="_blank" title="一文读懂halcon 手眼标定的坐标转换">
+		<h4 class="text-truncate oneline">
+				一文读懂halcon <em>手眼</em><em>标定</em>的坐标转换		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2600</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/opencv_learner/article/details/82113323" target="_blank" title="一文读懂halcon 手眼标定的坐标转换">
+				<span class="desc oneline">一直以来，对于手眼标定所涉及到的坐标系及坐标系之间的转换关系都没能有一个很好的理解，最近找了halcon手眼标定的实例在研究，发现对于相机的两种安装方式（眼在手和眼在手外），其坐标转换关系是类似的，这...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/opencv_learner">来自：	<span class="blog_title"> opencv_learner的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zhang970187013/article/details/81098175,BlogCommendFromBaidu_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zhang970187013/article/details/81098175" target="_blank" title="UR5、Kinect2手眼标定总结">
+		<h4 class="text-truncate oneline">
+				UR5、Kinect2<em>手眼</em><em>标定</em>总结		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4521</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zhang970187013/article/details/81098175" target="_blank" title="UR5、Kinect2手眼标定总结">
+				<span class="desc oneline">花了几天的时间，在师兄的帮助下完成了手眼标定的工作。现在就我个人出现的问题做一下总结。首先引用师兄博文https://blog.csdn.net/sinat_23853639/article/deta...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zhang970187013">来自：	<span class="blog_title"> zhang970187013的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_40609307/article/details/81110012,BlogCommendFromBaidu_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_40609307/article/details/81110012" target="_blank" title="手眼标定学习记录（更新）">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>学习记录（更新）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1267</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_40609307/article/details/81110012" target="_blank" title="手眼标定学习记录（更新）">
+				<span class="desc oneline">一、Eigen中quaternion的构造函数Quaternion(constScalar&amp;amp;amp;w,constScalar&amp;amp;amp;x,constScalar&amp;amp;amp;y,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_40609307">来自：	<span class="blog_title"> weixin_40609307的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weicao1990/article/details/84203142,BlogCommendFromBaidu_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weicao1990/article/details/84203142" target="_blank" title="手眼标定文章汇总">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>文章汇总		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1248</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weicao1990/article/details/84203142" target="_blank" title="手眼标定文章汇总">
+				<span class="desc oneline">经典手眼标定算法之Tsai-Lenz的OpenCV实现：https://blog.csdn.net/yunlinwang/article/details/51622143用VISP+Opencv做相机...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weicao1990">来自：	<span class="blog_title"> 洪流之源</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_40799950/article/details/82594537,BlogCommendFromBaidu_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_40799950/article/details/82594537" target="_blank" title="UR10 RG2机械臂手臂+RealsenseZR300 机器人手眼标定 系列第四篇">
+		<h4 class="text-truncate oneline">
+				UR10 RG2机械臂手臂+RealsenseZR300 机器人<em>手眼</em><em>标定</em> 系列第四篇		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2211</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_40799950/article/details/82594537" target="_blank" title="UR10 RG2机械臂手臂+RealsenseZR300 机器人手眼标定 系列第四篇">
+				<span class="desc oneline">参考文章了链接：https://blog.csdn.net/zhang970187013/article/details/81098175https://github.com/IFL-CAMP/eas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_40799950">来自：	<span class="blog_title"> weixin_40799950的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010368556/article/details/81585385,BlogCommendFromBaidu_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010368556/article/details/81585385" target="_blank" title="手眼标定算法---Sai-Lenz(A New Technique for Fully Autonomous and Efficient 3D Robotics Hand/Eye Calibrati)">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>算法---Sai-Lenz(A New Technique for Fully Autonomous and Efficient 3D Robotics Hand/Eye Calibrati)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					732</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010368556/article/details/81585385" target="_blank" title="手眼标定算法---Sai-Lenz(A New Technique for Fully Autonomous and Efficient 3D Robotics Hand/Eye Calibrati)">
+				<span class="desc oneline"> 本文主要是讲解经典手眼标定问题中的TSAI-LENZ文献方法，参考文献为“ANewTechniqueforFullyAutonomousandEfficient3DRoboticsHand/EyeC...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010368556">来自：	<span class="blog_title"> hairuiJY</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/we_all_konw/10236007,BlogCommendFromBaidu_37"}'>
+		<a href="https://download.csdn.net/download/we_all_konw/10236007" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						halcon <em>手眼</em><em>标定</em>资料					</h4>
+					<span class="data float-right">02-01</span>
+				</div>
+				<div class="desc oneline">
+						halcon 手眼标定资料halcon 手眼标定资料halcon 手眼标定资料				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinat_23853639/article/details/80276848,BlogCommendFromBaidu_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinat_23853639/article/details/80276848" target="_blank" title="ROS下kinect2、ur5标定-内外参、配准、手眼标定">
+		<h4 class="text-truncate oneline">
+				ROS下kinect2、ur5<em>标定</em>-内外参、配准、<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4976</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinat_23853639/article/details/80276848" target="_blank" title="ROS下kinect2、ur5标定-内外参、配准、手眼标定">
+				<span class="desc oneline">本文是对近期工作的一个总结，上段时间已经完成了Kinect2驱动、ROS依赖包的安装，以及ur5机器人的URDF、驱动安装等。而且分步走通了物体位姿识别、MoveIt!点云信息导入、实物机器人联动等功...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinat_23853639">来自：	<span class="blog_title"> SUJI的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/392300435,BlogCommendFromBaidu_39"}'>
+	<a href="https://bbs.csdn.net/topics/392300435" target="_blank">
+		<h4 class="text-truncate oneline">
+				opencv<em>手眼</em><em>标定</em>中矩阵方程DX=XC求解问题		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">12-20</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">openCV中，求解手眼标定矩阵。D为机器人末端转换矩阵，C为相机末端转换矩阵。现在得到了一系列Di，Ci。如何求解矩阵X?</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012177450/article/details/80437657,BlogCommendFromBaidu_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012177450/article/details/80437657" target="_blank" title="Halcon SCARA关节机器人手眼标定（眼在手上）例程注解——calibrate_hand_eye_scara_moving_cam.hdev">
+		<h4 class="text-truncate oneline">
+				Halcon SCARA关节机器人<em>手眼</em><em>标定</em>（眼在手上）例程注解——calibrate_hand_eye_scara_moving_cam.hdev		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5842</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012177450/article/details/80437657" target="_blank" title="Halcon SCARA关节机器人手眼标定（眼在手上）例程注解——calibrate_hand_eye_scara_moving_cam.hdev">
+				<span class="desc oneline">*****calibrate_hand_eye_scara_moving_cam.hdev************scara关节机器人眼在手上的手眼标定例程********Thisexampleexp...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012177450">来自：	<span class="blog_title"> u012177450的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lamusique/article/details/86309446,BlogCommendFromBaidu_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lamusique/article/details/86309446" target="_blank" title="摄像头和机械臂的手眼标定">
+		<h4 class="text-truncate oneline">
+				摄像头和机械臂的<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					572</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lamusique/article/details/86309446" target="_blank" title="摄像头和机械臂的手眼标定">
+				<span class="desc oneline">手眼关系的数学描述1.eyeinhand，这种关系下，两次运动，机器人底座和标定板的关系始终不变。求解的量为相机和机器人末端坐标系的位姿关系。2.eyetohand，这种关系下，两次运动，机器人末端和...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lamusique">来自：	<span class="blog_title"> 青春正年少我要大声笑lamusique</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/392493020,BlogCommendFromBaidu_42"}'>
+	<a href="https://bbs.csdn.net/topics/392493020" target="_blank">
+		<h4 class="text-truncate oneline">
+				Halcon<em>手眼</em><em>标定</em>程序下载		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">12-13</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">HALCON机械手手眼四点标定，从别的地方下载过来的，大家一起分享 相关下载链接：//download.csdn.net/download/weixin_42440353/10848094?utm_s</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+<div class="recommend-item-box  recommend-other-item-box"  data-track-click='{"mod":"popu_387","con":",https://bbs.csdn.net/topics/391091548,BlogCommendFromBaidu_43"}'>
+	<a href="https://bbs.csdn.net/topics/391091548" target="_blank">
+		<h4 class="text-truncate oneline">
+				求机器视觉<em>手眼</em><em>标定</em>的源程序		</h4>
+		<div class="info-box d-flex align-content-center">
+				<span class="date">07-28</span>
+		</div>
+		<p class="content oneline">
+			<span class="desc oneline">导师让编写一个机器视觉的手（机器手）眼（摄像机）标定的C++程序，完全不懂，求大神赐我一个程序包。灰常感谢。</span>
+							<span class="type-show type-show-bbs">论坛</span>
+					</p>
+	</a>
+
+</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sunlinsunshine/article/details/82313924,BlogCommendFromBaidu_44"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sunlinsunshine/article/details/82313924" target="_blank" title="手眼标定（eye_to_hand）">
+		<h4 class="text-truncate oneline">
+				<em>手眼</em><em>标定</em>（eye_to_hand）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1745</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sunlinsunshine/article/details/82313924" target="_blank" title="手眼标定（eye_to_hand）">
+				<span class="desc oneline">   最近在研究手眼标定，所用设备为SCARA机器人，单相机，相机固定在支架上，不随机械手一起移动（即eye_to_hand）。由于机械手末端法兰没有装夹具，看了很多相关的论文，用的方法都是机械手末端...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sunlinsunshine">来自：	<span class="blog_title"> sunlinsunshine的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/why2664458/article/details/77849981,BlogCommendFromBaidu_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/why2664458/article/details/77849981" target="_blank" title="(5-III)   机器人手眼标定(手眼标定系列-仅限内部学员)                                                               (黑土 Q">
+		<h4 class="text-truncate oneline">
+				(5-III)   机器人<em>手眼</em><em>标定</em>(<em>手眼</em><em>标定</em>系列-仅限内部学员)                                                               (黑土 Q		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4587</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/why2664458/article/details/77849981" target="_blank" title="(5-III)   机器人手眼标定(手眼标定系列-仅限内部学员)                                                               (黑土 Q">
+				<span class="desc oneline">https://why2664458.taobao.com</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/why2664458">来自：	<span class="blog_title"> 黑土halcon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xu1129005165/article/details/83178122,BlogCommendFromBaidu_46"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xu1129005165/article/details/83178122" target="_blank" title="UR10 RG2机械臂手臂+RealsenseZR300 机器人手眼标定">
+		<h4 class="text-truncate oneline">
+				UR10 RG2机械臂手臂+RealsenseZR300 机器人<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					516</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xu1129005165/article/details/83178122" target="_blank" title="UR10 RG2机械臂手臂+RealsenseZR300 机器人手眼标定">
+				<span class="desc oneline">1IntelRealsenseZR300相机外参标定首先，标定的原理是：基坐标系（base_tree）和相机（camera_tree）两个坐标系属于不同的tree，通过将标签贴到手上，相机识别出标签的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xu1129005165">来自：	<span class="blog_title"> 穿着帆布鞋也能走猫步</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Isaac320/article/details/80078579,BlogCommendFromBaidu_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Isaac320/article/details/80078579" target="_blank" title="六轴机械手与相机的手眼标定">
+		<h4 class="text-truncate oneline">
+				六轴机械手与相机的<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2689</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Isaac320/article/details/80078579" target="_blank" title="六轴机械手与相机的手眼标定">
+				<span class="desc oneline">利用相机视觉定位，并用机械手抓取。 一、相机固定的情况     我们需要的最终结果，即得到base与cam的空间位置关系，即一个4*4的变换矩阵。这个可以通过移动tool，多次拍摄标定板来计算得到。 ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Isaac320">来自：	<span class="blog_title"> 海盗Isaac</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/yunlinwang/9545212,BlogCommendFromBaidu_48"}'>
+		<a href="https://download.csdn.net/download/yunlinwang/9545212" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						经典<em>手眼</em><em>标定</em>算法C++代码					</h4>
+					<span class="data float-right">06-09</span>
+				</div>
+				<div class="desc oneline">
+						经典手眼标定算法C++代码，程序是基于OpenCV 2.0以上版本，下载程序后需要配置OpenCV。工程主要包括三个文件，handeye.h为各种手眼标定的实现，quaternion.h为四元数运算文				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/opencv_learner/article/details/82013108,BlogCommendFromBaidu_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/opencv_learner/article/details/82013108" target="_blank" title="halcon之眼在手外的手眼标定">
+		<h4 class="text-truncate oneline">
+				halcon之眼在手外的<em>手眼</em><em>标定</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1868</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/opencv_learner/article/details/82013108" target="_blank" title="halcon之眼在手外的手眼标定">
+				<span class="desc oneline">*此示例说明如何为SCARA机器人执行手眼校准。在这种情况下，相机相对于机器人静止并观察机器人的工作空间。的*校准板附接至所述机器人的工具。*最后，校准结果以及确定要抓取的对象位置所需的数据*被写入文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/opencv_learner">来自：	<span class="blog_title"> opencv_learner的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendHotData_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendHotData_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于python selenium的文章，请关注我的专栏：Python Selenium自动化测试详解
+
+
+
+
+看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendHotData_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包
+
+ http://www.pythonware.com/products/pil/
+
+ 
+
+2.解压后，进入到目录下
+
+
+cd /Users/jianan/Dow...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+服务器全栈</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					65万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendHotData_28"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)
+
+最近需要网页添加多个倒计时. 查阅网络,基本上都是千遍一律的不好用. 自己按需写了个.希望对大家有用. 有用请赞一个哦!
+
+
+
+//js
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaMgxsNTktZWR1.html" target="_blank">
+                        一分钟学习区块链</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/MtTaIg2sODQtZWR1.html" target="_blank">
+                        区块链详解</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/Yong_Qi2015">
+              <img src="https://avatar.csdn.net/5/9/2/3_yong_qi2015.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/4.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/Yong_Qi2015" target="_blank" class="" id="uid">3D视觉工坊</a>
+            </p>
+                          <p class="flag expert">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="104">
+                        <dt><a href="https://blog.csdn.net/yong_qi2015?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/yong_qi2015?t=1"><span class="count">104</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="289">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">289</span></dd>
+        </dl>
+        <dl class="text-center" title="65">
+            <dt>喜欢</dt>
+            <dd><span class="count">65</span></dd>
+        </dl>
+        <dl class="text-center" title="84">
+            <dt>评论</dt>
+            <dd><span class="count">84</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="5级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-5"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="125058">
+                12万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="2075">
+                2075            </dd>
+        </dl>
+        <dl title="31537">
+            <dt>排名：</dt>
+            <dd>3万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="专栏达人">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/zhuanlan.svg" alt="">
+                                   <p>专栏达人</p>
+                               </div>
+                               <div class="right-box">
+                                   授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t2.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Yong_Qi2015/article/details/90647005" target="_blank">OpenCV中initUndistortRectifyMap函数存在bug原因探究</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Yong_Qi2015/article/details/90646906" target="_blank">如何入门3D视觉？</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Yong_Qi2015/article/details/89674612" target="_blank">条件滤波、半径滤波移除离群点</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Yong_Qi2015/article/details/89669548" target="_blank">使用参数化化模型投影点云</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Yong_Qi2015/article/details/89669518" target="_blank">体素法滤波(附实现代码)</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Yong_Qi2015/column/info/19112">
+                            <img src="https://img-blog.csdnimg.cn/20190418114231566.jpeg?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Yong_Qi2015/column/info/19112">3D视觉工坊</a></p>
+                        <div class="data">文章数：<span class="count">52 篇</span> 访问量：<span>5万+</span></div>
+                    </div>
+                </li>
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/Yong_Qi2015/column/info/31660">
+                            <img src="https://img-blog.csdnimg.cn/20181228161820564.jpeg?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/Yong_Qi2015/column/info/31660">AI工坊</a></p>
+                        <div class="data">文章数：<span class="count">0 篇</span> 访问量：<span>170</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/6485366">
+                    <span class="title oneline">图像处理</span>
+                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7419415">
+                    <span class="title oneline">C++开发</span>
+                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7419418">
+                    <span class="title oneline">OpenCV</span>
+                    <span class="count float-right">20篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7419420">
+                    <span class="title oneline">Python</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7419422">
+                    <span class="title oneline">Socket网络通信</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7419770">
+                    <span class="title oneline">QT</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7420497">
+                    <span class="title oneline">相机</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7420559">
+                    <span class="title oneline">MFC</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7423064">
+                    <span class="title oneline">学习工具</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7428941">
+                    <span class="title oneline">Chat</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7479713">
+                    <span class="title oneline">项目经验分享</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7554207">
+                    <span class="title oneline">Matlab</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7587803">
+                    <span class="title oneline">CSDN排版</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7648757">
+                    <span class="title oneline">PCL</span>
+                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7651205">
+                    <span class="title oneline">SLAM </span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7660545">
+                    <span class="title oneline">工具类</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7805114">
+                    <span class="title oneline">读书笔记</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7829309">
+                    <span class="title oneline">3D相机开发</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7892595">
+                    <span class="title oneline">知识星球</span>
+                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7934234">
+                    <span class="title oneline">视觉IMAX</span>
+                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/7971087">
+                    <span class="title oneline">机器学习</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/8815955">
+                    <span class="title oneline">CUDA</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/yong_qi2015/article/category/8878593">
+                    <span class="title oneline">PCL学习</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2019/04">
+                    2019年4月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2019/01">
+                    2019年1月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/12">
+                    2018年12月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/11">
+                    2018年11月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/10">
+                    2018年10月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/09">
+                    2018年9月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yong_qi2015/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/yong_qi2015/article/details/88220607">一分钟详解「手眼标定」基本原理</a>
+					<p class="read">阅读数 <span>20471</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yong_qi2015/article/details/53404506">重投影误差</a>
+					<p class="read">阅读数 <span>8093</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yong_qi2015/article/details/53350474">罗德里格斯变换</a>
+					<p class="read">阅读数 <span>7925</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yong_qi2015/article/details/52949862">形态学滤波：腐蚀与膨胀（浅谈）</a>
+					<p class="read">阅读数 <span>6888</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yong_qi2015/article/details/52950089">PointGrey相机的安装配置使用</a>
+					<p class="read">阅读数 <span>5211</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yong_qi2015/article/details/52950089#comments">PointGrey相机的安装配置使用</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/Qiu_xy" class="user-name" target="_blank">Qiu_xy：</a>[reply]weixin_41202834[/reply]
+你好 你这个问题解决了吗？我最近也想要用python打开pointgrey相机 但是不知道该怎么做，所以想请教你一下                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yong_qi2015/article/details/80099844#comments">粒子滤波在图像跟踪领域的实践</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_41925707" class="user-name" target="_blank">qq_41925707：</a>可以                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yong_qi2015/article/details/81712507#comments">Matlab R2018a 64位...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_44780677" class="user-name" target="_blank">qq_44780677：</a>我知道了，就是在微信里打开链接MATLAB后，再点击一下就会出现4个部分，其中一个是path,而不是在下载的安装包里                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yong_qi2015/article/details/81712507#comments">Matlab R2018a 64位...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_44780677" class="user-name" target="_blank">qq_44780677：</a>step8,没看见path文件夹啊？                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yong_qi2015/article/details/79161683#comments">Qt Data Visualiza...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/tangdaxue43" class="user-name" target="_blank">tangdaxue43：</a>来源：Qt官方文档。
+https://doc.qt.io/qt-5/datavisualization-examples.html                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+<!--自定义模块-->
+<div id="asideCustom42721352" class="aside-box custom-box">
+    <h3 class="aside-title">自我介绍</h3>
+    <div class="aside-content clearfix">
+        
+博主小硕一枚，兴趣领域：计算机视觉；图像处理；喜欢C&#43;&#43;、OpenCV、Matlab、VS、UG等各种优秀的、提高生产力的工具。喜欢羽毛球、桌球。
+    </div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>3</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/yong_qi2015/article/details/88186759" title="3D视觉工坊——一个有趣有料的星球">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/yong_qi2015/article/details/88312090" title="VS项目工程管理技巧">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/yong_qi2015/article/details/88186759" title="3D视觉工坊——一个有趣有料的星球">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/yong_qi2015/article/details/88312090" title="VS项目工程管理技巧">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 88;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 28;
+    var articleId = "88220607";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/Yong_Qi2015/article/details/88220607";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "一分钟详解「手眼标定」基本原理 - 3D视觉工坊";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = 'atom-one-dark';
+	var highlight = ["\u4e00\u5206\u949f","\u8be6\u89e3","\u624b\u773c","\u6807\u5b9a","\u57fa\u672c\u539f\u7406"];//高亮数组
+
+    var RecommendBlogExpertList = [];
+	var articleType = 1;
+	var CopyrightContent = '本文为博主原创文章，未经博主允许不得转载。';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

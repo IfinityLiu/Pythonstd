@@ -1,0 +1,3789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/tangyang8941/article/details/85230431"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"一起走进动物园管理员——ZooKeeper - IT教育-汤小洋"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>一起走进动物园管理员——ZooKeeper - IT教育-汤小洋 - CSDN博客</title>
+
+        
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7fc618a1d6.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/tangyang8941\/article\/details\/85230431","appid":"1563894916825412","title":"\u4e00\u8d77\u8d70\u8fdb\u52a8\u7269\u56ed\u7ba1\u7406\u5458\u2014\u2014ZooKeeper - IT\u6559\u80b2-\u6c64\u5c0f\u6d0b","images":["https:\/\/img-blog.csdnimg.cn\/20181224110511296","https:\/\/img-blog.csdnimg.cn\/20181224105736931.jpg?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70","https:\/\/img-blog.csdnimg.cn\/20181224105800909.png?x-oss-process=image\/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70"],"pubDate":"2019-06-05T20:05:46"}</script>
+        
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-9b39979775.min.css">
+        <script type="text/javascript">
+        var username = "tangyang8941";
+        var blog_address = "https://blog.csdn.net/tangyang8941";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/tangyang8941/article/details/85230431"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin3-template";
+        // 第四范式所需数据
+        var articleTitles = "一起走进动物园管理员——ZooKeeper - IT教育-汤小洋";
+        
+        var nickName = "IT教育-汤小洋";
+        var isCorporate = false;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/tangyang8941/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/tangyang8941/article/details/85230431";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata " > 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<div id="kp_box_476" data-pid="476" data-track-view='{"mod":"kp_popu_476-923","con":",,"}' data-track-click='{"mod":"kp_popu_476-923","con":",,"}'><script src="//csdnimg.cn/public/common/indexSuperise/1.0.7/indexSuperise.js?20190508180304"></script>
+<script>
+window.csdn.indexSuperise({
+zIndex:11000,
+      smallMoveImg: '//img-ads.csdn.net/2019/201905051104467314.png',
+      bigMoveImg: '//img-ads.csdn.net/2019/201905051104363598.png',
+     link:'//edu.csdn.net/topic/ai30?utm_source=blogpopup',
+boxStyle:140,
+trackSuperId:476,
+smallMove:'notMove',  
+trackSId:923
+    });
+</script></div><link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+<div class="container clearfix" id="mainBox">
+			<div class="recommend-right">
+  <ul class="recommend-fixed-box">
+    
+  </ul>
+</div>	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">一起走进动物园管理员——ZooKeeper</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                      <span class="c-gray">置顶</span>
+                                                  <span class="time">2018年12月24日 11:05:11</span>
+          <a class="follow-nickName" href="https://me.csdn.net/tangyang8941" target="_blank">IT教育-汤小洋</a>
+          <span class="read-count">阅读数：20625</span>
+          
+                                                      </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+              <div class="article-copyright">
+          
+          版权声明：©著作权归作者所有：来自CSDN博客作者汤小洋的原创作品，如需转载，请注明出处，否则将追究法律责任          https://blog.csdn.net/tangyang8941/article/details/85230431        </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <div id="content_views" class="markdown_views prism-atom-one-dark">
+            <!-- flowchart 箭头图标 勿删 -->
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+            </svg>
+            <h2><a id="ZooKeeper_0"></a>一、ZooKeeper简介</h2>
+<h3><a id="1_ZooKeeper_2"></a>1. ZooKeeper是什么</h3>
+<p>​	Apache ZooKeeper是一个开源的分布式服务框架，为分布式应用提供协调服务，用来解决分布式应用中的数据管理问题，如：配置管理、域名服务、分布式同步、集群管理等<br>
+<a href="https://zookeeper.apache.org/" rel="nofollow">官网</a>  <a href="https://zookeeper.apache.org/" rel="nofollow">https://zookeeper.apache.org/</a><br>
+<a href="https://edu.csdn.net/course/detail/10450" rel="nofollow">ZooKeeper视频教程</a> <a href="https://edu.csdn.net/course/detail/10450" rel="nofollow">https://edu.csdn.net/course/detail/10450</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20181224110511296" alt=""></p>
+<h3><a id="2_ZooKeeper_11"></a>2. ZooKeeper组成</h3>
+<p>​	主要包括两部分：文件系统、通知机制</p>
+<h4><a id="21__15"></a>2.1 文件系统</h4>
+<p>​	ZooKeeper维护一个类似Linux文件系统的数据结构，用于存储数据</p>
+<ul>
+<li>数据模型结构是一种树形结构，由许多节点构成</li>
+<li>每个节点叫做ZNode（ZooKeeper Node）</li>
+<li>每个节点对应一个唯一路径，通过该路径来标识节点，如 /app1/p_2</li>
+<li>每个节点只能存储大约1M的数据</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20181224105736931.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>​	节点类型有四种：</p>
+<ul>
+<li>
+<p>持久化目录节点 persistent</p>
+<p>客户端与服务器断开连接，该节点仍然存在</p>
+</li>
+<li>
+<p>持久化顺序编号目录节点 persistent_sequential</p>
+<p>客户端与服务器断开连接，该节点仍然存在，此时节点会被顺序编号，如：000001、000002…</p>
+</li>
+<li>
+<p>临时目录节点 ephemeral</p>
+<p>客户端与服务器断开连接，该节点会被删除</p>
+</li>
+<li>
+<p>临时顺序编号目录节点 ephemeral_sequential</p>
+<p>客户端与服务器断开连接，该节点会被删除，此时节点会被顺序编号，如：000001、000002…</p>
+</li>
+</ul>
+<h4><a id="22__44"></a>2.2 通知机制</h4>
+<p>​	ZooKeeper是一个基于<strong>观察者模式</strong>设计的分布式服务管理框架</p>
+<ol>
+<li>ZooKeeper负责管理和维护项目的公共数据，并授受观察者的注册（订阅）</li>
+<li>一旦这些数据发生变化，ZooKeeper就会通知已注册的观察者</li>
+<li>此时观察者就可以做出相应的反应</li>
+</ol>
+<p>​      简单来说，客户端注册监听它关心的目录节点，当目录节点发生变化时，ZooKeeper会通知客户端</p>
+<p>​	ZooKeeper是一个订阅中心（注册中心）</p>
+<h3><a id="3__56"></a>3. 应用场景</h3>
+<h4><a id="31__58"></a>3.1 配置管理</h4>
+<p>​	场景：集群环境、服务器的许多配置都是相同的，如：数据库连接信息，当需要修改这些配置时必须同时修改每台服务器，很麻烦</p>
+<p>​	解决：把这些配置全部放到ZooKeeper上，保存在ZooKeeper的某个目录节点中，然后所有的应用程序（客户端）对这个目录节点进行监视Watch，一旦配置信息发生变化，ZooKeeper会通知每个客户端，然后从ZooKeeper获取新的配置信息，并应用到系统中。</p>
+<p><img src="https://img-blog.csdnimg.cn/20181224105800909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4><a id="32__66"></a>3.2 集群管理</h4>
+<p>​	场景：集群环境下，如何知道有多少台机器在工作？是否有机器退出或加入？需要选举一个总管master，让总管来管理集群</p>
+<p>​	解决：在父目录GroupMembers下为所有机器创建临时目录节点，然后监听父目录节点的子节点变化，一旦有机器挂掉，该机器与ZooKeeper的连接断开，其所创建的临时目录节点被删除，所有其他机器都会收到通知。当有新机器加入时也是同样的道理。</p>
+<p>​		选举master：为所有机器创建临时顺序编号目录节点，给每台机器编号，然后每次选取编号最小的机器作为master</p>
+<p><img src="https://img-blog.csdnimg.cn/20181224105817245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4><a id="33__76"></a>3.3 负载均衡</h4>
+<p>​	ZooKeeper本身是不提供负载均衡策略的，需要自己实现，所以准确的说，是在负载均衡中使用ZooKeeper来做集群的协调（也称为软负载均衡）</p>
+<p>​	实现思路：</p>
+<ol>
+<li>将ZooKeeper作为服务的注册中心，所有服务器在启动时向注册中心登陆自己能够提供的服务</li>
+<li>服务的调用者到注册中心获取能够提供所需要服务的服务器列表，然后自己根据负载均衡算法，从中选取一台服务器进行连接</li>
+<li>当服务器列表发生变化时，如：某台服务器宕机下线，或新机器加入，ZooKeeper会自动通知调用者重新获取服务列表</li>
+</ol>
+<p>​       实际上利用了ZooKeeper的特性，将ZooKeeper用为服务的注册和变更通知中心</p>
+<p><img src="https://img-blog.csdnimg.cn/2018122410583784.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><a id="ZooKeeper_92"></a>二、ZooKeeper安装</h2>
+<h3><a id="1__94"></a>1. 安装</h3>
+<p>​	ZooKeeper一般都运行在Linux平台</p>
+<p>​	步骤：</p>
+<ol>
+<li>
+<p>解压zookeeper-3.4.13.tar.gz</p>
+<pre><code class="prism language-bash"><span class="token function">cd</span> ~/software
+<span class="token function">tar</span> -zxf zookeeper-3.4.13.tar.gz
+</code></pre>
+</li>
+<li>
+<p>配置</p>
+<pre><code class="prism language-bash"><span class="token comment"># 创建存放数据文件的目录</span>
+<span class="token function">cd</span> zookeeper-3.4.13/
+<span class="token function">mkdir</span> data
+<span class="token comment"># 创建配置文件</span>
+<span class="token function">cd</span> conf
+<span class="token function">cp</span> zoo_sample.cfg zoo.cfg  <span class="token comment"># 默认使用的是zoo.cfg，名称固定</span>
+<span class="token comment"># 修改配置文件</span>
+<span class="token function">vi</span> zoo.cfg
+	dataDir<span class="token operator">=</span><span class="token punctuation">..</span>/data  <span class="token comment"># 指定数据存放目录</span>
+</code></pre>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20181224110123220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+3. 启动zookeeper</p>
+<pre><code class="prism language-bash"><span class="token function">cd</span> bin
+./zkServer.sh start <span class="token operator">|</span> stop <span class="token operator">|</span> status <span class="token operator">|</span> restart  <span class="token comment"># 启动|停止|查看状态|重启</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20181224110139906.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+4. 客户端连接zookeeper</p>
+<pre><code class="prism language-bash">./zkCli.sh  <span class="token comment"># 启动客户端，默认连接本机的2181端口</span>
+或
+./zkCli.sh -server 服务器地址：端口 <span class="token comment"># 连接指定主机、指定端口的zookeeper</span>
+quit  <span class="token comment"># 退出客户端</span>
+</code></pre>
+<h3><a id="2__137"></a>2. 配置文件</h3>
+
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tickTime=2000</td>
+<td>心跳时间</td>
+<td>维持心跳的时间间隔，单位是毫秒<br>在zookeeper中所有的时间都是以这个时间为基础单元，进行整数倍配置</td>
+</tr>
+<tr>
+<td>initLimit=10</td>
+<td>初始通信时限</td>
+<td>用于zookeeper集群，此时有多台zookeeper服务器，其中一个为Leader，其他都为Follower</td>
+</tr>
+<tr>
+<td>syncLimit=5</td>
+<td>同步通信时限</td>
+<td>在运行时Leader通过心跳检测与Follower进行通信，如果超过syncLimit*tickTime时间还未收到响应，则认为该Follower已经宕机</td>
+</tr>
+<tr>
+<td>dataDir=…/data</td>
+<td>存储数据的目录</td>
+<td>数据文件也称为snapshot快照文件</td>
+</tr>
+<tr>
+<td>clientPort=2181</td>
+<td>端口号</td>
+<td>默认为2181</td>
+</tr>
+<tr>
+<td>maxClientCnxns=60</td>
+<td>单个客户端的最大连接数限制</td>
+<td>默认为60，可以设置为0，表示没有限制</td>
+</tr>
+<tr>
+<td>autopurge.snapRetainCount=3</td>
+<td>保留文件的数量</td>
+<td>默认3个</td>
+</tr>
+<tr>
+<td>autopurge.purgeInterval=1</td>
+<td>自动清理快照文件和事务日志的频率</td>
+<td>默认为0，表示不开启自动清理，单位是小时</td>
+</tr>
+<tr>
+<td>dataLogDir=</td>
+<td>存储日志的目录</td>
+<td>未指定时日志文件也存放在dataDir中，为了性能最大化，一般建议把dataDir和dataLogDir分别放到不同的磁盘上</td>
+</tr>
+</tbody>
+</table><p><img src="https://img-blog.csdnimg.cn/20181224110156954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><a id="_152"></a>三、客户端操作</h2>
+<h3><a id="1__154"></a>1. 常用命令</h3>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>help</td>
+<td>查看帮助</td>
+<td>查看所有操作命令</td>
+</tr>
+<tr>
+<td>ls  节点路径</td>
+<td>查看指定节点下的内容</td>
+<td></td>
+</tr>
+<tr>
+<td>ls2  节点路径</td>
+<td>查看指定节点的详细信息</td>
+<td>查看所有子节点和当前节点的状态</td>
+</tr>
+<tr>
+<td>create 节点路径 内容</td>
+<td>创建普通节点</td>
+<td>如果内容中有空格，则需要使用对双引号引起来</td>
+</tr>
+<tr>
+<td>get 节点路径</td>
+<td>获取节点中的值</td>
+<td></td>
+</tr>
+<tr>
+<td>create -e 节点路径 内容</td>
+<td>创建临时节点</td>
+<td>当连接断开后，节点会被自动删除</td>
+</tr>
+<tr>
+<td>create -s 节点路径 内容</td>
+<td>创建顺序编号节点</td>
+<td>即带序号的节点</td>
+</tr>
+<tr>
+<td>delete 节点路径</td>
+<td>删除节点</td>
+<td>只能删除空节点，即不能有子节点</td>
+</tr>
+<tr>
+<td>rmr 节点路径</td>
+<td>递归删除节点</td>
+<td>remove  recursion</td>
+</tr>
+<tr>
+<td>stat 节点路径</td>
+<td>查看节点状态</td>
+<td></td>
+</tr>
+<tr>
+<td>set 节点路径 新值</td>
+<td>修改节点内容</td>
+<td></td>
+</tr>
+</tbody>
+</table><h3><a id="2__170"></a>2. 详解</h3>
+<p>​	查看指定节点的详细信息： ls2  /<br>
+<img src="https://img-blog.csdnimg.cn/20181224110210913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code class="prism language-properties"># 子节点名称数组
+[zookeeper]
+
+# -----------节点的状态信息，也称为stat结构体-------------------
+# 创建该znode的事务的zxid(ZooKeeper Transaction ID)
+# 事务ID是ZooKeeper为每次更新操作/事务操作分配一个全局唯一的id，表示zxid，值越小，表示越先执行
+cZxid = 0x0  # 0x0表示十六进制数0
+# 创建时间
+ctime = Thu Jan 01 08:00:00 CST 1970
+# 最后一次更新的zxid
+mZxid = 0x0
+# 最后一次更新的时间
+mtime = Thu Jan 01 08:00:00 CST 1970
+# 最后更新的子节点的zxid
+pZxid = 0x0
+# 子节点的变化号，表示子节点被修改的次数，-1表示从未被修改过
+cversion = -1
+# 当前节点的变化号，0表示从未被修改过
+dataVersion = 0
+# 访问控制列表的变化号 access control list
+aclVersion = 0
+# 如果临时节点，表示当前节点的拥有者的sessionId
+# 如果不是临时节点，则值为0
+ephemeralOwner = 0x0
+# 数据长度
+dataLength = 0
+# 子节点数据
+numChildren = 1
+</code></pre>
+<p>​	顺序编号节点：</p>
+<ul>
+<li>顺序编号会紧跟在节点名称后面，节点最终名称为：节点名+序号，如/test0000000005</li>
+<li>顺序编号是一个递增的计数器</li>
+<li>顺序编号是由父节点维护，从已有的子节点个数开始（包括临时节点和被删除的节点）</li>
+<li>如果子节点为空，则从0000000000开始，依次递增1</li>
+<li>在分布式系统中，顺序编号可以被用于为所有的事件进行全局排序，这样客户端就可以根据序号推断事件的顺序</li>
+</ul>
+<h2><a id="ZooKeeper_214"></a>四、ZooKeeper集群</h2>
+<h3><a id="1__216"></a>1. 配置集群</h3>
+<p>​	步骤：</p>
+<ol>
+<li>
+<p>准备多台ZooKeeper服务器</p>
+</li>
+<li>
+<p>配置ZooKeeper服务器</p>
+<p>在每台服务器的conf/zoo.cfg文件中添加如下内容：</p>
+<pre><code class="prism language-properties">server.20=192.168.4.20:2888:3888
+server.21=192.168.4.21:2888:3888
+server.22=192.168.4.22:2888:3888
+</code></pre>
+<p>格式：<code>server.A=B:C:D</code></p>
+<ul>
+<li>A表示这台服务器的编号ID，是一个数字</li>
+<li>B表示服务器的IP地址或域名</li>
+<li>C表示这台服务器与集群中的Leader交换信息时使用的端口</li>
+<li>D表示执行选举Leader服务器时互相通信的端口</li>
+</ul>
+</li>
+<li>
+<p>创建myid配置文件</p>
+<p>在集群环境下，需要在<code>dataDir</code>目录中创建一个名为<code>myid</code>的文件，文件内容是当前服务器的编号ID，即上面配置的A</p>
+<pre><code class="prism language-bash"><span class="token function">cd</span> data
+<span class="token keyword">echo</span> A的值 <span class="token operator">&gt;</span> myid
+</code></pre>
+<p>ZooKeeper启动时会读取这个文件，将里面的数字与zoo.cfg中配置的server.A进行比较，从而判断这台服务器是哪个</p>
+</li>
+<li>
+<p>测试集群环境</p>
+<p>启动所有ZooKeeper服务器，查看状态</p>
+<p>此时在某台服务器上执行更新操作时，其他服务器也会同步</p>
+</li>
+</ol>
+<h3><a id="2__256"></a>2. 集群特性</h3>
+<ul>
+<li>一个ZooKeeper集群中，有一个领导者Leader和多个跟随者Follower</li>
+<li>Leader负责进行投票的发起和决议，更新系统状态</li>
+<li>Follower用于接收客户端的请求并向客户端返回结果，在选举Leader过程中参与投票</li>
+<li>半数机制：集群中只要有半数以上节点存活，集群就能够正常工作，所以一般集群中的服务器个数都为<strong>奇数</strong></li>
+<li>全局数据一致：集群中每台服务器保存一份相同的数据副本，不论客户端连接到哪个服务器，数据都是一致的</li>
+<li>更新请求顺序执行：来自同一个客户端的更新请求，按其发送顺序依次执行</li>
+<li>数据更新的原子性：一次数据更新，要么成功，要么失败</li>
+<li>实时性：在一定的时间范围内，客户端能读取到最新数据</li>
+</ul>
+<h3><a id="3__267"></a>3. 选举机制</h3>
+<p>​	ZooKeeper在提供服务时会自动选举一个节点服务器作为Leader，其他都是Follower</p>
+<p><img src="https://img-blog.csdnimg.cn/20181224110232874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rhbmd5YW5nODk0MQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>​	选举流程：</p>
+<ol>
+<li>Server1启动，给自己投票，然后发送投票信息，由于其它服务器都还没启动，所以它发现的消息收不到任何反馈，此时Server1为Looking状态</li>
+<li>Server2启动，给自己投票，同时与Server1通信交换选举结果，由于Server2的id值较大，所以Server2胜出，<strong>但由于投票数没有过半</strong>，此时Server1和Server2都为Looking状态</li>
+<li>Server3启动，给自己投票，同时与Server1和Server2通信交换选举结果，由于Server3的id值较大，所以Server3胜出，<strong>此时票数已经过半</strong>，所以Server3为Leader，Server1和Server2为Follower</li>
+<li>Server4启动，给自己投票，同时与Server1、Server2、Server3通信交换选举结果，尽管Server4的id较大，<strong>但由于集群中已经存在Leader</strong>，所以Server4只能为Follower</li>
+<li>Server5启动，同Server4类似，只能为Follower</li>
+</ol>
+<p>​        总结：</p>
+<ul>
+<li>每个服务器在启动时都会选择自己，然后将投票信息发送出去</li>
+<li>服务器编号ID越大，在选择算法中的权重越大</li>
+<li>投票数必须过半，才能选出Leader</li>
+<li>谁是Leader：启动顺序的前<code>集群数/2+1</code>个服务器中，id值最大的会成为Leader</li>
+</ul>
+<h3><a id="4__288"></a>4. 监听机制</h3>
+<h4><a id="41__290"></a>4.1 监听节点值的变化</h4>
+<pre><code class="prism language-bash"><span class="token comment"># 在集群的A服务器，监听某个节点值的变化</span>
+get /yyy <span class="token function">watch</span>
+
+<span class="token comment"># 在集群的B服务器，修改对应节点的值</span>
+<span class="token keyword">set</span> /yyy myyyy
+
+<span class="token comment"># 此时A服务器会收到事件NodeDataChanged</span>
+WATCHER::
+WatchedEvent state:SyncConnected type:NodeDataChanged path:/yyy
+</code></pre>
+<p><strong>监听Watch事件是一个一次性的触发器</strong>，当数据改变时只会触发一次，如果以后这个数据再发生改变，则不会再次触发</p>
+<h4><a id="42__306"></a>4.2 监听节点的子节点变化</h4>
+<pre><code class="prism language-bash"><span class="token comment"># 在集群的A服务器，监听某个节点的子节点的变化 </span>
+<span class="token function">ls</span> /yyy <span class="token function">watch</span>
+
+<span class="token comment"># 在集群的B服务器，创建/修改/删除对应节点的子节点</span>
+create /yyy/hello hello
+
+<span class="token comment"># 此时A服务器会收到事件NodeChildrenChanged</span>
+WATCHER::
+WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/yyy
+</code></pre>
+<h2><a id="JavaZooKeeper_320"></a>五、Java访问ZooKeeper</h2>
+<p>Java操作Zookeeper很简单，只需要添加ZooKeeper客户端的依赖即可，可以进行节点信息的获取、管理等。</p>
+<p>​	步骤：</p>
+<ol>
+<li>
+<p>添加jar包</p>
+<pre><code class="prism language-xml"><span class="token comment">&lt;!--ZooKeeper客户端--&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.zookeeper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>zookeeper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.4.13<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+</li>
+<li>
+<p>操作</p>
+<pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> KeeperException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+    <span class="token comment">//获取ZooKeeper的连接，即创建ZooKeeper的客户端</span>
+    String connectString <span class="token operator">=</span> <span class="token string">"127.0.0.1:2181"</span><span class="token punctuation">;</span>  <span class="token comment">//服务器地址</span>
+    <span class="token keyword">int</span> sessionTimeout <span class="token operator">=</span> <span class="token number">3000</span><span class="token punctuation">;</span> <span class="token comment">//超时时间，单位为毫秒</span>
+    Watcher watcher <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyWatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ZooKeeper zkClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ZooKeeper</span><span class="token punctuation">(</span>connectString<span class="token punctuation">,</span> sessionTimeout<span class="token punctuation">,</span> watcher<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zkClient<span class="token punctuation">.</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment">/**
+         * 操作ZooKeeper
+         */</span>
+    <span class="token comment">//查看指定节点下的内容</span>
+    List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> children <span class="token operator">=</span> zkClient<span class="token punctuation">.</span><span class="token function">getChildren</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//第二个参数表示是否监视该节点</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>children<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//创建节点，OPEN_ACL_UNSAFE表示acl权限列表为完全开放，PERSISTENT表示节点类型为持久化节点</span>
+    zkClient<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">"/world"</span><span class="token punctuation">,</span> <span class="token string">"世界"</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ZooDefs<span class="token punctuation">.</span>Ids<span class="token punctuation">.</span>OPEN_ACL_UNSAFE<span class="token punctuation">,</span> CreateMode<span class="token punctuation">.</span>PERSISTENT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//获取节点的数据（节点的值和节点状态Stat）</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> zkClient<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token string">"/world"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Stat stat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Stat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> zkClient<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> stat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> zkClient<span class="token punctuation">.</span><span class="token function">getData</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">DataWatcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> stat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stat<span class="token punctuation">.</span><span class="token function">getCtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stat<span class="token punctuation">.</span><span class="token function">getVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>stat<span class="token punctuation">.</span><span class="token function">getDataLength</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//修改节点的数据</span>
+    <span class="token comment">// zkClient.setData("/hello","aaa".getBytes(),stat.getVersion()); //第三个参数表示当前节点的数据版本，一般先获取数据stat，然后指定数据版本</span>
+    zkClient<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">,</span> <span class="token string">"bbb"</span><span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//也可以设置为-1，表示不检测版本</span>
+
+    <span class="token comment">//删除节点</span>
+    zkClient<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//判断节点是否存在</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>zkClient<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//存在时返回节点状态，不存在则返回null</span>
+
+    <span class="token comment">//休眠</span>
+    Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//关闭连接</span>
+    zkClient<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+<p>ZooKeeper入门视频，链接：<a href="https://edu.csdn.net/course/detail/10450" rel="nofollow">https://edu.csdn.net/course/detail/10450</a></p>
+
+          </div>
+          <link href="https://csdnimg.cn/release/phoenix/mdeditor/markdown_views-258a4616f7.css" rel="stylesheet">
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/tangyang8941/article/details/85230431,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/tangyang8941/article/details/85230431,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>        <div id="dmp_ad_58"><div id="kp_box_58" data-pid="58" data-track-view='{"mod":"kp_popu_58-386","con":",,"}' data-track-click='{"mod":"kp_popu_58-386","con":",,"}'><div style="width:100%;background:#fff;">
+<script type="text/javascript" src="//rabc1.iteye.com/production/resource/web/6xwm4l.js?lg=ydmpioh"></script>
+</div></div></div>        <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="85230431">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/github_33304260/article/details/79024244,BlogCommendFromThirdServiceAll_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/github_33304260/article/details/79024244" target="_blank" title="十分钟走进大数据世界">
+		<h4 class="text-truncate oneline">
+				十分钟<em>走进</em>大数据世界		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					870</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/github_33304260/article/details/79024244" target="_blank" title="十分钟走进大数据世界">
+				<span class="desc oneline">大数据的概念大数据（bigdata），指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/github_33304260">来自：	<span class="blog_title"> 李彬博客专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gaolei1201/article/details/60876811,BlogCommendFromThirdServiceAll_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gaolei1201/article/details/60876811" target="_blank" title="Android百度地图实例详解之仿摩拜单车APP(包括附近车辆、规划路径、行驶距离、行驶轨迹记录，轨迹回放，导航等)">
+		<h4 class="text-truncate oneline">
+				Android百度地图实例详解之仿摩拜单车APP(包括附近车辆、规划路径、行驶距离、行驶轨迹记录，轨迹回放，导航等)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gaolei1201/article/details/60876811" target="_blank" title="Android百度地图实例详解之仿摩拜单车APP(包括附近车辆、规划路径、行驶距离、行驶轨迹记录，轨迹回放，导航等)">
+				<span class="desc oneline">    转载请标明地址：http://blog.csdn.net/gaolei1201/article/details/60876811    2016一路有你，2017一起奋斗！    最近共享单车...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gaolei1201">来自：	<span class="blog_title"> 高磊的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/c5153000/article/details/6210783,BlogCommendFromThirdServiceAll_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/c5153000/article/details/6210783" target="_blank" title=" 关于面试时项目的介绍">
+		<h4 class="text-truncate oneline">
+				 关于面试时项目的介绍		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/c5153000/article/details/6210783" target="_blank" title=" 关于面试时项目的介绍">
+				<span class="desc oneline">面试一般都带简历的，简历上都会写自己做过什么项目，而且要写自己做过的能做出来的。如果项目经理让你说说自己做的项目时，你就答你在简历上写的东西。先从业务上说起，都啥功能，干啥的。在多加点就是你用了什么技...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/c5153000">来自：	<span class="blog_title"> 猫儿</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/victory0508/article/details/8714325,BlogCommendFromThirdServiceAll_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/victory0508/article/details/8714325" target="_blank" title="大数据动物园-驯服野兽">
+		<h4 class="text-truncate oneline">
+				大数据<em>动物园</em>-驯服野兽		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1030</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/victory0508/article/details/8714325" target="_blank" title="大数据动物园-驯服野兽">
+				<span class="desc oneline">大数据动物园-驯服野兽 大数据可能是信息应用领域的最大趋势，它改变了企业做业务、做决策的方式。利用信息和智能分析技术从变化中获取预测和利润。这使得IT从传统技术之外寻找新的工具去处理3V(volume...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/victory0508">来自：	<span class="blog_title"> victory0508的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_59" data-pid="59" data-track-view='{"mod":"kp_popu_59-78","con":",,"}' data-track-click='{"mod":"kp_popu_59-78","con":",,"}'><script type="text/javascript">
+    (function() {
+        var s = "_" + Math.random().toString(36).slice(2);
+        document.write('<div style="" id="' + s + '"></div>');
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u3491668",
+            container:  s
+        });
+    })();
+</script>
+<!-- 多条广告如下脚本只需引入一次 -->
+<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/DERITt/article/details/50756666,BlogCommendFromThirdServiceAll_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/DERITt/article/details/50756666" target="_blank" title="【NOI 2014】【BZOJ 3670】动物园 题解&amp;代码（C++）">
+		<h4 class="text-truncate oneline">
+				【NOI 2014】【BZOJ 3670】<em>动物园</em> 题解&amp;代码（C++）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1262</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/DERITt/article/details/50756666" target="_blank" title="【NOI 2014】【BZOJ 3670】动物园 题解&amp;代码（C++）">
+				<span class="desc oneline">kmp，noi2014</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/DERITt">来自：	<span class="blog_title"> 曾经追梦的happy时光</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tswisdom/article/details/41522069,BlogCommendFromBaidu_5"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tswisdom/article/details/41522069" target="_blank" title="Zookeeper系列（一）">
+		<h4 class="text-truncate oneline">
+				<em>Zookeeper</em>系列（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tswisdom/article/details/41522069" target="_blank" title="Zookeeper系列（一）">
+				<span class="desc oneline">一、ZooKeeper的背景1.1认识ZooKeeperZooKeeper---译名为“动物园管理员”。动物园里当然有好多的动物，游客可以根据动物园提供的向导图到不同的场馆观赏各种类型的动物，而不是像...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tswisdom">来自：	<span class="blog_title"> 在路上</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/BlackEnn/article/details/52832176,BlogCommendClickRateRank_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/BlackEnn/article/details/52832176" target="_blank" title="《走近动物园管理员——ZooKeeper》">
+		<h4 class="text-truncate oneline">
+				《走近<em>动物园</em><em>管理员</em>——<em>ZooKeeper</em>》		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1520</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/BlackEnn/article/details/52832176" target="_blank" title="《走近动物园管理员——ZooKeeper》">
+				<span class="desc oneline">1.基本常识Zookeeper实现分布式选举算法ZookeeperZAB协议分析2.环境部署使用Docker一步搞定ZooKeeper集群的搭建...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/BlackEnn">来自：	<span class="blog_title"> 学习小殿</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_41596737/article/details/80398917,BlogCommendClickRateRank_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_41596737/article/details/80398917" target="_blank" title="C++ | 动物园（虚函数与多态）">
+		<h4 class="text-truncate oneline">
+				C++ | <em>动物园</em>（虚函数与多态）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					801</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_41596737/article/details/80398917" target="_blank" title="C++ | 动物园（虚函数与多态）">
+				<span class="desc oneline"> 动物园（虚函数与多态）时间限制: 1Sec  内存限制: 128MB提交: 567  解决: 312[提交][状态][讨论版]题目描述某个动物园内，有老虎、狗、鸭子和猪等动物，动物园的管理员为每个动...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_41596737">来自：	<span class="blog_title"> 山风的小角落</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/phenixyf/article/details/76090873,BlogCommendESEnWordWeight_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/phenixyf/article/details/76090873" target="_blank" title="按键及矩阵键盘程序------/* 自己实验确认并总结 */">
+		<h4 class="text-truncate oneline">
+				按键及矩阵键盘程序------/* 自己实验确认并总结 */		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8408</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/phenixyf/article/details/76090873" target="_blank" title="按键及矩阵键盘程序------/* 自己实验确认并总结 */">
+				<span class="desc oneline">新型的按键扫描程序不过入式处理器上面我在网上游逛了很久，也看过不少源程序了，没有发现这种按键处理办法的踪迹，所以，我将他共享出来，和广大同僚们共勉。我非常坚信这种按键处理办法的便捷和高效，你可以移植到...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/phenixyf">来自：	<span class="blog_title"> phenixyf的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_60" data-pid="60" data-track-view='{"mod":"kp_popu_60-763","con":",,"}' data-track-click='{"mod":"kp_popu_60-763","con":",,"}'><script type="text/javascript" src="//rabc1.iteye.com/production/source/web/h53bu.js?avnubb=xre"></script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/youmy1111/article/details/51337054,BlogCommendESEnWordWeight_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/youmy1111/article/details/51337054" target="_blank" title="Windows系统下Theano库的安装过程">
+		<h4 class="text-truncate oneline">
+				Windows系统下Theano库的安装过程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9920</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/youmy1111/article/details/51337054" target="_blank" title="Windows系统下Theano库的安装过程">
+				<span class="desc oneline">时间：2015-5-6系统：Windows8.1Python环境：Anaconda2一、下载并安装Anaconda2安装时注意：1、选择为当前用户安装还是所有用户安装时使用默认选项；2、勾选加入环境变...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/youmy1111">来自：	<span class="blog_title"> youmy1111的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Smile_qiqi/article/details/32724931,BlogCommendESEnWordWeight_10"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Smile_qiqi/article/details/32724931" target="_blank" title="魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点">
+		<h4 class="text-truncate oneline">
+				魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Smile_qiqi/article/details/32724931" target="_blank" title="魔兽争霸3冰封王座1.24e 多开联机补丁 信息发布与收集点">
+				<span class="desc oneline">畅所欲言！</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Smile_qiqi">来自：	<span class="blog_title"> Smile_qiqi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lutinghuan/article/details/46820023,BlogCommendESEnWordWeight_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lutinghuan/article/details/46820023" target="_blank" title="4种方法让SpringMVC接收多个对象">
+		<h4 class="text-truncate oneline">
+				4种方法让SpringMVC接收多个对象		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					14万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lutinghuan/article/details/46820023" target="_blank" title="4种方法让SpringMVC接收多个对象">
+				<span class="desc oneline">问题背景：我要在一个表单里同时一次性提交多名乘客的个人信息到SpringMVC，前端HTML和SpringMVCController里该如何处理？第1种方法：表单提交，以字段数组接收；第2种方法：表单...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lutinghuan">来自：	<span class="blog_title"> 一个情绪猿的脖克...</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hero_fantao/article/details/34533533,BlogCommendESEnWordWeight_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hero_fantao/article/details/34533533" target="_blank" title="连续特征离散化和归一化">
+		<h4 class="text-truncate oneline">
+				连续特征离散化和归一化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hero_fantao/article/details/34533533" target="_blank" title="连续特征离散化和归一化">
+				<span class="desc oneline">连续特征进行离散化处理。</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hero_fantao">来自：	<span class="blog_title"> hero_fantao的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_24501105/article/details/79557459,BlogCommendFromQuerySearch_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_24501105/article/details/79557459" target="_blank" title="动物园管理员-Zookeeper">
+		<h4 class="text-truncate oneline">
+				<em>动物园</em><em>管理员</em>-<em>Zookeeper</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					674</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_24501105/article/details/79557459" target="_blank" title="动物园管理员-Zookeeper">
+				<span class="desc oneline">原创于 【模棱博客】首先认识ZooKeeperZooKeeper—译名为“动物园管理员”。动物园里当然有好多的动物，游客可以根据动物园提供的向导图到不同的场馆观赏各种类型的动物，而不是像走在原始丛林里...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_24501105">来自：	<span class="blog_title"> 【模棱博客】 – Java技术博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_61" data-pid="61" data-track-view='{"mod":"kp_popu_61-557","con":",,"}' data-track-click='{"mod":"kp_popu_61-557","con":",,"}'><div id="three_ad13" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad13",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/suifeng629/article/details/85987934,BlogCommendFromQuerySearch_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/suifeng629/article/details/85987934" target="_blank" title="[分布式][zookeeper]--一起走进动物园管理员">
+		<h4 class="text-truncate oneline">
+				[分布式][<em>zookeeper</em>]--<em>一起</em><em>走进</em><em>动物园</em><em>管理员</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					567</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/suifeng629/article/details/85987934" target="_blank" title="[分布式][zookeeper]--一起走进动物园管理员">
+				<span class="desc oneline">一、ZooKeeper简介1.ZooKeeper是什么​ApacheZooKeeper是一个开源的分布式服务框架，为分布式应用提供协调服务，用来解决分布式应用中的数据管理问题，如：配置管理、域名服务、...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/suifeng629">来自：	<span class="blog_title"> happy的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/louisacea/article/details/51340722,BlogCommendFromQuerySearch_15"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/louisacea/article/details/51340722" target="_blank" title="动物园的猴子">
+		<h4 class="text-truncate oneline">
+				<em>动物园</em>的猴子		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-07</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					472</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/louisacea/article/details/51340722" target="_blank" title="动物园的猴子">
+				<span class="desc oneline">题目描述编写一个程序，用了描述动物园里的猴子。要求如下：（1）创建一个Monkey类（表示猴子）。每只猴子应该有颜色、性别属性，这些属性只有本类可以访问。（2）在构造一个Monkey类时，颜色属性必须...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/louisacea">来自：	<span class="blog_title"> louis</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/nsrainbow/article/details/42836479,BlogCommendFromQuerySearch_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/nsrainbow/article/details/42836479" target="_blank" title="Alex 的 Hadoop 菜鸟教程: 第9课 zookeeper 介绍和使用">
+		<h4 class="text-truncate oneline">
+				Alex 的 Hadoop 菜鸟教程: 第9课 <em>zookeeper</em> 介绍和使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6641</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/nsrainbow/article/details/42836479" target="_blank" title="Alex 的 Hadoop 菜鸟教程: 第9课 zookeeper 介绍和使用">
+				<span class="desc oneline">看了之前的教程，会发现多处出现zookeeper，比如hadoop的autofailover得用zookeeper，Hbase的RegionServer也得用zookeeper。其实不止hadoop，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/nsrainbow">来自：	<span class="blog_title"> 我可以接受失败，但我不能接受放弃。--迈克尔 乔丹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lqw05/article/details/48342265,BlogCommendFromThirdServiceAll_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lqw05/article/details/48342265" target="_blank" title="为什么要使用抽象类 接口编程以及有什么好处">
+		<h4 class="text-truncate oneline">
+				为什么要使用抽象类 接口编程以及有什么好处		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					756</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lqw05/article/details/48342265" target="_blank" title="为什么要使用抽象类 接口编程以及有什么好处">
+				<span class="desc oneline">首先举个例子假设某动物园管理员每天需要给他所负责饲养的狮子、猴子和鸽子喂食。我们用一个程序来模拟他喂食的过程。先用常规类编程方式饲养员用一个Feeder()类来表示，三个动物分别是：classMonk...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lqw05">来自：	<span class="blog_title"> wayne liu 的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/meng564764406/article/details/52444644,BlogCommendFromThirdServiceAll_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+		<h4 class="text-truncate oneline">
+				将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/meng564764406/article/details/52444644" target="_blank" title="将Excel文件导入数据库（POI+Excel+MySQL+jsp页面导入）第一次优化">
+				<span class="desc oneline">本篇文章是根据我的上篇博客，给出的改进版，由于时间有限，仅做了一个简单的优化。相关文章：将excel导入数据库2018年4月1日，新增下载地址链接：点击打开源码下载地址十分抱歉，这个链接地址没有在这篇...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/meng564764406">来自：	<span class="blog_title"> Lynn_Blog</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_62" data-pid="62" data-track-view='{"mod":"kp_popu_62-556","con":",,"}' data-track-click='{"mod":"kp_popu_62-556","con":",,"}'><div id="three_ad18" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad18",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010900754/article/details/78498291,BlogCommendFromThirdServiceAll_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010900754/article/details/78498291" target="_blank" title="【zookeeper】ACL super 超级管理员">
+		<h4 class="text-truncate oneline">
+				【<em>zookeeper</em>】ACL super 超级<em>管理员</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2317</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010900754/article/details/78498291" target="_blank" title="【zookeeper】ACL super 超级管理员">
+				<span class="desc oneline">zk的权限管理表有一种ACL的模式叫做super，该模式的作用是方便管理节点。一旦我们为某一个节点设置了acl，那么其余的未授权的节点是无法访问或者操作该节点的，那么系统用久了以后，假如忘记了某一个节...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010900754">来自：	<span class="blog_title"> u010900754的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/themagickeyjianan/article/details/52386981,BlogCommendFromThirdServiceAll_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+		<h4 class="text-truncate oneline">
+				python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					11万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/themagickeyjianan/article/details/52386981" target="_blank" title="python图片处理类之~PIL.Image模块(ios android icon图标自动生成处理)">
+				<span class="desc oneline">1.从pyCharm提示下载PIL包 http://www.pythonware.com/products/pil/ 2.解压后，进入到目录下cd/Users/jianan/Downloads/Ima...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/themagickeyjianan">来自：	<span class="blog_title"> 专注于cocos+unity+node.js网络游戏开发</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tangyang8941/article/details/83581999,BlogCommendFromThirdServiceAll_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tangyang8941/article/details/83581999" target="_blank" title="扎扎实实学Python爬虫视频教程（300分钟）-汤小洋-专题视频课程">
+		<h4 class="text-truncate oneline">
+				扎扎实实学Python爬虫视频教程（300分钟）-汤小洋-专题视频课程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					700</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tangyang8941/article/details/83581999" target="_blank" title="扎扎实实学Python爬虫视频教程（300分钟）-汤小洋-专题视频课程">
+				<span class="desc oneline">本期视频课程为大家讲解《Python爬虫：电影评论数据》&amp;amp;《Python爬虫项目直播》技术教程，通过本课的学习，您可以系统应用Python网络爬虫入门编程的核心内容，实战Python爬虫开发、...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tangyang8941">来自：	<span class="blog_title"> IT教育-汤小洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/luyan_abaci/article/details/48014807,BlogCommendESEnWordWeight_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+		<h4 class="text-truncate oneline">
+				VS下生成与配置静态库与动态库（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/luyan_abaci/article/details/48014807" target="_blank" title="VS下生成与配置静态库与动态库（一）">
+				<span class="desc oneline">此处仅以VS2010为例，详细说明一下如何在VS环境下生成和使用C++的静态库与动态库。Qt下生成和使用静态和动态库后续再讲。本文仅供初学者参考，如果有问题欢迎大家指正。    首先简单地理解一下静态...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/luyan_abaci">来自：	<span class="blog_title"> luyan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jdgdf566/article/details/17229795,BlogCommendESEnWordWeight_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jdgdf566/article/details/17229795" target="_blank" title="提示CSDN通知的小软件 v3.2.1">
+		<h4 class="text-truncate oneline">
+				提示CSDN通知的小软件 v3.2.1		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5151</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jdgdf566/article/details/17229795" target="_blank" title="提示CSDN通知的小软件 v3.2.1">
+				<span class="desc oneline">显示CSDN通知。本身没有非法功能，不得用于非法用途。</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jdgdf566">来自：	<span class="blog_title"> jdgdf566的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_63" data-pid="63" data-track-view='{"mod":"kp_popu_63-555","con":",,"}' data-track-click='{"mod":"kp_popu_63-555","con":",,"}'><div id="three_ad23" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'GNKXx7',
+                placeholderId: "three_ad23",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yang_lover/article/details/45057181,BlogCommendESEnWordWeight_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yang_lover/article/details/45057181" target="_blank" title="避免 Hibernate 中用get/load方法获取的实体调用set方法后自动更新">
+		<h4 class="text-truncate oneline">
+				避免 Hibernate 中用get/load方法获取的实体调用set方法后自动更新		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yang_lover/article/details/45057181" target="_blank" title="避免 Hibernate 中用get/load方法获取的实体调用set方法后自动更新">
+				<span class="desc oneline">1、问题症状描述   最近在处理一个新需求问题，代码的大致逻辑是获取一个实体对象，调用该对象的set方法设置其中的某些字段，然后把修改后的实体作为参数供其他地方调用，根据返回值来决定是否更新这个实体到...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yang_lover">来自：	<span class="blog_title"> Mr_Alex</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sdfzyhx/article/details/51388374,BlogCommendESEnWordWeight_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sdfzyhx/article/details/51388374" target="_blank" title="bzoj3670动物园【NOI2014】">
+		<h4 class="text-truncate oneline">
+				bzoj3670<em>动物园</em>【NOI2014】		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1038</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sdfzyhx/article/details/51388374" target="_blank" title="bzoj3670动物园【NOI2014】">
+				<span class="desc oneline">kmp中next数组运用</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sdfzyhx">来自：	<span class="blog_title"> YHaX的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/world6/article/details/79710917,BlogCommendESEnWordWeight_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/world6/article/details/79710917" target="_blank" title="动物园园长 zookeeper">
+		<h4 class="text-truncate oneline">
+				<em>动物园</em>园长 <em>zookeeper</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					403</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/world6/article/details/79710917" target="_blank" title="动物园园长 zookeeper">
+				<span class="desc oneline">zookeeper是一个开源的分布式协调服务中间件zookeeper能做什么？数据的发布/订阅（配置中心:disconf）、负载均衡（dubbo利用了zookeeper机制实现负载均衡）、命名服务、m...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/world6">来自：	<span class="blog_title"> world6的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_27537241/8697115,BlogCommendFromQuerySearch_27"}'>
+		<a href="https://download.csdn.net/download/qq_27537241/8697115" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>动物园</em>管理系统					</h4>
+					<span class="data float-right">05-13</span>
+				</div>
+				<div class="desc oneline">
+						这是对于做动物园管理管理的可以借鉴一下，内含数据库，一些基本要求等				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/weixin_42871203/10621350,BlogCommendFromQuerySearch_28"}'>
+		<a href="https://download.csdn.net/download/weixin_42871203/10621350" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						写了一个<em>动物园</em>的管理系统，请大家多多指教					</h4>
+					<span class="data float-right">08-23</span>
+				</div>
+				<div class="desc oneline">
+						学C++时候留的一个较麻烦的作业，做起来还有点费劲，希望大家多多指教吧				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_64" data-pid="64" data-track-view='{"mod":"kp_popu_64-81","con":",,"}' data-track-click='{"mod":"kp_popu_64-81","con":",,"}'><div id="three_ad28" class="mediav_ad" ></div>
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad28",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Dadatu_Zhao/article/details/81347145,BlogCommendFromQuerySearch_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Dadatu_Zhao/article/details/81347145" target="_blank" title="【bzoj3670】【NOI2015】动物园 kmp">
+		<h4 class="text-truncate oneline">
+				【bzoj3670】【NOI2015】<em>动物园</em> kmp		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					419</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Dadatu_Zhao/article/details/81347145" target="_blank" title="【bzoj3670】【NOI2015】动物园 kmp">
+				<span class="desc oneline">企鹅太可爱啦！题解我们先处理出num[i]表示既是它的后缀同时又是它的前缀，并且该后缀与该前缀不重叠，这种字符串的数量。每次num[i]=num[fail[i]]+1(因为本身也算一个后缀)。然后再将...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Dadatu_Zhao">来自：	<span class="blog_title"> Mininda</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/sinat_29444049/8856205,BlogCommendFromQuerySearch_30"}'>
+		<a href="https://download.csdn.net/download/sinat_29444049/8856205" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>动物园</em>java代码					</h4>
+					<span class="data float-right">06-30</span>
+				</div>
+				<div class="desc oneline">
+						Java课程小练习，多种动物，每个动物有自己的行为特征，比如叫声，比如动作，还有其他属性。				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/grtnp40688/article/details/38734973,BlogCommendFromQuerySearch_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/grtnp40688/article/details/38734973" target="_blank" title="动物园都有这么大的“私人收益”，还是看看他的穷途末路吧">
+		<h4 class="text-truncate oneline">
+				<em>动物园</em>都有这么大的“私人收益”，还是看看他的穷途末路吧		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1600</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/grtnp40688/article/details/38734973" target="_blank" title="动物园都有这么大的“私人收益”，还是看看他的穷途末路吧">
+				<span class="desc oneline">据了解，前两种罪行涉案金额共计1400余万元。此外，侦查机关在其房内搜出624万余元现金，还有字画、金条等约合800万元，对于这笔不明财产，肖绍祥自称系他白天上班、晚上开黑车，业余时间放贷、倒卖工艺品...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/grtnp40688">来自：	<span class="blog_title"> grtnp40688的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/FBB360JAVA/article/details/79256570,BlogCommendFromThirdServiceAll_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/FBB360JAVA/article/details/79256570" target="_blank" title="简易的动物园管理系统">
+		<h4 class="text-truncate oneline">
+				简易的<em>动物园</em>管理系统		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2738</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/FBB360JAVA/article/details/79256570" target="_blank" title="简易的动物园管理系统">
+				<span class="desc oneline">动物园管理有猫，鸭子，鱼等动物，他们有一个共同的父类–Animal，共同的属性是动物的名字，父类中有一个抽象方法。2个接口，一个是获得腿的条数，一个是Swim。一个管理类，用来进行增删改查操作。一个测...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/FBB360JAVA">来自：	<span class="blog_title"> FBB360JAVA的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huilan_same/article/details/51896672,BlogCommendFromThirdServiceAll_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+		<h4 class="text-truncate oneline">
+				selenium之 chromedriver与chrome版本映射表（更新至v2.46）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					21万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/huilan_same/article/details/51896672" target="_blank" title="selenium之 chromedriver与chrome版本映射表（更新至v2.46）">
+				<span class="desc oneline">更多关于pythonselenium的文章，请关注我的专栏：PythonSelenium自动化测试详解看到网上基本没有最新的chromedriver与chrome的对应关系表，便兴起整理了一份如下，希...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/huilan_same">来自：	<span class="blog_title"> 灰蓝</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_65" data-pid="65" data-track-view='{"mod":"kp_popu_65-1061","con":",,"}' data-track-click='{"mod":"kp_popu_65-1061","con":",,"}'><iframe  src="https://kunpeng-sc.csdnimg.cn/#/preview/236?positionId=65&queryWord=" frameborder="0" width= "100%"  height= "75px" scrolling="no" ></iframe></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/weixin_34292959/article/details/87746604,BlogCommendFromThirdServiceAll_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_34292959/article/details/87746604" target="_blank" title="霍金编剧的科普大片「与霍金一起了解宇宙」，带孩子走进茫茫宇宙！">
+		<h4 class="text-truncate oneline">
+				霍金编剧的科普大片「与霍金<em>一起</em>了解宇宙」，带孩子<em>走进</em>茫茫宇宙！		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					140</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_34292959/article/details/87746604" target="_blank" title="霍金编剧的科普大片「与霍金一起了解宇宙」，带孩子走进茫茫宇宙！">
+				<span class="desc oneline">@小编：五一节日快乐~假期有什么有益身心的娱乐活动呢？快来看看小编推荐的这部科普大片吧！2018年3月14日，伟大的科学家史蒂芬·霍金与世长辞，享年76岁。很多人只知道史蒂芬·霍金在学术界的贡献，却不...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/weixin_34292959">来自：	<span class="blog_title"> weixin_34292959的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tangyang8941/article/details/81869204,BlogCommendFromThirdServiceAll_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tangyang8941/article/details/81869204" target="_blank" title="《一出好戏》讲述人性，使用Python抓取猫眼近10万条评论并分析，一起揭秘“这出好戏”到底如何？">
+		<h4 class="text-truncate oneline">
+				《一出好戏》讲述人性，使用Python抓取猫眼近10万条评论并分析，<em>一起</em>揭秘“这出好戏”到底如何？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2047</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tangyang8941/article/details/81869204" target="_blank" title="《一出好戏》讲述人性，使用Python抓取猫眼近10万条评论并分析，一起揭秘“这出好戏”到底如何？">
+				<span class="desc oneline">视频课程链接：https://edu.csdn.net/course/detail/9348黄渤首次导演的电影《一出好戏》自8月10日在全国上映，至今已有10天，其主演阵容强大，相信许多观众也都是冲着...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tangyang8941">来自：	<span class="blog_title"> IT教育-汤小洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qianshangding0708/article/details/50128305,BlogCommendFromThirdServiceAll_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qianshangding0708/article/details/50128305" target="_blank" title="Zookeeper超级用户">
+		<h4 class="text-truncate oneline">
+				<em>Zookeeper</em>超级用户		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4670</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qianshangding0708/article/details/50128305" target="_blank" title="Zookeeper超级用户">
+				<span class="desc oneline">Zookeeper管理员会因为某些客户端对某些节点设置了权限，而导致在紧急的情况下无法修改这些节点感到困扰。在这种情况下，管理员可以通过Zookeeper超级用户模式访问这些节点，一旦设置了超级权限访...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qianshangding0708">来自：	<span class="blog_title"> qianshanding0708的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/q649381130/article/details/52439176,BlogCommendESEnWordWeight_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/q649381130/article/details/52439176" target="_blank" title="android：一个绚丽的注册动画">
+		<h4 class="text-truncate oneline">
+				android：一个绚丽的注册动画		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6861</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/q649381130/article/details/52439176" target="_blank" title="android：一个绚丽的注册动画">
+				<span class="desc oneline">一个绚丽的注册动画</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/q649381130">来自：	<span class="blog_title"> 卜可的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jnulzl/article/details/49894041,BlogCommendESEnWordWeight_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+		<h4 class="text-truncate oneline">
+				史上最好的LDA(线性判别分析)教程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/jnulzl/article/details/49894041" target="_blank" title="史上最好的LDA(线性判别分析)教程">
+				<span class="desc oneline">一、前言最近由于研究需要，要用到线性判别分析(LDA)。于是找了很多资料来看，结果发现大部分讲的都是理论知识，因此最后还是看的一知半解，后来终于找到了个英文的文档，作者由PCA引入LDA，看过后豁然开...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/jnulzl">来自：	<span class="blog_title"> jnulzl的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_66" data-pid="66" data-track-view='{"mod":"kp_popu_66-87","con":",,"}' data-track-click='{"mod":"kp_popu_66-87","con":",,"}'><div id="three_ad38" class="mediav_ad" ></div>
+<script>
+                                               NEWS_FEED({
+                w: 852,
+                h : 60,
+                showid : 'Afihld',
+                placeholderId: "three_ad38",
+                inject : 'define',
+                define : {
+                    imagePosition : 'left',
+                    imageBorderRadius : 3,
+                    imageWidth: 90,
+                    imageHeight: 60,
+                    imageFill : 'clip',
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 18,
+                    titleFontColor: '#000',
+                    titleFontFamily : 'Lato,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif',
+                    titleFontWeight: 'bold',
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 5,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: '#8e959a',
+                    descFontFamily : 'Microsoft Yahei',
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: '#fff',
+                    hoverColor: '#000'
+                      }
+                  })
+                                        </script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tangyang8941/article/details/82837284,BlogCommendESEnWordWeight_39"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tangyang8941/article/details/82837284" target="_blank" title="微信好友大揭秘，使用Python抓取朋友圈数据，通过人脸识别全面分析好友，一起看透你的“朋友圈”">
+		<h4 class="text-truncate oneline">
+				微信好友大揭秘，使用Python抓取朋友圈数据，通过人脸识别全面分析好友，<em>一起</em>看透你的“朋友圈”		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8110</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tangyang8941/article/details/82837284" target="_blank" title="微信好友大揭秘，使用Python抓取朋友圈数据，通过人脸识别全面分析好友，一起看透你的“朋友圈”">
+				<span class="desc oneline">微信：一个提供即时通讯服务的应用程序，更是一种生活方式，超过数十亿的使用者，越来越多的人选择使用它来沟通交流。不知从何时起，我们的生活离不开微信，每天睁开眼的第一件事就是打开微信，关注着朋友圈里好友的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tangyang8941">来自：	<span class="blog_title"> IT教育-汤小洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u011860731/article/details/48733073,BlogCommendESEnWordWeight_40"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u011860731/article/details/48733073" target="_blank" title="ThreadLocal的设计理念与作用">
+		<h4 class="text-truncate oneline">
+				ThreadLocal的设计理念与作用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					9万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u011860731/article/details/48733073" target="_blank" title="ThreadLocal的设计理念与作用">
+				<span class="desc oneline">Java中的ThreadLocal类允许我们创建只能被同一个线程读写的变量。因此，如果一段代码含有一个ThreadLocal变量的引用，即使两个线程同时执行这段代码，它们也无法访问到对方的Thread...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u011860731">来自：	<span class="blog_title"> u011860731的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wuchengzeng/article/details/50037611,BlogCommendESEnWordWeight_41"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+		<h4 class="text-truncate oneline">
+				jquery/js实现一个网页同时调用多个倒计时(最新的)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-25</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					53万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wuchengzeng/article/details/50037611" target="_blank" title="jquery/js实现一个网页同时调用多个倒计时(最新的)">
+				<span class="desc oneline">jquery/js实现一个网页同时调用多个倒计时(最新的)最近需要网页添加多个倒计时.查阅网络,基本上都是千遍一律的不好用.自己按需写了个.希望对大家有用.有用请赞一个哦!//js//js2varpl...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wuchengzeng">来自：	<span class="blog_title"> Websites</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/wangyinbin/1936238,BlogCommendFromQuerySearch_42"}'>
+		<a href="https://download.csdn.net/download/wangyinbin/1936238" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						c++<em>动物园</em>管理系统					</h4>
+					<span class="data float-right">12-26</span>
+				</div>
+				<div class="desc oneline">
+						使用vc++做的，编译通过，本人的课程设计题目				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/weixin_41229044/10353759,BlogCommendFromQuerySearch_43"}'>
+		<a href="https://download.csdn.net/download/weixin_41229044/10353759" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						c++模拟<em>动物园</em>					</h4>
+					<span class="data float-right">04-17</span>
+				</div>
+				<div class="desc oneline">
+						模拟一个动物园，构造了各种累来模拟动物园的一天
+It simulates a zoo and constructs all kinds of tired days to simulate zoo				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_67" data-pid="67" data-track-view='{"mod":"kp_popu_67-882","con":",,"}' data-track-click='{"mod":"kp_popu_67-882","con":",,"}'><script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T43_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T43  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T43_render", "T43");
+</script></div></div>
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/piaopiaodeng/872242,BlogCommendFromQuerySearch_44"}'>
+		<a href="https://download.csdn.net/download/piaopiaodeng/872242" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						关于<em>动物园</em>管理系统的程序代码					</h4>
+					<span class="data float-right">12-15</span>
+				</div>
+				<div class="desc oneline">
+						关于动物园的管理系统：接收动物  移除动物 显示动物				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zbw18297786698/article/details/53455924,BlogCommendFromQuerySearch_45"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zbw18297786698/article/details/53455924" target="_blank" title="杭州动物园">
+		<h4 class="text-truncate oneline">
+				杭州<em>动物园</em>		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					620</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zbw18297786698/article/details/53455924" target="_blank" title="杭州动物园">
+				<span class="desc oneline">1、路线    1号地铁线到龙翔桥下，然后到d2出口出去。换乘4路公交车，到动物园下车。2、票价   杭州动物园的票价是20块钱。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zbw18297786698">来自：	<span class="blog_title"> Learning</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+	<div class="recommend-item-box  recommend-download-box clearfix"  data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/mdlwolf/10793534,BlogCommendFromQuerySearch_46"}'>
+		<a href="https://download.csdn.net/download/mdlwolf/10793534" target="_blank">
+			<div class="content clearfix">
+				<div class="">
+					<h4 class="text-truncate oneline clearfix">
+						<em>ZooKeeper</em><em>管理员</em>操作指南					</h4>
+					<span class="data float-right">11-19</span>
+				</div>
+				<div class="desc oneline">
+						ZooKeeper管理员指南				</div>
+				<span class="type-show type-show-download">下载</span>
+			</div>
+		</a>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tangyang8941/article/details/83581346,BlogCommendFromThirdServiceAll_47"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tangyang8941/article/details/83581346" target="_blank" title="基于SSM+Maven+BootStrap+MySQL的在线商城系统[实战视频]-汤小洋-专题视频课程">
+		<h4 class="text-truncate oneline">
+				基于SSM+Maven+BootStrap+MySQL的在线商城系统[实战视频]-汤小洋-专题视频课程		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					709</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tangyang8941/article/details/83581346" target="_blank" title="基于SSM+Maven+BootStrap+MySQL的在线商城系统[实战视频]-汤小洋-专题视频课程">
+				<span class="desc oneline">本课程基于Maven+Spring+SpringMVC+MyBatis+MySQL+BootStrap技术，使用IntelliJIDEA开发工具。主要是锻炼SSM技术的运用，通过项目实战，加强对框架技...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tangyang8941">来自：	<span class="blog_title"> IT教育-汤小洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/tangyang8941/article/details/83581613,BlogCommendFromThirdServiceAll_48"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/tangyang8941/article/details/83581613" target="_blank" title="【2018版】SpringBoot 2.0入门视频课程（适合初学者的教程）-汤小洋-专题视频课程...">
+		<h4 class="text-truncate oneline">
+				【2018版】SpringBoot 2.0入门视频课程（适合初学者的教程）-汤小洋-专题视频课程...		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-08</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					289</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/tangyang8941/article/details/83581613" target="_blank" title="【2018版】SpringBoot 2.0入门视频课程（适合初学者的教程）-汤小洋-专题视频课程...">
+				<span class="desc oneline">基于新的SpringBoot2.0版本，SpringBoot教学视频，以通俗易懂的方式讲解SpringBoot核心技术，适合初学者的教程，让你少走弯路！...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/tangyang8941">来自：	<span class="blog_title"> IT教育-汤小洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	<div class="recommend-item-box recommend-ad-box"><div id="kp_box_68" data-pid="68" data-track-view='{"mod":"kp_popu_68-883","con":",,"}' data-track-click='{"mod":"kp_popu_68-883","con":",,"}'><!-- T48 位置 -->
+<script src="https://nbrecsys.4paradigm.com/resource/cus/csdn/sdk-csdn-render.js"></script>
+<div
+  id="_4paradigm_T48_render"
+  class="_paradigm_T_ads_render _4paradigm_box recommend-item-box clearfix"
+></div>
+<script>
+  //  渲染T48  传入 渲染位置的id和渲染位置的标记
+  p4CSDNRender_T("_4paradigm_T48_render", "T48");
+</script></div></div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wangshouhan/article/details/88868307,BlogCommendFromThirdServiceAll_49"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/wangshouhan/article/details/88868307" target="_blank" title="Zookeeper（动物园管理员）详解">
+		<h4 class="text-truncate oneline">
+				<em>Zookeeper</em>（<em>动物园</em><em>管理员</em>）详解		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					370</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/wangshouhan/article/details/88868307" target="_blank" title="Zookeeper（动物园管理员）详解">
+				<span class="desc oneline">简介ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是GoogleChubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/wangshouhan">来自：	<span class="blog_title"> shouhan</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/kajweb/article/details/76474376,BlogCommendHotData_0"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+		<h4 class="text-truncate oneline">
+				[CTF]利用CRC32绕过RAR密码（适合于小文本文件）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/kajweb/article/details/76474376" target="_blank" title="[CTF]利用CRC32绕过RAR密码（适合于小文本文件）">
+				<span class="desc oneline">利用CRC32绕过RAR密码（适合于小文本文件）原文标题：教你绕过rar密码
+  文章仅作rar密码破解的探讨，如有高见还望提出。 
+　　题目有点夸大其词，事实是我也没能想出一个更好的描述来总结这篇文...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/kajweb">来自：	<span class="blog_title"> 林毅洋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ghsau/article/details/20466351,BlogCommendHotData_1"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+		<h4 class="text-truncate oneline">
+				共同父域下的单点登录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ghsau/article/details/20466351" target="_blank" title="共同父域下的单点登录">
+				<span class="desc oneline">单点登录(Single Sign On)，简称为SSO，SSO不仅在企业级开发很常用，在互联网中更是大行其道。随便举几个例子，比如我们登录新浪微博后，再访问新浪首页后，我们发现，已经自动登录了；再比如...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ghsau">来自：	<span class="blog_title"> 高爽|Coder</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/terry_water/article/details/39377255,BlogCommendHotData_2"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+		<h4 class="text-truncate oneline">
+				file_get_contents 得到https类型url失败的方法		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/terry_water/article/details/39377255" target="_blank" title="file_get_contents 得到https类型url失败的方法">
+				<span class="desc oneline">把file
+
+
+function getSSLPage($url) {
+    $ch = curl_init();
+	curl_setopt($ch, CURLOPT_RETURNTRANSF...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/terry_water">来自：	<span class="blog_title"> Terry - 专注外贸B2C</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yycdaizi/article/details/43341239,BlogCommendHotData_3"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+		<h4 class="text-truncate oneline">
+				Hive小文件合并		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yycdaizi/article/details/43341239" target="_blank" title="Hive小文件合并">
+				<span class="desc oneline">Hive的后端存储是HDFS，它对大文件的处理是非常高效的，如果合理配置文件系统的块大小，NameNode可以支持很大的数据量。但是在数据仓库中，越是上层的表其汇总程度就越高，数据量也就越小。而且这些...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yycdaizi">来自：	<span class="blog_title"> yycdaizi的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/silentpebble/article/details/41279285,BlogCommendHotData_4"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+		<h4 class="text-truncate oneline">
+				centos 查看命令源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					13万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/silentpebble/article/details/41279285" target="_blank" title="centos 查看命令源码">
+				<span class="desc oneline"># yum install yum-utils
+
+
+设置源:
+[base-src]
+name=CentOS-5.4 - Base src -
+baseurl=http://vault.ce...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/silentpebble">来自：	<span class="blog_title"> linux/unix</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/mingming24/article/details/46595127,BlogCommendHotData_6"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+		<h4 class="text-truncate oneline">
+				改造动态framework为静态framework		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/mingming24/article/details/46595127" target="_blank" title="改造动态framework为静态framework">
+				<span class="desc oneline">公司产品之前使用xmpp作为底层库，之前同事编译自己的sdk静态库想生成.a库，但是各种编译问题（其实耐心修改配置都能解决），但是从百度找到方案用framework可以解决，所以最终使用的是frame...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/mingming24">来自：	<span class="blog_title"> mingming24的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/aoshilang2249/article/details/46956163,BlogCommendHotData_7"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+		<h4 class="text-truncate oneline">
+				PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-19</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/aoshilang2249/article/details/46956163" target="_blank" title="PHP jpgraph库的配置及生成统计图表:折线图、柱状图、饼状图等">
+				<span class="desc oneline">JpGraph简介
+
+      JpGraph是开源的PHP统计图表生成库，基于PHP的GD2图形库构建，把生成统计图的相关操作封装，隐藏了部分复杂的操作，使在PHP页面上输出统计图表变得更加容...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/aoshilang2249">来自：	<span class="blog_title"> 郎涯工作室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/ABCD_0000/article/details/6803694,BlogCommendHotData_8"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+		<h4 class="text-truncate oneline">
+				何为数据库连接池？其工作原理是什么？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/ABCD_0000/article/details/6803694" target="_blank" title="何为数据库连接池？其工作原理是什么？">
+				<span class="desc oneline">连接池用于创建和管理数据库连接的缓冲池技术，缓冲池中的连接可以被任何需要他们的线程使用。当一个线程需要用JDBC对一个数据库操作时，将从池中请求一个连接。当这个连接使用完毕后，将返回到连接池中，等待为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/ABCD_0000">来自：	<span class="blog_title"> Napoleon的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_36892341/article/details/73918672,BlogCommendHotData_9"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+		<h4 class="text-truncate oneline">
+				linux上安装Docker(非常简单的安装方法)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					28万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq_36892341/article/details/73918672" target="_blank" title="linux上安装Docker(非常简单的安装方法)">
+				<span class="desc oneline">最近比较有空，大四出来实习几个月了，作为实习狗的我，被叫去研究Docker了，汗汗！
+
+Docker的三大核心概念：镜像、容器、仓库
+镜像：类似虚拟机的镜像、用俗话说就是安装文件。
+容器：类似一个轻量...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq_36892341">来自：	<span class="blog_title"> 我走小路的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qew110123/article/details/79927918,BlogCommendHotData_11"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+		<h4 class="text-truncate oneline">
+				Windows使用AnyProxy抓包（详细）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3274</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qew110123/article/details/79927918" target="_blank" title="Windows使用AnyProxy抓包（详细）">
+				<span class="desc oneline">使用AnyProxy抓包，看了很多教程，多是不完整，或者说的太笼统。下面记录下我探索的过程，也希望能减小各位爱学习的盆友弯路。第一次用简书写文章还不习惯，写的格式不太好。下次改进。如果喜欢，希望多多点...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qew110123">来自：	<span class="blog_title"> qew110123的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/neonlight/article/details/5975764,BlogCommendHotData_12"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+		<h4 class="text-truncate oneline">
+				vsftpd匿名用户上传和下载的配置		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/neonlight/article/details/5975764" target="_blank" title="vsftpd匿名用户上传和下载的配置">
+				<span class="desc oneline">　　看到很多朋友配置vsftpd时不能使用匿名用户上传和下载（创建目录或删除、重命名文件夹），本文主要解决vsftpd的匿名用户权限配制问题。...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/neonlight">来自：	<span class="blog_title"> 九宫霓虹</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/VBcom/article/details/7245186,BlogCommendHotData_13"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+		<h4 class="text-truncate oneline">
+				DirectX修复工具增强版		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					204万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/VBcom/article/details/7245186" target="_blank" title="DirectX修复工具增强版">
+				<span class="desc oneline">最后更新：2019-5-26
+
+DirectX修复工具最新版：DirectX Repair V3.8 增强版NEW!
+
+版本号：V3.8.0.11638
+
+大小: 107MB/7z格式压缩，189MB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/VBcom">来自：	<span class="blog_title"> VBcom的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010785685/article/details/52366977,BlogCommendHotData_14"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+		<h4 class="text-truncate oneline">
+				redis两种持久化策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">08-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010785685/article/details/52366977" target="_blank" title="redis两种持久化策略">
+				<span class="desc oneline">reids是一个key-value存储系统，为了保证效率，缓存在内存中，但是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，以保证数据的持久化。
+ 
+所以：redis是一...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010785685">来自：	<span class="blog_title"> 那么好,</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010258235/article/details/45666851,BlogCommendHotData_16"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+		<h4 class="text-truncate oneline">
+				C语言函数操作大全----(超详细)		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010258235/article/details/45666851" target="_blank" title="C语言函数操作大全----(超详细)">
+				<span class="desc oneline">fopen（打开文件）
+相关函数 open，fclose
+表头文件 #include
+定义函数 FILE * fopen(const char * path,const char * mode)...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010258235">来自：	<span class="blog_title"> 独旅天涯</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hayixia606/article/details/79237220,BlogCommendHotData_17"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+		<h4 class="text-truncate oneline">
+				微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-02</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					18万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/hayixia606/article/details/79237220" target="_blank" title="微信支付V3微信公众号支付PHP教程(thinkPHP5公众号支付)/JSSDK的使用">
+				<span class="desc oneline">扫二维码关注，获取更多技术分享
+
+
+  本文承接之前发布的博客《 微信支付V3微信公众号支付PHP教程/thinkPHP5公众号支付》必须阅读上篇文章后才可以阅读这篇文章。由于最近一段时间工作比较忙，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/hayixia606">来自：	<span class="blog_title"> Marswill</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/leolewin/article/details/48653351,BlogCommendHotData_18"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+		<h4 class="text-truncate oneline">
+				加密算法介绍及加密算法的选择		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/leolewin/article/details/48653351" target="_blank" title="加密算法介绍及加密算法的选择">
+				<span class="desc oneline">加密算法介绍
+
+一. 密码学简介
+据记载，公元前400年，古希腊人发明了置换密码。1881年世界上的第一个电话保密专利出现。在第二次世界大战期间，德国军方启用“恩尼格玛”密码机，密码学在战争中起...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/leolewin">来自：	<span class="blog_title"> leolewin的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/llqqxf/article/details/78654539,BlogCommendHotData_19"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+		<h4 class="text-truncate oneline">
+				Java swing实现的餐厅点餐系统演示及源码		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8481</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/llqqxf/article/details/78654539" target="_blank" title="Java swing实现的餐厅点餐系统演示及源码">
+				<span class="desc oneline">大家好，今天给大家演示一下用Java swing实现的一款餐厅点餐系统，项目比较简单，适合初学者或者学生用来学习Java开发，下面我们来看一下项目源码。OrderMeal为项目源码（包含icon图片）...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/llqqxf">来自：	<span class="blog_title"> 明礼馨德的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Chay_Chan/article/details/75319452,BlogCommendHotData_20"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+		<h4 class="text-truncate oneline">
+				精仿今日头条		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">07-18</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Chay_Chan/article/details/75319452" target="_blank" title="精仿今日头条">
+				<span class="desc oneline">转载请注明出处：http://blog.csdn.net/Chay_Chan/article/details/75319452
+
+
+
+由来篇
+
+
+
+当初的梦想
+
+  一直都想尝试开发自己还没接触过的某...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Chay_Chan">来自：	<span class="blog_title"> Chay_Chan的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caomiao2006/article/details/48454329,BlogCommendHotData_21"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+		<h4 class="text-truncate oneline">
+				java 内存泄露调试和解决		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">09-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/caomiao2006/article/details/48454329" target="_blank" title="java 内存泄露调试和解决">
+				<span class="desc oneline">说起Java的内存泄露，其实定义不是那么明确。首先，如果JVM没有bug，那么理论上是不会出现“无法回收的堆空间”，也就是说C/C++中的那种内 存泄露在Java中不存在的。其次，如果由于Java程序...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/caomiao2006">来自：	<span class="blog_title"> caomiao2006的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/fantasy999999999/article/details/40979581,BlogCommendHotData_22"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+		<h4 class="text-truncate oneline">
+				Qt中隐式调用VS建立的dll动态库		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-10</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4849</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/fantasy999999999/article/details/40979581" target="_blank" title="Qt中隐式调用VS建立的dll动态库">
+				<span class="desc oneline">Dll文件调用方式分为显式调用和隐式调用，在这里选择隐式调用的方式。
+
+准备dll文件：
+这里选择VS 2010作为dll的开发工具，打开vs 2010,选择文件-&gt;新建-&gt;项目
+在新建项目窗...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/fantasy999999999">来自：	<span class="blog_title"> fantasy999999999的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010665359/article/details/50950989,BlogCommendHotData_23"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+		<h4 class="text-truncate oneline">
+				项目记录30--unity-tolua框架 回顾之前Dotween导入		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8322</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010665359/article/details/50950989" target="_blank" title="项目记录30--unity-tolua框架 回顾之前Dotween导入">
+				<span class="desc oneline">项目到结尾了，各种忙。还要兼顾写技术文档（客户文档，服务端文档），原本打算搬到线上，突然改变了注意，要在本地部署写文档一步步写。服务端还是用的windowserver2012，数据库用sql2008,...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010665359">来自：	<span class="blog_title"> u010665359的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012435889/article/details/42610297,BlogCommendHotData_24"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+		<h4 class="text-truncate oneline">
+				操作系统——动态分区分配方式模拟		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					8366</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u012435889/article/details/42610297" target="_blank" title="操作系统——动态分区分配方式模拟">
+				<span class="desc oneline">这里直接给出代码，如果不理解请参考左万历版《计算机操作系统教程》，先在给出四中模拟算法。
+
+1.   设计目的
+了解动态分区分配中使用的数据结构和分配算法，并进一步加深对动态分区存储管理方式及其...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u012435889">来自：	<span class="blog_title"> 机器笨猫</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq574857122/article/details/16361033,BlogCommendHotData_25"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+		<h4 class="text-truncate oneline">
+				强连通分量及缩点tarjan算法解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">11-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					65万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/qq574857122/article/details/16361033" target="_blank" title="强连通分量及缩点tarjan算法解析">
+				<span class="desc oneline">强连通分量：
+简言之 就是找环（每条边只走一次，两两可达）
+孤立的一个点也是一个连通分量 
+ 
+使用tarjan算法 在嵌套的多个环中优先得到最大环( 最小环就是每个孤立点）
+ 
+定义：
+int Ti...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/qq574857122">来自：	<span class="blog_title"> 九野的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010953266/article/details/42774117,BlogCommendHotData_26"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+		<h4 class="text-truncate oneline">
+				反置页表		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010953266/article/details/42774117" target="_blank" title="反置页表">
+				<span class="desc oneline">原文地址：反置页表作者：hilg
+
+在分页系统中为每个进程配置一张页表，进程逻辑地址空间中的每一页，在页表中都对应有一个页表项。在现代计算机系统中通常允许一个进程的逻辑地址空间非常大，因此就有很多页表...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010953266">来自：	<span class="blog_title"> 月光轩辕的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Qguanri/article/details/51120178,BlogCommendHotData_27"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+		<h4 class="text-truncate oneline">
+				使用keepalived实现Redis双机热备、高可用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">04-11</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4966</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Qguanri/article/details/51120178" target="_blank" title="使用keepalived实现Redis双机热备、高可用">
+				<span class="desc oneline">Redis高可用需求(1)Redis运行在docker容器中;（2）实现双机热备,当redis-master异常时，redis-slave快速切换成master提供服务。 
+(3)当redis-mas...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Qguanri">来自：	<span class="blog_title"> 覃冠日的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gefangshuai/article/details/50328451,BlogCommendHotData_29"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+		<h4 class="text-truncate oneline">
+				关于SpringBoot bean无法注入的问题（与文件包位置有关）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					25万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/gefangshuai/article/details/50328451" target="_blank" title="关于SpringBoot bean无法注入的问题（与文件包位置有关）">
+				<span class="desc oneline">问题场景描述整个项目通过Maven构建，大致结构如下：
+核心Spring框架一个module spring-boot-base
+service和dao一个module server-core
+提供系统...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/gefangshuai">来自：	<span class="blog_title"> 开发随笔</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Ape55/article/details/73530419,BlogCommendHotData_30"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+		<h4 class="text-truncate oneline">
+				plsql的命令（command）窗口与sql窗口有什么区别20170620		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					5万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/Ape55/article/details/73530419" target="_blank" title="plsql的命令（command）窗口与sql窗口有什么区别20170620">
+				<span class="desc oneline">command窗口是命令窗口，即为sqplus窗口，有命令提示符，识别sqlplus命令，基本的命令都可以执行
+sql仅可执行DDL、select、DML等...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/Ape55">来自：	<span class="blog_title"> Ape55的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013360850/article/details/78861442,BlogCommendHotData_31"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+		<h4 class="text-truncate oneline">
+				Spring Boot MyBatis 动态数据源切换、多数据源，读写分离		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u013360850/article/details/78861442" target="_blank" title="Spring Boot MyBatis 动态数据源切换、多数据源，读写分离">
+				<span class="desc oneline">项目地址：https://github.com/helloworlde/SpringBoot-DynamicDataSource/tree/dev  在 Spring Boot 应用中使用到了 MyB...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u013360850">来自：	<span class="blog_title"> HelloWood</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xuexiangjys/article/details/78924201,BlogCommendHotData_32"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+		<h4 class="text-truncate oneline">
+				Java面向对象的设计模式七大设计原则		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2217</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/xuexiangjys/article/details/78924201" target="_blank" title="Java面向对象的设计模式七大设计原则">
+				<span class="desc oneline">Java设计的七大原则：
+
+
+
+
+设计原则名称
+
+
+定  义
+
+
+使用频率
+
+
+
+
+单一职责原则
+(Single Responsibility Principle, SRP)
+
+
+一个类只负责一个功能...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/xuexiangjys">来自：	<span class="blog_title"> xuexiangjys的博客</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinolzeng/article/details/24608551,BlogCommendHotData_33"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+		<h4 class="text-truncate oneline">
+				Unity学习笔记2 简易2D横版RPG游戏制作（二）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/sinolzeng/article/details/24608551" target="_blank" title="Unity学习笔记2 简易2D横版RPG游戏制作（二）">
+				<span class="desc oneline">简易2D横版RPG游戏制作（二）
+现在我们到了di</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/sinolzeng">来自：	<span class="blog_title"> sinolzeng的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yu_xiaofei/article/details/13287899,BlogCommendHotData_34"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+		<h4 class="text-truncate oneline">
+				SNMP协议详解&lt;二&gt;		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-29</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					15万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/yu_xiaofei/article/details/13287899" target="_blank" title="SNMP协议详解&lt;二&gt;">
+				<span class="desc oneline">上一篇文章讲解了SNMP的基本架构，本篇文章将重点分析SNMP报文，并对不同版本（SNMPv1、v2c、v3）进行区别！
+
+四、SNMP协议数据单元
+
+在SNMP管理中，管理站（NMS）和代理（Age...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/yu_xiaofei">来自：	<span class="blog_title"> 假装在纽约</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/dragon_ton/article/details/46651489,BlogCommendHotData_35"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+		<h4 class="text-truncate oneline">
+				常见加密算法的分类与比较		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-26</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/dragon_ton/article/details/46651489" target="_blank" title="常见加密算法的分类与比较">
+				<span class="desc oneline">常见的加密算法可以分成三类，对称加密算法，非对称加密算法和Hash算法。
+
+对称加密
+
+    指加密和解密使用相同密钥的加密算法。对称加密算法的优点在于加解密的高速度和使用长密钥时的难破解性...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/dragon_ton">来自：	<span class="blog_title"> dragon_ton的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010019717/article/details/52890644,BlogCommendHotData_36"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+		<h4 class="text-truncate oneline">
+				Unity中内嵌网页插件 UniWebView 2.8使用		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">10-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					3万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/u010019717/article/details/52890644" target="_blank" title="Unity中内嵌网页插件 UniWebView 2.8使用">
+				<span class="desc oneline">UniWebView2：适用于Andriod、ios和Mac os，在移动端效果最好。支持WP8，不支持windows桌面系统，包括编辑器状态。  Unity4.x版本是 UniWebViewUnit...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/u010019717">来自：	<span class="blog_title"> 游戏开发实验室</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zd0303/article/details/7058457,BlogCommendHotData_37"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+		<h4 class="text-truncate oneline">
+				MATLAB中注释一段程序		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">12-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					4万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/zd0303/article/details/7058457" target="_blank" title="MATLAB中注释一段程序">
+				<span class="desc oneline">在MATLAB中，可以注释一段程序。
+使用“%{”和“%}”。
+例如
+%{
+。。。
+%}
+即可。
+经典方法是用 if 0，但缺点是不够直观，注释掉的内容仍然保持代码的颜色。现在可以用
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/zd0303">来自：	<span class="blog_title"> 知识小屋</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lubiaopan/article/details/6233517,BlogCommendHotData_38"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+		<h4 class="text-truncate oneline">
+				.NET和java的RSA互通，仅此而已		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-09</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					7万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/lubiaopan/article/details/6233517" target="_blank" title=".NET和java的RSA互通，仅此而已">
+				<span class="desc oneline">RSA .net jva 互通 解决不能互通的问题</span>
+			</a>
+			<span class="blog_title_box oneline ">
+									<span class="type-show type-show-blog type-show-after">博文</span>
+											<a target="_blank" href="https://blog.csdn.net/lubiaopan">来自：	<span class="blog_title"> lubiaopan的专栏</span></a>
+												</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtzaggzsNC1lZHUO0O0O.html" target="_blank">
+                        人工智能课程走进小学</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtTaEg1sNzYtZWR1.html" target="_blank">
+                        大数据管理员培训</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/tangyang8941">
+              <img src="https://avatar.csdn.net/E/9/8/3_tangyang8941.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/9.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/tangyang8941" target="_blank" class="" id="uid">IT教育-汤小洋</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="31">
+                        <dt><a href="https://blog.csdn.net/tangyang8941?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/tangyang8941?t=1"><span class="count">31</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="243">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">243</span></dd>
+        </dl>
+        <dl class="text-center" title="151">
+            <dt>喜欢</dt>
+            <dd><span class="count">151</span></dd>
+        </dl>
+        <dl class="text-center" title="55">
+            <dt>评论</dt>
+            <dd><span class="count">55</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="3级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-3"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="69622">
+                6万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="687">
+                687            </dd>
+        </dl>
+        <dl title="103646">
+            <dt>排名：</dt>
+            <dd>10万+</dd>
+        </dl>
+    </div>
+    </div>
+<div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <div id="kp_box_56" data-pid="56" data-track-view='{"mod":"kp_popu_56-703","con":",,"}' data-track-click='{"mod":"kp_popu_56-703","con":",,"}'><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 博客内页左上视窗-20181120 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1076724771190722"
+     data-ad-slot="7700527946"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>    </div>
+</div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tangyang8941/article/details/88025412" target="_blank">高性能RPC框架——Dubbo一站式快速入门</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tangyang8941/article/details/84888660" target="_blank">MySQL零基础入门视频课程——笔记</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tangyang8941/article/details/83582152" target="_blank">基于jQuery的2048游戏实战视频教程-汤小洋-专题视频课程</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tangyang8941/article/details/83581999" target="_blank">扎扎实实学Python爬虫视频教程（300分钟）-汤小洋-专题视频课程</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tangyang8941/article/details/83581945" target="_blank">jQuery从入门到进阶视频教程-汤小洋-专题视频课程</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/7937404">
+                    <span class="title oneline">Java开发</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/7937420">
+                    <span class="title oneline">虚拟化</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/7937428">
+                    <span class="title oneline">前端开发</span>
+                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/7952653">
+                    <span class="title oneline">Python</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/8287336">
+                    <span class="title oneline">视频教程</span>
+                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/8510568">
+                    <span class="title oneline">数据库</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/tangyang8941/article/category/8556892">
+                    <span class="title oneline">分布式</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/12">
+                    2018年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/10">
+                    2018年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/09">
+                    2018年9月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tangyang8941/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/tangyang8941/article/details/81674015#comments">Vue.js 2.0之全家桶系列视...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/weixin_44519600" class="user-name" target="_blank">weixin_44519600：</a>您好老师，看到您写的博客内容想邀请您写关于开发实战方面的书籍，方便的话可以加下我weinxin 13361014476具体沟通下 如有打扰请见谅，不用理睬，请划过去这条评论                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/tangyang8941/article/details/82837284#comments">微信好友大揭秘，使用Python抓...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/tangyang8941" class="user-name" target="_blank">tangyang8941：</a>[reply]promise2017[/reply]
+博客中代码都是有的，同时博客中有详细的视频课程，可以参考下                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/tangyang8941/article/details/82837284#comments">微信好友大揭秘，使用Python抓...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/tangyang8941" class="user-name" target="_blank">tangyang8941：</a>[reply]abc_12366[/reply]
+谢谢鼓励                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/tangyang8941/article/details/82837284#comments">微信好友大揭秘，使用Python抓...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/tangyang8941" class="user-name" target="_blank">tangyang8941：</a>[reply]u014483914[/reply]
+没封，仔细检查下代码                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/tangyang8941/article/details/81869204#comments">《一出好戏》讲述人性，使用Pyth...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_41867429" class="user-name" target="_blank">qq_41867429：</a>大佬，city_coordinates.json这个文件可以分享下不                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+			
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57" data-track-view='{"mod":"kp_popu_57-1158","con":",,"}' data-track-click='{"mod":"kp_popu_57-1158","con":",,"}'><!-- 广告位：PC-博客内页左下视窗 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '6272567',
+        container: s,
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="https://dup.baidustatic.com/js/os.js"></script></div>		</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>7</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						4				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/tangyang8941/article/details/84888660" title="MySQL零基础入门视频课程——笔记">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/tangyang8941/article/details/88025412" title="高性能RPC框架——Dubbo一站式快速入门">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/tangyang8941/article/details/84888660" title="MySQL零基础入门视频课程——笔记">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/tangyang8941/article/details/88025412" title="高性能RPC框架——Dubbo一站式快速入门">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 85;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 31;
+    var articleId = "85230431";
+    var commentscount = 4;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/tangyang8941/article/details/85230431";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "一起走进动物园管理员——ZooKeeper - IT教育-汤小洋";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = 'atom-one-dark';
+	var highlight = ["\u4e00\u8d77","\u8d70\u8fdb","\u52a8\u7269\u56ed","\u7ba1\u7406\u5458","zookeeper"];//高亮数组
+
+    var RecommendBlogExpertList = [{"user_name":"nsrainbow","nick_name":"alexxiyang","avatar":"https:\/\/avatar.csdn.net\/7\/9\/A\/3_nsrainbow.jpg","is_expert":true,"article_count":297,"rank":"2000+"},{"user_name":"jaminwm","nick_name":"jaminwm","avatar":"https:\/\/avatar.csdn.net\/5\/D\/1\/3_jaminwm.jpg","is_expert":true,"article_count":521,"rank":"630"},{"user_name":"b644ROfP20z37485O35M","nick_name":"JAVA\u8475\u82b1\u5b9d\u5178","avatar":"https:\/\/avatar.csdn.net\/B\/6\/6\/3_b644rofp20z37485o35m.jpg","is_expert":false,"article_count":431,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"qq_24501105","nick_name":"\u6a21\u68f1\u535a\u5ba2","avatar":"https:\/\/avatar.csdn.net\/0\/4\/D\/3_qq_24501105.jpg","is_expert":false,"article_count":23,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"suifeng629","nick_name":"\u52a0\u74e6\u4e00\u679a","avatar":"https:\/\/avatar.csdn.net\/2\/D\/2\/3_suifeng629.jpg","is_expert":false,"article_count":274,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"louisacea","nick_name":"louisacea","avatar":"https:\/\/avatar.csdn.net\/7\/6\/3\/3_louisacea.jpg","is_expert":false,"article_count":27,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"Dadatu_Zhao","nick_name":"Mininda","avatar":"https:\/\/avatar.csdn.net\/5\/C\/C\/3_dadatu_zhao.jpg","is_expert":false,"article_count":178,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"grtnp40688","nick_name":"grtnp40688","avatar":"https:\/\/avatar.csdn.net\/B\/F\/9\/3_grtnp40688.jpg","is_expert":false,"article_count":10,"rank":"\u5343\u91cc\u4e4b\u5916"},{"user_name":"zbw18297786698","nick_name":"Bwz_Learning","avatar":"https:\/\/avatar.csdn.net\/A\/A\/6\/3_zbw18297786698.jpg","is_expert":false,"article_count":460,"rank":"2000+"},{"user_name":"u011417723","nick_name":"\u75af\u72c2\u7684\u5927\u997c","avatar":"https:\/\/avatar.csdn.net\/4\/8\/C\/3_u011417723.jpg","is_expert":false,"article_count":17,"rank":"\u5343\u91cc\u4e4b\u5916"}];
+	var articleType = 1;
+	var CopyrightContent = '©著作权归作者所有：来自CSDN博客作者汤小洋的原创作品，如需转载，请注明出处，否则将追究法律责任';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+	<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-fc7383b956.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js,baidu-search/1.0.0/baidu-search.js?t=20190307095522"  type="text/javascript"></script>
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>

@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/weixin_44326589/article/details/90642093"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"一文读懂深度学习：从神经元到BERT - 蚂蚁金服技术团队"}'>
+    
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>一文读懂深度学习：从神经元到BERT - 蚂蚁金服技术团队 - CSDN博客</title>
+
+                        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/corporate_blog-9a3dc90090.min.css">
+            
+            <script type="application/ld+json">{"@context":"https:\/\/ziyuan.baidu.com\/contexts\/cambrian.jsonld","@id":"https:\/\/blog.csdn.net\/weixin_44326589\/article\/details\/90642093","appid":"1563894916825412","title":"\u4e00\u6587\u8bfb\u61c2\u6df1\u5ea6\u5b66\u4e60\uff1a\u4ece\u795e\u7ecf\u5143\u5230BERT - \u8682\u8681\u91d1\u670d\u6280\u672f\u56e2\u961f","images":["https:\/\/yqfile.alicdn.com\/9870809ea38e2e0409f90a3f25ad9093d975aafa.png","https:\/\/yqfile.alicdn.com\/667f03a5d1615b2b99570b6f62b3c3aaa7c4ed1a.png","https:\/\/yqfile.alicdn.com\/527079c8b0926f5c41c66152c6a82fbc5e63208f.png"],"pubDate":"2019-06-05T20:05:31"}</script>
+        
+        <script type="text/javascript">
+        var username = "weixin_44326589";
+        var blog_address = "https://blog.csdn.net/weixin_44326589";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "";
+        var isShowAds = false;
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_44326589/article/details/90642093"
+        var blogUrl = "https://blog.csdn.net/";
+
+        var curSkin = "skin-sea";
+        // 第四范式所需数据
+        var articleTitles = "一文读懂深度学习：从神经元到BERT - 蚂蚁金服技术团队";
+        
+        var nickName = "蚂蚁金服技术团队";
+        var isCorporate = true;
+        var subDomainBlogUrl = "https://blog.csdn.net/"
+        var digg_base_url = "https://blog.csdn.net/weixin_44326589/phoenix/comment";
+        var articleDetailUrl = "https://blog.csdn.net/weixin_44326589/article/details/90642093";
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <script src="//g.csdnimg.cn/??fixed-sidebar/1.1.3/fixed-sidebar.js,track/1.2.6/track.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body class="nodata company_blog" style='background-color: #f5f6f7'> 
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript">
+	var NEWS_FEED = function(){}
+</script>
+
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+	<header>
+	<div class="container d-flex clearfix" style="background-image: url(https://csdnimg.cn/release/phoenix/head.png)">
+		<div class="title-box">
+			<h1 class="title-blog">
+				<a href="https://blog.csdn.net/weixin_44326589">蚂蚁金服技术团队</a>
+			</h1>
+			<p class="description oneline">开源、大数据、人工智能、VR/AR、数据库、移动开发……</p>
+		</div>
+		<div class="opt-box d-flex justify-content-end">
+					</div>
+	</div>
+			<ul class="corporate-blog-navigation">
+							<li><a href="https://tech.antfin.com/articles?info=zh" target="_blank">蚂蚁社区</a></li>
+							<li><a href="https://tech.antfin.com/activities/216?chInfo=zhcsdn1" target="_blank">红包峰会</a></li>
+					</ul>
+	</header>
+<div class="container clearfix" id="mainBox">
+	    <main>
+        <div class="blog-content-box">
+  <div class="article-header-box">
+    <div class="article-header">
+      <div class="article-title-box">
+        <span class="article-type type-1 float-left">原</span>        <h1 class="title-article">一文读懂深度学习：从神经元到BERT</h1>
+      </div>
+      <div class="article-info-box">
+        <div class="article-bar-top">
+                                                  <span class="time">2019年05月28日 16:34:24</span>
+          <a class="follow-nickName" href="https://me.csdn.net/weixin_44326589" target="_blank">蚂蚁金服技术团队</a>
+          <span class="read-count">阅读数：993</span>
+                  </div>
+        <div class="operating">
+                  </div>
+      </div>
+    </div>
+  </div>
+  <article class="baidu_pl">
+    <div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog" data-mod=popu_307 data-dsm="post">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+                              <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-f57960eb32.css" />
+          <div class="htmledit_views" id="content_views">
+            <blockquote>
+<p>阿里妹导读：自然语言处理领域的殿堂标志 BERT 并非横空出世，背后有它的发展原理。今天，蚂蚁金服财富对话算法团队整理对比了深度学习模型在自然语言处理领域的发展历程。从简易的神经元到当前最复杂的BERT模型，深入浅出地介绍了深度学习在 NLP 领域进展，并结合工业界给出了未来的 NLP 的应用方向，相信读完这篇文章，你对深度学习的整体脉络会有更加深刻认识。</p>
+</blockquote>
+
+<p>一个神经网络结构通常包含输入层、隐藏层、输出层。输入层是我们的 features (特征)，输出层是我们的预测 (prediction)。神经网络的目的是拟合一个函数 f<em>：features -&gt; prediction。在训练期间，通过减小 prediction 和实际 label 的差异的这种方式，来更改网络参数，使当前的网络能逼近于理想的函数 f</em>。</p>
+
+<h2 id="1"><strong>神经元(Neural Cell)</strong></h2>
+
+<p>神经网络层的基本组成成员为神经元，神经元包含两部分，一部分是上一层网络输出和当前网络层参数的一个线性乘积，另外一部分是线性乘积的非线性转换。(如果缺少非线性转换，则多层线性乘积可以转化为一层的线性乘积)</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/9870809ea38e2e0409f90a3f25ad9093d975aafa.png" /></p>
+
+<p>图一</p>
+
+<h2 id="2"><strong>浅层神经网络( Neural Network )</strong></h2>
+
+<p>只有一层隐藏层的，我们称为浅层网络。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/667f03a5d1615b2b99570b6f62b3c3aaa7c4ed1a.png" /></p>
+
+<p>图二</p>
+
+<h2 id="3"><strong>深度学习网络（Multilayer Perceptron）</strong></h2>
+
+<p>相对于浅层网络结构，有两层、三层及以上隐藏层的我们就可以称为深度网络。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/527079c8b0926f5c41c66152c6a82fbc5e63208f.png" /></p>
+
+<p>图三</p>
+
+<p><strong>在通常的理解中，一个足够宽的网络，是能够拟合任何函数的。而一个深层网络，则能够用更少的参数来拟合该函数，因为深层的神经元可以获取比浅层神经元更复杂的特征表示。</strong></p>
+
+<p>在图二及三所示网络，我们称为全连接网络，也就是隐藏层的神经元会和上一层所有的神经元输出相关。和全连接网络相对应的，是只和上一层部分神经元输出连接的网络，如下文介绍的卷积网络。</p>
+
+<h2 id="4"><strong>卷积网络(CNN)</strong></h2>
+
+<p>卷积网络神经元只和上一层的部分神经元输出是连接的。（在直觉上，是因为人的视觉神经元触突只对局部信息敏感，而不是全局所有信息都对同一个触突产生等价作用）</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/23d6b2763e840b87f19311ec07d40dbed0c8ff61.png" /></p>
+
+<p>同一个卷积核从左到右，从上到下和输入做乘积，得到了不同强度的输出。从直觉上来理解，卷积核对原始数据的不同数据分布的敏感度是不一样的。如果把卷积核理解为是某种 pattern，那么符合这种 pattern 的数据分布会得到比较强的输出，而不符合这种 pattern 的输出则得到弱的，甚至是不输出。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/c2808d96e20f7aabb2cf9b66dfedc5b15f2037c2.png" /></p>
+
+<p>一个卷积核是一个 pattern 提取器， 多个卷积核就是多个 pattern 提取器。通过多个特征提取器对原始数据做特征提取转换，就构成了一层卷积。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/94726ae83e93f11a7cc42a801cf28de92a4a4a8b.png" /></p>
+
+<p>Alex Net, 因为 GPU 内存的原因，Alex 使用了两块 GPU 对模型做了切割，本质上的卷积层是用于特征提取， 最大池化层用于提取强特征及减少参数，全连接层则是所有高级特征参与到最后分类决策中去。</p>
+
+<h2 id="5"><strong>循环神经网络(RNN)</strong></h2>
+
+<p>CNN是对空间上特征的提取， RNN则是对时序上特征的提取。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/af7600ac479108597eb4ff0501fbb25f39c0bfea.png" /></p>
+
+<p>在RNN中，x1 , x2, x3, xt 是在时序上不一样的输入，而 V， U， W 三个矩阵则是共享。同时 RNN 网络中保存了自己的状态 S。 S 随着输入而改变，不同的输入/不同时刻的输入或多或少影响 RNN 网络的状态 S。而 RNN 网络的状态 S 则决定最后的输出。</p>
+
+<p><strong>在直觉上，我们理解 RNN 网络是一个可模拟任何函数的一个神经网络( action )，加上同时有一份自己的历史存储( memory )，action+memory 两者让 RNN 成为了一个图灵机器。</strong></p>
+
+<h2 id="6"><strong>长短期记忆网络( LSTM )</strong></h2>
+
+<p>RNN 的问题是非线性操作 σ 的存在且每一步间通过连乘操作传递，会导致长序列历史信息不能很好的传递到最后，而有了 LSTM 网络。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/7e4097d99ba0b507c28785a12b121a413aa8d865.png" /></p>
+
+<p>在 lstmcell 中， 包含了通常意义上的遗忘门（点乘，决定什么要从状态中去除），输入更新门（按位相加，决定什么要添加到状态中去），输出门（点乘，决定状态的输出是什么？）虽然看起来很复杂，本质上是矩阵的运算。</p>
+
+<p>为了简化运算，后面有 lstm 的变种 GRU， 如下图：</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/bb4694e5971acc05f1073140837353f22e5c05e6.png" /></p>
+
+<p><strong>文本卷积网络 (TextCNN)</strong></p>
+
+<p>CNN 在计算机识别领域中应用广泛，其捕捉局部特征的能力非常强，为分析和利用图像数据的研究者提供了极大的帮助。TextCNN 是2014年 Kim 在 EMNLP 上提出将 CNN 应用于 NLP 的文本分类任务中。</p>
+
+<p><strong>从直观上理解，TextCNN 通过一维卷积来获取句子中 n-gram 的特征表示。TextCNN 对文本浅层特征的抽取能力很强，在短文本领域如搜索、对话领域专注于意图分类时效果很好，应用广泛，且速度快，一般是首选；对长文本领域，TextCNN 主要靠 filter 窗口抽取特征，在长距离建模方面能力受限，且对语序不敏感。</strong></p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/00efc491b17dc6f6247075609442724b5e46afb5.png" /></p>
+
+<h2 id="7"><strong>卷积核( filter )→ n-gram 特征</strong></h2>
+
+<p>文本卷积与图像卷积的不同之处在于只在文本序列的一个方向做卷积。对句子单词每个可能的窗口做卷积操作得到特征图( feature map )。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/dd1b15b4a057c5e765e2e96633c4417e5363776d.png" /></p>
+
+<p>其中，<img alt="image" class="has" src="https://yqfile.alicdn.com/a2392e6e1d707111491cd5769d52e4b11f637350.png" />。对 feature map 做最大池化( max-pooling )操作，取中最大值max{c} 作为 filter 提取出的 feature。通过选择每个 feature map 的最大值，可捕获其最重要的特征。</p>
+
+<p>每个 filter 卷积核产生一个 feature ,一个 TextCNN 网络包括很多不同窗口大小的卷积核，如常用的 filter size ∈{3,4,5} 每个 filter 的 featuremaps=100。</p>
+
+<h2 id="8"><strong>增强序列推理模型(ESIM)</strong></h2>
+
+<p><strong>ESIM (Enhanced Sequential Inference Model) 为短文本匹配任务中常用且有力的模型。它对于 LSTM 的加强主要在于：将输入的两个 LSTM 层( Encoding Layer) 通过序列推理交互模型输出成新的表征。</strong></p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/b8796a0424dc0cba065d4184b5992208909c4a1d.png" /></p>
+
+<blockquote>
+<p>图片来源：paper《Enhanced LSTM for Natural LanguageInference》</p>
+</blockquote>
+
+<p>如图所示，ESIM 为图的左边部分。整体网络结构其实比较明确，整条通路大致包括三个步骤。</p>
+
+<p><strong>步骤一：编码层</strong>。该步骤每个 token 将预训练的编码通过 Bi-LSTM 层，从而获取了“新的编码”，其目的是通过 LSTM 学习每个 token 的上下文信息。</p>
+
+<p><strong>步骤二：局部推理层</strong>。步骤二本质是一个句间注意力( intra-sentence attention )的计算过程。通过将两句在步骤一中获取的结果做 intra-sentence attention 操作，我们在这里可以获取到一个新的向量表征。接下来对向量的前后变化进行了计算，该做法的目的是进一步抽取局部推理信息在 attention 操作的前后变化，并捕捉其中的一些推理关系，如前后关系等。</p>
+
+<p><strong>步骤三：组合推理&amp;预测层</strong>。再次将抽取后的结果通过 Bi-LSTM，并使用Avarage&amp;Maxpooling 进行池化（其具体操作就是分别进行 average 和 max pooling 并进行 concat），最后加上全连接层进行 Softmax 预测其概率。</p>
+
+<h2 id="9"><strong>ELMo</strong></h2>
+
+<p><strong>直观上来讲，ELMo(Embedding from Language Model) 解决了一词多义的问题</strong>，例如询问“苹果”的词向量是什么，ELMo 会考虑是什么语境下的“苹果”，我们应该去询问“苹果股价”里的“苹果”词向量是什么。ELMo 通过提供词级别、携带上下文信息的动态表示，能有效的捕捉语境信息。ELMo 的提出对后面的的 GPT 和 BRET有一个很好的引导和启发的作用。一个好的词向量，应满足两个特点：</p>
+
+<ol><li>能够反映出语义和语法的复杂特征。</li>
+	<li>能够准确对不同上下文产生合适语义。</li>
+</ol><p>传统的 word2vec 对每个 word 只有一个固定的 embedding 表达，不能产生携带上下文信息的 embedding，对多义词无法结合语境判断。ELMo 中的每个单词都要先结合语境通过多层 LSTM 网络才得到最后的表达，LSTM 是为捕获上下文信息而生，因而 ELMo 能结合更多的上下文语境，在一词多意上的效果比 word2vec 要好。</p>
+
+<p>ELMo 预训练时的网络结构图与传统语言模型有点类似，直观理解为将中间的非线性层换成了 LSTM，利用 LSTM 网络更好的提取每个单词在当前语境中的上下文信息，同时增加了前向和后向上下文信息。.</p>
+
+<p><strong>预训练</strong></p>
+
+<p>给定包含 N 个词的序列<img alt="image" class="has" src="https://yqfile.alicdn.com/0084e64097598f6b1e25df7bd04c4be2c8ce3683.png" />,前向语言模型通过前 k-1个词<img alt="image" class="has" src="https://yqfile.alicdn.com/0084e64097598f6b1e25df7bd04c4be2c8ce3683.png" />预测第 k 个词<img alt="image" class="has" src="https://yqfile.alicdn.com/dd225977372c0542010a6b431522c59b9fd9e03a.png" />。在第 k 个位置，每个 LSTM 层输出上下文依赖的向量表达<img alt="image" class="has" src="https://yqfile.alicdn.com/902bb0258805adf36559e2d5371c2edca76630f2.png" />, j=1,2,…,L。顶层 LSTM 层的输出<img alt="image" class="has" src="https://yqfile.alicdn.com/902bb0258805adf36559e2d5371c2edca76630f2.png" />利用交叉熵损失预测下一个位置<img alt="image" class="has" src="https://yqfile.alicdn.com/1acd5e6ee09902c23db8fc4f943e35b38df44230.png" />。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/f5c7a1382571661be2730f8d3703273884b61374.png" /></p>
+
+<p>后向语言模型对序列做反序，利用下文的信息去预测上文的词。与前向类似，给定<img alt="image" class="has" src="https://yqfile.alicdn.com/63d7889d19daa1f3fd0fb7b3dddb7c97b865478c.png" />经过 L 层的后向深层 LSTM 网络预测得到第 j 层的隐层输出<img alt="image" class="has" src="https://yqfile.alicdn.com/30cc8c2a6a7da3b37d9ed171055e004eeffba011.png" />。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/f0cac723792fa827da89f06bad725f1ff26b4445.png" /></p>
+
+<p>双向语言模型拼接前向语言模型和后向语言模型，构建前向和后向联合最大对数似然。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/151f55c553db8413d787ef317edc29efe214f65a.png" /></p>
+
+<p>其中，<img alt="image" class="has" src="https://yqfile.alicdn.com/14c1ddd5c0c16022721f9319994f53efe956e847.png" />为序列词向量层参数，<img alt="image" class="has" src="https://yqfile.alicdn.com/748b85422f72c8c86f2b082c3c3be8929a0c8a3d.png" />为交叉熵层参数，在训练过程中这两部分参数共享。</p>
+
+<p>嵌入式语言模型组合利用多层 LSTM 层的内部信息，对中心词，一个 L 层的双向语言模型计算得到 2L+1 个表达集合。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/f84ada033252ce7b6efffebba73bff187abdd042.png" /></p>
+
+<p><strong>Fine-tune</strong></p>
+
+<p>在下游任务中，ELMo 将多层的输出整合成一个向量，将所有 LSTM 层的输出加上normalized 的 softmax 学习到的权重 s=Softmax(w)，使用方法如下所示：</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/60f410f41c56bc53d5869c4dd6f9994a863e3c44.png" /></p>
+
+<p>直观上来讲，biLMs 的较高层次的 LSTM 向量抓住的是词汇的语义信息， biLMs 的较低层次的 LSTM 向量抓住的是词汇的语法信息。这种深度模型所带来的分层效果使得将一套词向量应用于不同任务有了可能性，因为每个任务所需要的信息量是不同的。另外 LSTM 的层数不宜过多，多层 LSTM 网络不是很容易 train 好，存在过拟合问题。如下图是一个多层 LSTM 用在文本分类问题的实验结果，随着 LSTM 层数增多，模型效果先增加后下降。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/f40788e8f2585485654a12436737343a0876119f.png" /></p>
+
+<h2 id="10"><strong>Transformer</strong></h2>
+
+<p>曾经有人说，想要提升 LSTM 效果只要加一个 attention 就可以。但是现在attention is all you need。Transformer 解决了 NLP 领域深层网络的训练问题。</p>
+
+<p>Attention 此前就被用于众多 NLP 的任务，用于定位关键 token 或者特征，比如在文本分类的最后加一层 Attention 来提高性能。Transformer 起源自注意力机制（Attention），完全抛弃了传统的 RNN，整个网络结构完全是由 Attention 机制组成。Transformer 可以通过堆叠 Transformer Layer 进行搭建，作者的实验是通过搭建编码器和解码器各6层，总共12层的 Encoder-Decoder，并在机器翻译中取得了 BLEU 值的新高。</p>
+
+<p>整个流程的可视化如图：以N=2示例，实际Transformer的N=6。</p>
+
+<p><strong>Encoder 阶段</strong>：输入“Thinking Machines”，对应词向量，叠加位置向量 Positional Encoding，对每个位置做 Self-Attention 得到；Add&amp;Norm 分两步，residual connection即，layer Normalization 得到新的，对每个位置分别做 feed forward 全连接和 Add&amp;Norm，得到一个 Encoder Layer 的输出，重复堆叠2次，最后将 Encoder Layer 输出到 Decoder 的 Encoder-Decoder Layer 层。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/ad5cf6bbde3a94eac56d7ebf88fd52820530c3df.png" /></p>
+
+<p>Decoder 阶段：先是对 Decoder 的输入做 Masked Self-Attention Layer，然后将Encoder 阶段的输出与 Decoder 第一级的输出做 Encoder-Decoder Attention，最后接 FFN 全连接，堆叠2个 Decoder，最后接全连接+Softmax 输出当前位置概率最大的的词。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/78058165df15826d0101a622bb89e3edc0f692f2.png" /></p>
+
+<p>Transformer 的结构上比较好理解，主要是里边的细节比较多，如 Mult-HeadAttention, Feed Forward, Layer Norm, Positional Encoding等。</p>
+
+<p>Transformer的优点：</p>
+
+<ul><li><strong>并行计算，提高训练速度</strong>。这是相比 LSTM 很大的突破，LSTM 在训练的时候 ，当前步的计算要依赖于上一步的隐状态，这是一个连续过程，每次计算都需要等之前的计算完成才能展开，限制模型并行能力。而 Transformer 不用LSTM结构，Attention 机制的每一步计算只是依赖上一层的输出，并不依赖上一词的信息，因而词与词之间是可以并行的，从而训练时可以并行计算, 提高训练速度。</li>
+	<li><strong>一步到位的全局联系捕捉</strong>。顺序计算的过程中信息会丢失，尽管 LSTM 等门机制的结构一定程度上缓解了长期依赖的问题，但是对于特别长期的依赖现象，LSTM 依旧无能为力。Transformer 使用了 Attention 机制，从而将序列中的任意两个位置之间的距离是缩小为1，这对解决 NLP 中棘手的长期依赖问题是非常有效的。</li>
+</ul><p><strong>总结对比CNN、RNN和Self-Attention：</strong></p>
+
+<p><strong>CNN</strong>：只能看到局部领域，适合图像，因为在图像上抽象更高层信息仅仅需要下一层特征的局部区域，文本的话强在抽取局部特征，因而更适合短文本。</p>
+
+<p><strong>RNN</strong>：理论上能看到所有历史，适合文本，但是存在梯度消失问题。</p>
+
+<p><strong>Self-Attention</strong>：相比 RNN 不存在梯度消失问题。对比 CNN 更加适合长文本，因为能够看到更远距离的信息，CNN 叠高多层之后可以看到很远的地方，但是 CNN本来需要很多层才能完成的抽象，Self-Attention 在很底层就可以做到，这无疑是非常巨大的优势。</p>
+
+<h2 id="11"><strong>BERT</strong></h2>
+
+<p>BERT (Bidirectional Encoder Representations from Transformers) 本质来讲是NLP 领域最底层的语言模型，通过海量语料预训练，得到序列当前最全面的局部和全局特征表示。</p>
+
+<p>BERT 网络结构如下所示，BERT 与 Transformer 的 Encoder 网络结构完全相同。假设 Embedding 向量的维度是，输入序列包含 n 个token，则 BERT 模型一个layer 的输入是一个的矩阵，而它的输出也同样是一个的矩阵，所以这样 N 层 BERT layer 就可以很方便的首尾串联起来。BERT 的 large model 使用了 N=24 层这样的Transformer block。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/e9375ad1036b53566031cd432c1e49500617e32c.png" /></p>
+
+<p><strong>目标函数</strong></p>
+
+<ol><li>Masked Language Model, MLM</li>
+</ol><p>MLM 是为了训练深度双向语言表示向量，BERT 用了一个非常直接的方式，遮住句子里某些单词，让编码器预测这个单词是什么。具体操作流程如下图示例：先按一个较小概率 mask 掉一些字，再对这些字利用语言模型由上下文做预测。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/343f1f4f4744a6b2ce9ec70c4f6ec1c881152f56.png" /></p>
+
+<p>BERT 具体训练方法为：随机遮住15%的单词作为训练样本。</p>
+
+<ul><li>其中80%用 masked token 来代替。</li>
+	<li>10%用随机的一个词来替换。</li>
+	<li>10%保持这个词不变。</li>
+</ul><p>直观上来说，只有15%的词被遮盖的原因是性能开销，双向编码器比单向编码器训练要慢；选80% mask，20%具体单词的原因是在 pretrain 的时候做了 mask，在特定任务微调如分类任务的时候，并不对输入序列做 mask，会产生 gap，任务不一致；10%用随机的一个词来替换，10%保持这个词不变的原因是让编码器不知道哪些词需要预测的，哪些词是错误的，因此被迫需要学习每一个 token 的表示向量，做了一个折中。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/abdcf35a11d549474d05a1e5ce2f2fba12cec852.png" /></p>
+
+<ol><li>Next Sentence Prediction</li>
+</ol><p>预训练一个二分类的模型，来学习句子之间的关系。预测下一个句子的方法对学习句子之间关系很有帮助。</p>
+
+<p>训练方法：正样本和负样本比例是1：1，50%的句子是正样本，即给定句子A和B，B是A的实际语境下一句；负样本：在语料库中随机选择的句子作为B。通过两个特定的 token[CLS]和[SEP]来串接两个句子，该任务在[CLS]位置输出预测。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/51cbd76906775894bcaebeead143974f694411b4.png" /></p>
+
+<p><strong>输入表示</strong></p>
+
+<p><strong>Input：</strong>每个输入序列的第一个 token [CLS]专门用来分类，直接利用此位置的最后输出作为分类任务的输入 embedding。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/795ca2f5b641cc0eb074fe3f66320122f91bb5eb.png" /></p>
+
+<p>从直观上来说，在预训练时，[CLS]不参与 mask，因而该位置面向整个序列的所有position 做 attention，[CLS]位置的输出足够表达整个句子的信息，类似于一个global feature；而单词 token 对应的 embedding 更关注该 token 的语义语法及上下文信息表达，类似于一个 local feature。</p>
+
+<p><strong>Position Embeddings:</strong> transformer 的 PositionEncoding 是通过 sin，cos 直接构造出来的，PositionEmbeddings 是通过模型学习到的 embedding 向量，最高支持512维。</p>
+
+<p><strong>Segment Embeddings：</strong>在预训练的句对预测任务及问答、相似匹配等任务中，需要对前后句子做区分，将句对输入同一序列，以特殊标记 [SEP] 分割，同时对第一个句子的每个 token 添加 Sentence A Embedding， 第二个句子添加 Sentence BEmbedding，实验中让EA =1, EB =0。</p>
+
+<p><strong>Fine-tune</strong></p>
+
+<p>针对不同任务，BERT 采用不同部分的输出做预测，分类任务利用[CLS]位置的embedding，NER 任务利用每个 token 的输出 embedding。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/c7c253b4d41a5db416eb774a3221145454a8cd8b.png" /></p>
+
+<p><strong>BERT的主要贡献有以下几个方面：</strong></p>
+
+<p><strong>预训练的有效性</strong>：这方面来说 BERT 改变了游戏规则，是因为相比设计复杂巧妙的网络结构，在海量无监督数据上预训练得到的BERT语言表示+少量训练数据微调的简单网络模型的实验结果取得了很大的优势。</p>
+
+<p><strong>网络深度</strong>：基于 DNN 语言模型 (NNLM，CBOW等) 获取词向量的表示已经在 NLP领域获得很大成功，而 BERT 预训练网络基于 Transformer 的 Encoder，可以做的很深。</p>
+
+<p><strong>双向语言模型</strong>：在 BERT 之前，ELMo 和 GPT 的主要局限在于标准语言模型是单向的，GPT 使用 Transformer 的 Decoder 结构，只考虑了上文的信息。ELMo 从左往右的语言模型和从右往左的语言模型其实是独立开来训练的，共享 embedding，将两个方向的 LSTM 拼接并不能真正表示上下文，其本质仍是单向的，且多层 LSTM难训练。</p>
+
+<p><strong>目标函数</strong>：对比语言模型任务只做预测下一个位置的单词，想要训练包含更多信息的语言模型，就需要让语言模型完成更复杂的任务，BERT 主要完成完形填空和句对预测的任务，即两个 loss：一个是 Masked Language Model，另一个是 Next Sentence Prediction。</p>
+
+<h2 id="12"><strong>总结</strong></h2>
+
+<p>我们在做 NLU 意图分类任务中实践了以上主流模型，包括 Xgboost、TextCNN、LSTM、BERT 及 ERNIE 等，下边是在前期模型调研阶段，在选型测试数据上的对比实验，BERT 模型表现出极大的优势。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/1a6a9fe455bcb95b7af92d81e245c72c29ac015b.png" /></p>
+
+<p>同时在我们部署上线的过程中，对 BERT 时耗做了测试，在压测实验数据上的测试结果供参考。针对我们的问答query：</p>
+
+<p>(1 ) BERT layer 的层数与时耗基本成线性关系，多头数目增加对时耗增加不明显；</p>
+
+<p>(2) 针对短文本 query 的意图理解，更多依赖浅层语法语义特征，因而 BERT 层数对模型准召影响较小；</p>
+
+<p>(3) attention 多头决定了可以从多少个角度理解 query，在我们的实验里降低多头数比降低层数对准召的影响略大，而时耗无明显降低。</p>
+
+<p> </p>
+
+<p><img alt="image" class="has" src="https://yqfile.alicdn.com/fcf5cdf64b3c9460d9e1d7406e284c8230f9fa4e.png" /></p>
+
+<p>图像领域，Alexnet 打开了深度学习的大门，Resnet是图像领域深度学习的殿堂标志。</p>
+
+<p>随着Transformer, Bert 兴起，网络也在往12层，24层发展，得到了 SOTA. Bert 证明了在nlp领域，深层网络的效果要优于浅层网络。</p>
+
+<p><strong>自然语言领域，Transformer 打开了深层网络的大门，BERT 也成为了自然语言处理领域的殿堂标志。</strong></p>
+
+<p>原文发布时间为： 2019-05-27<br />
+本文作者： 世恩、风引、调参<br />
+本文来自注“ <a href="https://mp.weixin.qq.com/s/wrqxuMidw7HvgTVUvTBGng" rel="nofollow">阿里技术</a>”。</p>
+          </div>
+                  </div>
+  </article>
+</div>
+
+<div class="hide-article-box hide-article-pos text-center">
+      <a class="" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_44326589/article/details/90642093,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_44326589/article/details/90642093,"}'>
+    展开阅读全文
+    <svg class="icon chevrondown" aria-hidden="true">
+        <use xlink:href="#csdnc-chevrondown"></use>
+      </svg>
+    </a>
+    </div>
+<script>
+  $(".MathJax").remove();
+  if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+    $('div.markdown_views')[0].className = 'markdown_views';
+  }
+</script>                <a id="commentBox"></a>
+<div class="comment-box">
+	
+	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<a href="javascript:void(0);" target="_blank">
+				<img class="show_loginbox" src="//g.csdnimg.cn/static/user-img/anonymous-User-img.png">
+			</a>
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="article_id" name="article_id" value="90642093">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+
+		<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<div class="btn btn-sm btn-link-blue" id="btnMoreComment"></div>
+		</div>
+	</div>
+</div>
+        <div class="recommend-box">
+                            <div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90897831,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90897831" target="_blank" title="上千程序员在支付宝开party？——记 BASIC College 超级技术嘉年华">
+		<h4 class="text-truncate oneline">
+				上千程序员在支付宝开party？——记 BASIC College 超级技术嘉年华		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-05</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					350</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90897831" target="_blank" title="上千程序员在支付宝开party？——记 BASIC College 超级技术嘉年华">
+				<span class="desc oneline">5 月 31 日，一年一度的支付宝 BASIC College 超级技术嘉年华开幕。上千名程序员集结在一起，探讨金融科技自主研发、融合创新的历程与最新实践。严苛的技术期中大考、完整的支付宝小程序技术栈...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90764318,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90764318" target="_blank" title="从开源小白到 Apache Member，阿里技术小哥的成长之路">
+		<h4 class="text-truncate oneline">
+				从开源小白到 Apache Member，阿里技术小哥的成长之路		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-04</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					990</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90764318" target="_blank" title="从开源小白到 Apache Member，阿里技术小哥的成长之路">
+				<span class="desc oneline">我们走过的每一步路，都会留下印记，越坚实，越清晰。
+
+近日，Apache 软件基金会（ASF）官方 Blog 宣布全球新增 40 位 Apache Member，张乎兴有幸成为其中一位。
+
+目前，全球...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90751316,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90751316" target="_blank" title="蚂蚁金服首席架构师何昌华：开源SQLFlow是牛刀初试，实时大数据系统才是未来基石">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服首席架构师何昌华：开源SQLFlow是牛刀初试，实时大数据系统才是未来基石		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">06-03</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1400</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90751316" target="_blank" title="蚂蚁金服首席架构师何昌华：开源SQLFlow是牛刀初试，实时大数据系统才是未来基石">
+				<span class="desc oneline">开源 SQLFlow，反哺业界，同时小小秀出 AI 肌肉。
+
+这就是蚂蚁金服近日开源首个将 SQL 应用于 AI 引擎项目SQLFlow后，业界给出的反应。
+
+SQLFlow，把艰深的 AI 与简单的...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90711591,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90711591" target="_blank" title="支付宝工程师如何搞定关系数据库的“大脑”——查询优化器">
+		<h4 class="text-truncate oneline">
+				支付宝工程师如何搞定关系数据库的“大脑”——查询优化器		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2500</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90711591" target="_blank" title="支付宝工程师如何搞定关系数据库的“大脑”——查询优化器">
+				<span class="desc oneline">查询优化器是关系数据库系统的核心模块，是数据库内核开发的重点和难点，也是衡量整个数据库系统成熟度的“试金石”。
+
+查询优化理论诞生距今已有四十来年，学术界和工业界其实已经形成了一套比较完善的查询优化框...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90635071,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90635071" target="_blank" title="支付宝客户端架构解析：iOS 容器化框架初探">
+		<h4 class="text-truncate oneline">
+				支付宝客户端架构解析：iOS 容器化框架初探		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					627</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90635071" target="_blank" title="支付宝客户端架构解析：iOS 容器化框架初探">
+				<span class="desc oneline">前言
+
+由本章节开始，我们将从支付宝客户端的架构设计方案入手，细分拆解客户端在“容器化框架设计”、“网络优化”、“性能启动优化”、“自动化日志收集”、“RPC 组件设计”、“移动应用监控、诊断、定位”...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90599086,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90599086" target="_blank" title="我在蚂蚁金服技术风险部做“医生”">
+		<h4 class="text-truncate oneline">
+				我在蚂蚁金服技术风险部做“医生”		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-27</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					547</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90599086" target="_blank" title="我在蚂蚁金服技术风险部做“医生”">
+				<span class="desc oneline">有一种误解流传甚广，认为技术风险工程师是一个“背锅”的岗位，干着脏活累活……事实真的如此吗？蚂蚁金服技术风险部的孝泰同学以他的亲身经历来“辟谣”，并广发英雄帖——蚂蚁金服春季校招启动，欢迎同学们加入技...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90473927,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90473927" target="_blank" title="90 后的他带出7 个“师弟”，爱说话的程序员脱单更快？">
+		<h4 class="text-truncate oneline">
+				90 后的他带出7 个“师弟”，爱说话的程序员脱单更快？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1975</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90473927" target="_blank" title="90 后的他带出7 个“师弟”，爱说话的程序员脱单更快？">
+				<span class="desc oneline">“我的花名是改之，不是‘有则改之无则加勉’的改之，而是‘杨过，字改之’的那个改之。”一见面，他对自己花名的介绍，就让人耳目一新。至于为什么要用杨过的字给自己起名，他也毫不扭捏地坦诚相告：“因为帅。”
+...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90437977,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90437977" target="_blank" title="这个程序员在阿里五年晋升三次，Coding 是立身之本">
+		<h4 class="text-truncate oneline">
+				这个程序员在阿里五年晋升三次，Coding 是立身之本		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					6603</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90437977" target="_blank" title="这个程序员在阿里五年晋升三次，Coding 是立身之本">
+				<span class="desc oneline">小二穆远是蚂蚁金服的一名程序员，五年晋升了三次，他要聊聊自己的五年阿里之旅，那些变化、坚持和泪水。请看本期的年陈故事会。
+
+
+
+在阿里待满五年是一种什么样的体验？打怪升级，一路找寻自己的答案。《年陈故...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90400873,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90400873" target="_blank" title="蚂蚁金服阳振坤：用10年时间打造一个“顶天立地”的产品">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服阳振坤：用10年时间打造一个“顶天立地”的产品		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-21</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					758</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90400873" target="_blank" title="蚂蚁金服阳振坤：用10年时间打造一个“顶天立地”的产品">
+				<span class="desc oneline">“如果大家当时能看见原来十年后OceanBase能长成这样，可能十年前OceanBase得到的支持会好很多。但是这种如果是不存在的，很多时候你要先证明自己。”根据工信部数据显示，1998年，中国软件企...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90370463,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90370463" target="_blank" title="我是如何拿到蚂蚁金服实习 offer 的">
+		<h4 class="text-truncate oneline">
+				我是如何拿到蚂蚁金服实习 offer 的		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-20</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2703</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90370463" target="_blank" title="我是如何拿到蚂蚁金服实习 offer 的">
+				<span class="desc oneline">想和业界的技术大牛并肩作战？想学习最前沿的技术？想参与超酷的大项目？想获得亿万用户的点赞？蚂蚁金服春季校招开启了！面试很难？没有信心？这都不是事儿，这儿有一系列的“面试宝典”。
+
+文/图 源介
+
+我是...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90287496,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90287496" target="_blank" title="我在蚂蚁金服做后端：那些坚持在一个岗位做八年的人，后来怎么样了？">
+		<h4 class="text-truncate oneline">
+				我在蚂蚁金服做后端：那些坚持在一个岗位做八年的人，后来怎么样了？		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-17</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1万+</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90287496" target="_blank" title="我在蚂蚁金服做后端：那些坚持在一个岗位做八年的人，后来怎么样了？">
+				<span class="desc oneline">1985年出生的他，在OB团队里绝对算是一个“老人”，从研究生毕业加入OB至今已经迈入第八个年头了。
+
+有人觉得花这么长时间做同一件事会变得“螺丝钉”，用他的话说，做底层的同学需要比一般人更多一份耐心...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+			<div class="recommend-item-box blog-expert-recommend-box">
+			<div class="d-flex">
+				<div class="blog-expert-recommend">
+					<div class="blog-expert">
+						<div class="blog-expert-flexbox"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90256546,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90256546" target="_blank" title="支付宝小程序Serverless服务架构演进 | mPaaS 线下沙龙 CodeDay#1 分享实录">
+		<h4 class="text-truncate oneline">
+				支付宝小程序Serverless服务架构演进 | mPaaS 线下沙龙 CodeDay#1 分享实录		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-16</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					615</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90256546" target="_blank" title="支付宝小程序Serverless服务架构演进 | mPaaS 线下沙龙 CodeDay#1 分享实录">
+				<span class="desc oneline">文章概要：
+
+随着云计算的深入，Serverless 这种全新的架构模式正在受到越来越多人的关注。通过 Serverless，开发者可以从繁杂的底层基础实施中解放出来，专心聚焦于业务实现，快速铺开业务...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90229841,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90229841" target="_blank" title="蚂蚁金服SOFA开源负责人鲁直：不只是中间件 ，未来会开源更多">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服SOFA开源负责人鲁直：不只是中间件 ，未来会开源更多		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-15</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1078</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90229841" target="_blank" title="蚂蚁金服SOFA开源负责人鲁直：不只是中间件 ，未来会开源更多">
+				<span class="desc oneline">二月初春，在西子湖畔的细雨中，我拜访了蚂蚁金服中间件团队，和 SOFA 技术负责人鲁直做了一次深入交谈，更妙的是，鲁直也是负责 SOFA 开源事务推进的人，而这样一个切实践行开放核心模式的开源项目，也...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90201923,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90201923" target="_blank" title="蚂蚁金服副 CTO胡喜：从 BASIC 到 basic ，蚂蚁金服十五年技术架构演进之路">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服副 CTO胡喜：从 BASIC 到 basic ，蚂蚁金服十五年技术架构演进之路		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1477</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90201923" target="_blank" title="蚂蚁金服副 CTO胡喜：从 BASIC 到 basic ，蚂蚁金服十五年技术架构演进之路">
+				<span class="desc oneline">主要观点
+
+1. 蚂蚁金服过去十五年，通过技术重塑了支付和微贷业务。Blockchain (区块链)、ArtificialIntelligence（人工智能）、Security（安全）、 IoT（物联...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/90177821,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/90177821" target="_blank" title="重磅！蚂蚁金服开源机器学习工具SQLFlow，技术架构独家解读">
+		<h4 class="text-truncate oneline">
+				重磅！蚂蚁金服开源机器学习工具SQLFlow，技术架构独家解读		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">05-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					2353</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/90177821" target="_blank" title="重磅！蚂蚁金服开源机器学习工具SQLFlow，技术架构独家解读">
+				<span class="desc oneline">SQLFlow 的目标是将 SQL 引擎和 AI 引擎连接起来，让用户仅需几行 SQL 代码就能描述整个应用或者产品背后的数据流和 AI 构造。其中所涉及的 SQL 引擎包括 MySQL、Oracle...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88552437,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88552437" target="_blank" title="蚂蚁金服双11大促全面揭秘：深入洞察OceanBase云平台">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服双11大促全面揭秘：深入洞察OceanBase云平台		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					251</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88552437" target="_blank" title="蚂蚁金服双11大促全面揭秘：深入洞察OceanBase云平台">
+				<span class="desc oneline">摘要：本文重点分享了在双11背景下，OceanBase云平台所遇到的挑战，介绍了针对实时监控和规模运维两个方面云平台所提供的应对策略，并详细解释了需要做哪些设计才可以解决这些挑战？本文从开发者视角，带...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88552099,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88552099" target="_blank" title="1808亿次，16倍的超越！谈支付宝红包的高并发挑战">
+		<h4 class="text-truncate oneline">
+				1808亿次，16倍的超越！谈支付宝红包的高并发挑战		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					910</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88552099" target="_blank" title="1808亿次，16倍的超越！谈支付宝红包的高并发挑战">
+				<span class="desc oneline">与传统意义上的红包相比，近两年火起来的“红包”，似乎才是如今春节的一大重头戏。历经上千年时代传承与变迁，春节发红包早已成为历史沉淀的文化习俗，融入了民族的血脉。按照各家公布的数据，除夕全天微信用户红包...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88551893,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88551893" target="_blank" title="首次揭秘！扫福得福：支付宝春节集五福背后的技术分享">
+		<h4 class="text-truncate oneline">
+				首次揭秘！扫福得福：支付宝春节集五福背后的技术分享		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-14</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					191</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88551893" target="_blank" title="首次揭秘！扫福得福：支付宝春节集五福背后的技术分享">
+				<span class="desc oneline">小蚂蚁导读：在刚过去不久的春节，你是否也参与了支付宝春节集五福的活动呢？不少小伙伴发现，今年的支付宝扫福更严格、更快也更准确了，这背后的技术是怎么做到的呢？
+本期稿件小蚂蚁邀请到了支付宝多媒体技术部创...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88536445,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88536445" target="_blank" title="扫福得福背后，支付宝 AR 红包的技术创新与故事">
+		<h4 class="text-truncate oneline">
+				扫福得福背后，支付宝 AR 红包的技术创新与故事		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					475</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88536445" target="_blank" title="扫福得福背后，支付宝 AR 红包的技术创新与故事">
+				<span class="desc oneline">春节期间，支付宝的「扫福得福」活动火爆异常。AR 是一种新的交互方式，与传统营销方式相比，可以使用户更深入地参与互动，给用户带来新体验。而支付宝红包，寄托着用户对未来的期盼，因此其团队就考虑将 AR ...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88535584,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88535584" target="_blank" title="支付宝17年新春红包技术体系剖析">
+		<h4 class="text-truncate oneline">
+				支付宝17年新春红包技术体系剖析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					157</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88535584" target="_blank" title="支付宝17年新春红包技术体系剖析">
+				<span class="desc oneline">017年支付宝五福红包红包开奖人数是167966715人（约1.68亿）；除夕当天的参与人数是2.2亿；在业务峰值上，活页主页面峰值达到81W/s；扫福的峰值为22W/s；除夕当天的登录峰值为29W/...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88534897,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88534897" target="_blank" title="从“扫月亮”到“扫福字”，扒一扒背后的支付宝AR框架体系">
+		<h4 class="text-truncate oneline">
+				从“扫月亮”到“扫福字”，扒一扒背后的支付宝AR框架体系		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-13</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					761</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88534897" target="_blank" title="从“扫月亮”到“扫福字”，扒一扒背后的支付宝AR框架体系">
+				<span class="desc oneline">承智关于支付宝AR框架体系和实践的分享主要分为以下三个部分：
+
+支付宝AR框架体系
+AR实践案例分享
+总结和展望
+
+在本次分享中，来自蚂蚁金服支付宝多媒体技术部猎鹰团队的技术专家承智为大家解密了支付宝...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/88419990,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/88419990" target="_blank" title="【合集】支付宝春节红包背后的那些事——集五福，咻红包">
+		<h4 class="text-truncate oneline">
+				【合集】支付宝春节红包背后的那些事——集五福，咻红包		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">03-12</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					103</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/88419990" target="_blank" title="【合集】支付宝春节红包背后的那些事——集五福，咻红包">
+				<span class="desc oneline">摘要：最近几年来，农历春节期间，大家增加了一项新的“年俗”，那就是在支付宝上集五福，咻红包，从抢不到的“敬业福”到“咻咻咻咻，咻红包”，支付宝不仅成为大家过年的必备武器，还使得春节因为它变得更有“年味...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907832,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907832" target="_blank" title="蚂蚁移动开发平台 mPaaS 3.0 智能化 + 生态化">
+		<h4 class="text-truncate oneline">
+				蚂蚁移动开发平台 mPaaS 3.0 智能化 + 生态化		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					222</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907832" target="_blank" title="蚂蚁移动开发平台 mPaaS 3.0 智能化 + 生态化">
+				<span class="desc oneline">摘要： 以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。分论坛上，蚂蚁金服高级产品专家张亮做了...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907717,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907717" target="_blank" title="小程序 Serverless: 解放生产力，驱动研发效能提升">
+		<h4 class="text-truncate oneline">
+				小程序 Serverless: 解放生产力，驱动研发效能提升		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					167</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907717" target="_blank" title="小程序 Serverless: 解放生产力，驱动研发效能提升">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日于上海如期举办。ATEC移动开发专场分论坛上，蚂蚁金服...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907590,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907590" target="_blank" title="深度解析：mPaaS 3.0全新组件">
+		<h4 class="text-truncate oneline">
+				深度解析：mPaaS 3.0全新组件		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					248</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907590" target="_blank" title="深度解析：mPaaS 3.0全新组件">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。分论坛上，蚂蚁金服产品专家杨晓亮和章建军...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907465,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907465" target="_blank" title="蚂蚁双链通：基于区块链的供应链协作网络">
+		<h4 class="text-truncate oneline">
+				蚂蚁双链通：基于区块链的供应链协作网络		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					324</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907465" target="_blank" title="蚂蚁双链通：基于区块链的供应链协作网络">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日于上海如期举办。ATEC区块链行业研讨会分论坛上，蚂蚁...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907400,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907400" target="_blank" title="蚂蚁微贷互动营销技术体系实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁微贷互动营销技术体系实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					377</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907400" target="_blank" title="蚂蚁微贷互动营销技术体系实践">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。财富管理专场上，蚂蚁金服微贷事业群高级前...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907351,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907351" target="_blank" title="蚂蚁金服智能推荐引擎解决方案与实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服智能推荐引擎解决方案与实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					288</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907351" target="_blank" title="蚂蚁金服智能推荐引擎解决方案与实践">
+				<span class="desc oneline">以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。金融智能专场分论坛上，蚂蚁金服人工智能部高级技...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907264,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907264" target="_blank" title="技术风险防控平台：打造金融交易系统的故障免疫能力">
+		<h4 class="text-truncate oneline">
+				技术风险防控平台：打造金融交易系统的故障免疫能力		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					215</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907264" target="_blank" title="技术风险防控平台：打造金融交易系统的故障免疫能力">
+				<span class="desc oneline">以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。分论坛上，蚂蚁金服高级技术专家王亚宏做了主题为...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907210,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907210" target="_blank" title="金融行业容器平台落地路径：敏捷响应业务更迭">
+		<h4 class="text-truncate oneline">
+				金融行业容器平台落地路径：敏捷响应业务更迭		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					214</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907210" target="_blank" title="金融行业容器平台落地路径：敏捷响应业务更迭">
+				<span class="desc oneline">以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。分布式金融核心解决方案专场分论坛上，蚂蚁金服高...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87907128,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87907128" target="_blank" title="从环境部署到运营推广，蚂蚁特色的一站式小程序开发体验">
+		<h4 class="text-truncate oneline">
+				从环境部署到运营推广，蚂蚁特色的一站式小程序开发体验		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-24</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					175</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87907128" target="_blank" title="从环境部署到运营推广，蚂蚁特色的一站式小程序开发体验">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日于上海如期举办。ATEC移动开发专场分论坛上，蚂蚁金服...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87897339,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87897339" target="_blank" title="蚂蚁金融科技守护金融安全，蚂蚁风险大脑助阵">
+		<h4 class="text-truncate oneline">
+				蚂蚁金融科技守护金融安全，蚂蚁风险大脑助阵		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					301</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87897339" target="_blank" title="蚂蚁金融科技守护金融安全，蚂蚁风险大脑助阵">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。金融智能专场分论坛上，蚂蚁金服大安全副总...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87896916,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87896916" target="_blank" title="大数据驱动的运营创新和探索">
+		<h4 class="text-truncate oneline">
+				大数据驱动的运营创新和探索		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					166</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87896916" target="_blank" title="大数据驱动的运营创新和探索">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。财富管理专场上，蚂蚁金服财富事业群高级技...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87896749,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87896749" target="_blank" title="蚂蚁区块链在司法存证领域的探索与实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁区块链在司法存证领域的探索与实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1250</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87896749" target="_blank" title="蚂蚁区块链在司法存证领域的探索与实践">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。在区块链行业研讨会上，蚂蚁金服司法存证产...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87896585,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87896585" target="_blank" title="蚂蚁区块链平台BaaS技术解析与实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁区块链平台BaaS技术解析与实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1574</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87896585" target="_blank" title="蚂蚁区块链平台BaaS技术解析与实践">
+				<span class="desc oneline">摘要： 以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日在上海如期举办。在ATEC区块链行业研讨会分论坛上，...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87896213,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87896213" target="_blank" title="蚂蚁金服数据质量治理架构与实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服数据质量治理架构与实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					241</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87896213" target="_blank" title="蚂蚁金服数据质量治理架构与实践">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。金融智能专场分论坛上，蚂蚁金服数据平台部...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87895999,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87895999" target="_blank" title="蚂蚁区块链BaaS平台架构与实践">
+		<h4 class="text-truncate oneline">
+				蚂蚁区块链BaaS平台架构与实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					305</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87895999" target="_blank" title="蚂蚁区块链BaaS平台架构与实践">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日在上海如期举办。在ATEC区块链行业研讨会分论坛上，蚂...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87895816,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87895816" target="_blank" title="人工智能在财富领域的应用与探索">
+		<h4 class="text-truncate oneline">
+				人工智能在财富领域的应用与探索		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					198</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87895816" target="_blank" title="人工智能在财富领域的应用与探索">
+				<span class="desc oneline">摘要： 以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。财富管理专场上，蚂蚁金服财富事业群资深...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/87895438,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/87895438" target="_blank" title="实时智能决策引擎在蚂蚁金服风险管理中的实践">
+		<h4 class="text-truncate oneline">
+				实时智能决策引擎在蚂蚁金服风险管理中的实践		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					201</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/87895438" target="_blank" title="实时智能决策引擎在蚂蚁金服风险管理中的实践">
+				<span class="desc oneline">摘要：以“数字金融新原力(The New Force of Digital Finance)”为主题，蚂蚁金服ATEC城市峰会于2019年1月4日上海如期举办。金融智能专场分论坛上，蚂蚁金服数据技术专...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86736115,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86736115" target="_blank" title="Java位运算小节">
+		<h4 class="text-truncate oneline">
+				Java位运算小节		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">02-01</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					572</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86736115" target="_blank" title="Java位运算小节">
+				<span class="desc oneline">2019新春支付宝红包技术大揭秘在线峰会将于03-07日开始，点击这里报名届时即可参与大牛互动。
+位运算表达式由操作数和位运算符组成，实现对整数类型的二进制数进行位运算。位运算符可以分为逻辑运算符(包...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86715873,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86715873" target="_blank" title="蚂蚁金服通信框架SOFABolt解析 | 协议框架解析">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服通信框架SOFABolt解析 | 协议框架解析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					246</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86715873" target="_blank" title="蚂蚁金服通信框架SOFABolt解析 | 协议框架解析">
+				<span class="desc oneline">2019新春支付宝红包技术大揭秘在线峰会将于03-07日开始，点击这里报名届时即可参与大牛互动。
+
+SOFA Scalable Open Financial Architecture
+是蚂蚁金服自主研...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86715112,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86715112" target="_blank" title="蚂蚁金服分布式链路跟踪组件 SOFATracer 总览 | 剖析">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服分布式链路跟踪组件 SOFATracer 总览 | 剖析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					292</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86715112" target="_blank" title="蚂蚁金服分布式链路跟踪组件 SOFATracer 总览 | 剖析">
+				<span class="desc oneline">2019新春支付宝红包技术大揭秘在线峰会将于03-07日开始，点击这里报名届时即可参与大牛互动。
+
+SOFA Scalable Open Financial Architecture
+是蚂蚁金服自主研...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86714879,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86714879" target="_blank" title="蚂蚁金服分布式链路跟踪组件 SOFATracer 数据上报机制和源码分析 | 剖析">
+		<h4 class="text-truncate oneline">
+				蚂蚁金服分布式链路跟踪组件 SOFATracer 数据上报机制和源码分析 | 剖析		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-31</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					129</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86714879" target="_blank" title="蚂蚁金服分布式链路跟踪组件 SOFATracer 数据上报机制和源码分析 | 剖析">
+				<span class="desc oneline">**2019新春支付宝红包技术大揭秘在线峰会将于03-07日开始，点击这里报名届时即可参与大牛互动。
+**
+
+SOFA
+Scalable Open Financial Architecture 是蚂蚁...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86704506,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86704506" target="_blank" title="java内存管理机制剖析（一）">
+		<h4 class="text-truncate oneline">
+				java内存管理机制剖析（一）		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-30</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					159</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86704506" target="_blank" title="java内存管理机制剖析（一）">
+				<span class="desc oneline">最近利用工作之余学习研究了一下java的内存管理机制，在这里记录总结一下。
+1.1 java内存区域
+当java程序运行时，java虚拟机会将内存划分为若干个不同的数据区域，这些内存区域创建和销毁的时...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86680972,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86680972" target="_blank" title="Java11 &amp; JavaFX 初体验 - Java 代码生成 Markdown 的小工具">
+		<h4 class="text-truncate oneline">
+				Java11 &amp; JavaFX 初体验 - Java 代码生成 Markdown 的小工具		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					830</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86680972" target="_blank" title="Java11 &amp; JavaFX 初体验 - Java 代码生成 Markdown 的小工具">
+				<span class="desc oneline">概述
+Java 11 自 2018.9.25 发布以来，已经好几个月了，在还没正式 GA 之前都习惯性的去 java-countdown.xyz check 发布倒计时。Java 11 有比较多的新功...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86677598,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86677598" target="_blank" title="最佳实践 | OceanBase事务引擎的技术创新">
+		<h4 class="text-truncate oneline">
+				最佳实践 | OceanBase事务引擎的技术创新		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-28</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					177</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86677598" target="_blank" title="最佳实践 | OceanBase事务引擎的技术创新">
+				<span class="desc oneline">颜然，蚂蚁金服 OceanBase 团队资深技术专家，OceanBase 初创成员之一，目前负责事务引擎以及性能优化相关的研发工作。
+以下为演讲实录：
+
+首先，我们先来聊一个大家都很感兴趣的话题：跟已...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86605864,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86605864" target="_blank" title="Java8实用技能">
+		<h4 class="text-truncate oneline">
+				Java8实用技能		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					1151</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86605864" target="_blank" title="Java8实用技能">
+				<span class="desc oneline">大概一年多之前，我对java8的理解还仅限一些只言片语的文章之上，后来出于对函数式编程的兴趣，买了本参考书看了一遍，然后放在了书架上，后来，当我接手大客户应用的开发工作之后，java8的一些工具，对我...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86605845,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86605845" target="_blank" title="Java Integer的缓存策略">
+		<h4 class="text-truncate oneline">
+				Java Integer的缓存策略		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-23</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					555</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86605845" target="_blank" title="Java Integer的缓存策略">
+				<span class="desc oneline">Java5为Integer的操作引入了一个新的特性，用来节省内存和提高性能。整型对象在内部实现中通过使用相同的对象引用实现了缓存和重用。
+上面的规则默认适用于整数区间 -128 到 +127（这个整数...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+<div class="recommend-item-box type_blog clearfix"  data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/weixin_44326589/article/details/86595691,"}'>
+	<div class="content">
+		<a href="https://blog.csdn.net/weixin_44326589/article/details/86595691" target="_blank" title="支付宝支撑2135亿成交额的数据库架构原理">
+		<h4 class="text-truncate oneline">
+				支付宝支撑2135亿成交额的数据库架构原理		</h4>
+		<div class="info-box d-flex align-content-center">
+			<p class="date-and-readNum oneline">
+				<span class="date hover-show">01-22</span>
+				<span class="read-num hover-hide">
+					阅读数 
+					292</span>
+				</p>
+			</div>
+		</a>
+		<p class="content">
+			<a href="https://blog.csdn.net/weixin_44326589/article/details/86595691" target="_blank" title="支付宝支撑2135亿成交额的数据库架构原理">
+				<span class="desc oneline">OceanBase的SQL优化器和分布式并行执行
+摘要：本文主要介绍蚂蚁金服自主研发的通用关系型数据库OceanBase，OceanBase采用了分布式架构，其通过技术创新在普通PC服务器集群上实现了...</span>
+			</a>
+			<span class="blog_title_box oneline ">
+							</span>
+		</p>
+	</div>
+	</div>
+
+	
+	
+                <div class="recommend-item-box type_hot_word">
+                                <div class="content clearfix">
+                    <div class="word float-left">
+                                                            <span>
+                        <a href="https://edu.csdn.net/combos/o363_l0_t " target="_blank">
+                        设计制作学习                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o5329_s5330_k " target="_blank">
+                        机器学习教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/courses/o280_s351_k " target="_blank">
+                        Objective-C培训                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/combos/o7115_s388_l0_t " target="_blank">
+                        交互设计视频教程                    </a></span>
+                                                                                <span>
+                        <a href="https://edu.csdn.net/course/play/5599/104252 " target="_blank">
+                        颜色模型                    </a></span>
+                                                            </div>
+                </div>
+                                                <div class="content clearfix">
+                    <div class="float-left">
+                                        <span>
+                        <a href="https://www.csdn.net/gather_24/MtTaEg3sMDM5MS1ibG9n.html" target="_blank">
+                        mysql关联查询两次本表</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_10/MtjaIg3sMTUzMy1kb3dubG9hZAO0O0OO0O0O.html" target="_blank">
+                        native底部 react</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_1b/Ntzagg1sOTU3LWRvd25sb2Fk.html" target="_blank">
+                        extjs glyph 图标</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtDakg1sNzQtZWR1.html" target="_blank">
+                        一文读懂机器学习大数据</a>
+                    </span>
+                                        <span>
+                        <a href="https://www.csdn.net/gather_4a/NtTaggzsMjgtZWR1.html" target="_blank">
+                        从java转行到深度学习</a>
+                    </span>
+                                        </div>
+                </div>
+                                </div>
+                            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+
+    <aside>
+	<div id="asideProfile" class="aside-box">
+    <!-- <h3 class="aside-title">个人资料</h3> -->
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/weixin_44326589">
+              <img src="https://avatar.csdn.net/7/0/0/3_weixin_44326589.jpg" class="avatar_pic">
+                              <img src="https://g.csdnimg.cn/static/user-reg-year/1x/1.png" class="user-years">
+                          </a>
+            
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/weixin_44326589" target="_blank" class="" id="uid">蚂蚁金服技术团队</a>
+            </p>
+                          <p class="flag corporate">
+                <svg t="1543215841753" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10781" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M512 1005.008L430.928 1024l-71.248-43.088-83.024-7.04-54.448-63.024-76.8-32.304-32.256-76.8-63.024-54.4-7.04-82.992L0 593.104 18.992 512 0 430.928l43.088-71.248 7.04-83.024 63.024-54.448 32.304-76.8 76.8-32.256 54.4-63.024 82.992-7.04L430.896 0 512 18.992 593.072 0l71.248 43.088 83.024 7.04 54.448 63.024 76.8 32.304 32.256 76.8 63.024 54.4 7.04 82.992L1024 430.896 1005.008 512 1024 593.072l-43.088 71.248-7.04 83.024-63.024 54.448-32.304 76.8-76.8 32.256-54.4 63.024-82.992 7.04L593.104 1024z" fill="#2E98FF" p-id="10782"></path><path d="M896 512c0 212.08-171.92 384-384 384S128 724.08 128 512 299.92 128 512 128s384 171.92 384 384z" fill="#FFFFFF" p-id="10783"></path><path d="M710.48 324.608l84.48 84.48-341.76 341.76-195.664-195.632 84.48-84.48 111.152 111.184z" fill="#2E98FF" p-id="10784"></path></svg>
+                企业博客
+              </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a class="btn btn-sm btn-red-hollow attention" id="btnAttent">关注</a>
+            </span>
+        </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="52">
+                        <dt><a href="https://blog.csdn.net/weixin_44326589?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/weixin_44326589?t=1"><span class="count">52</span></a></dd>
+                    </dl>
+        <dl class="text-center" id="fanBox" title="638">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">638</span></dd>
+        </dl>
+        <dl class="text-center" title="327">
+            <dt>喜欢</dt>
+            <dd><span class="count">327</span></dd>
+        </dl>
+        <dl class="text-center" title="148">
+            <dt>评论</dt>
+            <dd><span class="count">148</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="4级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-4"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="54514">
+                5万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="1409">
+                1409            </dd>
+        </dl>
+        <dl title="51653">
+            <dt>排名：</dt>
+            <dd>5万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+        <div class="badge d-flex">
+                                                        <div class="icon-badge" title="持之以恒">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg" alt="">
+                                   <p>持之以恒</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                                             <div class="icon-badge" title="勤写标兵Lv1">
+                       <div class="mouse-box">
+                          <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t1.svg" alt="">
+                          <div class="icon-arrow"></div>
+                       </div>
+                       <div class="grade-detail-box">
+                           <div class="pos-box">
+                               <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                                    <img src="https://g.csdnimg.cn/static/user-medal/qinxiebiaobing_l1_t1.svg" alt="">
+                                   <p>勤写标兵Lv1</p>
+                               </div>
+                               <div class="right-box">
+                                   授予每个自然周发布1篇到3篇原创IT博文的用户。本勋章将于次周上午根据用户上周的博文发布情况由系统自动颁发。                               </div>
+                           </div>
+                       </div>
+                   </div>
+                                             </div>
+        <script>
+            (function ($) {
+                setTimeout(function(){
+                    $('div.icon-badge.show-moment').removeClass('show-moment');
+                }, 5000);
+            })(window.jQuery)
+        </script>
+    </div>
+    </div>
+<div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_44326589/article/details/90897831" target="_blank">上千程序员在支付宝开party？——记 BASIC College 超级技术嘉年华</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_44326589/article/details/90764318" target="_blank">从开源小白到 Apache Member，阿里技术小哥的成长之路</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_44326589/article/details/90751316" target="_blank">蚂蚁金服首席架构师何昌华：开源SQLFlow是牛刀初试，实时大数据系统才是未来基石</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_44326589/article/details/90711591" target="_blank">支付宝工程师如何搞定关系数据库的“大脑”——查询优化器</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_44326589/article/details/90635071" target="_blank">支付宝客户端架构解析：iOS 容器化框架初探</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8635486">
+                    <span class="title oneline">阿里Java技术</span>
+                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8646669">
+                    <span class="title oneline">OceanBase</span>
+                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8653144">
+                    <span class="title oneline">架构</span>
+                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8693482">
+                    <span class="title oneline">ATEC</span>
+                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8973131">
+                    <span class="title oneline">程序人生</span>
+                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/8988110">
+                    <span class="title oneline">阿里技术</span>
+                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a class="clearfix" href="https://blog.csdn.net/weixin_44326589/article/category/9003903">
+                    <span class="title oneline">蚂蚁技术</span>
+                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+<div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_44326589/article/month/2019/06">
+                    2019年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_44326589/article/month/2019/05">
+                    2019年5月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_44326589/article/month/2019/03">
+                    2019年3月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_44326589/article/month/2019/02">
+                    2019年2月                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_44326589/article/month/2019/01">
+                    2019年1月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/weixin_44326589/article/details/90287496">我在蚂蚁金服做后端：那些坚持在一个岗位做八年的人，后来怎么样了？</a>
+					<p class="read">阅读数 <span>13570</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_44326589/article/details/90437977">这个程序员在阿里五年晋升三次，Coding 是立身之本</a>
+					<p class="read">阅读数 <span>6579</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_44326589/article/details/90370463">我是如何拿到蚂蚁金服实习 offer 的</a>
+					<p class="read">阅读数 <span>2693</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_44326589/article/details/90711591">支付宝工程师如何搞定关系数据库的“大脑”——查询优化器</a>
+					<p class="read">阅读数 <span>2464</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_44326589/article/details/90177821">重磅！蚂蚁金服开源机器学习工具SQLFlow，技术架构独家解读</a>
+					<p class="read">阅读数 <span>2343</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weixin_44326589/article/details/90764318#comments">从开源小白到 Apache Mem...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/qq_35292220" class="user-name" target="_blank">qq_35292220：</a>坚持 前进，收获满满                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weixin_44326589/article/details/90711591#comments">支付宝工程师如何搞定关系数据库的“...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/liyang7911" class="user-name" target="_blank">liyang7911：</a>查询优化器。
+阿里的技术很强！                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weixin_44326589/article/details/90764318#comments">从开源小白到 Apache Mem...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/u011342403" class="user-name" target="_blank">u011342403：</a>牛 大佬。                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weixin_44326589/article/details/90764318#comments">从开源小白到 Apache Mem...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/mengyidan" class="user-name" target="_blank">mengyidan：</a>厉害了👍                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/weixin_44326589/article/details/90764318#comments">从开源小白到 Apache Mem...</a>
+                <p class="comment ellipsis">
+                    <a href="https://my.csdn.net/notbeamonkey" class="user-name" target="_blank">notbeamonkey：</a>向前辈学习                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+	<div id="asideFooter">
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li class="btn-like-box long-width">
+			<button class=" long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>12</p>
+			</button>
+		</li>
+		<li class="">
+						<a class="btn-comments long-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+						1				</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+		<li class="bdsharebuttonbox">
+			<div class="weixin-qr btn-comments low-height hover-box" >
+        <a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-usephone"></use>
+				</svg>
+				<span class="hover-show text text3">
+					手机看
+				</span>
+			</div>
+		</li>
+							<li class="widescreen-hide">
+				<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/weixin_44326589/article/details/90635071" title="支付宝客户端架构解析：iOS 容器化框架初探">
+					<svg class="icon hover-hide" aria-hidden="true">
+						<use xlink:href="#csdnc-chevronleft"></use>
+					</svg>
+					<span class="hover-show text text3">上一篇</span>
+				</a>
+			</li>
+								<li class="widescreen-hide">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/weixin_44326589/article/details/90711591" title="支付宝工程师如何搞定关系数据库的“大脑”——查询优化器">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-chevronright"></use>
+				</svg>
+				<span class="hover-show text text3">下一篇</span>
+			</a>
+		</li>
+						<!-- 宽屏更多按钮 -->
+		<li class="widescreen-more">
+			<a class="btn-comments chat-ask-button low-height hover-box" title="快问" href="#chatqa">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-more"></use>
+				</svg>
+				<span class="hover-show text">更多</span>
+				
+			</a>
+			<ul class="widescreen-more-box">
+													<li class="widescreen-more">
+						<a class="btn-comments low-height hover-box" href="https://blog.csdn.net/weixin_44326589/article/details/90635071" title="支付宝客户端架构解析：iOS 容器化框架初探">
+							<svg class="icon hover-hide" aria-hidden="true">
+								<use xlink:href="#csdnc-chevronleft"></use>
+							</svg>
+							<span class="hover-show text text3">上一篇</span>
+						</a>
+					</li>
+																<li class="widescreen-more">
+					<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/weixin_44326589/article/details/90711591" title="支付宝工程师如何搞定关系数据库的“大脑”——查询优化器">
+						<svg class="icon hover-hide" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronright"></use>
+						</svg>
+						<span class="hover-show text text3">下一篇</span>
+					</a>
+				</li>
+							</ul>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 49;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var ChannelId = 28;
+    var articleId = "90642093";
+    var commentscount = 1;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/weixin_44326589/article/details/90642093";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "一文读懂深度学习：从神经元到BERT - 蚂蚁金服技术团队";
+    var needInsertBaidu = false;
+    // 代码段样式
+    var codeStyle = 'atom-one-light';
+	var highlight = [];//高亮数组
+
+    var RecommendBlogExpertList = [];
+	var articleType = 1;
+	var CopyrightContent = '';
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.4/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+</body>
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.9/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-45af74a22e.js" /></script>
+
+	<script type="text/javascript">
+
+	</script>
+
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-0100d9c3da.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-a8a55c8dd3.min.js"></script>
+
+    	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/rgbaster-97c434ff37.min.js" /></script>
+	<script type="text/javascript">
+		var RGBasterImg = 'https://csdnimg.cn/release/phoenix/head.png';
+		RGBasterImg = '//csdnimg.cn/release/phoenix/head.png';
+		RGBaster.colors(RGBasterImg, {
+			// 调色板大小，就是提取的样本，越大越精确，同时性能越差
+			paletteSize: 30,
+			// 颜色排除
+			exclude: [ 'rgb(255,255,255)', 'rgb(0,0,0)' ],
+			success: function(payload) {
+				var c = payload.dominant.match(/\d+/g);
+				var Color = `rgba(${c[0]},${c[1]},${c[2]},0.8)`;
+				var desfontColor,titfontColor;
+        
+				var  grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
+	      if (grayLevel >= 192) {
+	        // 若为浅色，把文字设置为黑色
+	        desfontColor = '#999';
+          titfontColor = '#333';
+	      } else {
+	        desfontColor = '#fff';
+          titfontColor = '#fff';
+          
+	      }
+				$('.title-box .description').css('color',desfontColor)
+				$('.title-box .title-blog a').css('color',titfontColor)
+			}})
+
+	</script>
+	<script src="https://csdnimg.cn/release/phoenix/themes/corporate-blog/corporate-blog-d8fd0eb474.min.js"></script>
+
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201904241615"></script><script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,articleTitles);
+        }
+    })
+</script>
+
+    <script src="//g.csdnimg.cn/??login-box/1.0.5/login-box.js,login-box/1.0.5/login-auto.js,copyright/1.0.3/copyright.js?t=20190307095522"></script>
+
+
+<script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+<script type="text/javascript">
+    </script>
+<script src="https://gh.bdstatic.com/static/gh/js/sdk/bword.min.js"></script>
+</html>
